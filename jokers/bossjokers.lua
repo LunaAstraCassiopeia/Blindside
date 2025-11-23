@@ -227,7 +227,8 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
-        if not blind.disabled and context.discard then
+        if not blind.disabled and context.discard and context.hook ~= true then
+            print(context.hook)
             BLINDSIDE.chipsmodify(1, 0, 0)
             blind:wiggle()
             BLINDSIDE.chipsupdate()
