@@ -4,7 +4,6 @@ SMODS.Booster{
         config = {extra = 3, choose = 1},
         discovered = false,
         get_weight = function(self)
-            
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
                 return 2
