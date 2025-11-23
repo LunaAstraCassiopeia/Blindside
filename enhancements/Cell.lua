@@ -8,7 +8,7 @@
                 chips = 10,
                 cell_tally = 0,
                 chance = 1,
-                trigger = 5,
+                trigger = 2,
                 hues = {"Green"}
             }
         },
@@ -68,8 +68,12 @@
                     }
                 end
             end
+            if context.burn_card and context.cardarea == G.play and context.burn_card == card and context.burn_card.facing ~= 'back' then
+                return { remove = true }
+            end
         end,
         loc_vars = function(self, info_queue, card)
+            info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}
             local chance, trigger = SMODS.get_probability_vars(card, card.ability.extra.chance, card.ability.extra.trigger, 'flip')
             return {
                 vars = {
@@ -84,7 +88,7 @@
             card.ability.cell_tally = 0
             if G.STAGE == G.STAGES.RUN then
                 for k, v in pairs(G.playing_cards) do
-                    if SMODS.has_enhancement(v, 'm_bld_cell') then card.ability.cell_tally = card.ability.cell_tally+1 end
+                    if v:is_color("Green") then card.ability.cell_tally = card.ability.cell_tally+1 end
                 end
             end
         end

@@ -1118,10 +1118,10 @@ return {
 				["text"] = {
 					{"{X:green,C:white}Green{}",
 					"{C:chips}+#1#{} Chips for each",
-					"The Cell in full deck",
+					"{X:green,C:white}Green{} blind in full deck",
 					"{C:inactive}(Currently {C:chips}+#4#{C:inactive} Chips)"},
 					{"{C:green}#2# in #3#{} chance to copy",
-					"after scoring",}
+					"after scoring and {C:attention}Burns",}
 				},
 			},
 			["m_bld_psychic"] = {
