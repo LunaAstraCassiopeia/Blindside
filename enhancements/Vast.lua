@@ -27,7 +27,7 @@
             ["bld_obj_blindcard_blue"] = true,
         },
         calculate = function(self, card, context) 
-            if context.cardarea == G.play and context.main_scoring then
+            if context.cardarea == G.hand and context.main_scoring then
                 local blues = 0
                 for i = 1, #context.scoring_hand do
                     if context.scoring_hand[i]:is_color("Blue") then
