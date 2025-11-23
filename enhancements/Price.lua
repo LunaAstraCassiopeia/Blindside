@@ -28,6 +28,15 @@
             ["bld_obj_blindcard_yellow"] = true,
         },
         calculate = function(self, card, context)
+            if context.cardarea == G.play and context.before and card.facing ~= 'back' then
+                SMODS.scale_card(card, {
+                    ref_table = card.ability.extra,
+                    ref_value = "mult",
+                    scalar_value = "mult_mod",
+                    operation = '+',
+                    message_colour = G.C.RED
+                })
+            end
             if context.cardarea == G.play and context.main_scoring then
                 local step = 0
                 for i, held_card in pairs(G.hand.cards) do
