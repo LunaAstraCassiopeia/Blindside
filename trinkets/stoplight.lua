@@ -46,7 +46,7 @@
                     chips = card.ability.extra.chips
                 }
             end
-            if context.repetition and card.ability.extra.x_value.x == 4 and context.cardarea == G.play and context.other_card.facing ~= "back" then
+            if context.repetition and card.ability.extra.x_value.x == 4 and context.cardarea == G.play and context.other_card and context.other_card.facing ~= "back" then
                 return {
                     message = localize('k_again_ex'),
                     repetitions = 1,
@@ -54,7 +54,7 @@
                     colour = G.C.GREEN
                 }
             end
-            if context.after then
+            if context.after and not context.blueprint then
                 if card.ability.extra.x_value.x == 2 then
                     card.ability.extra.x_value.x = 4 
                 else
