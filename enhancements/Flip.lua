@@ -30,10 +30,18 @@
             ["bld_obj_blindcard_green"] = true,
         },
         calculate = function(self, card, context)
-            if context.cardarea == G.play and context.main_scoring then
+            if context.cardarea == G.play and context.before and card.facing ~= 'back' then
                 if SMODS.pseudorandom_probability(card, pseudoseed("flip"), card.ability.extra.chance, card.ability.extra.trigger, 'flip') and card.facing ~= "back" then
                     card:flip()
                     card:flip()
+                else
+                    if card.facing ~= 'back' then 
+                    card:flip()
+                    end
+                end
+            end
+            if context.cardarea == G.play and context.main_scoring then
+                if card.facing ~= "back" then
                 if pseudorandom('flip') < 1*(card.ability.extra.chance/card.ability.extra.trigger) then
                     return {
                         mult = card.ability.extra.mult
@@ -44,9 +52,6 @@
                     }
                 end
                 else
-                    if card.facing ~= 'back' then 
-                    card:flip()
-                    end
                     return {
                         message = localize('k_nope_ex'),
                         colour = G.C.GREEN
