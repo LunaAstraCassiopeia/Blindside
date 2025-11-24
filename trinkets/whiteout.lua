@@ -25,6 +25,10 @@
             end
         end,
         calculate = function(self, card, context)
+            if context.first_hand_drawn then
+                local eval = function() return G.GAME.current_round.hands_played == 0 end
+                juice_card_until(card, eval, true)
+            end
             if context.before and G.GAME.current_round.hands_played == 0 then
                 if #context.full_hand == 1 then
                     context.full_hand[1]:set_ability(G.P_CENTERS.m_bld_blank, nil, true)
