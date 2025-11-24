@@ -1281,7 +1281,7 @@ return {
 					"{X:blue,C:white}Blue{}",
 					"If played hand does not",
 					"Contain a {C:attention}Three of a Blind,",
-					"Gain {X:blue,C:white}X#1#{} Chips",
+					"Gain {X:blue,C:white}X#2#{} Chips",
 					"{C:inactive}(Currently: {X:blue,C:white}X#1#{C:inactive} Chips)",
 				},
 			},
@@ -1447,6 +1447,49 @@ return {
 					"Currently {C:chips}+#2#{} Chips"},
 					{"Gains {C:chips}+#1#{} Chips for",
 					"each blind {C:attention}held in hand{}"},
+				},
+			},
+			["m_bld_air"] = {
+				["name"] = "The Air",	
+				["text"] = {
+					"{X:dark_edition,C:white}Faded{}",
+					"Copies an adjacent scoring",
+					"Blind and {C:attention}Burns"
+				},
+			},
+			["m_bld_hammer"] = {
+				["name"] = "The Hammer",	
+				["text"] = {
+					"{X:dark_edition,C:white}Faded{}",
+					"While {C:attention}held in hand{}",
+					"Retrigger {C:attention}first{} scoring card",
+					"{C:attention}#1#{} additional times"
+				},
+			},
+			["m_bld_door"] = {
+				["name"] = "The Door",	
+				["text"] = {
+					{"{X:red,C:white}Red{} {X:dark_edition,C:white}Faded{} {X:blue,C:white}Blue{}",
+					"{X:green,C:white}Green{} {X:money,C:white}Yellow{} {X:purple,C:white}Purple{}"},
+					{"Always Scoring",
+					"{X:red,C:white}X#1#{} Mult",
+					"{C:blue}+#2#{} Chips"}
+				},
+			},
+			["m_bld_lock"] = {
+				["name"] = "The Lock",	
+				["text"] = {
+					"{X:dark_edition,C:white}Faded{}",
+					"Always scores",
+					"{C:blue}+#1#{} Chips",
+				},
+			},
+			["m_bld_key"] = {
+				["name"] = "The Key",	
+				["text"] = {
+					"{X:dark_edition,C:white}Faded{}",
+					"Always scores",
+					"{X:red,C:white}X#1#{} Mult",
 				},
 			},
 		},

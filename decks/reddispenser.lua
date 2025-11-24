@@ -45,10 +45,10 @@
                     keys_to_remove[i]:remove()
                 end
                 for i = 1, #keys_to_alpha do
-                    keys_to_alpha[i]:set_ability("m_bld_adder")
+                    keys_to_alpha[i]:set_ability("m_bld_lock")
                 end
                 for i = 1, #keys_to_beta do
-                    keys_to_beta[i]:set_ability("m_bld_sharp")
+                    keys_to_beta[i]:set_ability("m_bld_key")
                 end
                 for i = 1, #keys_to_flip do
                     keys_to_flip[i]:set_ability("m_bld_flip")

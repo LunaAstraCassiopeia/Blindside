@@ -43,7 +43,6 @@
                 end
             end
             if context.cardarea == G.play and context.main_scoring then
-                print(card.ability.extra.number)
                 if card.ability.extra.number == 2 then
                     return {
                         mult = pseudorandom('hat', card.ability.extra.minmult, card.ability.extra.maxmult)

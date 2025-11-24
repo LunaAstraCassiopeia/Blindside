@@ -148,11 +148,16 @@ local card_list = {
         "Bolt",
         "Clover",
         "Beta",
-        --[["Meteor",
+        "Meteor",
         "Lantern",
         "Peace",
         "Hat",
-        "Joy",]]
+        "Joy",
+        "Air",
+        "Hammer",
+        "Lock",
+        "Key",
+        "Door",
 }
 
 local trinket_list = {

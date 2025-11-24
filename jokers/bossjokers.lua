@@ -228,7 +228,6 @@ SMODS.Blind({
     end,
     calculate = function(self, blind, context)
         if not blind.disabled and context.discard and context.hook ~= true then
-            print(context.hook)
             BLINDSIDE.chipsmodify(1, 0, 0)
             blind:wiggle()
             BLINDSIDE.chipsupdate()

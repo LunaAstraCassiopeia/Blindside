@@ -719,8 +719,7 @@ end
         ['Faded'] = 6
     }
     if mod == 'color' then mult = 1000 end
-    if self.ability.effect == 'Stone Card' then mult = -1000 end
-    return self.config.center.config.extra.value + self.config.center.config.extra.value + color_table[self.config.center.config.extra.hues[1]]*mult
+    return self.config.center.config.extra.value + color_table[self.config.center.config.extra.hues[1]]*mult + 0.000001*self.unique_val
     end
 
 

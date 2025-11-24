@@ -1139,6 +1139,18 @@ payload = '''
 t[#t+1] = G.exhaust
 '''
 
+# held in hand repetitions
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = '''
+        -- TARGET: add your own CardAreas for joker evaluation
+'''
+match_indent = true
+position = 'before'
+payload = '''
+t[#t+1] = G.hand
+'''
 
 # current round trinkets
 [[patches]]
