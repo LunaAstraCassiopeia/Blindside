@@ -26,14 +26,14 @@ SMODS.Seal {
     },
     calculate = function(self, card, context)
         if context.main_scoring and context.cardarea == G.play and card.facing ~= 'back' then
-            if SMODS.pseudorandom_probability(card, 'floral', 1, card.ability.seal.extra.triggerchips) then
+            if SMODS.pseudorandom_probability(card, 'floral', 1 + (#SMODS.find_card("j_bld_bracelet")), card.ability.seal.extra.triggerchips) then
                 return {
                     chips = card.ability.seal.extra.chips
                 }
             end
         end
         if context.repetition and card.facing ~= 'back' then
-            if SMODS.pseudorandom_probability(card, 'floral', 1, card.ability.seal.extra.triggeretrigger) then
+            if SMODS.pseudorandom_probability(card, 'floral', 1 + (#SMODS.find_card("j_bld_bracelet")), card.ability.seal.extra.triggeretrigger) then
             return {
                 repetitions = card.ability.seal.extra.retrigger
             }

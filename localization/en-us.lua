@@ -1800,11 +1800,8 @@ return {
 			['j_bld_bracelet'] = {
 				["name"] = "Bracelets",
 				["text"] = {
-					"{C:attention}Floral{} Blinds have",
-					"a {C:green}#1# in #2#{} chance",
-					"to create a {C:bld_obj_mineral}Mineral{}",
-					"card when scored",
-					"{C:inactive,S:0.8}(Must have room)"
+					"{C:attention}Floral{} Blinds increase",
+					"{E:1,C:green}probabilities{} by 1",
 				}
 			},
 			['j_bld_stuffedtoy'] = {
