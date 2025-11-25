@@ -343,7 +343,6 @@ function BLINDSIDE.create_blindcard_for_shop(area)
           return forced_tag end
       end
     end
-    if pseudorandom('flip') > 1*(math.min(G.GAME.current_round.reroll_cost_increase/20, 0.4)) then
       local enhancement = nil
       local args = {}
       args.guaranteed = true
@@ -363,17 +362,4 @@ function BLINDSIDE.create_blindcard_for_shop(area)
           end)
       }))
       return card
-    else
-      local card = SMODS.create_card({ set = 'bld_obj_rune', area = area })
-      create_shop_card_ui(card, 'Enhanced', area)
-      G.E_MANAGER:add_event(Event({
-          func = (function()
-              for k, v in ipairs(G.GAME.tags) do
-                if v:apply_to_run({type = 'store_joker_modify', card = card}) then break end
-              end
-              return true
-          end)
-      }))
-      return card
-    end
   end
