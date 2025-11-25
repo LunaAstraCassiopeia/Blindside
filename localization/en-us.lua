@@ -1177,7 +1177,7 @@ return {
 				["name"] = "The Paint",
 				["text"] = {
 					"{X:money,C:white}Yellow{}",
-					"{C:money}+3${} for each",
+					"{C:money}+#1#${} for each",
 					"{C:attention}Tag{} held",
 				},
 			},

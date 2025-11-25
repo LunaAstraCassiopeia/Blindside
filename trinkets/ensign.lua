@@ -7,7 +7,7 @@
         config = {
             extra = {
                 count = 0,
-                trigger = 3,
+                trigger = 4,
             }
         },
         cost = 10,
