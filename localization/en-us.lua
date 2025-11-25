@@ -1,7 +1,7 @@
 return {
 	["misc"] = {
 		["dictionary"] = {
-			["k_relic"] = "Relic",
+			["k_relic"] = "Price Tag",
 			["k_chaching_ex"] = "Cha-ching!",
 			["k_whiteout_ex"] = "Erased!",
 			["k_promote_ex"] = "Promoted!",
@@ -1140,8 +1140,8 @@ return {
 				["text"] = {
 					{"{X:purple,C:white}Purple{}",
 					"{C:chips}+#1#{} Chips"},
-					{"{C:red}Debuffs{} all",
-					"scoring {X:chips,C:white}Blue{} Blinds"},
+					{"Creates a {C:red}Debuff Tag{}",
+					"for played hand"},
 				},
 			},
 			["m_bld_blend"] = {

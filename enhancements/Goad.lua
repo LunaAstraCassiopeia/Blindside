@@ -27,27 +27,12 @@
             ["bld_obj_blindcard_purple"] = true,
         },
         calculate = function(self, card, context)
-                if context.cardarea == G.play and context.before and card.facing ~= 'back' then
-                    for i=1, #G.play.cards do
-                        if G.play.cards[i]:is_color("Blue", true, false) and G.play.cards[i] ~= card then
-                            if G.play.cards[i].facing ~= 'back' then 
-                            G.play.cards[i]:flip()
-                            end
-                            G.play.cards[i]:set_debuff(true)
-                        end
-                    end
-                end
                 if context.cardarea == G.play and context.main_scoring then
+                    G.bolt_played_hand = context.scoring_name
+                    add_tag(Tag('tag_bld_debuff'))
                     return {
                         chips = card.ability.chips
                     }
-                end
-                if context.cardarea == G.play and context.after and card.facing ~= 'back' then
-                    for i=1, #G.play.cards do
-                        if G.play.cards[i]:is_color("Blue", true, false) and G.play.cards[i] ~= card then
-                            G.play.cards[i]:set_debuff(false)
-                        end
-                    end
                 end
         end,
         loc_vars = function(self, info_queue, card)
