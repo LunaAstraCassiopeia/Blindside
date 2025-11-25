@@ -32,7 +32,7 @@ SMODS.Seal {
                 }
             end
         end
-        if context.repetition and card.facing ~= 'back' then
+        if context.repetition and card.facing ~= 'back' and context.other_card and context.other_card == card then
             if SMODS.pseudorandom_probability(card, 'floral', 1 + (#SMODS.find_card("j_bld_bracelet")), card.ability.seal.extra.triggeretrigger) then
             return {
                 repetitions = card.ability.seal.extra.retrigger
@@ -41,9 +41,9 @@ SMODS.Seal {
         end
     end,
     loc_vars = function(self, info_queue, card)
-        local chancechips, triggerchips = SMODS.get_probability_vars(card, card.ability.seal.extra.chancechips, card.ability.seal.extra.triggerchips,
+        local chancechips, triggerchips = SMODS.get_probability_vars(card, card.ability.seal.extra.chancechips + (#SMODS.find_card("j_bld_bracelet")), card.ability.seal.extra.triggerchips,
             'floral')
-        local chanceretrigger, triggeretrigger = SMODS.get_probability_vars(card, card.ability.seal.extra.chanceretrigger, card.ability.seal.extra.triggeretrigger, 'floral')
+        local chanceretrigger, triggeretrigger = SMODS.get_probability_vars(card, card.ability.seal.extra.chanceretrigger + (#SMODS.find_card("j_bld_bracelet")), card.ability.seal.extra.triggeretrigger, 'floral')
         return { vars = { chancechips, triggerchips, card.ability.seal.extra.chips, chanceretrigger, triggeretrigger, card.ability.seal.extra.retrigger } }
     end
 }
