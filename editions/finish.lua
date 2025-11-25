@@ -20,7 +20,7 @@ SMODS.Edition {
         }
     end,
     calculate = function(self, card, context)
-        if context.repetition and card.facing ~= 'back' then
+        if context.repetition and card.facing ~= 'back' and context.other_card and context.other_card == card then
             return {
                 repetitions = card.edition.extra.retriggers
             }
