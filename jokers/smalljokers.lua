@@ -1,4 +1,40 @@
 SMODS.Blind({
+    key = 'joker',
+    atlas = 'bld_joker',
+    pos = {x=0, y=0},
+    boss_colour = G.C.RED,
+    mult = 3,
+    dollars = 4,
+    small = {min = 1},
+    order = 1,
+    set_blind = function(self)
+        G.GAME.blindassist.states.visible = false
+        G.GAME.blindassist:change_dim(0,0)
+    end,
+    in_pool = function(self, args)
+        if G.GAME.selected_back.effect.center.config.extra then
+            if not G.GAME.selected_back.effect.center.config.extra.blindside or G.GAME.round_resets.ante ~= 1 then return false end
+            return true
+        else
+        return false
+        end
+    end,
+    calculate = function(self, blind, context)
+        if context.after and not G.GAME.blind.disabled then
+            BLINDSIDE.chipsmodify(1, 0, 0)
+        end
+    end,
+    disable = function()
+        G.GAME.blind.mult = G.GAME.blind.original_mult
+        G.GAME.blind.mult_text = number_format(G.GAME.blind.mult)
+    end,
+    load = function()
+        G.GAME.blindassist.states.visible = false
+        G.GAME.blindassist:change_dim(0,0)
+    end,
+})
+
+SMODS.Blind({
     key = 'lustyjoker',
     atlas = 'bld_joker',
     pos = {x=0, y=2},
@@ -9,7 +45,7 @@ SMODS.Blind({
     small = {min = 1},
     in_pool = function(self, args)
         if G.GAME.selected_back.effect.center.config.extra then
-            if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
+            if not G.GAME.selected_back.effect.center.config.extra.blindside or G.GAME.round_resets.ante == 1 then return false end
             return true
         else
         return false
@@ -55,7 +91,7 @@ SMODS.Blind({
     end,
     in_pool = function(self, args)
         if G.GAME.selected_back.effect.center.config.extra then
-            if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
+            if not G.GAME.selected_back.effect.center.config.extra.blindside or G.GAME.round_resets.ante == 1 then return false end
             return true
         else
         return false
@@ -97,7 +133,7 @@ SMODS.Blind({
     end,
     in_pool = function(self, args)
         if G.GAME.selected_back.effect.center.config.extra then
-            if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
+            if not G.GAME.selected_back.effect.center.config.extra.blindside or G.GAME.round_resets.ante == 1 then return false end
             return true
         else
         return false
@@ -137,7 +173,7 @@ SMODS.Blind({
     end,
     in_pool = function(self, args)
         if G.GAME.selected_back.effect.center.config.extra then
-            if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
+            if not G.GAME.selected_back.effect.center.config.extra.blindside or G.GAME.round_resets.ante == 1 then return false end
             return true
         else
         return false
@@ -177,7 +213,7 @@ SMODS.Blind({
     end,
     in_pool = function(self, args)
         if G.GAME.selected_back.effect.center.config.extra then
-            if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
+            if not G.GAME.selected_back.effect.center.config.extra.blindside or G.GAME.round_resets.ante == 1 then return false end
             return true
         else
         return false
