@@ -6,7 +6,7 @@
         rarity = 'bld_curio',
         config = {
             extra = {
-                hunterbonus = 5,
+                hunterbonus = 2,
             }
         },
         cost = 8,
@@ -32,6 +32,15 @@
                     end
             else
             return false
+            end
+        end,
+        calculate = function(self, card, context)
+            if context.individual and context.cardarea == G.play then 
+                if context.other_card.seal == 'bld_hunter' and context.other_card.facing ~= "back" then
+                    return {
+                        dollars = card.ability.extra.hunterbonus
+                    }
+                end
             end
         end
     })

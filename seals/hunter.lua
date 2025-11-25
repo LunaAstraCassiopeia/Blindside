@@ -22,14 +22,14 @@ SMODS.Seal {
     calculate = function(self, card, context)
         if context.main_scoring and context.cardarea == G.play and G.GAME.blind.boss and card.facing ~= 'back' then
             return {
-                dollars = card.ability.seal.extra.dollars + (#SMODS.find_card("j_bld_cowskull")*5)
+                dollars = card.ability.seal.extra.dollars
                 }
         end
     end,
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.seal.extra.dollars + #SMODS.find_card("j_bld_cowskull")*5
+                card.ability.seal.extra.dollars
             }
         }
     end

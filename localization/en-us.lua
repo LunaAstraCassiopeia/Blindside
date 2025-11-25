@@ -1794,7 +1794,7 @@ return {
 				["name"] = "Cow Skull",
 				["text"] = {
 					"{C:attention}Hunter{} Blinds",
-					"give {C:money}+#1#${}",
+					"always give {C:money}+#1#${}",
 				}
 			},
 			['j_bld_bracelet'] = {
