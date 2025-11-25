@@ -176,7 +176,7 @@ SMODS.Blind({
     active = true,
     in_pool = function(self, args)
         if G.GAME.selected_back.effect.center.config.extra then
-            if not G.GAME.selected_back.effect.center.config.extra.blindside and G.GAME.round_resets.ante > 3 and G.GAME.round_resets.ante%6 ~= 0 then return false end
+            if not G.GAME.selected_back.effect.center.config.extra.blindside and G.GAME.round_resets.ante < 3 and G.GAME.round_resets.ante%6 ~= 0 then return false end
             return true
         else
         return false
