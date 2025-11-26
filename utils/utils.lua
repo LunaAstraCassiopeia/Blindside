@@ -822,22 +822,47 @@ function BLINDSIDE.poll_enhancement(args)
     local type_key = args.type_key or key.."type"..G.GAME.round_resets.ante
     key = key..G.GAME.round_resets.ante
 
+    local rarity = 0
+
+    local rand = pseudorandom(pseudoseed('bld_blind_rarity'))
+
+    if (rand < 0.9) then
+        rarity = 0
+    elseif (rand < 0.999) then
+        rarity = 1
+    else
+        rarity = 2
+    end
+
     local available_enhancements = {}
     local total_weight = 0
     for k, v in ipairs(options) do
         if v ~= "UNAVAILABLE" then
             local enhance_option = {}
+            local skip = false
             if type(k) == 'string' then
                 assert(G.P_CENTERS[v], ("Could not find enhancement \"%s\"."):format(v))
-                enhance_option = { key = v, weight = G.P_CENTERS[v].weight or 10 } -- default weight set to 5 to replicate base game weighting
+                local wght = G.P_CENTERS[v].weight or 5
+                if (wght == 5 and rarity == 0) or (wght == 3 and rarity == 1) or (wght == 1 and rarity == 2) then
+                    enhance_option = { key = v, weight = 5 }
+                else
+                    skip = true
+                end
             elseif type(v) == 'table' then
                 assert(G.P_CENTERS[v.key], ("Could not find enhancement \"%s\"."):format(v.key))
-                enhance_option = { key = v.key, weight = v.weight or 10 }
+                local wght = v.weight or 5
+                if (wght == 5 and rarity == 0) or (wght == 3 and rarity == 1) or (wght == 1 and rarity == 2) then
+                    enhance_option = { key = v.key, weight = 5 }
+                else
+                    skip = true
+                end
             end
-            table.insert(available_enhancements, enhance_option)
-            total_weight = total_weight + enhance_option.weight
+            if not skip then
+                table.insert(available_enhancements, enhance_option)
+                total_weight = total_weight + enhance_option.weight
+            end
         end
-      end
+    end
     total_weight = total_weight + (total_weight / 40 * 60) -- set base rate to 40%
 
     local type_weight = 0 -- modified weight total
