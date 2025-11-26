@@ -1475,6 +1475,14 @@ return {
 					"at end of round"
 				},
 			},
+			["m_bld_alert"] = {
+				["name"] = "The Alert",
+				["text"] = {
+					"{X:money,C:white}Yellow{}",
+					"{C:mult}+#1#{} Mult",
+					"{C:money}-#2#${}",
+				},
+			},
 			["m_bld_door"] = {
 				["name"] = "The Door",	
 				["text"] = {
