@@ -1070,9 +1070,9 @@ return {
 				["text"] = {
 					{"{X:red,C:white}Red{} {X:blue,C:white}Blue{}",
 					"{C:mult}+#1#{} Mult"},
-					{"Also scores while",
-					"{C:attention}held in hand{} if played",
-					"hand contains {C:attention}Two Pair{}"},
+					{"If {C:attention}held in hand{} while",
+					"played hand contains {C:attention}Two Pair{},",
+					"{C:mult}+#1#{} Mult before scoring"},
 				},
 			},
 			["m_bld_wheel"] = {
