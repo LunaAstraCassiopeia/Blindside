@@ -7,6 +7,7 @@
         config = {
             extra = {
                 reds = 0,
+                ikeeptrackofdiscards = 0,
             }
         },
         cost = 7,
@@ -27,8 +28,19 @@
             if context.discard and context.other_card:is_color("Red") then
                 card.ability.extra.reds = card.ability.extra.reds + 1
             end
-            if context.discard and context.other_card == context.full_hand[#context.full_hand] and not card.ability.extra.reds >= 3 then
-                add_tag(Tag('tag_bld_maxim'))
+            if context.discard and context.other_card == context.full_hand[#context.full_hand] and card.ability.extra.reds >= 3 then
+                if card.ability.extra.ikeeptrackofdiscards ~= G.GAME.current_round.discards_left then
+                    print(card.ability.extra.reds)
+                    add_tag(Tag('tag_bld_maxim'))
+                    return {
+                        message = localize('k_tagged_ex'),
+                        colour = G.C.MULT,
+                        card = card
+                    }
+                end
+            end
+            if context.discard and context.other_card == context.full_hand[#context.full_hand] then
+                card.ability.extra.ikeeptrackofdiscards = G.GAME.current_round.discards_left
             end
             if context.discard and context.other_card == context.full_hand[#context.full_hand] then
                 card.ability.extra.reds = 0
