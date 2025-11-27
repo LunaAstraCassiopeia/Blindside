@@ -1583,7 +1583,6 @@ return {
 					"{C:green}#2#{} in {C:green}#3#{} chance"},
 					{"{C:green}#2#{} in {C:green}#3#{} chance to",
 					"score held in hand"}
-
 				},
 			},
 			["m_bld_staff"] = {
@@ -1593,6 +1592,15 @@ return {
 					"Randomly {C:attention}enhance{} a",
 					"random scoring Blind,",
 					"then {C:attention}burn{} it",
+				},
+			},
+			["m_bld_bite"] = {
+				["name"] = "The Bite",
+				["text"] = {
+					{"{X:purple,C:white}Purple{}",
+					"{X:mult,C:white}X#1#{} Mult"},
+					{"Debuff an adjacent",
+					"scoring Blind"},
 				},
 			},
 		},
