@@ -29,10 +29,14 @@
         },
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.main_scoring then
-                    ease_discard(card.ability.extra.discards)
-                end
+                ease_discard(card.ability.extra.discards)
+            end
+            if context.burn_card and context.cardarea == G.play and context.burn_card == card then
+                return { remove = true }
+            end
         end,
         loc_vars = function(self, info_queue, card)
+            info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}
             return {
                 vars = {
                     card.ability.mult, card.ability.extra.discards

@@ -975,7 +975,8 @@ return {
 					{"{X:mult,C:white}Red{}",
 					"{C:mult}+#1#{} Mult"},
 					{"{C:red}+#2#{} discard",
-					"when scored"}
+					"when scored"},
+					{"{C:attention}Burns"}
 				},
 			},
 			["m_bld_hoard"] = {
