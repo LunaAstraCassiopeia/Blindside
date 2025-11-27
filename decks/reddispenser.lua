@@ -68,6 +68,13 @@ SMODS.Back({
             local rounded = int_part + (frac_part >= 0.5 and 1 or 0) 
             G.GAME.win_ante = rounded
         return true end }))
+    end,
+    calculate = function(self, back, context) 
+        if context.after then
+            for i = 1, #G.playing_cards do
+                G.playing_cards[i]:set_debuff(false)
+            end
+        end
     end
 })
 
