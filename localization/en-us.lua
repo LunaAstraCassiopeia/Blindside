@@ -1483,6 +1483,15 @@ return {
 					"{C:money}-#2#${}",
 				},
 			},
+			["m_bld_bronze"] = {
+				["name"] = "The Bronze",
+				["text"] = {
+					"{X:red,C:white}Red{}",
+					"Gives {X:mult,C:white}X1{} Mult and",
+					"{X:mult,C:white}+X#1#{} Mult for each flipped",
+					"Blind held in hand"
+				},
+			},
 			["m_bld_door"] = {
 				["name"] = "The Door",	
 				["text"] = {

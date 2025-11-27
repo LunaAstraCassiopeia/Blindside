@@ -62,6 +62,7 @@
         "m_bld_hat",
         "m_bld_sun",
         "m_bld_alert",
+        "m_bld_bronze",
         "m_bld_joy",
         "m_bld_atomic",
         "m_bld_deep",
