@@ -29,7 +29,7 @@
             ["bld_obj_blindcard_blue"] = true,
         },
         calculate = function(self, card, context) 
-            if context.cardarea == G.hand and context.main_scoring then
+            if context.cardarea == G.play and context.main_scoring then
                 return {
                     chips = card.ability.extra.chips * math.floor(((G.GAME.dollars or 0) + (G.GAME.dollar_buffer or 0))/card.ability.extra.dollars)
                 }
