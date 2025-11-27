@@ -29,7 +29,7 @@
             ["bld_obj_blindcard_single"] = true,
             ["bld_obj_blindcard_green"] = true,
         },
-        --weight = 3,
+        weight = 3,
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.before and card.facing ~= 'back' then
                 if SMODS.pseudorandom_probability(card, pseudoseed("earth"), 1, card.ability.extra.odds, 'earth') and card.facing ~= "back" then
