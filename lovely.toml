@@ -581,7 +581,12 @@ pattern = '''
 SMODS.calculate_context({full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, after = true})
 '''
 payload = '''
+G.E_MANAGER:add_event(Event({
+        trigger = 'immediate',
+        func = (function()     
 BLINDSIDE.chipsupdate()
+        return true end)
+      }))
 '''
 
 
@@ -651,6 +656,7 @@ pattern = '''last_tarot_planet = nil,
 payload = '''
         last_channel = nil,
         last_joker = nil,
+        chips_buffer = 0,
 '''
 
 # blind assists
