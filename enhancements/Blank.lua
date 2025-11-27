@@ -49,8 +49,8 @@
                                     if play_card == streak_card and streak_card.ability.extra.rescore ~= 1 then
                                         card:juice_up()
                                         local passed_context = context
+                                        card_eval_status_text(play_card, 'extra', nil, nil, nil, {message = localize('k_again_ex'),colour = G.C.DARK_EDITION})
                                         SMODS.score_card(play_card, passed_context)
-                                        card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_again_ex'),colour = G.C.DARK_EDITION})
                                     end
                                 end
                             end
