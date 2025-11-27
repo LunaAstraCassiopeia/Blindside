@@ -828,7 +828,7 @@ function BLINDSIDE.poll_enhancement(args)
 
     if (rand < 0.9) then
         rarity = 0
-    elseif (rand < 0.999) then
+    elseif rand <= 1 then --(rand < 0.999) then
         rarity = 1
     else
         rarity = 2
