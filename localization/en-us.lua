@@ -25,6 +25,7 @@ return {
 			["k_locked1"] = "Beat Boss",
 			["k_locked2"] = "to Reroll",
 			["k_hue"] = "Hue",
+			["k_staff"] = "Yoink!",
 			["bld_ui_blindcards"] = "Blind Cards",
 			["bld_ui_unknown"] = "???",
 			["bld_ui_edition"] = "Editions",
@@ -1583,6 +1584,15 @@ return {
 					{"{C:green}#2#{} in {C:green}#3#{} chance to",
 					"score held in hand"}
 
+				},
+			},
+			["m_bld_staff"] = {
+				["name"] = "The Staff",
+				["text"] = {
+					"{X:purple,C:white}Purple{}",
+					"Randomly {C:attention}enhance{} a",
+					"random scoring Blind,",
+					"then {C:attention}burn{} it",
 				},
 			},
 		},
