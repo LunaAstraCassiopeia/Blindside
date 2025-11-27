@@ -79,6 +79,7 @@
         "m_bld_claw",
         "m_bld_cloth",
         "m_bld_ghost",
+        "m_bld_ball",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",

@@ -1666,6 +1666,14 @@ return {
 					"{C:green}#1#{} in {C:green}#2#{} chance"}
 				},
 			},
+			["m_bld_ball"] = {
+				["name"] = "The Ball",
+				["text"] = {
+					"{X:purple,C:white}Purple{}",
+					"Creates a {C:attention}Toss Tag",
+					"and {C:attention}Burns",
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {

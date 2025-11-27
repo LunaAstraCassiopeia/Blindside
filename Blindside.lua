@@ -154,7 +154,7 @@ local card_list = {
         "Hat",
         "Joy",
         "Air",
-        "Atomic",
+        -- "Atomic",
         "Hammer",
         "Sun",
         "Alert",
@@ -175,6 +175,7 @@ local card_list = {
         "Bell",
         "Wound",
         "Claw",
+        "Ball",
 }
 
 local trinket_list = {
