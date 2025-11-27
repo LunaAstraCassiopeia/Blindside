@@ -1058,7 +1058,7 @@ return {
 				["name"] = "The Fish",
 				["text"] = {
 					{"{X:blue,C:white}Blue{}",
-					"{X:chips,C:white}X1{} Chips and",
+					"{X:chips,C:white}X1{} Chips, and",
 					"{X:chips,C:white}+X#1#{} Chips for each",
 					"Blind {C:attention}held in hand"},
 					{"Flips all Blinds",
@@ -1491,9 +1491,9 @@ return {
 				["name"] = "The Bronze",
 				["text"] = {
 					"{X:red,C:white}Red{}",
-					"Gives {X:mult,C:white}X1{} Mult and",
-					"{X:mult,C:white}+X#1#{} Mult for each flipped",
-					"Blind held in hand"
+					"{X:mult,C:white}X1{} Mult, and {X:mult,C:white}+X#1#{}",
+					"for each flipped Blind",
+					"held in hand"
 				},
 			},
 			["m_bld_door"] = {
