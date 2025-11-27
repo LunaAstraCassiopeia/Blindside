@@ -5,7 +5,6 @@
         config = {
             extra = {
                 value = 12,
-                money = 2,
                 hues = {"Yellow"}
             }},
         replace_base_card = true,
@@ -20,6 +19,7 @@
             return false
             end
         end,
+        weight = 3,
         pools = {
             ["bld_obj_blindcard_generate"] = true,
             ["bld_obj_blindcard_warm"] = true,
@@ -27,37 +27,35 @@
             ["bld_obj_blindcard_yellow"] = true,
         },
         calculate = function(self, card, context)
-            if (context.cardarea == G.play or context.cardarea == G.hand) and context.main_scoring then
+            if context.cardarea == G.play and context.main_scoring then
                 if #context.scoring_hand == 5 then
                     return {
                         focus = card,
                         message = localize('k_tagged_ex'),
                         func = function()
-                            local tag_key = get_next_tag_key()
-                            while tag_key == 'tag_orbital' do
-                                tag_key = get_next_tag_key()
-                            end
-                            add_tag(Tag(tag_key))   
+                            add_tag(Tag('tag_bld_wave'))
                         end,
                         card = card
                     }
                 else
-                if card.facing ~= 'back' and context.cardarea == G.play then 
-                card:flip()
+                    if card.facing ~= 'back' and context.cardarea == G.play then
+                        card:flip()
+                    end
+                    return {
+                        message = localize('k_nope_ex'),
+                        colour = G.C.MONEY
+                    }
                 end
+            end
+
+            if context.burn_card == card and #context.scoring_hand == 5 then
                 return {
-                    message = localize('k_nope_ex'),
-                    colour = G.C.MONEY
+                    remove = true,
                 }
-                end
             end
         end,
         loc_vars = function(self, info_queue, card)
-            return {
-                vars = {
-                    card.ability.extra.money
-                }
-            }
+            info_queue[#info_queue+1] = G.P_TAGS['tag_bld_wave']
         end
     })
 ----------------------------------------------

@@ -1131,9 +1131,9 @@ return {
 				["name"] = "The Psychic",
 				["text"] = {
 					"{X:money,C:white}Yellow{}",
-					"When held in hand or scored,",
-					"if poker hand contains {C:attention}5{} blinds,",
-					"creates a random {C:attention}Tag{}"
+					"If scoring hand",
+					"conatins 5 Blinds, creates a",
+					"{C:chips,E:1}Wave Tag{} and {C:attention}burns{}"
 				},
 			},
 			["m_bld_goad"] = {
