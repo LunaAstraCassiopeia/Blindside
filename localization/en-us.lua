@@ -1603,6 +1603,17 @@ return {
 					"scoring Blind"},
 				},
 			},
+			["m_bld_snow"] = {
+				["name"] = "The Snow",
+				["text"] = {
+					{"{X:purple,C:white}Purple{}",
+					"Currently {C:chips}+#1#{} Chips"},
+					{"When held in hand,",
+					"gains {C:chips}+#2#{} Chips"},
+					{"After being scored, loses",
+					"all accumulated {C:chips}Chips{}"},
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {
