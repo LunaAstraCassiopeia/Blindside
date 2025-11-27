@@ -1674,6 +1674,16 @@ return {
 					"and {C:attention}Burns",
 				},
 			},
+			["m_bld_spear"] = {
+				["name"] = "The Spear",
+				["text"] = {
+					{"{X:mult,C:white}Red{} {X:money,C:white}Yellow{}",
+					"When played, gives {C:mult}Mult",
+					"whenever {C:money}money{} is",
+					"earned this hand"},
+					{"Always scores"}
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {

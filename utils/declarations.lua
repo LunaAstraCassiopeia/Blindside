@@ -80,6 +80,7 @@
         "m_bld_cloth",
         "m_bld_ghost",
         "m_bld_ball",
+        "m_bld_spear",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",

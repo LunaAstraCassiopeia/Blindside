@@ -1315,3 +1315,16 @@ if burned_cards[1] then
             SMODS.calculate_context({remove_playing_cards = true, cards_burned = burned_cards})
         end
 '''
+
+# the spear money for mult
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''
+play_sound('coin1')
+'''
+match_indent = true
+position = 'after'
+payload = '''
+SMODS.calculate_context({earn_money = mod})
+'''
