@@ -1573,6 +1573,18 @@ return {
 
 				},
 			},
+			["m_bld_dove"] = {
+				["name"] = "The Dove",
+				["text"] = {
+					{"{X:green,C:white}Green{}",
+					"{C:chips}+#1#{} Chips"},
+					{"{C:attention,E:1}Self-Scoring{} with a",
+					"{C:green}#2#{} in {C:green}#3#{} chance"},
+					{"{C:green}#2#{} in {C:green}#3#{} chance to",
+					"score held in hand"}
+
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {

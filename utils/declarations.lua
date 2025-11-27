@@ -68,6 +68,7 @@
         "m_bld_bronze",
         "m_bld_joy",
         "m_bld_earth",
+        "m_bld_dove",
         "m_bld_atomic",
         "m_bld_deep",
         "e_bld_finish",
