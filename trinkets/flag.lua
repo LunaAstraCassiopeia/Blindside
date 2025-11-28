@@ -28,15 +28,19 @@
             end
         end,
         calculate = function(self, card, context)
-            if context.repetitions and context.other_card and context.other_card:is_color("Red") and context.other_card.facing ~= "back" then
+            if context.repetition and context.other_card and context.other_card:is_color("Red") and context.other_card.facing ~= "back" then
                 return {
                     repetitions = card.ability.extra.repetitions
                 }
             end
-            if context.burn_card and card.ability.extra.active and context.cardarea == G.play and context.burn_card:is_color("Red") then
-                return {
-                    remove = true
-                }
+            if context.burn_card and context.cardarea == G.play and context.burn_card:is_color("Red") and context.burn_card.facing ~= "back" then
+                for key, value in pairs(context.scoring_hand) do
+                    if value == context.burn_card then
+                        return {
+                            remove = true
+                        }
+                    end
+                end
             end
         end
     })

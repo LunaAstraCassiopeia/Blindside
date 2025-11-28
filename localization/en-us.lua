@@ -1818,8 +1818,10 @@ return {
 			['j_bld_flag'] = {
 				["name"] = "Crimson Flag",
 				["text"] = {
-					"{X:mult,C:white}Red{} Blinds give",
-					"{X:mult,C:white}X#1#{} Mult when scored",
+					{"Retrigger all scoring",
+					"{X:mult,C:white}Red{} Blinds"},
+					{"{C:attention}Burn{} all scoring",
+					"{X:mult,C:white}Red{} Blinds"},
 				}
 			},
 			['j_bld_microphone'] = {
