@@ -1,7 +1,7 @@
     SMODS.Enhancement({
         key = 'tears',
         atlas = 'bld_blindrank',
-        pos = {x = 9, y = 9},
+        pos = {x = 4, y = 6},
         config = {
             chips = 20,
             extra = {

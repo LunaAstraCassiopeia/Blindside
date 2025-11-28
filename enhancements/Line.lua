@@ -1,7 +1,7 @@
     SMODS.Enhancement({
         key = 'line',
         atlas = 'bld_blindrank',
-        pos = {x = 9, y = 9}, -- replace with actual sprite
+        pos = {x = 6, y = 6}, -- replace with actual sprite
         config = {
             extra = {
                 xmult = 1,
