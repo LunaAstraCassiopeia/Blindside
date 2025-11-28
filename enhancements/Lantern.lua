@@ -6,7 +6,7 @@
             extra = {
                 value = 17,
                 xchips = 1,
-                xchip_mod = 0.2,
+                xchip_mod = 0.15,
                 hues = {"Blue"}
             }},
         replace_base_card = true,
