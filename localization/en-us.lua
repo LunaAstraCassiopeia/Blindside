@@ -1494,7 +1494,7 @@ return {
 				["name"] = "The Sun",
 				["text"] = {
 					"{X:money,C:white}Yellow{}",
-					"{C:money}+#1#${} when held in hand",
+					"{C:money}+#1#${} when {C:attention}held in hand",
 					"at end of round"
 				},
 			},
@@ -1515,7 +1515,7 @@ return {
 					"{X:red,C:white}Red{}",
 					"{X:mult,C:white}X1{} Mult, and {X:mult,C:white}+X#1#{}",
 					"for each flipped Blind",
-					"held in hand"
+					"{C:attention}held in hand"
 				},
 			},
 			["m_bld_door"] = {
