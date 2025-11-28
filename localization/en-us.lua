@@ -1485,8 +1485,8 @@ return {
 				["name"] = "The Hammer",	
 				["text"] = {
 					"{X:dark_edition,C:white}Faded{}",
-					"While {C:attention}held in hand{}",
-					"Retrigger {C:attention}first{} scoring card",
+					"While {C:attention}held in hand{},",
+					"retrigger {C:attention}first{} scoring Blind",
 					"{C:attention}#1#{} additional times"
 				},
 			},
