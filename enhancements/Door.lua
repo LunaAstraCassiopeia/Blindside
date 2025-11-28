@@ -3,8 +3,8 @@
         atlas = 'bld_blindrank',
         pos = {x = 9, y = 7},
         config = 
-            {x_mult = 2,
-            bonus = 80,
+            {x_mult = 1.75,
+            bonus = 60,
             extra = {
                 value = 4,
                 hues = {"Faded", "Red", "Green", "Blue", "Purple", "Yellow"}
