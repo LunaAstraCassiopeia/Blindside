@@ -1699,6 +1699,16 @@ return {
 					{"Always scores"}
 				},
 			},
+			["m_bld_line"] = {
+				["name"] = "The Line",
+				["text"] = {
+					{"{X:purple,C:white}Purple{}",
+					"{X:mult,C:white}X#1#{} Mult"},
+					{"Remove all {C:red}discards{}",
+					"before scoring, and gain",
+					"{X:mult,C:white}X#2#{} Mult for each"},
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {
