@@ -1729,6 +1729,14 @@ return {
 					"{C:attention}#2#{} times"},
 				},
 			},
+			["m_bld_way"] = {
+				["name"] = "The Way",
+				["text"] = {
+					"{X:purple,C:white}Purple{}",
+					"{C:chips}#1#{} Chips, then",
+					"{X:chips,C:white}X#2#{} Chips",
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {

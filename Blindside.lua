@@ -179,6 +179,7 @@ local card_list = {
         "Spear",
         "Line",
         "Tears",
+        "Way",
 }
 
 local trinket_list = {
