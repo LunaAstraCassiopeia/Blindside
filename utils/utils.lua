@@ -1036,7 +1036,7 @@ end
         G.E_MANAGER:add_event(Event({
             trigger = 'immediate',
             func = function()
-        if G.GAME.chips - G.GAME.blind.basechips*G.GAME.blind.mult >= 0 or G.GAME.current_round.hands_left < 1 then
+        if (G.GAME.chips - G.GAME.blind.basechips*G.GAME.blind.mult >= 0 and not next(SMODS.find_card('j_bld_breadboard'))) or G.GAME.current_round.hands_left < 1 then
             G.STATE = G.STATES.NEW_ROUND
         else
             G.STATE = G.STATES.DRAW_TO_HAND

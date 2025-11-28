@@ -162,6 +162,7 @@
         "j_bld_talkingfish",
         "j_bld_dreamcatcher",
         "j_bld_microchip",
+        "j_bld_breadboard",
         "c_bld_horror",
         "c_bld_action",
         "c_bld_comedy",

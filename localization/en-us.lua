@@ -1662,7 +1662,7 @@ return {
 				["name"] = "The Ghost",
 				["text"] = {
 					{"{X:purple,C:white}Purple{} {X:green,C:white}Green{}",
-					"{V:1}Balances{} Chips and Mult",},
+					"{V:1}Balances{} {C:blue}Chips{} and {C:red}Mult",},
 					{"{C:attention,E:1}Self-Scoring{} with a",
 					"{C:green}#1#{} in {C:green}#2#{} chance"}
 				},
@@ -2090,7 +2090,14 @@ return {
 					"When {C:attention}Joker{} is selected,",
 					"creates a {C:green}Recursive Tag"
 				}
-			}
+			},
+			['j_bld_breadboard'] = {
+				["name"] = "Breadboard",
+				["text"] = {
+					"{C:attention}Round{} does not end until",
+					"all {C:blue}Hands{} are spent"
+				}
+			},
 		},
 		["Edition"] = {
 			['e_bld_enameled'] = {
