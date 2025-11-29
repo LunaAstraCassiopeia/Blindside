@@ -1486,8 +1486,9 @@ return {
 				["name"] = "The Air",	
 				["text"] = {
 					"{X:dark_edition,C:white}Faded{}",
-					"Copies an adjacent scoring",
-					"Blind and {C:attention}Burns"
+					"Makes a {C:attention,E:1}copy{} of an",
+					"adjacent scoring Blind",
+					"and {C:attention}Burns"
 				},
 			},
 			["m_bld_hammer"] = {
