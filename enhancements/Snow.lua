@@ -5,7 +5,7 @@
         config = {
             extra = {
                 chips = 0,
-                gain_chips = 30,
+                gain_chips = 40,
                 value = 11,
                 hues = {"Purple"}
             }},
