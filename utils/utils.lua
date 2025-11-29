@@ -480,7 +480,7 @@ G.FUNCS.blind_draw_from_deck_to_hand = function(e)
                     G.GAME.tags[i]:apply_to_run({type = 'real_round_start'})
                 end
                 end
-                
+                G.hand:sort()
                 SMODS.calculate_context({first_hand_drawn = not G.GAME.current_round.any_hand_drawn and G.GAME.facing_blind,
                                         hand_drawn = G.GAME.facing_blind and SMODS.drawn_cards,
                                         other_drawn = not G.GAME.facing_blind and SMODS.drawn_cards})
