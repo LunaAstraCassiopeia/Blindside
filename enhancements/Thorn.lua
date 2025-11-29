@@ -7,7 +7,7 @@
                 value = 100,
                 multreduc = 1,
                 chance = 1,
-                trigger = 3,
+                trigger = 2,
                 hues = {"Green", "Red"}
             }
         },
