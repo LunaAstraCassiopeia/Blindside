@@ -2,7 +2,7 @@
     SMODS.Joker({
         key = 'barrel',
         atlas = 'bld_trinkets',
-        pos = {x = 6, y = 5},
+        pos = {x = 7, y = 5},
         rarity = 'bld_hobby',
         config = {
             extra = {
@@ -15,7 +15,7 @@
         loc_vars = function (self, info_queue, card)
             return {
                 vars = {
-                card.ability.extra.money
+                card.ability.extra.xmult_gain
             }
         }
         end,
