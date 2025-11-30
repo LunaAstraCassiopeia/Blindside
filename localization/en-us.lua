@@ -2159,9 +2159,18 @@ return {
 			['j_bld_barrel'] = {
 				["name"] = "Monkey Barrel",
 				["text"] = {
-					"{X:mult,C:white}X1{} Mult, and {X:mult,C:white}+X0.25{}",
+					"{X:mult,C:white}X1{} Mult, and {X:mult,C:white}+X#1#{}",
 					"for each unique",
 					"Blind scored"
+				}
+			},
+			['j_bld_candle'] = {
+				["name"] = "Candle",
+				["text"] = {
+					"{C:mult}+#1#{} Mult for",
+					"each Blind {C:attention}burned",
+					"this round",
+					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
 				}
 			},
 		},

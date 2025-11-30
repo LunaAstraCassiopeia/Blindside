@@ -167,6 +167,7 @@
         "j_bld_microchip",
         "j_bld_breadboard",
         "j_bld_barrel",
+        "j_bld_candle",
         "c_bld_horror",
         "c_bld_action",
         "c_bld_comedy",
