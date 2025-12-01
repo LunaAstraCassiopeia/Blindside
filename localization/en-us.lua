@@ -46,6 +46,7 @@ return {
 			['k_bld_noble_pack'] = 'Noble Pack',
 			['ui_bld_deck_view'] = 'Deck View',
 			["ph_mask_saved"] = "Saved by Ancient Mask",
+			['matryoshka_none'] = "None!",
 			},
 		["v_dictionary"] = {
 			["a_rmult"] = "-#1#",
@@ -2179,7 +2180,7 @@ return {
 					"Scoring {X:money,C:white}Yellow{} Blinds",
 					"give {C:chips}+1{} Chip per",
 					"held {C:money}dollar",
-					"{C:inactive}(Currently {C:chips}+#1#{C:inactive} Chips)"
+					"{C:inactive}(Currently: {C:chips}+#1#{C:inactive} Chips)"
 				}
 			},
 			['j_bld_crane'] = {
@@ -2189,6 +2190,30 @@ return {
 					"to {C:attention}Burn{}, this trinket",
 					"has a {C:green}#1# in #2#{} chance",
 					"to prevent it"
+				}
+			},
+			['j_bld_matryoshka'] = {
+				["name"] = "Matryoshka",
+				["text"] = {
+					"When Joker is",
+					"selected, create the",
+					"last consumed {C:attention}Tag",
+					"{C:inactive}(Currently: {C:attention}#1#{C:inactive})"
+				}
+			},
+			['j_bld_sewingkit'] = {
+				["name"] = "Sewing Kit",
+				["text"] = {
+					"Creates a {C:attention}Symmetry Tag",
+					"when deck is {C:attention}reshuffled"
+				}
+			},
+			['j_bld_pocketwatch'] = {
+				["name"] = "Pocket Watch",
+				["text"] = {
+					"When deck is",
+					"{C:attention}reshuffled{}, Joker loses",
+					"{C:mult}-#1#{} Mult"
 				}
 			},
 		},

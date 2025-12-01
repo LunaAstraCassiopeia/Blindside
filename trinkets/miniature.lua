@@ -3,7 +3,7 @@
         atlas = 'bld_trinkets',
         pos = {x = 5, y = 4},
         rarity = 'bld_hobby',
-        cost = 5,
+        cost = 9,
         config = {
             extra = {
                 discardcard = nil,
