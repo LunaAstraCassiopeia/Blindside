@@ -17,7 +17,7 @@
             return {
                 vars = {
                 card.ability.extra.mult_gain,
-                card.ability.extra.mult_gain * #G.exhaust.cards
+                card.ability.extra.mult_gain * ((G.exhaust and G.exhaust.cards) and #G.exhaust.cards or 0)
             }
         }
         end,

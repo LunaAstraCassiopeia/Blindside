@@ -2184,7 +2184,7 @@ return {
 				}
 			},
 			['j_bld_crane'] = {
-				["name"] = "Crane",
+				["name"] = "Paper Crane",
 				["text"] = {
 					"When a Blind is going",
 					"to {C:attention}Burn{}, this trinket",
