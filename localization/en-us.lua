@@ -2201,6 +2201,13 @@ return {
 					"{C:inactive}(Currently: {C:attention}#1#{C:inactive})"
 				}
 			},
+			['j_bld_sewingkit'] = {
+				["name"] = "Sewing Kit",
+				["text"] = {
+					"Creates a {C:attention}Symmetry Tag",
+					"when deck is {C:attention}reshuffled"
+				}
+			},
 		},
 		["Edition"] = {
 			['e_bld_enameled'] = {
