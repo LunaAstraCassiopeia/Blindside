@@ -563,8 +563,30 @@ end
 
 function Card:start_burn(cardarea, dissolve_colours, silent, dissolve_time_fac, no_juice)
     if next(find_joker('j_bld_crane')) and SMODS.pseudorandom_probability(self, pseudoseed('bld_crane'), 1, 2, 'bld_crane') then
-        card_eval_status_text(self, 'extra', nil, nil, nil, "Doused!")
-        self = G.discard:draw_card_from(cardarea, stay_flipped, discarded_only)
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        blockable = false,
+        delay =  1.05,
+        func = (function()
+        if self then 
+            play_sound('card1', 0.85 + percent*0.2/100, 0.6*(vol or 1))
+            if cardarea then self = cardarea:remove_card(self) end
+            if self then drawn = true end
+            local stay_flipped = G.GAME and G.GAME.blind and G.GAME.blind:stay_flipped(G.exhaust, self, G.play)
+            if G.GAME.modifiers.flipped_cards and to == G.hand then
+                if pseudorandom(pseudoseed('flipped_card')) < 1/G.GAME.modifiers.flipped_cards then
+                    stay_flipped = true
+                end
+            end
+            G.discard:emplace(self, nil, stay_flipped)
+        else
+            play_sound('card1', 0.85 + percent*0.2/100, 0.6*(vol or 1))
+            self = G.discard:draw_card_from(cardarea, stay_flipped, discarded_only)
+            if self then drawn = true end
+        end
+        return true
+        end
+        )}))
         return
     end
 
