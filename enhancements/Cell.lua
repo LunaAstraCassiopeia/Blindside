@@ -88,7 +88,7 @@
             card.ability.cell_tally = 0
             if G.STAGE == G.STAGES.RUN then
                 for k, v in pairs(G.playing_cards) do
-                    if v:is_color("Green") then card.ability.cell_tally = card.ability.cell_tally+1 end
+                    if v:is_color("Green") and v.area ~= G.exhaust then card.ability.cell_tally = card.ability.cell_tally+1 end
                 end
             end
         end
