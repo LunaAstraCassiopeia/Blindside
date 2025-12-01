@@ -1303,7 +1303,7 @@ return {
 					"{X:blue,C:white}Blue{}",
 					"While {C:attention}held in hand{},",
 					"gives {C:chips}+#1#{} Chips for each",
-					"card {C:attention}held in hand",
+					"Blind {C:attention}held in hand",
 				},
 			},
 			["m_bld_lantern"] = {
