@@ -1920,8 +1920,8 @@ return {
 				["name"] = "Scratch Ticket",
 				["text"] = {
 					{"{C:green}#2# in #3#{} chance for {C:money}+#1#${}"},
-					{"Chance increases for each scored",
-					"{C:attention}blind{} of a repeated {C:attention}Hue"}
+					{"Chance increases for each",
+					"{X:green,C:white}Green{} Blind scored"}
 				}
 			},
 			['j_bld_ensign'] = {

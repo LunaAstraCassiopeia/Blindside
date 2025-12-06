@@ -13,11 +13,11 @@
                 colorsplayed = {}
             }
         },
-        cost = 7,
+        cost = 8,
         blueprint_compat = true,
         eternal_compat = true,
         loc_vars = function (self, info_queue, card)
-            local chance, trigger = SMODS.get_probability_vars(card, card.ability.extra.chance, card.ability.extra.trigger, 'flag')
+            local chance, trigger = SMODS.get_probability_vars(card, card.ability.extra.chance + card.ability.extra.chanceadd, card.ability.extra.trigger, 'flag')
             return {
                 vars = {
                 card.ability.extra.money,
@@ -36,28 +36,22 @@
         end,
         calculate = function(self, card, context)
             if context.individual and context.cardarea == G.play and context.other_card.facing ~= "back" and not context.blueprint then
-                local hascolor = false
-                for i=1, #card.ability.extra.colorsplayed do
-                    if context.other_card:is_color(card.ability.extra.colorsplayed[i]) then
-                        hascolor = true
-                        card.ability.extra.chanceadd = card.ability.extra.chanceadd + 1 
-                        break
-                    end
-                end
-                if not hascolor then
-                    for k=1, #context.other_card.config.center.config.extra.hues do
-                        table.insert(card.ability.extra.colorsplayed,context.other_card.config.center.config.extra.hues[k] )
-                    end
+                if context.other_card:is_color("Green") then
+                    card.ability.extra.chanceadd = card.ability.extra.chanceadd + 1
                 end
             end
-            if context.joker_main and SMODS.pseudorandom_probability(card, pseudoseed("flip"), card.ability.extra.chance+card.ability.extra.chanceadd, card.ability.extra.trigger, 'flip') then
-                return {
-                    dollars = card.ability.extra.money
-                }
-            end
-            if context.after and not context.blueprint then
-                card.ability.extra.colorsplayed = {}
-                card.ability.extra.chanceadd = 0
+            if context.joker_main then
+                if SMODS.pseudorandom_probability(card, pseudoseed("scratchticket"), card.ability.extra.chance+card.ability.extra.chanceadd, card.ability.extra.trigger, 'scratchticket') then
+                    card.ability.extra.chanceadd = 0
+                    return {
+                        dollars = card.ability.extra.money,
+                        message = localize('k_reset')
+                    }
+                else
+                    return {
+                        message = localize('k_nope_ex')
+                    }
+                end
             end
         end
     })
