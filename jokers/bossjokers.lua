@@ -149,7 +149,11 @@ SMODS.Blind({
     end,
     set_blind = function(self)
         BLINDSIDE.chipsmodify(0, ((G.GAME.blind.basechips*(2))), 0, 0, true)
-        BLINDSIDE.chipsupdate()
+        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+            BLINDSIDE.chipsupdate()
+            return true
+            end
+        }))
 		G.hand:change_size(2)
         G.GAME.blindassist.states.visible = false
         G.GAME.blindassist:change_dim(0,0)

@@ -48,14 +48,7 @@
                     return {
                         extra = {focus = card, message = localize{type='variable',key='a_rmult',vars={card.ability.extra.multreduc}}, 
                         colour = G.C.RED, func = function()
-                            G.E_MANAGER:add_event(Event({
-                                trigger = 'before',
-                                delay = 0.0,
-                                func = (function()
-                                    BLINDSIDE.chipsmodify(-card.ability.extra.multreduc, 0 , 0)
-                                    BLINDSIDE.chipsupdate()
-                                    return true
-                                end)}))
+                            BLINDSIDE.chipsmodify(-card.ability.extra.multreduc, 0 , 0)
                         end},
                         colour = G.C.RED,
                         card = card

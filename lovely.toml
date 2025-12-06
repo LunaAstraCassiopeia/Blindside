@@ -1146,8 +1146,10 @@ self.GAME.current_round.voucher = forced_voucher and {forced_voucher, spawn = {[
 match_indent = true
 position = 'after'
 payload = '''
+if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
 self.GAME.current_round.trinket = BLINDSIDE.get_next_trinket()
-G.GAME.round_resets.tags_bought = 0
+G.GAME.round_resets.tags_bought = 0 
+end
 '''
 
 # current round trinkets
@@ -1160,10 +1162,12 @@ G.GAME.current_round.voucher = SMODS.get_next_vouchers()
 match_indent = true
 position = 'after'
 payload = '''
+if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
 for i = 1, G.GAME.shop.joker_max do
     G.GAME.current_round.trinket = BLINDSIDE.get_next_trinket()
 end
 G.GAME.round_resets.tags_bought = 0
+end
 '''
 
 # current round trinkets
