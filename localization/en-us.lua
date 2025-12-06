@@ -135,10 +135,18 @@ return {
 	},
 	["descriptions"] = {
 		["Back"] = {
+			["b_bld_whitedispenser"] = {
+				["name"] = "White Deck?",
+				["text"] = {
+					"???",
+					"{C:attention}+1{} hand size"
+				},
+			},
 			["b_bld_reddispenser"] = {
 				["name"] = "Red Deck?",
 				["text"] = {
-					"???"
+					"???",
+					"{C:attention}+2{} {C:red}discard{} size"
 				},
 			}
 		},

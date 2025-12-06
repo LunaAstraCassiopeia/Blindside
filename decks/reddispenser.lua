@@ -10,7 +10,7 @@ SMODS.Back({
             blindside = true
         },
         ante_scaling = 1,
-        joker_slot = -1
+        joker_slot = -1,
     },
     unlocked = true,
     pos = { x = 0, y = 0 },
@@ -68,6 +68,7 @@ SMODS.Back({
             local rounded = int_part + (frac_part >= 0.5 and 1 or 0) 
             G.GAME.win_ante = rounded
         return true end }))
+        SMODS.change_discard_limit(2)
     end,
     calculate = function(self, back, context) 
         if context.after then
