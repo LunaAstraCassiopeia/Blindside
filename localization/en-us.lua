@@ -1945,9 +1945,9 @@ return {
 			['j_bld_pennant'] = {
 				["name"] = "Violet Pennant",
 				["text"] = {
-					"{X:purple,C:white}Purple{} Blinds have a {C:green}#1# in #2#{}",
-					"chance to create a random",
-					"{C:bld_obj_filmcard}Channel{} Card when scored",
+					"{C:white,X:mult}X1{} Mult for",
+					"each unique scoring",
+					"{X:purple,C:white}Purple{} Blind",
 				}
 			},
 			['j_bld_insignia'] = {

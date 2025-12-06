@@ -1078,6 +1078,15 @@ else
     refGameupdate(self, dt)
     end
 end
+
+function tableContains(value, tbl)
+  for _, v in ipairs(tbl) do
+    if v == value then
+      return true
+    end
+  end
+  return false
+end
 ----------------------------------------------
 ------------MOD CODE END----------------------
 
