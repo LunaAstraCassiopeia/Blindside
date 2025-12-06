@@ -6,10 +6,10 @@
         rarity = 'bld_hobby',
         config = {
             extra = {
-                xmult_gain = 0.25,
+                xmult_gain = 0.3,
             }
         },
-        cost = 10,
+        cost = 12,
         blueprint_compat = false,
         eternal_compat = true,
         loc_vars = function (self, info_queue, card)
