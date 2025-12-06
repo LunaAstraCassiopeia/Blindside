@@ -2110,10 +2110,9 @@ return {
 			['j_bld_whiteout'] = {
 				["name"] = "Whiteout",
 				["text"] = {
-                    "If {C:attention}first hand{} of",
-                    "round has only {C:attention}1{}",
-                    "blind, convert it into",
-                    "a {X:dark_edition,C:white}Blank{}"
+					"Once per {C:attention}ante{}, if hand",
+					"has only 1 Blind, convert",
+					"it into a {X:dark_edition,C:white}Blank{}"
 				}
 			},
 			['j_bld_discount'] = {
