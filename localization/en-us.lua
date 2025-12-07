@@ -1846,8 +1846,8 @@ return {
 			['j_bld_statuette'] = {
 				["name"] = "Statuette",
 				["text"] = {
-					{"{C:white,X:mult}X#1#{} Mult if scoring hand",
-					"contains a {X:dark_edition,C:white}Faded{} Blind"},
+					{"{C:white,X:mult}+X#1#{} Mult for each {X:dark_edition,C:white}Faded{}",
+					"Blind in scoring hand"},
 					{"Debuffs all scoring",
 					"{X:dark_edition,C:white}Faded{} Blinds"}
 				}

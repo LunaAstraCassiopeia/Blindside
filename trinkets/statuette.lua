@@ -6,7 +6,7 @@
         rarity = 'bld_curio',
         config = {
             extra = {
-                xmult = 3,
+                xmult = 1,
             }
         },
         cost = 15,
@@ -46,12 +46,16 @@
             end
             
             if context.joker_main and context.scoring_hand then
+                local fadedcount = 0
                 for key, value in pairs(context.scoring_hand) do
                     if value:is_color("Faded") then
-                        return {
-                            xmult = card.ability.extra.xmult
-                        }
+                        fadedcount = fadedcount + 1
                     end
+                end
+                if fadedcount > 0 then
+                    return {
+                        xmult = 1 + card.ability.extra.xmult*fadedcount
+                    }
                 end
             end
         end
