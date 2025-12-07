@@ -6,12 +6,12 @@
         rarity = 'bld_curio',
         config = {
             extra = {
-                mult_gain = 0.25,
+                mult_gain = 0.2,
                 additional_mult = 0,
                 burned = false
             }
         },
-        cost = 7,
+        cost = 15,
         blueprint_compat = false,
         eternal_compat = true,
         loc_vars = function (self, info_queue, card)
