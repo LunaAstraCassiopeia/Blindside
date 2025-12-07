@@ -157,6 +157,14 @@ return {
 					"Extra hands earn",
 					"{C:attention}no money"
 				},
+			},
+			["b_bld_painteddispenser"] = {
+				["name"] = "Painted Deck?",
+				["text"] = {
+					"???",
+					"{C:attention}+2{} hand size",
+					"{C:attention}-1{} Trinket slot",
+				},
 			}
 		},
 		['Voucher'] = {
