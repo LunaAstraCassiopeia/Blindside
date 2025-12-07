@@ -11,6 +11,12 @@ SMODS.Tag {
             return false
             end
         end,
+    set_ability = function (self, tag)
+        if #G.hand.cards then
+            G.hand:change_size(1)
+            G.GAME.round_resets.temp_handsize = (G.GAME.round_resets.temp_handsize or 0) + 1
+        end
+    end,
     apply = function(self, tag, context)
         if context.type == 'shop_start' and not (next(SMODS.find_card("j_bld_taglock")) and not (G.GAME.blind.boss or G.GAME.last_joker)) then
             tag:yep('+', G.C.GREEN, function() 
