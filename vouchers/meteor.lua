@@ -16,5 +16,6 @@ SMODS.Voucher {
     end,
     redeem = function(self, card)
         add_tag(Tag('tag_bld_meteor_relic'))
-    end
+    end,
+    requires = {'v_bld_coolrock'}
 }
