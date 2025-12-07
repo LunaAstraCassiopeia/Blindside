@@ -2191,10 +2191,11 @@ return {
 			['j_bld_candle'] = {
 				["name"] = "Candle",
 				["text"] = {
-					"{C:mult}+#1#{} Mult for",
+					{"Gains {X:mult,C:white}X#1#{} Mult for",
 					"each Blind {C:attention}burned",
-					"this round",
-					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
+					"{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"},
+					{"{C:attention}Resets{} if hand contains",
+					"no burned blinds"}
 				}
 			},
 			['j_bld_pogs'] = {

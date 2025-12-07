@@ -6,7 +6,9 @@
         rarity = 'bld_curio',
         config = {
             extra = {
-                mult_gain = 3,
+                mult_gain = 0.25,
+                additional_mult = 0,
+                burned = false
             }
         },
         cost = 7,
@@ -17,7 +19,7 @@
             return {
                 vars = {
                 card.ability.extra.mult_gain,
-                card.ability.extra.mult_gain * ((G.exhaust and G.exhaust.cards) and #G.exhaust.cards or 0)
+                1 + card.ability.extra.additional_mult
             }
         }
         end,
@@ -33,9 +35,25 @@
             if context.joker_main then
                 if #G.exhaust.cards > 0 then
                     return {
-                        mult = card.ability.extra.mult_gain * #G.exhaust.cards
+                        xmult = 1 + card.ability.extra.additional_mult
                     }
                 end
+            end
+            if context.after and card.ability.extra.burned > 0 then
+                card.ability.extra.additional_mult = card.ability.extra.additional_mult + card.ability.extra.mult_gain * (card.ability.extra.burned)
+                return {
+                    message = localize('k_upgrade_ex'),
+                }
+            end
+            if context.cards_burned then
+                card.ability.extra.burned = #context.cards_burned
+            end
+            if context.cards_burned and #context.cards_burned == 0 then
+                card.ability.extra.additional_mult = 0
+                card.ability.extra.burned = 0
+                return {
+                    message = localize('k_reset')
+                }
             end
         end
     })

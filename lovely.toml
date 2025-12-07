@@ -1083,9 +1083,7 @@ local cards_burned = {}
         BLINDSIDE.calculate_burning_cards({ full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, cardarea = v }, cards_burned, v == G.play and scoring_hand or nil)
     end
 
-    if cards_burned[1] then
-            SMODS.calculate_context({scoring_hand = scoring_hand, remove_playing_cards = true, cards_burned = cards_burned})
-        end
+    SMODS.calculate_context({scoring_hand = scoring_hand, remove_playing_cards = true, cards_burned = cards_burned})
 
     for i=1, #cards_burned do
         G.E_MANAGER:add_event(Event({
