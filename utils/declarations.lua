@@ -176,6 +176,7 @@
         "j_bld_bottle",
         "j_bld_hackysack",
         "j_bld_checker",
+        "j_bld_necronomicon",
         "c_bld_horror",
         "c_bld_action",
         "c_bld_comedy",

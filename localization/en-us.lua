@@ -2250,6 +2250,14 @@ return {
 					"contains no {C:attention}Pairs"
 				}
 			},
+			['j_bld_necronomicon'] = {
+				["name"] = "Necronomicon",
+				["text"] = {
+					"PLACEHOLDER EFFECT:",
+					"Create a channel card",
+					"each joker"
+				}
+			},
 		},
 		["Edition"] = {
 			['e_bld_enameled'] = {

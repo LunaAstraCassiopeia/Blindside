@@ -243,6 +243,7 @@ local trinket_list = {
         "bottle",
         "hackysack",
         "checker",
+        "necronomicon",
 }
 
 local joker_list = {
