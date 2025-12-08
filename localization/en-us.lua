@@ -1173,6 +1173,14 @@ return {
 					"{C:green}#1# in #2#{} chance"}
 				},
 			},
+			["m_bld_arm_upgrade"] = {
+				["name"] = "The Arm",
+				["text"] = {
+					{"{X:purple,C:white}Purple{}",
+					"{C:bld_obj_mineral}Upgrades{} played hand"},
+					{"Always Scores"},
+				},
+			},
 			["m_bld_club"] = {
 				["name"] = "The Club",
 				["text"] = {

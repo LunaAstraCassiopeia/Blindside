@@ -81,7 +81,12 @@
             return {
                 key = card.ability.extra.upgraded and 'm_bld_air_upgrade' or 'm_bld_air'
             }
+        end,
+    upgrade = function(card) 
+        if not card.ability.extra.upgraded then
+        card.ability.extra.upgraded = true
         end
+    end
     })
     
 ----------------------------------------------

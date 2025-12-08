@@ -7,6 +7,7 @@
                 value = 16,
                 chips = 20,
                 chips_mod = 40,
+                chips_modup = 20,
                 hues = {"Green"}
             }
         },
@@ -44,7 +45,13 @@
                     card.ability.extra.chips + card.ability.extra.chips_mod*G.GAME.current_round.reshuffles_round
                 }
             }
+        end,
+    upgrade = function(card) 
+        if not card.ability.extra.upgraded then
+            card.ability.extra.chips_mod =card.ability.extra.chips_mod + card.ability.extra.chips_modup
+        card.ability.extra.upgraded = true
         end
+    end
     })
     
 ----------------------------------------------

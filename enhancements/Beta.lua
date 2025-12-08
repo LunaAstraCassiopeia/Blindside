@@ -6,6 +6,7 @@ SMODS.Enhancement({
         extra = {
             value = 1,
             chips = 100,
+            chipsup = 50,
             hues = {"Blue"},
         }},
     replace_base_card = true,
@@ -37,6 +38,12 @@ SMODS.Enhancement({
                 card.ability.bonus
             }
         }
+    end,
+    upgrade = function(card) 
+        if not card.ability.extra.upgraded then
+        card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipsup
+        card.ability.extra.upgraded = true
+        end
     end
 })
 ----------------------------------------------

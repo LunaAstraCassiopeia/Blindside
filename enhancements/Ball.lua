@@ -37,10 +37,15 @@
                     message = localize('k_tagged_ex')
                 }
             end
-            if context.burn_card and context.cardarea == G.play and context.burn_card == card then
+            if context.burn_card and context.cardarea == G.play and context.burn_card == card and not card.ability.extra.upgraded then
                 return { remove = true }
             end
         end,
+    upgrade = function(card) 
+        if not card.ability.extra.upgraded then
+        card.ability.extra.upgraded = true
+        end
+    end
     })
 ----------------------------------------------
 ------------MOD CODE END----------------------

@@ -7,6 +7,7 @@
                 value = 10,
                 mult = 0,
                 mult_mod = 4,
+                mult_modup = 2,
                 hues = {"Yellow"}
             }},
         replace_base_card = true,
@@ -65,6 +66,12 @@
             ["bld_obj_blindcard_single"] = true,
             ["bld_obj_blindcard_yellow"] = true,
         },
+    upgrade = function(card) 
+        if not card.ability.extra.upgraded then
+        card.ability.extra.mult_mod = card.ability.extra.mult_mod + card.ability.extra.mult_modup
+        card.ability.extra.upgraded = true
+        end
+    end
         
     })
 ----------------------------------------------

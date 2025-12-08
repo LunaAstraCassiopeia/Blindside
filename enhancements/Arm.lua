@@ -30,7 +30,7 @@
         },
         calculate = function(self, card, context)
                 if context.cardarea == G.play and context.before then
-                    if SMODS.pseudorandom_probability(card, pseudoseed("flip"), card.ability.extra.chance, card.ability.extra.trigger, 'flip') and card.facing ~= 'back' then
+                    if SMODS.pseudorandom_probability(card, pseudoseed("flip"), card.ability.extra.chance, card.ability.extra.trigger, 'flip') and card.facing ~= 'back' or card.ability.extra.upgraded then
                             card:flip()
                             card:flip()
                         return {
@@ -53,12 +53,18 @@
         info_queue[#info_queue+1] = {key = 'bld_self_scoring', set = 'Other'}
             local chance, trigger = SMODS.get_probability_vars(card, card.ability.extra.chance, card.ability.extra.trigger, 'flip')
             return {
+                key = card.ability.extra.upgraded and 'm_bld_arm_upgrade' or 'm_bld_arm',
                 vars = {
                     chance,
                     trigger
                 }
             }
+        end,
+    upgrade = function(card) 
+        if not card.ability.extra.upgraded then
+        card.ability.extra.upgraded = true
         end
+    end
     })
 ----------------------------------------------
 ------------MOD CODE END----------------------
