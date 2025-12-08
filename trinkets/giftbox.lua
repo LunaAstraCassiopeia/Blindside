@@ -7,6 +7,9 @@
         config = {
             extra = {
                 xmult = 0.25,
+=======
+                xmult = 0.3,
+>>>>>>> 14038b42c58db5318cf33b5cd2b9567796cfb807
             }
         },
         cost = 12,

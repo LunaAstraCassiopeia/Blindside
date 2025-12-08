@@ -149,11 +149,7 @@ SMODS.Blind({
     end,
     set_blind = function(self)
         BLINDSIDE.chipsmodify(0, ((G.GAME.blind.basechips*(2))), 0, 0, true)
-        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
-            BLINDSIDE.chipsupdate()
-            return true
-            end
-        }))
+        BLINDSIDE.chipsupdate()
 		G.hand:change_size(2)
         G.GAME.blindassist.states.visible = false
         G.GAME.blindassist:change_dim(0,0)
@@ -320,9 +316,7 @@ SMODS.Blind({
             blind.active = true
         end
         if not blind.disabled and context.selling_card and blind.active then
-            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
             BLINDSIDE.chipsmodify(-8, 0, 0)
-            return true end }))
             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
             BLINDSIDE.chipsupdate()
             blind.active = false

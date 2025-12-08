@@ -5,7 +5,7 @@
         config = {
             extra = {
                 value = 13,
-                x_mult = 5,
+                x_mult = 3,
                 mult = 5,
                 status = "Active!",
                 hues = {"Faded"}
