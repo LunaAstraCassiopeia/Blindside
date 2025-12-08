@@ -4,8 +4,9 @@
         pos = {x = 6, y = 8},
         config = {
             extra = {
-                value = 10,
+                value = 100,
                 xchips = 2,
+                xchipsup = 0.5,
                 odds = 2,
                 hues = {"Green", "Blue"}
             }
@@ -65,6 +66,12 @@
                     trigger
                 }
             }
+        end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.xchips = card.ability.extra.xchips + card.ability.extra.xchipsup
+            card.ability.extra.upgraded = true
+            end
         end
     })
     
