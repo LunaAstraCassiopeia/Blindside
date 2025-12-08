@@ -6,7 +6,7 @@
         rarity = 'bld_keepsake',
         config = {
             extra = {
-                xmult = 0.4,
+                xmult = 0.3,
             }
         },
         cost = 12,
