@@ -2750,6 +2750,13 @@ return {
 					"{C:attention}#2#{C:attention} {C:bld_obj_rune}Rune{} cards to hold",
 				}
 			},
+			["bld_upgrade"] = {
+				["name"] = "Upgraded",
+				["text"] = {
+					"A more powerful blind",
+					"with stronger effects"
+				}
+			},
 		},
 	},
 }

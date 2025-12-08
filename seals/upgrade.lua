@@ -2,6 +2,7 @@ SMODS.Sticker {
     key = 'upgrade',
     atlas = 'bld_enhance', 
     pos = { x = 0, y = 2 },
+    badge_colour = HEX("6A758A"),
     should_apply = false,
     config = {},
     rate = 0,
