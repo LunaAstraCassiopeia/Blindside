@@ -1610,9 +1610,8 @@ return {
 				["text"] = {
 					{"{X:chips,C:white}Blue{}",
 					"{C:chips}+#2#{} Chips"},
-					{"Discards up to {C:attention}#1#{}",
-					"non-{X:blue,C:white}Blue{} Blinds",
-					"when scored"},
+					{"Retain all cards",
+					"{C:attention}held in hand"},
 				},
 			},
 			["m_bld_top"] = {

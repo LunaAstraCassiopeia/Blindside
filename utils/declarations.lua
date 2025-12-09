@@ -33,7 +33,7 @@
         "m_bld_mark",
         "m_bld_vast",
         "m_bld_deck",
-        --"m_bld_pile",
+        "m_bld_pile",
         "m_bld_cell",
         --"m_bld_wedge",
         "m_bld_bolt",
