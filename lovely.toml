@@ -1348,18 +1348,12 @@ G.E_MANAGER:add_event(Event({ func = function()
     for k, v in ipairs(G.hand.cards) do
         _cards[#_cards+1] = v
     end
-    play_sound('card1', 1)
+    G.E_MANAGER:add_event(Event({ func = function()
+    G.E_MANAGER:add_event(Event({ func = function()
     for i = 1, #G.hand.cards do
-        if G.hand.cards[i] then 
-            local selected_card, card_key = pseudorandom_element(_cards, pseudoseed('hook'))
-            G.hand:add_to_highlighted(selected_card, true)
-            table.remove(_cards, card_key)
-            any_selected = true
-        end
+        G.hand.cards[i].ability.discarded = true
+        draw_card(G.hand, G.discard, i*100/#G.hand.cards, 'down', false, G.hand.cards[i])
     end
-    G.E_MANAGER:add_event(Event({ func = function()
-    G.E_MANAGER:add_event(Event({ func = function()
-        if any_selected then G.FUNCS.discard_cards_from_highlighted(nil, true) end
     return true end }))
     return true end }))
 return true end }))
