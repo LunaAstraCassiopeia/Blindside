@@ -24,7 +24,7 @@ SMODS.Blind({
         if context.setting_blind and not context.disabled then
             blind.active = true
         end
-        if context.after and not G.GAME.blind.disabled and blind.active and next(context.poker_hands['bld_blind_2oak']) then
+        if context.after and not G.GAME.blind.disabled and blind.active and has_group_of(2, context.poker_hands) then
             local hasWildCanvas = false
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i].seal == "bld_wild" and context.scoring_hand[i].facing ~= "back" and next(SMODS.find_card('j_bld_canvas')) then
@@ -67,7 +67,7 @@ SMODS.Blind({
         if context.setting_blind and not context.disabled then
             blind.active = true
         end
-        if context.after and not G.GAME.blind.disabled and blind.active and next(context.poker_hands['bld_blind_3oak']) then
+        if context.after and not G.GAME.blind.disabled and blind.active and has_group_of(3, context.poker_hands) then
             local hasWildCanvas = false
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i].seal == "bld_wild" and context.scoring_hand[i].facing ~= "back" and next(SMODS.find_card('j_bld_canvas')) then
@@ -110,7 +110,7 @@ SMODS.Blind({
         if context.setting_blind and not context.disabled then
             blind.active = true
         end
-        if context.after and not G.GAME.blind.disabled and blind.active and next(context.poker_hands['bld_blind_2pair']) then
+        if context.after and not G.GAME.blind.disabled and blind.active and (next(context.poker_hands['bld_blind_2pair']) or next(context.poker_hands['bld_blind_fullhouse'])) then
             local hasWildCanvas = false
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i].seal == "bld_wild" and context.scoring_hand[i].facing ~= "back" and next(SMODS.find_card('j_bld_canvas')) then
@@ -197,7 +197,7 @@ SMODS.Blind({
         if context.setting_blind and not context.disabled then
             blind.active = true
         end
-        if context.after and not G.GAME.blind.disabled and blind.active and next(context.poker_hands['bld_blind_flush']) then
+        if context.after and not G.GAME.blind.disabled and blind.active and has_group_of(5, context.poker_hands) then
             local hasWildCanvas = false
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i].seal == "bld_wild" and context.scoring_hand[i].facing ~= "back" and next(SMODS.find_card('j_bld_canvas')) then
