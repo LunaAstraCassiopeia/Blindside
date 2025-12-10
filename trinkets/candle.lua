@@ -6,7 +6,7 @@
         rarity = 'bld_curio',
         config = {
             extra = {
-                mult_gain = 0.2,
+                mult_gain = 0.25,
                 additional_mult = 0,
                 burned = false
             }
@@ -33,14 +33,14 @@
         end,
         calculate = function(self, card, context)
             if context.joker_main then
-                if #G.exhaust.cards > 0 then
+                if card.ability.extra.additional_mult > 0 then
                     return {
                         xmult = 1 + card.ability.extra.additional_mult
                     }
                 end
             end
             if context.after and card.ability.extra.burned > 0 then
-                card.ability.extra.additional_mult = card.ability.extra.additional_mult + card.ability.extra.mult_gain * (card.ability.extra.burned)
+                card.ability.extra.additional_mult = card.ability.extra.additional_mult + card.ability.extra.mult_gain-- * (card.ability.extra.burned)
                 return {
                     message = localize('k_upgrade_ex'),
                 }

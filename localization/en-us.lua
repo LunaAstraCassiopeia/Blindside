@@ -2336,11 +2336,12 @@ return {
 			['j_bld_candle'] = {
 				["name"] = "Candle",
 				["text"] = {
-					{"Gains {X:mult,C:white}X#1#{} Mult for",
-					"each Blind {C:attention}burned",
+					{"Gains {X:mult,C:white}X#1#{} Mult",
+					"each hand where a",
+					"Blind {C:attention}burns",
 					"{C:inactive}(Currently {X:mult,C:white}X#2#{C:inactive} Mult)"},
-					{"{C:attention}Resets{} if hand contains",
-					"no burned blinds"}
+					{"{C:attention}Resets{} if no blind",
+					"{C:attention}burns{} during hand"}
 				}
 			},
 			['j_bld_pogs'] = {
