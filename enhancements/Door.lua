@@ -7,6 +7,8 @@
             bonus = 60,
             extra = {
                 value = 4,
+                x_multup = 0.25,
+                bonusup = 40,
                 hues = {"Faded", "Red", "Green", "Blue", "Purple", "Yellow"}
             }},
         replace_base_card = true,
@@ -47,6 +49,13 @@
                     card.ability.x_mult, card.ability.bonus
                 }
             }
+        end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.x_mult = card.ability.x_mult + card.ability.extra.x_multup
+            card.ability.bonus = card.ability.bonus + card.ability.extra.bonusup
+            card.ability.extra.upgraded = true
+            end
         end
     })
     

@@ -6,6 +6,7 @@
             extra = {
                 value = 10,
                 odds = 3,
+                oddsup = -1,
                 hues = {"Green"}
             }
         },
@@ -84,6 +85,12 @@
                     trigger
                 }
             }
+        end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.odds = card.ability.extra.odds + card.ability.extra.oddsup
+            card.ability.extra.upgraded = true
+            end
         end
     })
     

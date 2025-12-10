@@ -1412,6 +1412,16 @@ return {
 					"{C:attention}held in hand{}"},
 				},
 			},
+			["m_bld_eye_upgrade"] = {
+				["name"] = "The Eye",
+				["text"] = {	
+					{"{X:blue,C:white}Blue{}",
+					"{C:mult}+#2#{} Mult"},
+					{"{X:chips,C:white}X#1#{} Chips while",
+					"{C:attention}held in hand{}"},
+					{"{C:attention}Retains"},
+				},
+			},
 			["m_bld_peace"] = {
 				["name"] = "The Peace",
 				["text"] = {

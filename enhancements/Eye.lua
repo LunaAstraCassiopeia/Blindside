@@ -29,10 +29,17 @@
         },
         loc_vars = function(self, info_queue, card)
             return {
+                key = card.ability.extra.upgraded and 'm_bld_eye_upgrade' or 'm_bld_eye',
                 vars = {
                     card.ability.h_x_chips, card.ability.mult
                 }
             }
+        end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.retain = true
+            card.ability.extra.upgraded = true
+            end
         end
     })
 ----------------------------------------------
