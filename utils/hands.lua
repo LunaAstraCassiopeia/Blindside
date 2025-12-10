@@ -76,6 +76,26 @@
             return false
         end
     }
+
+    function has_group_of(num, hands)
+        if num <= 5 and next(hands['bld_blind_flush']) then
+            return true
+        end
+
+        if num <= 4 and next(hands['bld_blind_4oak']) then
+            return true
+        end
+
+        if num <= 3 and (next(hands['bld_blind_3oak']) or next(hands['bld_blind_fullhouse'])) then
+            return true
+        end
+
+        if num <= 2 and next(hands['bld_blind_2oak']) then
+            return true
+        end
+
+        return false
+    end
     
     function get_blind_groups(num, hand, or_more)
         local vals = {}

@@ -718,9 +718,9 @@ return {
 			["c_bld_horror"] = {
 				["name"] = "Horror",
 				["text"] = {
-					"{C:attention}Enhance{} up to #1#",
-					"selected blinds into",
-					"{C:attention}Spooky Blinds{}"
+					"{C:attention}Enhance{} #1#",
+					"selected blind into a",
+					"{C:attention}Spooky Blind{}"
 				},
 			},
 			["c_bld_scifi"] = {
@@ -1493,8 +1493,9 @@ return {
 				["name"] = "The Serpent",
 				["text"] = {
 					{"{X:green,C:white}Green{}",
-					"Draw {C:attention}#1#{} additional",
-					"blinds after scoring"},
+					"The next time you",
+					"draw from the deck, draw",
+					"{C:attention}#1#{} additional Blinds",},
 					{"Always Scores"},
 				},
 			},
