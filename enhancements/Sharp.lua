@@ -39,7 +39,7 @@
             return {
                 key = card.ability.extra.upgraded and 'm_bld_sharp_burn' or 'm_bld_sharp',
                 vars = {
-                    card.ability.mult
+                    card.ability.extra.mult
                 }
             }
         end,
