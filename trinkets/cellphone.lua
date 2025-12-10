@@ -6,11 +6,10 @@
         rarity = 'bld_doodad',
         config = {
             extra = {
-                xmult = 2,
-                burned = false,
+                xmult = 2.5,
             }
         },
-        cost = 7,
+        cost = 12,
         blueprint_compat = true,
         eternal_compat = true,
         loc_vars = function (self, info_queue, card)
@@ -29,19 +28,13 @@
             end
         end,
         calculate = function(self, card, context)
-            if context.cards_burned then 
-                card.ability.extra.burned = true
-                local eval = function() return card.ability.extra.burned end
-                juice_card_until(card, eval, true)
+            if context.burn_card and context.cardarea == G.hand then
+                return {remove = true}
             end
-            if context.joker_main and card.ability.extra.burned then
-                card.ability.extra.burned = false
+            if context.joker_main then
                 return {
                     xmult = card.ability.extra.xmult
                 }
-            end
-            if context.end_of_round and not context.blueprint then
-                card.ability.extra.burned = false
             end
         end
     })
