@@ -5,7 +5,7 @@
         config = {
             extra = {
                 value = 18,
-                chips_mod = 10,
+                chips_mod = 15,
                 hues = {"Blue"}
             }},
         replace_base_card = true,
