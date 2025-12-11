@@ -15,7 +15,7 @@ SMODS.Booster{
         kind = 'ritual',
         cost = 4,
         weight = 0.8,
-        pos = { x = 0, y = 6 },
+        pos = { x = 0, y = 7 },
         loc_vars = function(self, info_queue, card)
             return {vars = {card.config.center.config.choose, card.ability.extra}}
         end,
@@ -54,7 +54,7 @@ SMODS.Booster{
         kind = 'ritual',
         cost = 4,
         weight = 0.8,
-        pos = { x = 0, y = 6 },
+        pos = { x = 1, y = 7 },
         loc_vars = function(self, info_queue, card)
             return {vars = {card.config.center.config.choose, card.ability.extra}}
         end,
@@ -93,7 +93,7 @@ SMODS.Booster{
         kind = 'ritual',
         cost = 6,
         weight = 0.8,
-        pos = { x = 2, y = 6 },
+        pos = { x = 2, y = 7 },
         loc_vars = function(self, info_queue, card)
             return {vars = {card.config.center.config.choose, card.ability.extra}}
         end,
@@ -133,7 +133,7 @@ SMODS.Booster{
         kind = 'ritual',
         cost = 8,
         weight = 0.8,
-        pos = { x = 3, y = 6 },
+        pos = { x = 3, y = 7 },
         loc_vars = function(self, info_queue, card)
             return {vars = {card.config.center.config.choose, card.ability.extra}}
         end,
