@@ -39,7 +39,7 @@
             G.GAME.hands['Four of a Kind'].visible = false
             G.GAME.hands['Straight Flush'].visible = false
             G.GAME.doodad_mod = 5
-            G.GAME.keepsake_mod = 2.5
+            G.GAME.keepsake_mod = 0
             G.GAME.curio_mod = 5
             G.GAME.hobby_mod = 5
             G.GAME['common_mod'] = 0
@@ -1084,7 +1084,8 @@ function upgrade_blind(card)
     if card and card.config and card.config.center and card.config.center.upgrade then
         card.config.center.upgrade(card)
         SMODS.Stickers['bld_upgrade']:apply(card, true)
-        play_sound('seal')
+        play_sound('tarot1')
+        --play_sound('seal')
     else
         print("no upgrade function")
     end

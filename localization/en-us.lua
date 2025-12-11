@@ -733,7 +733,7 @@ return {
 				["name"] = "Pentagram",
 				["text"] = {
 					"Destroys {C:attention}#1#{} random Blinds,",
-					"{C:dark_edition,E:1}upgrades{} {C:attention}#2#{} random Blinds",
+					"{C:dark_edition,E:1}Upgrades{} {C:attention}#2#{} random Blinds",
 				},
 			},
 		},
@@ -2824,6 +2824,24 @@ return {
 				["text"] = {
 					"Choose {C:attention}#1#{} of up to",
 					"{C:attention}#2#{C:attention} {C:bld_obj_rune}Rune{} cards to hold",
+				}
+			},
+			["p_bld_ritual_basic1"] = {
+				["group_name"] = "Hallow Pack",
+				["name"] = "Hallow Pack",
+				["text"] = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2#{C:attention} {C:bld_obj_rune}Ritual{} cards to",
+					"use immediately"
+				}
+			},
+			["p_bld_ritual_basic2"] = {
+				["group_name"] = "Hallow Pack",
+				["name"] = "Hallow Pack",
+				["text"] = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2#{C:attention} {C:bld_obj_rune}Ritual{} cards to",
+					"use immediately"
 				}
 			},
 			["bld_upgrade"] = {

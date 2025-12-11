@@ -82,7 +82,7 @@ function Game:blindupdate_shop(dt)
                                             G.load_shop_booster = nil
                                         else
                                         for i=1, G.GAME.starting_params.boosters_in_shop + (G.GAME.last_joker and G.GAME.modifiers.extra_boosters or 0) + (not G.GAME.last_joker and 2 or 1) do
-                                          if G.GAME.last_joker then
+                                          if i <= 2 and G.GAME.last_joker then
                                             G.GAME.current_round.used_packs = G.GAME.current_round.used_packs or {}
                                             if not G.GAME.current_round.used_packs[i] then
                                                 G.GAME.current_round.used_packs[i] = get_pack('shop_pack').key
@@ -97,7 +97,7 @@ function Game:blindupdate_shop(dt)
                                                 G.shop_booster:emplace(card)
                                             end
                                           else
-                                            G.shop_booster:emplace(BLINDSIDE.create_blindcard_for_shop(G.shop_booster))
+                                            G.shop_booster:emplace(BLINDSIDE.create_blindcard_for_shop(G.shop_booster, G.GAME.last_joker))
                                           end
                                         end
 
@@ -271,7 +271,7 @@ end
           play_sound('other1')
 
           for i=1, G.GAME.starting_params.boosters_in_shop + (G.GAME.modifiers.extra_boosters or 0) + (not G.GAME.last_joker and 1 or 1) do -- changed
-            if G.GAME.last_joker then
+            if i <= 2 and G.GAME.last_joker then
                 G.GAME.current_round.used_packs = G.GAME.current_round.used_packs or {}
                 G.GAME.current_round.used_packs[i] = get_pack('shop_pack').key 
                 local card = Card(G.shop_booster.T.x + G.shop_booster.T.w/2, G.shop_booster.T.y, G.CARD_W*1.27, G.CARD_H*1.27, G.P_CARDS.empty, G.P_CENTERS[G.GAME.current_round.used_packs[i]], {bypass_discovery_center = true, bypass_discovery_ui = true})
@@ -280,7 +280,7 @@ end
                 card:start_materialize()
                 G.shop_booster:emplace(card) 
             else
-              G.shop_booster:emplace(BLINDSIDE.create_blindcard_for_shop(G.shop_booster))
+              G.shop_booster:emplace(BLINDSIDE.create_blindcard_for_shop(G.shop_booster, true))
             end
           end
           return true
@@ -331,7 +331,7 @@ end
     end
   end
   
-function BLINDSIDE.create_blindcard_for_shop(area)
+function BLINDSIDE.create_blindcard_for_shop(area, is_boss_shop)
     local forced_tag = nil
     for k, v in ipairs(G.GAME.tags) do
       if not forced_tag then
@@ -343,14 +343,19 @@ function BLINDSIDE.create_blindcard_for_shop(area)
           return forced_tag end
       end
     end
-        local total_rate = G.GAME.blind_rate + G.GAME.bld_obj_filmcard_rate + G.GAME.bld_obj_mineral_rate
+    local blind_rate = is_boss_shop and 0 or G.GAME.blind_rate
+    local film_rate = is_boss_shop and 1 or G.GAME.bld_obj_filmcard_rate
+    local mineral_rate = is_boss_shop and 2 or G.GAME.bld_obj_mineral_rate
+    local rune_rate = is_boss_shop and 0.25 or G.GAME.bld_obj_rune_rate
+        local total_rate = blind_rate + film_rate + mineral_rate + rune_rate
         local polled_rate = pseudorandom(pseudoseed('cdt'..G.GAME.round_resets.ante))*total_rate
         local check_rate = 0
         -- need to preserve order to leave RNG unchanged
         local rates = {
-          {type = 'Base', val = G.GAME.blind_rate},
-          {type = 'bld_obj_filmcard', val = G.GAME.bld_obj_filmcard_rate},
-          {type = 'bld_obj_mineral', val = G.GAME.bld_obj_mineral_rate}
+          {type = 'Base', val = blind_rate},
+          {type = 'bld_obj_filmcard', val = film_rate},
+          {type = 'bld_obj_mineral', val = mineral_rate},
+          {type = 'bld_obj_rune', val = rune_rate}
         }
         for _, v in ipairs(rates) do
           if polled_rate > check_rate and polled_rate <= check_rate + v.val then

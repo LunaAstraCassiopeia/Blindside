@@ -367,7 +367,7 @@ local channel_list = {
         "crime",
         "thriller",
         "experimental",
-        "variety",
+        --"variety",
 }
 
 local mineral_list = {
@@ -393,7 +393,9 @@ local rune_list = {
 }
 
 local ritual_list = {
-    "sacrifice"
+    "prayer",
+    "pentagram"
+    --"sacrifice"
 }
 
 
