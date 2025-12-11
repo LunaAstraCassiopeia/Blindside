@@ -1080,15 +1080,6 @@ else
     end
 end
 
-function tableContains(value, tbl)
-  for _, v in ipairs(tbl) do
-    if v == value then
-      return true
-    end
-  end
-  return false
-end
-
 function upgrade_blind(card)
     if card and card.config and card.config.center and card.config.center.upgrade then
         card.config.center.upgrade(card)
@@ -1096,6 +1087,7 @@ function upgrade_blind(card)
         print("no upgrade function")
     end
 end
+
 ----------------------------------------------
 ------------MOD CODE END----------------------
 

@@ -79,8 +79,91 @@
         px = 34,
         py = 34,
     })
-    
+
+function tableContains(value, tbl)
+  for _, v in ipairs(tbl) do
+    if v == value then
+      return true
+    end
+  end
+  return false
+end
+
 BLINDSIDE = {}
+
+---@alias hue "Red" | "Green" | "Blue" | "Yellow" | "Purple" | "Faded"
+
+---@ class BLINDSIDE.Blind : SMODS.Enhancement
+---@ field upgrade fun(self: BLINDSIDE.Blind, card: Card): nil
+---@ field hues hue[]
+---@ field basic? boolean Whether this blind is basic and should be excluded from pools.
+---@ field rare? boolean Whether this blind is rare.
+---@ field hidden? boolean Whether this blind can spawn naturally, but is not necessarily basic.
+BLINDSIDE.Blind = SMODS.Enhancement:extend {
+    in_pool = function(self, args)
+        if G.GAME.selected_back.effect.center.config.extra then
+            if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
+            return true
+        else
+        return false
+        end
+    end,
+    replace_base_card = true,
+    no_rank = true,
+    no_suit = true,
+    overrides_base_rank = true,
+}
+
+function BLINDSIDE.Blind:set_params()
+    self.pools = {}
+
+    for key, hue in pairs(self.hues) do
+        self.pools['bld_obj_blindcard_' .. string.lower(hue)] = true
+    end
+
+    if #self.hues > 1 then
+        self.pools["bld_obj_blindcard_dual"] = true
+    else
+        self.pools["bld_obj_blindcard_single"] = true
+    end
+
+    if not self.basic and not self.hidden then
+        self.pools["bld_obj_blindcard_generate"] = true
+
+        if tableContains("Red", self.hues) or tableContains("Yellow", self.hues) or tableContains("Green", self.hues) then
+            self.pools["bld_obj_blindcard_warm"] = true
+        end
+
+        if tableContains("Green", self.hues) or tableContains("Blue", self.hues) or tableContains("Purple", self.hues) then
+            self.pools["bld_obj_blindcard_cool"] = true
+        end
+    end
+
+    if not self.config then
+        self.config = {}
+    end
+
+    if not self.config.extra then
+        self.config.extra = {}
+    end
+
+    -- necessary to pass it down to SMODS.Enhancement
+    self.config.extra.hues = self.hues
+
+    if self.rare then
+        self.weight = 3 -- secret code for "i am rare"
+    end
+
+    return self
+end
+
+local meta = getmetatable(BLINDSIDE.Blind)
+local oldcall = meta.__call
+
+meta.__call = function (...)
+    local this = oldcall(...)
+    return this:set_params()
+end
 
 SMODS.current_mod.optional_features = {
     retrigger_joker = true,
