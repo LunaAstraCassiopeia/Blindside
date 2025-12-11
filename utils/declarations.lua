@@ -203,6 +203,7 @@
         "c_bld_historical",
         "c_bld_speculative",
         "c_bld_drama",
+        "c_bld_variety",
         "c_bld_stibnite",
         "c_bld_cinnabar",
         "c_bld_platinum",

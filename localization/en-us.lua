@@ -879,6 +879,14 @@ return {
 					"Create {C:attention}#1# Reroll{} tag"
 				},
 			},
+			["c_bld_variety"] = {
+				["name"] = "Variety",
+				["text"] = {
+                    "Creates up to {C:attention}#1#",
+                    "random {C:bld_obj_filmcard}Channel{} cards",
+                    "{C:inactive}(Must have room)"
+				},
+			},
 		},
 		["Blind"] = {
 			["bl_bld_joker"] = {

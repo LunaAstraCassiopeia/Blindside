@@ -367,6 +367,7 @@ local channel_list = {
         "crime",
         "thriller",
         "experimental",
+        "variety",
 }
 
 local mineral_list = {
