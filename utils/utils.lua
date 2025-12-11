@@ -791,8 +791,8 @@ end
 
 function BLINDSIDE.get_next_trinket(trinkets)
     trinkets = trinkets or {spawn = {}}
+    for i=#trinkets+1, G.GAME.shop.joker_max do
     local _pool, _pool_key = get_current_pool('Joker')
-    for i=#trinkets+1, math.min(SMODS.size_of_pool(_pool), G.GAME.shop.joker_max) do
         local center = pseudorandom_element(_pool, pseudoseed(_pool_key))
         local it = 1
         while center == 'UNAVAILABLE' or trinkets.spawn[center] do
