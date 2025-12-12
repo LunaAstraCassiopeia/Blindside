@@ -1846,8 +1846,8 @@ return {
 				["text"] = {
 					{"{X:purple,C:white}Purple{}",
 					"{X:mult,C:white}X#1#{} Mult"},
-					{"Debuff the scoring",
-					"Blind to the left"},
+					{"Debuff all scoring",
+					"{C:white,X:red}Red{} Blinds"},
 				},
 			},
 			["m_bld_snow"] = {
