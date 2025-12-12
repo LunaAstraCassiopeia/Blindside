@@ -4,7 +4,7 @@
         atlas = 'bld_trinkets',
         pos = {x = 6, y = 5},
         rarity = 'bld_doodad',
-        cost = 9,
+        cost = 12,
         config = {
             extra = {
                 multreduc = 1
