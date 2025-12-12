@@ -729,6 +729,13 @@ return {
 					"selected Blind",
 				},
 			},
+			["c_bld_pentagram"] = {
+				["name"] = "Pentagram",
+				["text"] = {
+					"Destroys {C:attention}#1#{} random Blinds,",
+					"{C:dark_edition,E:1}Upgrades{} {C:attention}#2#{} random Blinds",
+				},
+			},
 		},
 		["bld_obj_filmcard"] = {
 			["c_bld_horror"] = {
@@ -870,6 +877,21 @@ return {
 				["name"] = "Experimental",
 				["text"] = {
 					"Create {C:attention}#1# Reroll{} tag"
+				},
+			},
+			["c_bld_variety"] = {
+				["name"] = "Variety",
+				["text"] = {
+                    "Creates up to {C:attention}#1#",
+                    "random {C:bld_obj_filmcard}Channel{} cards",
+                    "{C:inactive}(Must have room)"
+				},
+			},
+			["c_bld_sports"] = {
+				["name"] = "Sports",
+				["text"] = {
+                    "Randomly {C:attention}enhance{} up to",
+					"{C:attention}#1#{} selected Blinds",
 				},
 			},
 		},
@@ -2809,6 +2831,24 @@ return {
 				["text"] = {
 					"Choose {C:attention}#1#{} of up to",
 					"{C:attention}#2#{C:attention} {C:bld_obj_rune}Rune{} cards to hold",
+				}
+			},
+			["p_bld_ritual_basic1"] = {
+				["group_name"] = "Hallow Pack",
+				["name"] = "Hallow Pack",
+				["text"] = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2#{C:attention} {C:bld_obj_rune}Ritual{} cards to",
+					"use immediately"
+				}
+			},
+			["p_bld_ritual_basic2"] = {
+				["group_name"] = "Hallow Pack",
+				["name"] = "Hallow Pack",
+				["text"] = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2#{C:attention} {C:bld_obj_rune}Ritual{} cards to",
+					"use immediately"
 				}
 			},
 			["bld_upgrade"] = {

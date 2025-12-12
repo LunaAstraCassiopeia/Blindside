@@ -38,10 +38,10 @@
             G.GAME.hands['Full House'].visible = false
             G.GAME.hands['Four of a Kind'].visible = false
             G.GAME.hands['Straight Flush'].visible = false
-            G.GAME.bld_doodad_mod = 5
-            G.GAME.bld_keepsake_mod = 2.5
-            G.GAME.bld_curio_mod = 5
-            G.GAME.bld_hobby_mod = 5
+            G.GAME.doodad_mod = 5
+            G.GAME.keepsake_mod = 5
+            G.GAME.curio_mod = 5
+            G.GAME.hobby_mod = 5
             G.GAME['common_mod'] = 0
             G.GAME['rare_mod'] = 0
             G.GAME['uncommon_mod'] = 0
@@ -1083,8 +1083,61 @@ end
 function upgrade_blind(card)
     if card and card.config and card.config.center and card.config.center.upgrade then
         card.config.center.upgrade(card)
+        SMODS.Stickers['bld_upgrade']:apply(card, true)
+        play_sound('tarot1')
+        --play_sound('seal')
     else
         print("no upgrade function")
+    end
+end
+
+function choose_stuff(pool, number, seed)
+    local chosen_stuff = {}
+    local choices = {}
+    for key, value in pairs(pool) do
+        table.insert(choices, value)
+    end
+    while #chosen_stuff < number and #choices > 0 do
+        local choices2 = {}
+        for key, value in pairs(choices) do
+            table.insert(choices2, value)
+        end
+
+        local card = pseudorandom_element(choices, pseudoseed(seed))
+        table.insert(chosen_stuff, card)
+
+        choices = {}
+        for key, value in pairs(choices2) do
+            if value ~= card then
+                table.insert(choices, value)
+            end
+        end
+    end
+
+    return chosen_stuff
+end
+
+function destroy_blinds_and_calc(destroyed_cards, card)
+    G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+        play_sound('tarot1')
+        card:juice_up(0.3, 0.5)
+        return true end }))
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.2,
+        func = function() 
+            for i=#destroyed_cards, 1, -1 do
+                local card = destroyed_cards[i]
+                if card.ability.name == 'Glass Card' then 
+                    card:shatter()
+                else
+                    card:start_dissolve(nil, i == #destroyed_cards)
+                end
+            end
+            return true end }))
+    delay(0.3)
+    for i = 1, #G.jokers.cards do
+        G.jokers.cards[i]:calculate_joker({remove_playing_cards = true, removed = destroyed_cards})
     end
 end
 

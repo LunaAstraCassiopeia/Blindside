@@ -1,12 +1,12 @@
 SMODS.Booster{
         key = 'ritual_basic1',
-        config = {extra = 3, choose = 1},
+        config = {extra = 2, choose = 1},
         discovered = false,
         get_weight = function(self)
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 0.4
+                return 1.8 --prior tested value is 0.8
             else
                 return 0
             end
@@ -14,8 +14,9 @@ SMODS.Booster{
         atlas = 'bld_booster',
         kind = 'ritual',
         cost = 4,
-        weight = 0.8,
-        pos = { x = 0, y = 6 },
+        weight = 2,
+        draw_hand = true,
+        pos = { x = 0, y = 7 },
         loc_vars = function(self, info_queue, card)
             return {vars = {card.config.center.config.choose, card.ability.extra}}
         end,
@@ -34,18 +35,17 @@ SMODS.Booster{
         create_card = function(self, card)
             return {set = "bld_obj_ritual", area = G.pack_cards, skip_materialize = true, soulable = false}
         end,
-        select_card = 'consumeables',
         group_key = "k_bld_ritual_pack",
 }
 SMODS.Booster{
         key = 'ritual_basic2',
-        config = {extra = 3, choose = 1},
+        config = {extra = 2, choose = 1},
         discovered = false,
         get_weight = function(self)
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 0.4
+                return 1.8 --prior tested value is 0.8
             else
                 return 0
             end
@@ -53,8 +53,9 @@ SMODS.Booster{
         atlas = 'bld_booster',
         kind = 'ritual',
         cost = 4,
-        weight = 0.8,
-        pos = { x = 0, y = 6 },
+        weight = 2,
+        draw_hand = true,
+        pos = { x = 1, y = 7 },
         loc_vars = function(self, info_queue, card)
             return {vars = {card.config.center.config.choose, card.ability.extra}}
         end,
@@ -73,7 +74,6 @@ SMODS.Booster{
         create_card = function(self, card)
             return {set = "bld_obj_ritual", area = G.pack_cards, skip_materialize = true, soulable = false}
         end,
-        select_card = 'consumeables',
         group_key = "k_bld_ritual_pack",
 }
 SMODS.Booster{
@@ -84,7 +84,7 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 0.2
+                return 0--0.4
             else
                 return 0
             end
@@ -93,7 +93,7 @@ SMODS.Booster{
         kind = 'ritual',
         cost = 6,
         weight = 0.8,
-        pos = { x = 2, y = 6 },
+        pos = { x = 2, y = 7 },
         loc_vars = function(self, info_queue, card)
             return {vars = {card.config.center.config.choose, card.ability.extra}}
         end,
@@ -124,7 +124,7 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 0.1
+                return 0--0.2
             else
                 return 0
             end
@@ -133,7 +133,7 @@ SMODS.Booster{
         kind = 'ritual',
         cost = 8,
         weight = 0.8,
-        pos = { x = 3, y = 6 },
+        pos = { x = 3, y = 7 },
         loc_vars = function(self, info_queue, card)
             return {vars = {card.config.center.config.choose, card.ability.extra}}
         end,

@@ -94,11 +94,11 @@ BLINDSIDE = {}
 ---@alias hue "Red" | "Green" | "Blue" | "Yellow" | "Purple" | "Faded"
 
 ---@ class BLINDSIDE.Blind : SMODS.Enhancement
----@ field upgrade fun(self: BLINDSIDE.Blind, card: Card): nil
----@ field hues hue[]
----@ field basic? boolean Whether this blind is basic and should be excluded from pools.
----@ field rare? boolean Whether this blind is rare.
----@ field hidden? boolean Whether this blind can spawn naturally, but is not necessarily basic.
+---@ field upgrade fun(self: BLINDSIDE.Blind, card: Card): nil Function to define how a blind's config.extra table changes when it becomes upgraded. Not technically required, but upgrades fail otherwise. Must set card.ability.extra.upgraded = true.
+---@ field hues hue[] Table of hues. 99% of blinds have 1 or 2 hues. Required.
+---@ field basic? boolean Whether this blind is basic and should be excluded from generation.
+---@ field rare? boolean Whether this blind is rare and should generate less often.
+---@ field hidden? boolean Whether this blind is excluded from generation (not required for basic blinds).
 BLINDSIDE.Blind = SMODS.Enhancement:extend {
     in_pool = function(self, args)
         if G.GAME.selected_back.effect.center.config.extra then
@@ -367,6 +367,8 @@ local channel_list = {
         "crime",
         "thriller",
         "experimental",
+        "sports",
+        --"variety",
 }
 
 local mineral_list = {
@@ -392,7 +394,9 @@ local rune_list = {
 }
 
 local ritual_list = {
-    "sacrifice"
+    "prayer",
+    "pentagram"
+    --"sacrifice"
 }
 
 
