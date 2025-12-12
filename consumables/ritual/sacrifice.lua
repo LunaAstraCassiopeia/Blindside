@@ -11,7 +11,7 @@ SMODS.Consumable {
     can_use = function (self, card)
         return G.hand and #G.hand.cards > 0
     end,
-    pos = {x=1, y=0},
+    pos = {x=9, y=3},
     use = function(self, card, area)
         local destroyed_cards = choose_stuff(G.hand.cards, 4, 'sacrifice')
         destroy_blinds_and_calc(destroyed_cards, card)

@@ -222,7 +222,7 @@
         "c_bld_halcyon",
         "c_bld_montain",
         "c_bld_joker404",
-        --"c_bld_sacrifice",
+        "c_bld_sacrifice",
         "c_bld_prayer",
         "c_bld_pentagram",
         "bld_wild",
