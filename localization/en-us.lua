@@ -1196,6 +1196,18 @@ return {
 					{"Otherwise, {C:mult}+#2#{} Mult"}
 				},
 			},
+			["m_bld_ox_upgraded"] = {
+				["name"] = "The Ox",
+				["text"] = {
+					{"{X:money,C:white}Yellow{}",
+					"{C:money}+#1#${} if played",
+					"{C:attention}poker hand{} is most",
+					"played this run"},
+					{"Otherwise, {C:mult}+#2#{} Mult"},
+					{"Also scores when",
+					"{C:attention}held in hand"}
+				},
+			},
 			["m_bld_wall"] = {
 				["name"] = "The Wall",
 				["text"] = {
@@ -1454,7 +1466,14 @@ return {
 					{"Always Scores"},
 					{"If played hand conatins",
 					"{C:attention}5{} Blinds, debuffs self",}
-					
+				},
+			},
+			["m_bld_manacle_upgraded"] = {
+				["name"] = "The Manacle",
+				["text"] = {
+					{"{X:dark_edition,C:white}Faded{}",
+					"Retriggers all {C:attention}scored blinds"},
+					{"Always Scores"},
 				},
 			},
 			["m_bld_pot"] = {
@@ -1522,6 +1541,15 @@ return {
 					"{C:chips}+#1#{} Chips"},
 					{"Hand must",
 					"be {C:attention}Bet"},
+				},
+			},
+			["m_bld_meteor_upgraded"] = {
+				["name"] = "The Meteor",
+				["text"] = {
+					{"{X:blue,C:white}Blue{}",
+					"{C:chips}+#1#{} Chips"},
+					{"Hand must be",
+					"{C:attention}Bet or {C:attention}Pair"},
 				},
 			},
 			["m_bld_joy"] = {

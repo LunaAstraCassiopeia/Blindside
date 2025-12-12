@@ -6,6 +6,7 @@
             extra = {
             xmult = 1.5,
                 value = 12,
+                xmult_gain = 0.5,
                 cards_to_hand = {},
                 flipped = true,
                 hues = {"Red"}
@@ -43,6 +44,12 @@
                 }
             }
         end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_gain
+            card.ability.extra.upgraded = true
+            end
+        end
     })
 ----------------------------------------------
 ------------MOD CODE END----------------------

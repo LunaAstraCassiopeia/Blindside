@@ -6,6 +6,7 @@
             extra = {
                 value = 15,
                 money = 2,
+                money_up = 1,
                 hues = {"Yellow"}
             }
         },
@@ -42,6 +43,12 @@
                 }
             }
         end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.money = card.ability.extra.money + card.ability.extra.money_up
+            card.ability.extra.upgraded = true
+            end
+        end
     })
     
 ----------------------------------------------

@@ -4,7 +4,8 @@
         pos = {x = 0, y = 2},
         config = {
             extra = {
-                xmult = 2,
+                xmult = 1.75,
+                xmult_up = 0.75,
                 value = 13,
                 hues = {"Purple"}
             }},
@@ -50,6 +51,12 @@
                     card.ability.extra.xmult
                 }
             }
+        end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmult_up
+            card.ability.extra.upgraded = true
+            end
         end
     })
 ----------------------------------------------

@@ -69,10 +69,16 @@
         end,
         loc_vars = function(self, info_queue, card)
             return {
+                key = card.ability.extra.upgraded and 'm_bld_manacle_upgraded' or 'm_bld_manacle',
                 vars = {
                     card.ability.extra.money
                 }
             }
+        end,
+        upgrade = function(card)
+            if not card.ability.extra.upgraded then
+            card.ability.extra.upgraded = true
+            end
         end
     })
 ----------------------------------------------

@@ -7,6 +7,7 @@
             extra = {
                 value = 100,
                 poker_hand = "bld_blind_2pair",
+                --new_hand = "bld_blind_2oak",
                 hues = {"Red", "Blue"}
             }},
         pools = {

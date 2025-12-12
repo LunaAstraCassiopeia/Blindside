@@ -6,6 +6,7 @@
             extra = {
                 value = 16,
                 chips_mod = 300,
+                chips_up = 50,
                 hues = {"Blue"}
             }},
         replace_base_card = true,
@@ -29,7 +30,7 @@
         },
         calculate = function(self, card, context) 
             if context.cardarea == G.play and context.main_scoring then
-            if context.scoring_name == 'bld_blind_high' then
+            if context.scoring_name == 'bld_blind_high' or (context.scoring_name == 'bld_blind_2oak' and card.ability.extra.upgraded) then
                 return {
                     chips = card.ability.extra.chips_mod
                 }
@@ -46,10 +47,17 @@
         end,
         loc_vars = function(self, info_queue, card)
             return {
+                key = card.ability.extra.upgraded and 'm_bld_meteor_upgraded' or 'm_bld_meteor',
                 vars = {
                     card.ability.extra.chips_mod
                 }
             }
+        end,
+        upgrade = function(card)
+            if not card.ability.extra.upgraded then
+                card.ability.extra.chips_mod = card.ability.extra.chips_mod + card.ability.extra.chipsup
+                card.ability.extra.upgraded = true
+            end
         end
     })
 ----------------------------------------------

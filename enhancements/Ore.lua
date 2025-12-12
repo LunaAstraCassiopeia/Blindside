@@ -6,7 +6,8 @@
             extra = {
                 value = 14,
                 money = 3,
-                hues = {"Yellow"}
+                hues = {"Yellow"},
+                money_up = 5,
             }},
         replace_base_card = true,
         no_rank = true,
@@ -47,8 +48,13 @@
             if context.burn_card and context.cardarea == G.play and context.burn_card == card then
                 return { remove = true }
             end
-
         end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.money = card.ability.extra.money + card.ability.extra.money_up
+            card.ability.extra.upgraded = true
+            end
+        end
     })
 ----------------------------------------------
 ------------MOD CODE END----------------------
