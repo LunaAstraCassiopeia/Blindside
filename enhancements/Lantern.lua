@@ -38,7 +38,7 @@
                 })]]
             end
             if context.cardarea == G.play and context.main_scoring then
-                if not next(context.poker_hands['bld_blind_3oak']) then
+                if not has_group_of(3, context.poker_hands) then
                     return {
                         xchips = card.ability.extra.xchips
                     }
