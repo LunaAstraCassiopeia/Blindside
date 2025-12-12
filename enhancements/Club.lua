@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'club',
         atlas = 'bld_blindrank',
         pos = {x = 6, y = 0},
@@ -9,8 +9,8 @@
                 multup = 5,
                 xmultup = 0.25,
                 value = 100,
-                hues = {"Yellow", "Faded"}
             }},
+        hues = {"Yellow", "Faded"},
         replace_base_card = true,
         no_rank = true,
         no_suit = true,
@@ -23,13 +23,6 @@
             return false
             end
         end,
-        pools = {
-            ["bld_obj_blindcard_generate"] = true,
-            ["bld_obj_blindcard_warm"] = true,
-            ["bld_obj_blindcard_dual"] = true,
-            ["bld_obj_blindcard_yellow"] = true,
-            ["bld_obj_blindcard_faded"] = true,
-        },
         calculate = function(self, card, context)
                 if context.cardarea == G.play and context.before and card.facing ~= 'back' then
                     for i=1, #G.play.cards do
@@ -49,7 +42,7 @@
                     end
                 end
         end,
-        weight = 3,
+        rare = true,
         loc_vars = function(self, info_queue, card)
             return {
                 vars = {

@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'bell',
         atlas = 'bld_blindrank',
         pos = {x = 6, y = 4},
@@ -8,12 +8,13 @@
                 chips = 20,
                 chips_mod = 40,
                 chips_modup = 20,
-                hues = {"Green"}
             }
         },
         replace_base_card = true,
         no_rank = true,
         no_suit = true,
+        hues = {"Green"},
+        rare = true,
         overrides_base_rank = true,
         in_pool = function(self, args)
             if G.GAME.selected_back.effect.center.config.extra then
@@ -23,14 +24,6 @@
             return false
             end
         end,
-        weight = 3,
-        pools = {
-            ["bld_obj_blindcard_generate"] = true,
-            ["bld_obj_blindcard_cool"] = true,
-            ["bld_obj_blindcard_warm"] = true,
-            ["bld_obj_blindcard_single"] = true,
-            ["bld_obj_blindcard_green"] = true,
-        },
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.main_scoring then
                 return {
@@ -46,12 +39,12 @@
                 }
             }
         end,
-    upgrade = function(card) 
-        if not card.ability.extra.upgraded then
-            card.ability.extra.chips_mod =card.ability.extra.chips_mod + card.ability.extra.chips_modup
-        card.ability.extra.upgraded = true
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+                card.ability.extra.chips_mod =card.ability.extra.chips_mod + card.ability.extra.chips_modup
+            card.ability.extra.upgraded = true
+            end
         end
-    end
     })
     
 ----------------------------------------------

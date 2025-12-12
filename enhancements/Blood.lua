@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'blood',
         atlas = 'bld_blindrank',
         pos = {x = 0, y = 4},
@@ -8,8 +8,9 @@
                 mult = 0,
                 mult_mod = 10,
                 mult_modup = 5,
-                hues = {"Red"}
             }},
+        hues = {"Red"},
+        rare = true,
         replace_base_card = true,
         no_rank = true,
         no_suit = true,
@@ -22,13 +23,6 @@
             return false
             end
         end,
-        pools = {
-            ["bld_obj_blindcard_generate"] = true,
-            ["bld_obj_blindcard_warm"] = true,
-            ["bld_obj_blindcard_single"] = true,
-            ["bld_obj_blindcard_red"] = true,
-        },
-        weight = 3,
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.before and card.facing ~= 'back' then
                 if #G.jokers.cards > 0 then

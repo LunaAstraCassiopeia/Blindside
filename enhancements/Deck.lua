@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'deck',
         atlas = 'bld_blindrank',
         pos = {x = 3, y = 4},
@@ -7,8 +7,8 @@
                 value = 13,
                 chips = 4,
                 chipsup = 4,
-                hues = {"Blue"}
             }},
+        hues = {"Blue"},
         replace_base_card = true,
         no_rank = true,
         no_suit = true,
@@ -21,12 +21,6 @@
             return false
             end
         end,
-        pools = {
-            ["bld_obj_blindcard_generate"] = true,
-            ["bld_obj_blindcard_cool"] = true,
-            ["bld_obj_blindcard_single"] = true,
-            ["bld_obj_blindcard_blue"] = true,
-        },
         calculate = function(self, card, context) 
             if context.cardarea == G.play and context.main_scoring then
                 return {

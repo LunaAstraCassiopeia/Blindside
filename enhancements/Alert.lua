@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'alert',
         atlas = 'bld_blindrank',
         pos = {x = 3, y = 6},
@@ -61,7 +61,7 @@
                 }
             end
         end,
-        weight = 3,
+        rare = true,
         loc_vars = function(self, info_queue, card)
             return {
                 vars = {

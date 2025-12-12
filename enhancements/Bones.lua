@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'bones',
         atlas = 'bld_blindrank',
         pos = {x = 6, y = 3},
@@ -6,8 +6,9 @@
             extra = {
                 value = 100,
                 chance = 3,
-                hues = {"Green", "Faded"}
             }},
+        hues = {"Green", "Faded"},
+        rare = true,
         replace_base_card = true,
         no_rank = true,
         no_suit = true,
@@ -20,15 +21,6 @@
             return false
             end
         end,
-        weight = 3,
-        pools = {
-            ["bld_obj_blindcard_generate"] = true,
-            ["bld_obj_blindcard_cool"] = true,
-            ["bld_obj_blindcard_warm"] = true,
-            ["bld_obj_blindcard_dual"] = true,
-            ["bld_obj_blindcard_green"] = true,
-            ["bld_obj_blindcard_faded"] = true,
-        },
         calculate = function(self, card, context)
                 if (context.cardarea == G.play or (card.ability.extra.upgraded and context.cardarea == G.hand)) and context.before then
 		            G.GAME.probabilities.normal = G.GAME.probabilities.normal + card.ability.extra.chance

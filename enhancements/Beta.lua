@@ -1,4 +1,4 @@
-SMODS.Enhancement({
+    BLINDSIDE.Blind({
     key = 'beta',
     atlas = 'bld_blindrank',
     pos = {x = 0, y = 7},
@@ -7,11 +7,12 @@ SMODS.Enhancement({
             value = 1,
             chips = 100,
             chipsup = 50,
-            hues = {"Blue"},
         }},
     replace_base_card = true,
     no_rank = true,
     no_suit = true,
+    hues = {"Blue"},
+    hidden = true,
     always_scores = true,
     overrides_base_rank = true,
     calculate = function(self, card, context)

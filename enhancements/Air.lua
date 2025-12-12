@@ -1,16 +1,17 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'air',
         atlas = 'bld_blindrank',
         pos = {x = 0, y = 5},
         config = {
             extra = {
                 value = 14,
-                hues = {"Faded"}
             }
         },
         replace_base_card = true,
         no_rank = true,
         no_suit = true,
+        hues = {"Faded"},
+        rare = true,
         overrides_base_rank = true,
         always_scores = true,
         in_pool = function(self, args)
@@ -21,7 +22,6 @@
             return false
             end
         end,
-        weight = 3,
         pools = {
             ["bld_obj_blindcard_generate"] = true,
             ["bld_obj_blindcard_single"] = true,

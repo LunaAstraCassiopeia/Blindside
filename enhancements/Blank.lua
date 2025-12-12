@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'blank',
         atlas = 'bld_blindrank',
         pos = {x = 0, y = 0},
@@ -7,11 +7,12 @@
             extra = {
                 value = 1,
                 rescore = 1,
-                hues = {"Faded"},
             }},
         replace_base_card = true,
         no_rank = true,
         no_suit = true,
+        hues = {"Faded"},
+        basic = true,
         always_scores = true,
         overrides_base_rank = true,
         in_pool = function(self, args)
@@ -22,10 +23,6 @@
             return false
             end
         end,
-        pools = {
-            ["bld_obj_blindcard_single"] = true,
-            ["bld_obj_blindcard_faded"] = true,
-        },
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.main_scoring and context.scoring_hand then
                 return {
@@ -62,6 +59,11 @@
                         end,
                     }
             end
+        end,
+        loc_vars = function(self, info_queue, card)
+            return {
+                key = card.ability.extra.upgraded and 'm_bld_blank_upgrade' or 'm_bld_blank',
+            }
         end,
         upgrade = function(card) 
             if not card.ability.extra.upgraded then

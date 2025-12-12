@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'arm',
         atlas = 'bld_blindrank',
         pos = {x = 3, y = 1},
@@ -7,11 +7,11 @@
                 value = 10,
                 chance = 1,
                 trigger = 2,
-                hues = {"Purple"}
             }},
         replace_base_card = true,
         no_rank = true,
         no_suit = true,
+        hues = {"Purple"},
         overrides_base_rank = true,
         always_scores = true,
         in_pool = function(self, args)
@@ -22,12 +22,6 @@
             return false
             end
         end,
-        pools = {
-            ["bld_obj_blindcard_generate"] = true,
-            ["bld_obj_blindcard_cool"] = true,
-            ["bld_obj_blindcard_single"] = true,
-            ["bld_obj_blindcard_purple"] = true,
-        },
         calculate = function(self, card, context)
                 if context.cardarea == G.play and context.before then
                     if SMODS.pseudorandom_probability(card, pseudoseed("flip"), card.ability.extra.chance, card.ability.extra.trigger, 'flip') and card.facing ~= 'back' or card.ability.extra.upgraded then

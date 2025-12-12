@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'bite',
         atlas = 'bld_blindrank',
         pos = {x = 6, y = 5},
@@ -7,11 +7,12 @@
                 xmult = 1.35,
                 value = 11,
                 xmultup = 0.4,
-                hues = {"Purple"},
             }},
         replace_base_card = true,
         no_rank = true,
         no_suit = true,
+        hues = {"Purple"},
+        basic = true,
         overrides_base_rank = true,
         in_pool = function(self, args)
             if G.GAME.selected_back.effect.center.config.extra then
@@ -21,10 +22,6 @@
             return false
             end
         end,
-        pools = {
-            ["bld_obj_blindcard_single"] = true,
-            ["bld_obj_blindcard_purple"] = true,
-        },
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.before and card.facing ~= 'back' then
                 for i=1, #G.play.cards do

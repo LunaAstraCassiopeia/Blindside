@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'door',
         atlas = 'bld_blindrank',
         pos = {x = 9, y = 7},
@@ -9,8 +9,8 @@
                 value = 4,
                 x_multup = 0.25,
                 bonusup = 40,
-                hues = {"Faded", "Red", "Green", "Blue", "Purple", "Yellow"}
             }},
+        hues = {"Faded", "Red", "Green", "Blue", "Purple", "Yellow"},
         replace_base_card = true,
         no_rank = true,
         no_suit = true,
@@ -29,20 +29,7 @@
             return false
             end
         end,
-        weight = 4,
-        pools = {
-            ["bld_obj_blindcard_generate"] = false,
-            ["bld_obj_blindcard_single"] = false,
-            ["bld_obj_blindcard_dual"] = false,
-            ["bld_obj_blindcard_faded"] = false,
-            ["bld_obj_blindcard_red"] = false,
-            ["bld_obj_blindcard_green"] = false,
-            ["bld_obj_blindcard_blue"] = false,
-            ["bld_obj_blindcard_yellow"] = false,
-            ["bld_obj_blindcard_purple"] = false,
-            ["bld_obj_blindcard_warm"] = false,
-            ["bld_obj_blindcard_cool"] = false,
-        },
+        rare = true,
         loc_vars = function(self, info_queue, card)
             return {
                 vars = {

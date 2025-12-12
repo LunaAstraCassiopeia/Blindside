@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'atomic',
         atlas = 'bld_blindrank',
         pos = {x = 0, y = 9},
@@ -8,11 +8,12 @@
                 odds = 2,
                 repetitions = 2,
                 value = 1000,
-                hues = {"Yellow", "Green"}
             }},
         replace_base_card = true,
         no_rank = true,
         no_suit = true,
+        hues = {"Yellow", "Green"},
+        hidden = true,
         overrides_base_rank = true,
         in_pool = function(self, args)
             if G.GAME.selected_back.effect.center.config.extra then
@@ -22,7 +23,6 @@
                 return false
             end
         end,
-        weight = 0,
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.main_scoring then
                 card.ability.extra.goingtoburn = true

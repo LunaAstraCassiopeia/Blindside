@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'cloth',
         atlas = 'bld_blindrank',
         pos = {x = 9, y = 5},
@@ -7,8 +7,8 @@
                 value = 17,
                 ikeeptrackofdiscards = 0,
                 text = nil,
-                hues = {"Red"}
             }},
+        hues = {"Red"},
         replace_base_card = true,
         no_rank = true,
         no_suit = true,
@@ -21,12 +21,6 @@
             return false
             end
         end,
-        pools = {
-            ["bld_obj_blindcard_generate"] = true,
-            ["bld_obj_blindcard_warm"] = true,
-            ["bld_obj_blindcard_single"] = true,
-            ["bld_obj_blindcard_red"] = true,
-        },
         calculate = function(self, card, context)
             if context.pre_discard and not context.hook then
                 card.ability.extra.text = nil
@@ -51,7 +45,7 @@
                 }
             end
         end,
-        weight = 3,
+        rare = true,
         loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}
         end,

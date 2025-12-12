@@ -1,13 +1,15 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'deep',
         atlas = 'bld_blindrank',
         pos = {x = 1, y = 9},
         config = {
             extra = {
                 xchips = 1.5,
+                xchipsup = 0.5,
                 value = 1000,
-                hues = {"Blue", "Faded"}
             }},
+        hues = {"Blue", "Faded"},
+        hidden = true,
         replace_base_card = true,
         no_rank = true,
         no_suit = true,
@@ -21,13 +23,6 @@
             end
         end,
         --weight = 1,
-        pools = {
-            ["bld_obj_blindcard_generate"] = true,
-            ["bld_obj_blindcard_cool"] = true,
-            ["bld_obj_blindcard_dual"] = true,
-            ["bld_obj_blindcard_blue"] = true,
-            ["bld_obj_blindcard_faded"] = true,
-        },
         calculate = function(self, card, context)
             if context.cardarea == G.hand and context.individual then
                 if context.other_card:is_color("Blue") then
@@ -44,6 +39,12 @@
                     card.ability.extra.xchips,
                 }
             }
+        end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.xchips = card.ability.extra.xchips + card.ability.extra.xchipsup
+            card.ability.extra.upgraded = true
+            end
         end
     })
 ----------------------------------------------
