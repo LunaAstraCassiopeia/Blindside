@@ -375,14 +375,33 @@ function set_consumeable_usage(card)
     end
 end
 
--- local deletethis = G.FUNCS.draw_from_deck_to_hand
--- function G.FUNCS.draw_from_deck_to_hand(...)
---     print("base-drawing")
---     return deletethis(...)
--- end
+local debug_print = false
+
+local draw_hook = G.FUNCS.draw_from_deck_to_hand
+function G.FUNCS.draw_from_deck_to_hand(...)
+    if debug_print then print("base-drawing: " .. tostring(...)) end
+    if BLINDSIDE.draw_queued then
+        if debug_print then print("base-draw: declined") end
+        return
+    end
+    return draw_hook(...)
+end
+
+local emplace_hook = CardArea.emplace
+
+function CardArea:emplace(card, ...)
+    for _,c in pairs(self.cards) do
+        if card == c then
+            -- you're already here twin, get out
+            return
+        end
+    end
+    return emplace_hook(self,card,...)
+end
 
 G.FUNCS.blind_draw_from_deck_to_hand = function(e)
-    -- print("blind-drawing")
+    if debug_print then print("blind-drawing: " .. tostring(e)) end
+    BLINDSIDE.draw_queued = true
     local hand_space = e
     local cards_to_draw = {}
     if not hand_space then
@@ -492,6 +511,13 @@ G.FUNCS.blind_draw_from_deck_to_hand = function(e)
                 SMODS.drawn_cards = {}
                 if G.GAME.facing_blind then G.GAME.current_round.any_hand_drawn = true end
             end
+            return true
+        end
+    }))
+
+    G.E_MANAGER:add_event(Event({
+        func = function()
+            BLINDSIDE.draw_queued = nil --????????
             return true
         end
     }))
