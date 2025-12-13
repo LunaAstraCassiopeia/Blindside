@@ -273,8 +273,7 @@ return {
 			["v_bld_antidote"] = {
 				["name"] = "Antidote",
 				["text"] = {
-					"{C:attention}+#1#{} Booster pack in",
-					"{C:attention}Boss Shops{}"
+					"{C:attention}+#1#{} shop slot"
 				},
 			},
 			["v_bld_coolrock"] = {
@@ -493,7 +492,7 @@ return {
 			["tag_bld_antidote_relic"] = {
 				["name"] = "Antidote",
 				["text"] = {
-					"{C:attention}+#1#{} shop slot",
+					"{C:attention}+1{} shop slot",
 				},
 			},
 			["tag_bld_strike"] = {
