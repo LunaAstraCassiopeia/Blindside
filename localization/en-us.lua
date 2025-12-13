@@ -2178,9 +2178,10 @@ return {
 			["m_bld_way"] = {
 				["name"] = "The Way",
 				["text"] = {
-					"{X:purple,C:white}Purple{}",
+					{"{X:purple,C:white}Purple{}",
 					"{C:chips}#1#{} Chips, then",
-					"{X:chips,C:white}X#2#{} Chips",
+					"{X:chips,C:white}X#2#{} Chips"},
+					{"Always scores"}
 				},
 			},
 			["m_bld_fossil"] = {
