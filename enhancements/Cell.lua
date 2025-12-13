@@ -5,7 +5,7 @@
         config = {
             extra = {
                 value = 15,
-                chips = 5,
+                chips = 4,
                 chipsup = 2,
                 cell_tally = 0,
                 chance = 1,

@@ -780,9 +780,9 @@ local cardareasortref = CardArea.sort
 function CardArea:sort(method)
     self.config.sort = method or self.config.sort
     if self.config.sort == 'color desc' then
-        table.sort(self.cards, function (a, b) return a:get_blind_nominal('color') >= b:get_blind_nominal('color') end )
+        table.sort(self.cards, function (a, b) return a:get_blind_nominal('color') > b:get_blind_nominal('color') end )
     elseif self.config.sort == 'color asc' then
-        table.sort(self.cards, function (a, b) return a:get_blind_nominal('color') <= b:get_blind_nominal('color') end )
+        table.sort(self.cards, function (a, b) return a:get_blind_nominal('color') < b:get_blind_nominal('color') end )
     else
         cardareasortref(self, method)
     end

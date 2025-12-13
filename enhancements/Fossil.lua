@@ -62,10 +62,10 @@
                 end
             end
 
-            if context.burn_card and context.burn_card == card and card.ability.extra.activated then
+            --[[if context.burn_card and context.burn_card == card and card.ability.extra.activated then
                 card.ability.extra.activated = false
                 return {remove = true}
-            end
+            end]]
         end,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}

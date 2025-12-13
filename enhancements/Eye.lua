@@ -3,7 +3,7 @@
         atlas = 'bld_blindrank',
         pos = {x = 9, y = 1},
         config = {
-            h_x_chips = 1.5,
+            h_x_chips = 1.75,
             mult = 3,
             extra = {
                 value = 12,

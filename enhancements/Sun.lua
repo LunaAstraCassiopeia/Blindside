@@ -4,7 +4,7 @@
         pos = {x = 2, y = 6},
         config = {
             extra = {
-                money = 4,
+                money = 6,
                 value = 10,
                 hues = {"Yellow"}
             }},

@@ -10,7 +10,7 @@
                 count = 4,
             }
         },
-        cost = 15,
+        cost = 12,
         blueprint_compat = true,
         eternal_compat = true,
         loc_vars = function (self, info_queue, card)
