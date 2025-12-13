@@ -375,8 +375,33 @@ function set_consumeable_usage(card)
     end
 end
 
+local debug_print = false
+
+local draw_hook = G.FUNCS.draw_from_deck_to_hand
+function G.FUNCS.draw_from_deck_to_hand(...)
+    if debug_print then print("base-drawing: " .. tostring(...)) end
+    if BLINDSIDE.draw_queued then
+        if debug_print then print("base-draw: declined") end
+        return
+    end
+    return draw_hook(...)
+end
+
+local emplace_hook = CardArea.emplace
+
+function CardArea:emplace(card, ...)
+    for _,c in pairs(self.cards) do
+        if card == c then
+            -- you're already here twin, get out
+            return
+        end
+    end
+    return emplace_hook(self,card,...)
+end
 
 G.FUNCS.blind_draw_from_deck_to_hand = function(e)
+    if debug_print then print("blind-drawing: " .. tostring(e)) end
+    BLINDSIDE.draw_queued = true
     local hand_space = e
     local cards_to_draw = {}
     if not hand_space then
@@ -486,6 +511,13 @@ G.FUNCS.blind_draw_from_deck_to_hand = function(e)
                 SMODS.drawn_cards = {}
                 if G.GAME.facing_blind then G.GAME.current_round.any_hand_drawn = true end
             end
+            return true
+        end
+    }))
+
+    G.E_MANAGER:add_event(Event({
+        func = function()
+            BLINDSIDE.draw_queued = nil --????????
             return true
         end
     }))
@@ -776,9 +808,9 @@ local cardareasortref = CardArea.sort
 function CardArea:sort(method)
     self.config.sort = method or self.config.sort
     if self.config.sort == 'color desc' then
-        table.sort(self.cards, function (a, b) return a:get_blind_nominal('color') >= b:get_blind_nominal('color') end )
+        table.sort(self.cards, function (a, b) return a:get_blind_nominal('color') > b:get_blind_nominal('color') end )
     elseif self.config.sort == 'color asc' then
-        table.sort(self.cards, function (a, b) return a:get_blind_nominal('color') <= b:get_blind_nominal('color') end )
+        table.sort(self.cards, function (a, b) return a:get_blind_nominal('color') < b:get_blind_nominal('color') end )
     else
         cardareasortref(self, method)
     end
@@ -1141,6 +1173,21 @@ function destroy_blinds_and_calc(destroyed_cards, card)
     end
 end
 
+function BLINDSIDE.find_and_juice_duplicates(area)
+    local cards = area.cards
+
+    for i,c1 in ipairs(cards) do
+
+        for j,c2 in ipairs(cards) do
+           
+            if i ~= j and c1 == c2 then
+                juice_card(c1)
+            end
+
+        end
+
+    end
+end
 ----------------------------------------------
 ------------MOD CODE END----------------------
 

@@ -780,7 +780,7 @@ target = 'functions/UI_definitions.lua'
 match_indent = true
 position = 'after'
 pattern = '''
-  blind_choice.animation = AnimatedSprite(0,0, 1.4, 1.4, G.ANIMATION_ATLAS[blind_choice.config.atlas] or G.ANIMATION_ATLAS['blind_chips'],  blind_choice.config.pos)
+  blind_choice.animation =  SMODS.create_sprite(0,0, 1.4, 1.4, SMODS.get_atlas(blind_choice.config.atlas) or  'blind_chips',   blind_choice.config.pos) 
 '''
 payload = '''
   local blind_assist = {}
@@ -870,7 +870,7 @@ target = '=[SMODS _ "src/overrides.lua"]'
 match_indent = true
 position = 'before'
 pattern = '''
-local splashed = SMODS.always_scores(G.play.cards[i]) or next(find_joker('Splash'))
+local splashed = SMODS.always_scores(cards[i]) or next(find_joker('Splash'))
 '''
 payload = '''
 local waved = false
@@ -888,7 +888,7 @@ target = '=[SMODS _ "src/overrides.lua"]'
 match_indent = true
 position = 'after'
 pattern = '''
-local splashed = SMODS.always_scores(G.play.cards[i]) or next(find_joker('Splash'))
+local splashed = SMODS.always_scores(cards[i]) or next(find_joker('Splash'))
 '''
 payload = '''
 or waved
@@ -963,14 +963,14 @@ end
 [patches.pattern]
 target = 'game.lua'
 pattern = '''
-if G.FUNCS.draw_from_deck_to_hand(nil) then
+if G.FUNCS.draw_from_deck_to_hand(nil) then 
 '''
 match_indent = true
 position = 'before'
 payload = '''
 if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
 if G.FUNCS.blind_draw_from_deck_to_hand(nil) then
-return true
+    return true
 end
 else
 '''
@@ -987,6 +987,54 @@ position = 'before'
 payload = '''
 end
 '''
+
+# [[patches]]
+# [patches.pattern]
+# target = '=[SMODS _ "src/utils.lua"]'
+# pattern = '''
+# G.FUNCS.draw_from_deck_to_hand(self.config.card_limits.total_slots - self.config.card_count - (SMODS.cards_to_draw or 0))
+# '''
+# match_indent = true
+# position = 'before'
+# payload = '''
+# if not BLINDSIDE.draw_queued then
+# '''
+# 
+# [[patches]]
+# [patches.pattern]
+# target = '=[SMODS _ "src/utils.lua"]'
+# pattern = '''
+# G.FUNCS.draw_from_deck_to_hand(self.config.card_limits.total_slots - self.config.card_count - (SMODS.cards_to_draw or 0))
+# '''
+# match_indent = true
+# position = 'after'
+# payload = '''
+# end
+# '''
+# 
+# [[patches]]
+# [patches.pattern]
+# target = '=[SMODS _ "src/utils.lua"]'
+# pattern = '''
+# G.FUNCS.draw_from_deck_to_hand((self.config.card_limits.total_slots - self.config.card_limits.old_slots))
+# '''
+# match_indent = true
+# position = 'before'
+# payload = '''
+# if not BLINDSIDE.draw_queued then
+# '''
+# 
+# [[patches]]
+# [patches.pattern]
+# target = '=[SMODS _ "src/utils.lua"]'
+# pattern = '''
+# G.FUNCS.draw_from_deck_to_hand((self.config.card_limits.total_slots - self.config.card_limits.old_slots))
+# '''
+# match_indent = true
+# position = 'after'
+# payload = '''
+# end
+# '''
 
 # exhaust pile
 [[patches]]

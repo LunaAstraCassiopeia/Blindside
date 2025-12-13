@@ -11,8 +11,6 @@
 	"display_name": "Blind",
 	"version": "0.1.2.3",
 	"dependencies": [
-		{
-			"id": "Steamodded"
-		} 
+		"Steamodded"
 	]
 }
