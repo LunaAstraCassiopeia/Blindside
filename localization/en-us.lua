@@ -1244,7 +1244,8 @@ return {
 				["text"] = {
 					{"{X:blue,C:white}Blue{}",
 					"{C:chips}+#1#{} Chips"},
-					{"Returns other played",
+					{"Always scores and",
+					"{C:attention}returns{} other played",
 					"blinds back to hand"},
 					{"Drawn {C:attention}face down{}"},
 				},
@@ -1254,7 +1255,8 @@ return {
 				["text"] = {
 					{"{X:blue,C:white}Blue{}",
 					"{C:chips}+#1#{} Chips, {C:white,X:chips}X#2#{} Chips"},
-					{"Returns other played",
+					{"Always scores and",
+					"{C:attention}returns{} other played",
 					"blinds back to hand"},
 					{"Drawn {C:attention}face down{}"},
 				},
