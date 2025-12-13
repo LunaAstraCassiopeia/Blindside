@@ -2094,7 +2094,7 @@ return {
 				["name"] = "The Cloth",
 				["text"] = {
 					"{X:mult,C:white}Red{}",
-					"When {C:attention}discarded{}, upgrades",
+					"When {C:attention}discarded{}, levels up",
 					"discarded hand and {C:attention}Burns",
 				},
 			},
@@ -2102,8 +2102,8 @@ return {
 				["name"] = "The Cloth",
 				["text"] = {
 					"{X:mult,C:white}Red{}",
-					"When {C:attention}discarded{}, upgrades",
-					"discarded hand",
+					"When {C:attention}discarded{}, levels",
+					"up discarded hand",
 				},
 			},
 			["m_bld_ghost"] = {
