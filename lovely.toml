@@ -780,7 +780,7 @@ target = 'functions/UI_definitions.lua'
 match_indent = true
 position = 'after'
 pattern = '''
-  blind_choice.animation =  SMODS.create_sprite(0,0, 1.4, 1.4, SMODS.get_atlas(blind_choice.config.atlas) or  'blind_chips',   blind_choice.config.pos) 
+  blind_choice.animation = AnimatedSprite(0,0, 1.4, 1.4, G.ANIMATION_ATLAS[blind_choice.config.atlas] or G.ANIMATION_ATLAS['blind_chips'],  blind_choice.config.pos)
 '''
 payload = '''
   local blind_assist = {}
