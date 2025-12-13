@@ -2574,7 +2574,7 @@ return {
 			['j_bld_discount'] = {
 				["name"] = "Discount",
 				["text"] = {
-					"initial booster packs",
+					"Initial booster packs",
 					"in {C:attention}Boss Shop{} are free"
 				}
 			},
