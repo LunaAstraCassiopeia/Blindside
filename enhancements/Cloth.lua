@@ -47,8 +47,18 @@
         end,
         rare = true,
         loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}
+            if not card.ability.extra.upgraded then
+                info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}
+            end
+            return {
+                key = card.ability.extra.upgraded and 'm_bld_cloth_upgraded' or 'm_bld_cloth',
+            }
         end,
+        upgrade = function(card)
+            if not card.ability.extra.upgraded then
+            card.ability.extra.upgraded = true
+            end
+        end
     })
 ----------------------------------------------
 ------------MOD CODE END----------------------

@@ -7,6 +7,7 @@
                 value = 15,
                 nonblue = 4,
                 chips = 50,
+                chips_up = 25,
                 hues = {"Blue"}
             }},
         replace_base_card = true,
@@ -41,10 +42,18 @@
         end,
         loc_vars = function(self, info_queue, card)
             return {
+                key = card.ability.extra.upgraded and 'm_bld_pile_upgraded' or 'm_bld_pile',
                 vars = {
                     card.ability.extra.nonblue, card.ability.extra.chips
                 }
             }
+        end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipsup
+            card.ability.extra.upgraded = true
+            card.ability.extra.retain = true
+            end
         end
     })
 ----------------------------------------------

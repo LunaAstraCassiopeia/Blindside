@@ -4,8 +4,10 @@
         pos = {x = 2, y = 6},
         config = {
             extra = {
-                money = 6,
+                money = 4,
                 value = 10,
+                money_up = 2,
+                retain = true,
                 hues = {"Yellow"}
             }},
         replace_base_card = true,
@@ -34,11 +36,18 @@
             end
         end,
         loc_vars = function(self, info_queue, card)
+            info_queue[#info_queue+1] = {key = 'bld_retain', set = 'Other'}
             return {
                 vars = {
                     card.ability.extra.money
                 }
             }
+        end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.money = card.ability.extra.money + card.ability.extra.money_up
+            card.ability.extra.upgraded = true
+            end
         end
     })
 ----------------------------------------------

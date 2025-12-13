@@ -6,6 +6,7 @@
             extra = {
                 value = 12,
                 draw_extra = 3,
+                draw_extra_more = 2,
                 hues = {"Green"}
             }},
         replace_base_card = true,
@@ -47,6 +48,12 @@
                     card.ability.extra.draw_extra
                 }
             }
+        end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.draw_extra = card.ability.extra.draw_extra + card.ability.extra.draw_extra_more
+            card.ability.extra.upgraded = true
+            end
         end
     })
 ----------------------------------------------

@@ -7,6 +7,8 @@
             extra = {
                 value = 141,
                 cost = 2,
+                mult_gain = 8,
+                cost_gain = 1,
                 hues = {"Yellow"}
             }},
         replace_base_card = true,
@@ -42,6 +44,13 @@
                 }
             }
         end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.cost = card.ability.extra.cost + card.ability.extra.cost_gain
+            card.ability.mult = card.ability.mult + card.ability.extra.mult_gain
+            card.ability.extra.upgraded = true
+            end
+        end
     })
 ----------------------------------------------
 ------------MOD CODE END----------------------

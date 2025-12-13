@@ -5,6 +5,7 @@
         config = {
             extra = {
                 xmult_mod = 0.25,
+                xmult_mod_up = 0.15,
                 xmult = 1,
                 value = 15,
                 hues = {"Purple"}
@@ -79,6 +80,12 @@
                     card.ability.extra.xmult_mod, card.ability.extra.xmult
                 }
             }
+        end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.xmult_mod = card.ability.extra.xmult_mod + card.ability.extra.xmult_mod_up
+            card.ability.extra.upgraded = true
+            end
         end
     })
 ----------------------------------------------

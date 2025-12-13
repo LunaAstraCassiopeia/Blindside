@@ -6,6 +6,7 @@
             extra = {
                 value = 18,
                 chips_mod = 15,
+                chips_up = 10,
                 hues = {"Blue"}
             }},
         replace_base_card = true,
@@ -39,6 +40,12 @@
                     card.ability.extra.chips_mod
                 }
             }
+        end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.chips_mod = card.ability.extra.chips_mod + card.ability.extra.chips_up
+            card.ability.extra.upgraded = true
+            end
         end
     })
 ----------------------------------------------

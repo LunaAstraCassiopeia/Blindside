@@ -6,6 +6,7 @@
             extra = {
                 value = 100,
                 multreduc = 1,
+                mult_up = 0.5,
                 chance = 1,
                 trigger = 2,
                 hues = {"Green", "Red"}
@@ -71,6 +72,12 @@
                     trigger
                 }
             }
+        end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.multreduc = card.ability.extra.multreduc + card.ability.extra.mult_up
+            card.ability.extra.upgraded = true
+            end
         end
     })
     

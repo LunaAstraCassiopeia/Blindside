@@ -1287,6 +1287,16 @@ return {
 					"{C:mult}+#1#{} Mult before scoring"},
 				},
 			},
+			["m_bld_path_upgraded"] = {
+				["name"] = "The Path",
+				["text"] = {
+					{"{X:red,C:white}Red{} {X:blue,C:white}Blue{}",
+					"{C:mult}+#1#{} Mult"},
+					{"If {C:attention}held in hand{} while",
+					"played hand contains {C:attention}Pair{},",
+					"{C:mult}+#1#{} Mult before scoring"},
+				},
+			},
 			["m_bld_wheel"] = {
 				["name"] = "The Wheel",
 				["text"] = {
@@ -1676,6 +1686,15 @@ return {
 					"in {C:attention}played hand",
 				},
 			},
+			["m_bld_tooth_upgraded"] = {
+				["name"] = "The Tooth",
+				["text"] = {
+					"{X:red,C:white}Red{}",
+					"{C:money}+#1#${} and {C:mult}+#2# Mult{}",
+					"for each Blind",
+					"in {C:attention}played hand",
+				},
+			},
 			["m_bld_flint"] = {
 				["name"] = "The Flint",
 				["text"] = {
@@ -1730,6 +1749,16 @@ return {
 					"{C:chips}+#2#{} Chips"},
 					{"{C:green}Retain{} all cards",
 					"{C:attention}held in hand"},
+				},
+			},
+			["m_bld_pile_upgraded"] = {
+				["name"] = "The Pile",
+				["text"] = {
+					{"{X:chips,C:white}Blue{}",
+					"{C:chips}+#2#{} Chips"},
+					{"{C:green}Retain{} all cards",
+					"{C:attention}held in hand"},
+					{"{C:green}Retained"}
 				},
 			},
 			["m_bld_top"] = {
@@ -1914,6 +1943,15 @@ return {
 					{"Always scores"}
 				},
 			},
+			["m_bld_staff_upgraded"] = {
+				["name"] = "The Staff",
+				["text"] = {
+					{"{X:purple,C:white}Purple{}",
+					"Randomly {C:attention}enhance{} a",
+					"random scoring Blind"},
+					{"Always scores"}
+				},
+			},
 			["m_bld_bite"] = {
 				["name"] = "The Bite",
 				["text"] = {
@@ -1971,6 +2009,14 @@ return {
 					"{X:mult,C:white}Red{}",
 					"When {C:attention}discarded{}, upgrades",
 					"discarded hand and {C:attention}Burns",
+				},
+			},
+			["m_bld_cloth_upgraded"] = {
+				["name"] = "The Cloth",
+				["text"] = {
+					"{X:mult,C:white}Red{}",
+					"When {C:attention}discarded{}, upgrades",
+					"discarded hand",
 				},
 			},
 			["m_bld_ghost"] = {

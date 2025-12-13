@@ -59,7 +59,7 @@
                 end
             end
 
-            if card.ability.extra.stored_card and context.burn_card and card.ability.extra.stored_card == context.burn_card then
+            if card.ability.extra.stored_card and context.burn_card and card.ability.extra.stored_card == context.burn_card and not card.ability.extra.upgraded then
                 card.ability.extra.stored_card = nil
                 return {
                     message = localize('k_staff'),
@@ -74,6 +74,14 @@
         end,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue + 1] = {key = 'bld_burn', set = 'Other'}
+            return {
+                key = card.ability.extra.upgraded and 'm_bld_staff_upgraded' or 'm_bld_staff'
+            }
+        end,
+        upgrade = function(card)
+            if not card.ability.extra.upgraded then
+            card.ability.extra.upgraded = true
+            end
         end
     })
 ----------------------------------------------

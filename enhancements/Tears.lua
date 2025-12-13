@@ -7,6 +7,8 @@
             extra = {
                 value = 11,
                 repetitions = 2,
+                repetitions_up = 1,
+                chips_up = 5,
                 hues = {"Blue"}
             }},
         replace_base_card = true,
@@ -47,6 +49,13 @@
                     card.ability.extra.repetitions
                 }
             }
+        end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+                card.ability.extra.repetitions = card.ability.extra.repetitions + card.ability.extra.repetitions_up
+                card.ability.chips = card.ability.chips + card.ability.extra.chips_up
+                card.ability.extra.upgraded = true
+            end
         end
     })
 ----------------------------------------------

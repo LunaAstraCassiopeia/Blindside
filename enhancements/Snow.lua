@@ -6,6 +6,7 @@
             extra = {
                 chips = 0,
                 gain_chips = 40,
+                gain_chips_gain = 40,
                 value = 11,
                 retain = true,
                 hues = {"Purple"}
@@ -66,6 +67,12 @@
                     card.ability.extra.gain_chips
                 }
             }
+        end,
+        upgrade = function(card)
+            if not card.ability.extra.upgraded then
+                card.ability.extra.gain_chips = card.ability.extra.gain_chips + card.ability.extra.gain_chips_gain
+                card.ability.extra.upgraded = true
+            end
         end
     })
 ----------------------------------------------

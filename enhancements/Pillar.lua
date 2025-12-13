@@ -7,6 +7,7 @@
                 value = 13,
                 x_mult = 3,
                 mult = 5,
+                x_mult_up = 2,
                 status = "Active!",
                 hues = {"Faded"}
             }},
@@ -57,6 +58,12 @@
                     card.ability.extra.x_mult, card.ability.extra.status, card.ability.extra.mult
                 }
             }
+        end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.x_mult = card.ability.extra.x_mult + card.ability.extra.x_mult_up
+            card.ability.extra.upgraded = true
+            end
         end
     })
 ----------------------------------------------

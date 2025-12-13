@@ -8,6 +8,7 @@
                 value = 11,
                 chance = 1,
                 trigger = 3,
+                chance_up = 2,
                 hues = {"Green"}
             }},
         replace_base_card = true,
@@ -60,6 +61,12 @@
                     trigger
                 }
             }
+        end,
+        upgrade = function(card) 
+            if not card.ability.extra.upgraded then
+            card.ability.extra.trigger = card.ability.extra.trigger + card.ability.extra.chance_up
+            card.ability.extra.upgraded = true
+            end
         end
     })
 ----------------------------------------------

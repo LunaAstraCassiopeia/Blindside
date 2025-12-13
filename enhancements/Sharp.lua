@@ -6,7 +6,7 @@ BLINDSIDE.Blind({
         extra = {
             value = 1,
             mult = 2,
-            multup = 4,
+            multup = 6,
         }
     },
     hues = {"Red"},
