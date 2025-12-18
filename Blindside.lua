@@ -172,7 +172,9 @@ end
 ---@ field load_joker? fun(self: BLINDSIDE.Joker) Will be called after load. Use as if it were load.
 ---@ field defeat_joker? fun(self: BLINDSIDE.Joker) Will be called after defeat. Use as if it were defeat.
 ---@ field pool_override? fun(self: BLINDSIDE.Joker) Will be called after in_pool. Use as if it were in_pool.
+---@ field is_joker boolean Defaults to true. Do not overwrite.
 BLINDSIDE.Joker = SMODS.Blind:extend {
+    is_joker = true,
     in_pool = function(self, args)
         if self.is_assistant then
             return false
@@ -207,7 +209,11 @@ BLINDSIDE.Joker = SMODS.Blind:extend {
         -- all checks passed
         return true
     end,
-    set_blind = function(self)
+    set_blind = function(self, reset, silent)
+        if self.is_assistant then
+            return
+        end
+
         local assistant = self.get_assist and self:get_assist()
         if assistant then
             G.GAME.blindassist.states.visible = true
@@ -223,6 +229,10 @@ BLINDSIDE.Joker = SMODS.Blind:extend {
         end
     end,
     load = function(self)
+        if self.is_assistant then
+            return
+        end
+
         local assistant = self.get_assist and self:get_assist()
         if assistant then
             G.GAME.blindassist.states.visible = true
