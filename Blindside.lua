@@ -171,10 +171,8 @@ end
 ---@ field set_joker? fun(self: BLINDSIDE.Joker) Will be called after set_blind. Use as if it were set_blind.
 ---@ field load_joker? fun(self: BLINDSIDE.Joker) Will be called after load. Use as if it were load.
 ---@ field defeat_joker? fun(self: BLINDSIDE.Joker) Will be called after defeat. Use as if it were defeat.
----@ field pool_override? fun(self: BLINDSIDE.Joker) Will be called after in_pool. Use as if it were in_pool.
----@ field is_joker boolean Defaults to true. Do not overwrite.
+---@ field pool_override? fun(self: BLINDSIDE.Joker) Will be called in the middle of in_pool. Use as if it were in_pool.
 BLINDSIDE.Joker = SMODS.Blind:extend {
-    is_joker = true,
     in_pool = function(self, args)
         if self.is_assistant then
             return false
@@ -184,7 +182,11 @@ BLINDSIDE.Joker = SMODS.Blind:extend {
         if not is_blindside then
             return false
         end
-        
+
+        if self.pool_override then
+            return self:pool_override()
+        end
+
         local min = -99
         if self.small and self.small.min then
             min = self.small.min
