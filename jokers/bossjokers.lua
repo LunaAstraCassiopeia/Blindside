@@ -89,7 +89,7 @@ BLINDSIDE.Joker({
     mult = 6,
     dollars = 6,
     order = 15,
-    boss = {min = 99},
+    boss = {min = 1},
     active = true,
     set_joker = function(self)
         BLINDSIDE.chipsmodify(0, ((G.GAME.blind.basechips*(2))), 0, 0, true)
@@ -136,7 +136,7 @@ BLINDSIDE.Joker({
     mult = 6,
     dollars = 6,
     order = 17,
-    boss = {min = 99},
+    boss = {min = 1},
     active = true,
     calculate = function(self, blind, context)
         if not blind.disabled and context.discard and context.hook ~= true then

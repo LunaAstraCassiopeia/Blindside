@@ -210,7 +210,6 @@ BLINDSIDE.Joker = SMODS.Blind:extend {
     set_blind = function(self)
         local assistant = self.get_assist and self:get_assist()
         if assistant then
-            print(inspect(assistant))
             G.GAME.blindassist.states.visible = true
             G.GAME.blindassist:set_blind(assistant)
             G.GAME.blindassist:change_dim(1.5,1.5)
