@@ -1462,5 +1462,3 @@ for i = 1, #G.playing_cards do
     end
 end
 '''
-
-# fix jokers needing in_pool functions at all
