@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'wall',
         atlas = 'bld_blindrank',
         pos = {x = 1, y = 1},
@@ -7,28 +7,10 @@
                 value = 12,
                 x_mult = 0.5,
                 x_mult_bonus = 0.25,
-                hues = {"Purple"}
             }},
-        replace_base_card = true,
-        no_rank = true,
-        no_suit = true,
-        overrides_base_rank = true,
+        hues = {"Purple"},
         always_scores = true,
-        in_pool = function(self, args)
-            if G.GAME.selected_back.effect.center.config.extra then
-                if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
-                return true
-            else
-            return false
-            end
-        end,
-        pools = {
-            ["bld_obj_blindcard_generate"] = true,
-            ["bld_obj_blindcard_cool"] = true,
-            ["bld_obj_blindcard_single"] = true,
-            ["bld_obj_blindcard_purple"] = true,
-        },
-        weight = 3,
+        rare = true,
         loc_vars = function(self, info_queue, card)
             return {
                 key = card.ability.extra.upgraded and 'm_bld_wall_upgraded' or 'm_bld_wall',

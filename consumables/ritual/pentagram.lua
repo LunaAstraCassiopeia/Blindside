@@ -19,10 +19,11 @@ SMODS.Consumable {
         destroy_blinds_and_calc(destroyed_cards, card)
 
         for key, value in pairs(chosen_cards) do
-            if not tableContains(value, destroyed_cards) then
-                upgrade_blind(value)
+            if tableContains(value, destroyed_cards) then
+                table.remove(chosen_cards, key)
             end
         end
+        upgrade_blinds(chosen_cards)
     end,
     loc_vars = function(self, info_queue, card)
         return {

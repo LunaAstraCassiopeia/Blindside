@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'fruit',
         atlas = 'bld_blindrank',
         pos = {x = 2, y = 3},
@@ -7,28 +7,9 @@
             extra = {
                 value = 100,
                 rescore = 1,
-                hues = {"Red","Faded"}
             }},
-        replace_base_card = true,
-        no_rank = true,
-        no_suit = true,
-        overrides_base_rank = true,
-        in_pool = function(self, args)
-            if G.GAME.selected_back.effect.center.config.extra then
-                if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
-                return true
-            else
-            return false
-            end
-        end,
-        weight = 3,
-        pools = {
-            ["bld_obj_blindcard_generate"] = true,
-            ["bld_obj_blindcard_warm"] = true,
-            ["bld_obj_blindcard_dual"] = true,
-            ["bld_obj_blindcard_red"] = true,
-            ["bld_obj_blindcard_faded"] = true,
-        },
+        hues = {"Red","Faded"},
+        rare = true,
         calculate = function(self, card, context)
             if not card.ability.extra.upgraded and context.cardarea == G.play and context.before and card.facing ~= 'back' then
                 local self_pos = nil
@@ -38,16 +19,10 @@
                     end
                 end
                 if G.play.cards[self_pos-1] then
-                    if G.play.cards[self_pos-1].facing ~= 'back' then 
-                    G.play.cards[self_pos-1]:flip()
-                    end
-                    G.play.cards[self_pos-1]:set_debuff(true)
+                    G.play.cards[self_pos-1]:blind_debuff(G.play.cards[i], true)
                 end
                 if G.play.cards[self_pos+1] then
-                    if G.play.cards[self_pos+1].facing ~= 'back' then 
-                    G.play.cards[self_pos+1]:flip()
-                    end
-                    G.play.cards[self_pos+1]:set_debuff(true)
+                    G.play.cards[self_pos+1]:blind_debuff(G.play.cards[i], true)
                 end
             end
             if context.cardarea == G.play and context.main_scoring and context.scoring_hand then

@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'eye',
         atlas = 'bld_blindrank',
         pos = {x = 9, y = 1},
@@ -7,28 +7,10 @@
             mult = 3,
             extra = {
                 value = 12,
-                hues = {"Blue"},
                 x_chips_up = 0.75,
                 mult_up = 2,
             }},
-        replace_base_card = true,
-        no_rank = true,
-        no_suit = true,
-        overrides_base_rank = true,
-        in_pool = function(self, args)
-            if G.GAME.selected_back.effect.center.config.extra then
-                if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
-                return true
-            else
-            return false
-            end
-        end,
-        pools = {
-            ["bld_obj_blindcard_generate"] = true,
-            ["bld_obj_blindcard_cool"] = true,
-            ["bld_obj_blindcard_single"] = true,
-            ["bld_obj_blindcard_blue"] = true,
-        },
+        hues = {"Blue"},
         loc_vars = function(self, info_queue, card)
             return {
                 key = card.ability.extra.upgraded and 'm_bld_eye_upgrade' or 'm_bld_eye',

@@ -325,5 +325,8 @@ BLINDSIDE.Joker({
     set_joker = function(self)
         ease_hands_played(- G.GAME.round_resets.hands + 1)
         ease_discard(5)
-    end
+    end,
+    disable = function()
+        ease_hands_played(G.GAME.round_resets.hands - 1)
+    end,
 })

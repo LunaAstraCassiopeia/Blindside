@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'hat',
         atlas = 'bld_blindrank',
         pos = {x = 9, y = 4},
@@ -12,25 +12,8 @@
                 dollars = 10,
                 rescore = 1,
                 number = 0,
-                hues = {"Faded"}
             }},
-        replace_base_card = true,
-        no_rank = true,
-        no_suit = true,
-        overrides_base_rank = true,
-        in_pool = function(self, args)
-            if G.GAME.selected_back.effect.center.config.extra then
-                if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
-                return true
-            else
-            return false
-            end
-        end,
-        pools = {
-            ["bld_obj_blindcard_generate"] = true,
-            ["bld_obj_blindcard_single"] = true,
-            ["bld_obj_blindcard_faded"] = true,
-        },
+        hues = {"Faded"},
         calculate = function(self, card, context) 
             if context.before and (context.cardarea == G.play or (context.cardarea == G.hand and card.ability.extra.upgraded)) and card.facing ~= 'back' then
                 card.ability.extra.number = pseudorandom('arengee', 1, 6)

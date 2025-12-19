@@ -712,9 +712,9 @@ end
     local mult = 1
     local color_table = {
         ['Red'] = 1,
-        ['Green'] = 2,
-        ['Blue'] = 3,
-        ['Yellow'] = 4,
+        ['Yellow'] = 2,
+        ['Green'] = 3,
+        ['Blue'] = 4,
         ['Purple'] = 5,
         ['Faded'] = 6
     }
@@ -733,13 +733,13 @@ end
         table.sort(G.playing_cards, function (a, b) return a:get_blind_nominal('color') > b:get_blind_nominal('color') end )
         local SUITS = {
             Red = {},
+            Yellow = {},
             Green = {},
             Blue = {},
-            Yellow = {},
             Purple = {},
             Faded = {},
         }
-        local suit_map = {'Red', 'Green', 'Blue', 'Yellow', 'Purple', 'Faded'}
+        local suit_map = {'Red', 'Yellow', 'Green', 'Blue', 'Purple', 'Faded'}
         for k, v in ipairs(G.playing_cards) do
             table.insert(SUITS[v.config.center.config.extra.hues[1]], v)
         end
@@ -816,11 +816,11 @@ end
                     }},
                     {n=G.UIT.R, config={align = "cm", minh = 0.05, padding = 0.1}, nodes={
                     tally_sprite({x=0,y=0}, {{string = ''..suit_tallies['Red'], colour = flip_col},{string =''..mod_suit_tallies['Red'], colour = G.C.BLUE}}, {localize('bld_Red', 'suits_plural')}, "bld_Red"),
-                    tally_sprite({x=2,y=0}, {{string = ''..suit_tallies['Green'], colour = flip_col},{string =''..mod_suit_tallies['Green'], colour = G.C.BLUE}}, {localize('bld_Green', 'suits_plural')}, "bld_Green"),
+                    tally_sprite({x=2,y=0}, {{string = ''..suit_tallies['Yellow'], colour = flip_col},{string =''..mod_suit_tallies['Yellow'], colour = G.C.BLUE}}, {localize('bld_Yellow', 'suits_plural')}, "bld_Yellow"),
                     }},
                     {n=G.UIT.R, config={align = "cm", minh = 0.05, padding = 0.1}, nodes={
-                    tally_sprite({x=3,y=0}, {{string = ''..suit_tallies['Blue'], colour = flip_col},{string =''..mod_suit_tallies['Blue'], colour = G.C.BLUE}}, {localize('bld_Blue', 'suits_plural')}, "bld_Blue"),
-                    tally_sprite({x=1,y=0}, {{string = ''..suit_tallies['Yellow'], colour = flip_col},{string =''..mod_suit_tallies['Yellow'], colour = G.C.BLUE}}, {localize('bld_Yellow', 'suits_plural')}, "bld_Yellow"),
+                    tally_sprite({x=3,y=0}, {{string = ''..suit_tallies['Green'], colour = flip_col},{string =''..mod_suit_tallies['Green'], colour = G.C.BLUE}}, {localize('bld_Green', 'suits_plural')}, "bld_Green"),
+                    tally_sprite({x=1,y=0}, {{string = ''..suit_tallies['Blue'], colour = flip_col},{string =''..mod_suit_tallies['Blue'], colour = G.C.BLUE}}, {localize('bld_Blue', 'suits_plural')}, "bld_Blue"),
                     }},
                     {n=G.UIT.R, config={align = "cm", minh = 0.05, padding = 0.1}, nodes={
                     tally_sprite({x=0,y=1}, {{string = ''..suit_tallies['Purple'], colour = flip_col},{string =''..mod_suit_tallies['Purple'], colour = G.C.BLUE}}, {localize('bld_Purple', 'suits_plural')}, "bld_Purple"),

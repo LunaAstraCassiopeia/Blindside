@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'fossil',
         atlas = 'bld_blindrank',
         pos = {x = 9, y = 6},
@@ -6,29 +6,10 @@
             extra = {
                 value = 13,
                 odds = 2,
-                hues = {"Green"},
                 retain = true,
                 activated = false,
             }},
-        replace_base_card = true,
-        no_rank = true,
-        no_suit = true,
-        overrides_base_rank = true,
-        in_pool = function(self, args)
-            if G.GAME.selected_back.effect.center.config.extra then
-                if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
-                return true
-            else
-            return false
-            end
-        end,
-        pools = {
-            ["bld_obj_blindcard_generate"] = true,
-            ["bld_obj_blindcard_cool"] = true,
-            ["bld_obj_blindcard_warm"] = true,
-            ["bld_obj_blindcard_single"] = true,
-            ["bld_obj_blindcard_green"] = true,
-        },
+        hues = {"Green"},
         calculate = function(self, card, context)
             if context.cardarea == G.hand and context.main_scoring then
                 local mineral = nil

@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'snow',
         atlas = 'bld_blindrank',
         pos = {x = 7, y = 5},
@@ -9,26 +9,8 @@
                 gain_chips_gain = 40,
                 value = 11,
                 retain = true,
-                hues = {"Purple"}
             }},
-        replace_base_card = true,
-        no_rank = true,
-        no_suit = true,
-        overrides_base_rank = true,
-        in_pool = function(self, args)
-            if G.GAME.selected_back.effect.center.config.extra then
-                if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
-                return true
-            else
-            return false
-            end
-        end,
-        pools = {
-            ["bld_obj_blindcard_generate"] = true,
-            ["bld_obj_blindcard_cool"] = true,
-            ["bld_obj_blindcard_single"] = true,
-            ["bld_obj_blindcard_purple"] = true,
-        },
+        hues = {"Purple"},
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.main_scoring then
                 return {

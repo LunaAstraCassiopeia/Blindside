@@ -15,6 +15,8 @@ SMODS.Voucher {
         badges[#badges+1] = create_badge(localize('k_relic'), G.C.RED, G.C.WHITE, 1.2 )
     end,
     redeem = function(self, card)
+        G.shop_booster.cards[1].ability.couponed = true
+        G.shop_booster.cards[1]:set_cost()  
         add_tag(Tag('tag_bld_scissors_relic'))
     end
 }

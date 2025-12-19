@@ -30,10 +30,6 @@ SMODS.Blind({
             BLINDSIDE.chipsmodify(1 - (hasWildCanvas and 0.5 or 0), 0, 0)
         end
     end,
-    disable = function()
-        G.GAME.blind.mult = G.GAME.blind.original_mult
-        G.GAME.blind.mult_text = number_format(G.GAME.blind.mult)
-    end,
     load = function()
         G.GAME.blindassist.states.visible = false
         G.GAME.blindassist:change_dim(0,0)

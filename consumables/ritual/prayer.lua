@@ -8,7 +8,7 @@ SMODS.Consumable {
         max_highlighted = 1,
     },
     use = function(self, card, area)
-        upgrade_blind(G.hand.highlighted[1])
+        upgrade_blinds({G.hand.highlighted[1]})
     end,
     loc_vars = function(self, info_queue, card)
         return {

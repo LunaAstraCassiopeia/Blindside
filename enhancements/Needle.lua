@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'needle',
         atlas = 'bld_blindrank',
         pos = {x = 2, y = 2},
@@ -9,27 +9,8 @@
                 x_mult_up = 1,
                 mult = 5,
                 active = false,
-                hues = {"Green"}
             }},
-        replace_base_card = true,
-        no_rank = true,
-        no_suit = true,
-        overrides_base_rank = true,
-        in_pool = function(self, args)
-            if G.GAME.selected_back.effect.center.config.extra then
-                if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
-                return true
-            else
-            return false
-            end
-        end,
-        pools = {
-            ["bld_obj_blindcard_generate"] = true,
-            ["bld_obj_blindcard_cool"] = true,
-            ["bld_obj_blindcard_warm"] = true,
-            ["bld_obj_blindcard_single"] = true,
-            ["bld_obj_blindcard_green"] = true,
-        },
+        hues = {"Green"},
         calculate = function(self, card, context)
                 if context.first_hand_drawn then
                     local eval = function() return G.GAME.current_round.hands_played == 0 end

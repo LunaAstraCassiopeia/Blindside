@@ -1126,15 +1126,56 @@ else
     end
 end
 
-function upgrade_blind(card)
-    if card and card.config and card.config.center and card.config.center.upgrade then
-        card.config.center.upgrade(card)
-        SMODS.Stickers['bld_upgrade']:apply(card, true)
-        play_sound('tarot1')
-        --play_sound('seal')
-    else
-        print("no upgrade function")
+function upgrade_blinds(cards, flipped)
+    if not flipped then
+        G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.4,func = function() 
+            for k, card in ipairs(cards) do
+                card:flip()
+                play_sound('tarot1')
+                card:juice_up(0.3, 0.3)
+            end 
+        return true end }))
     end
+    print("test")
+        G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.4,func = function() 
+            for k, card in ipairs(cards) do
+                play_sound('bld_clang', 1.1, 1)
+                card:juice_up(0.8, 0.5)
+            end
+        return true end }))
+        delay(0.4)
+        G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.4,func = function()
+            for k, card in ipairs(cards) do
+                play_sound('bld_clang', 0.9, 0.8)
+                card:juice_up(0.8, 0.5)
+            end 
+        return true end }))
+        delay(0.3)
+        G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.4,func = function()
+            for k, card in ipairs(cards) do
+                play_sound('bld_clang', 1, 0.9)
+                card:juice_up(0.8, 0.5)
+            end
+        return true end }))
+        G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.2,func = function() 
+        for k, card in ipairs(cards) do
+            if card and card.config and card.config.center and card.config.center.upgrade then
+                SMODS.Stickers['bld_upgrade']:apply(card, true)
+            else
+                print("no upgrade function")
+            end
+        end
+        return true end }))
+    if not flipped then
+        delay(0.3)
+        G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.4,func = function()
+            for k, card in ipairs(cards) do
+                card:flip();play_sound('tarot2', 1, 0.6)
+                card:juice_up(0.3, 0.3)
+            end 
+        return true end }))
+    end
+        --play_sound('seal')
 end
 
 function choose_stuff(pool, number, seed)

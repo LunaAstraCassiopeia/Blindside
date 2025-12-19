@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'pillar',
         atlas = 'bld_blindrank',
         pos = {x = 8, y = 1},
@@ -9,25 +9,8 @@
                 mult = 5,
                 x_mult_up = 2,
                 status = "Active!",
-                hues = {"Faded"}
             }},
-        replace_base_card = true,
-        no_rank = true,
-        no_suit = true,
-        overrides_base_rank = true,
-        in_pool = function(self, args)
-            if G.GAME.selected_back.effect.center.config.extra then
-                if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
-                return true
-            else
-            return false
-            end
-        end,
-        pools = {
-            ["bld_obj_blindcard_generate"] = true,
-            ["bld_obj_blindcard_single"] = true,
-            ["bld_obj_blindcard_faded"] = true,
-        },
+        hues = {"Faded"},
         calculate = function(self, card, context)
                 if context.cardarea == G.play and context.main_scoring then
                     if card.ability.extra.status == "Active!" then

@@ -1,25 +1,14 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'wound',
         atlas = 'bld_blindrank',
         pos = {x = 5, y = 9},
         config = {
             extra = {
                 value = 30,
-                hues = {"Red"},
                 xmult = 1.5,
             }},
-        replace_base_card = true,
-        no_rank = true,
-        no_suit = true,
-        overrides_base_rank = true,
-        in_pool = function(self, args)
-            if G.GAME.selected_back.effect.center.config.extra then
-                if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
-                return true
-            else
-            return false
-            end
-        end,
+        hues = {"Red"},
+        hidden = true,
         calculate = function(self, card, context)
             if context.burn_card and context.cardarea == G.play and context.burn_card == card then
                 return { remove = true }

@@ -35,10 +35,7 @@
         calculate = function(self, card, context)
             if context.before and card.ability.extra.x_value.x == 2 then
                 for i=1, #G.play.cards do
-                    if G.play.cards[i].facing ~= 'back' then 
-                    G.play.cards[i]:flip()
-                    end
-                    G.play.cards[i]:set_debuff(true)
+                    G.play.cards[i]:blind_debuff(G.play.cards[i], true)
                 end
             end
             if context.repetition and card.ability.extra.x_value.x == 4 and context.cardarea == G.play and context.other_card and context.other_card.facing ~= "back" then

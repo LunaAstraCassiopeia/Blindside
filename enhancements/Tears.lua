@@ -1,4 +1,4 @@
-    SMODS.Enhancement({
+    BLINDSIDE.Blind({
         key = 'tears',
         atlas = 'bld_blindrank',
         pos = {x = 4, y = 6},
@@ -9,27 +9,9 @@
                 repetitions = 2,
                 repetitions_up = 1,
                 chips_up = 5,
-                hues = {"Blue"}
             }},
-        replace_base_card = true,
-        no_rank = true,
-        no_suit = true,
-        overrides_base_rank = true,
-        in_pool = function(self, args)
-            if G.GAME.selected_back.effect.center.config.extra then
-                if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
-                return true
-            else
-            return false
-            end
-        end,
-        weight = 3,
-        pools = {
-            ["bld_obj_blindcard_generate"] = true,
-            ["bld_obj_blindcard_cool"] = true,
-            ["bld_obj_blindcard_single"] = true,
-            ["bld_obj_blindcard_blue"] = true,
-        },
+        hues = {"Blue"},
+        rare = true,
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.repetition and context.other_card and context.other_card == card and context.other_card.facing ~= "back" then
                 return {

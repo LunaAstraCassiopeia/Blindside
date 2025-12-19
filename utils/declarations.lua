@@ -672,6 +672,11 @@
         path = 'statement2.wav'
     })
 
+    SMODS.Sound({
+        key = 'bld_clang',
+        path = 'clang.wav'
+    })
+
 
 ----------------------------------------------
 ------------MOD CODE END----------------------

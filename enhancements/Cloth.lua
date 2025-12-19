@@ -30,7 +30,7 @@
                     end
                 end
             end
-            if context.pre_discard then
+            if context.pre_discard and not context.main_eval then
                 card.ability.extra.ikeeptrackofdiscards = G.GAME.current_round.discards_left
                 if card.ability.extra.text then
                     return {

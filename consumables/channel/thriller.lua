@@ -41,7 +41,13 @@ SMODS.Consumable {
             G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.3,func = function() G.hand.highlighted[i]:flip();play_sound('card1', percent);G.hand.highlighted[i]:juice_up(0.3, 0.3);return true end }))
         end
         for i=1, #G.hand.highlighted do
-            G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.2,func = function() G.hand.highlighted[i]:set_ability(enhancement);return true end }))
+            G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.2,func = function()
+                G.hand.highlighted[i]:set_ability(enhancement)
+                if G.hand.highlighted[i].ability.extra.upgraded then
+                    G.hand.highlighted[i].ability.extra.upgraded = false
+                    G.hand.highlighted[i]:upgrade(G.hand.highlighted[i])
+                end
+                ;return true end }))
         end 
         for i=1, #G.hand.highlighted do
             local percent = 0.85 + (i-0.999)/(#G.hand.highlighted-0.998)*0.3
