@@ -40,6 +40,7 @@ return {
 			["bld_ui_runes"] = "Runes",
 			["bld_ui_jokers"] = "Jokers",
 			["bld_ui_tags"] = "Tags",
+			["bld_ui_decks"] = "Decks",
 			["bld_ui_relics"] = "Relics",
 			['k_bld_symbol_pack'] = 'Symbol Pack',
 			['k_bld_mineral_pack'] = 'Crystalline Pack',

@@ -1,6 +1,13 @@
  SMODS.ObjectType {
         key = "bld_obj_blindside",
         cards = {
+        "b_bld_whitedispenser",
+        "b_bld_reddispenser",
+        "b_bld_greendispenser",
+        "b_bld_yellowdispenser",
+        "b_bld_blackdispenser",
+        "b_bld_bluedispenser",
+        "b_bld_painteddispenser",
         "m_bld_adder",
         "m_bld_flip",
         "m_bld_sharp",

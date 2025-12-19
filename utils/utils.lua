@@ -59,6 +59,7 @@
         G.DISCOVER_TALLIES.allrunes = {tally = 0, of = 0}
         G.DISCOVER_TALLIES.blindeditions = {tally = 0, of = 0}
         G.DISCOVER_TALLIES.blindboosters = {tally = 0, of = 0}
+        G.DISCOVER_TALLIES.blinddecks = {tally = 0, of = 0}
         G.DISCOVER_TALLIES.blindtrinkets = {tally = 0, of = 0}
         G.DISCOVER_TALLIES.blindjokers = {tally = 0, of = 0}
         G.DISCOVER_TALLIES.blindtags = {tally = 0, of = 0}
@@ -99,6 +100,12 @@
                 G.DISCOVER_TALLIES.blindeditions.of = G.DISCOVER_TALLIES.blindeditions.of+1
                 if v.discovered then 
                     G.DISCOVER_TALLIES.blindeditions.tally = G.DISCOVER_TALLIES.blindeditions.tally+1
+                end
+            end
+            if v.set and v.set == 'Back' and BLINDSIDE.is_blindside(v.key) and not v.omit then
+                G.DISCOVER_TALLIES.blinddecks.of = G.DISCOVER_TALLIES.blinddecks.of+1
+                if v.discovered then 
+                    G.DISCOVER_TALLIES.blinddecks.tally = G.DISCOVER_TALLIES.blinddecks.tally+1
                 end
             end
             if v.set and v.set == 'Booster' and BLINDSIDE.is_blindside(v.key) and not v.omit then
