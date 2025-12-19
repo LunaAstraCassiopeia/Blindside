@@ -1797,10 +1797,11 @@ return {
 			["m_bld_deck"] = {
 				["name"] = "The Deck",	
 				["text"] = {
-					"{X:chips,C:white}Blue{}",
+					{"{X:chips,C:white}Blue{}",
 					"{C:chips}+#1#{} Chips for each",
 					"remaining blind in deck",
-					"{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
+					"{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"},
+					{"{C:green}Retained"}
 				},
 			},
 			["m_bld_vast"] = {

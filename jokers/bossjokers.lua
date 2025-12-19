@@ -223,6 +223,13 @@ BLINDSIDE.Joker({
         end
     end,
     calculate = function(self, blind, context)
+        if context.scoring_name and G.STATE == G.STATES.SELECTING_HAND and not blind.disabled then
+            if blind.hands[context.scoring_name] then
+                BLINDSIDE.alert_debuff(self, true, "Poker hand was already played")
+            else
+                BLINDSIDE.alert_debuff(self, false)
+            end
+        end
         if context.setting_blind and not context.disabled then
         for _, poker_hand in ipairs(G.handlist) do
         blind.hands = {}
