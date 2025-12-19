@@ -14,10 +14,7 @@
             if context.cardarea == G.play and context.before and card.facing ~= 'back' then
                 for i=1, #G.play.cards do
                     if G.play.cards[i]:is_color("Yellow", true, false) and G.play.cards[i] ~= card then
-                        if G.play.cards[i].facing ~= 'back' then 
-                        G.play.cards[i]:flip()
-                        end
-                        G.play.cards[i]:set_debuff(true)
+                        G.play.cards[i]:blind_debuff(G.play.cards[i], true)
                     end
                 end
             end

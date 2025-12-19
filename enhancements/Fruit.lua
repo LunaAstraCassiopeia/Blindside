@@ -19,16 +19,10 @@
                     end
                 end
                 if G.play.cards[self_pos-1] then
-                    if G.play.cards[self_pos-1].facing ~= 'back' then 
-                    G.play.cards[self_pos-1]:flip()
-                    end
-                    G.play.cards[self_pos-1]:set_debuff(true)
+                    G.play.cards[self_pos-1]:blind_debuff(G.play.cards[i], true)
                 end
                 if G.play.cards[self_pos+1] then
-                    if G.play.cards[self_pos+1].facing ~= 'back' then 
-                    G.play.cards[self_pos+1]:flip()
-                    end
-                    G.play.cards[self_pos+1]:set_debuff(true)
+                    G.play.cards[self_pos+1]:blind_debuff(G.play.cards[i], true)
                 end
             end
             if context.cardarea == G.play and context.main_scoring and context.scoring_hand then

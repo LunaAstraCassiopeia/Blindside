@@ -31,10 +31,7 @@
             if context.before then
                 for key, value in pairs(context.scoring_hand) do
                     if value:is_color("Faded") then
-                        if value.facing ~= 'back' then 
-                            value:flip()
-                        end
-                        value:set_debuff(true)
+                        value:blind_debuff(value, true)
                     end
                 end
             end
