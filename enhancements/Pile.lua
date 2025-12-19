@@ -41,6 +41,7 @@
             end
         end,
         loc_vars = function(self, info_queue, card)
+            info_queue[#info_queue+1] = {key = 'bld_retain', set = 'Other'}
             return {
                 key = card.ability.extra.upgraded and 'm_bld_pile_upgraded' or 'm_bld_pile',
                 vars = {
