@@ -13,17 +13,28 @@ SMODS.Consumable {
     end,
     pos = {x=0, y=3},
     use = function(self, card, area)
-        local chosen_cards = choose_stuff(G.hand.cards, 5, 'pentagram')
-        local destroyed_cards = choose_stuff(chosen_cards, 2, 'pentagram')
+        local destroyed_cards = choose_stuff(G.hand.cards, 2, 'pentagram')
+
+        local enhancements = {}
+
+        local args = {}
+        args.guaranteed = true
+        args.options = G.P_CENTER_POOLS.bld_obj_blindcard_generate
+        for i = 1, 3, 1 do
+            local enhancement = BLINDSIDE.poll_enhancement(args)
+            enhancements[i] = enhancement
+        end
+
+        local cards = {}
+        for i = 1, 3 do
+            print(enhancements[i])
+            cards[i] = SMODS.add_card { set = "Base", enhancement = enhancements[i] }
+        end
+        upgrade_blinds(cards, nil, true)
+        SMODS.calculate_context({ playing_card_added = true, cards = cards })
+        delay(0.6)
 
         destroy_blinds_and_calc(destroyed_cards, card)
-
-        for key, value in pairs(chosen_cards) do
-            if tableContains(value, destroyed_cards) then
-                table.remove(chosen_cards, key)
-            end
-        end
-        upgrade_blinds(chosen_cards)
     end,
     loc_vars = function(self, info_queue, card)
         return {

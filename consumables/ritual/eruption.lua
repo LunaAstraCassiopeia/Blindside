@@ -6,25 +6,14 @@ SMODS.Consumable {
     can_use = function (self, card)
         return #G.hand.cards > 0
     end,
+    config = {
+        extra = {
+            upgrade = 2
+        }
+    },
     use = function(self, card, area)
-        local enhancements = {}
-
-        local args = {}
-        args.guaranteed = true
-        args.options = G.P_CENTER_POOLS.bld_obj_blindcard_generate
-        for i = 1, 3, 1 do
-            local enhancement = BLINDSIDE.poll_enhancement(args)
-            enhancements[i] = enhancement
-        end
-
-        local cards = {}
-        for i = 1, 3 do
-            print(enhancements[i])
-            cards[i] = SMODS.add_card { set = "Base", enhancement = enhancements[i] }
-        end
-        upgrade_blinds(cards, nil, true)
-        SMODS.calculate_context({ playing_card_added = true, cards = cards })
-        delay(0.6)
+        local chosen_cards = choose_stuff(G.hand.cards, card.ability.extra.upgrade, 'eruption')
+        upgrade_blinds(chosen_cards, nil, true)
 
         G.E_MANAGER:add_event(Event({
             func = function ()
@@ -39,7 +28,7 @@ SMODS.Consumable {
         info_queue[#info_queue + 1] = G.P_TAGS['tag_bld_mantle']
         return {
             vars = {
-                card.ability.max_highlighted
+                card.ability.extra.upgrade
             }
         }
     end

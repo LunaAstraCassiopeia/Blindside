@@ -12,9 +12,9 @@ SMODS.Tag {
             end
         end,
     apply = function(self, tag, context)
-        print(context.type) 
+        --print(context.type) 
         if context.type == 'after_hand' and not (next(SMODS.find_card("j_bld_taglock"))) then
-            print('we are going to destroy your cards!!!')
+            --print('we are going to destroy your cards!!!')
         end
 
         if context.type == 'shop_start' and not (next(SMODS.find_card("j_bld_taglock")) and not (G.GAME.blind.boss or G.GAME.last_joker)) then

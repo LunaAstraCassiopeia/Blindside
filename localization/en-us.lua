@@ -780,8 +780,10 @@ return {
 			["c_bld_pentagram"] = {
 				["name"] = "Pentagram",
 				["text"] = {
-					"Destroys {C:attention}#1#{} random Blinds,",
-					"{C:dark_edition,E:1}Upgrades{} {C:attention}#2#{} random Blinds",
+					{"Destroy {C:attention}#1#{}",
+					"random Blinds"},
+					{"Create {C:attention}3{} random",
+					"{C:dark_edition,E:1}Upgraded{} Blinds"},
 				},
 			},
 			["c_bld_intervene"] = {
@@ -833,8 +835,8 @@ return {
 			["c_bld_eruption"] = {
 				["name"] = "Eruption",
 				["text"] = {
-					{"Create {C:attention}3{} random",
-					"{C:dark_edition,E:1}Upgraded{} Blinds"},
+					{"{C:dark_edition,E:1}Upgrade{} {C:attention}#1#{}",
+					"random Blinds"},
 					{"Create a",
 					"{C:attention}Mantle Tag"}
 				},
