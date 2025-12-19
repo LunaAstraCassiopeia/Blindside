@@ -21,6 +21,16 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
+        if context.scoring_name and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
+            if has_group_of(2, context.poker_hands) then
+                BLINDSIDE.alert_debuff(self, true, "Hand contains Pair")
+            else
+                BLINDSIDE.alert_debuff(self, false)
+            end
+        end
+        if context.before then
+            BLINDSIDE.alert_debuff(self, false)
+        end
         if context.setting_blind and not context.disabled then
             blind.active = true
         end
@@ -64,6 +74,16 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
+        if context.scoring_name and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
+            if has_group_of(3, context.poker_hands) then
+                BLINDSIDE.alert_debuff(self, true, "Hand contains Three of a Blind")
+            else
+                BLINDSIDE.alert_debuff(self, false)
+            end
+        end
+        if context.before then
+            BLINDSIDE.alert_debuff(self, false)
+        end
         if context.setting_blind and not context.disabled then
             blind.active = true
         end
@@ -107,6 +127,16 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
+        if context.scoring_name and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
+            if (next(context.poker_hands['bld_blind_2pair']) or next(context.poker_hands['bld_blind_fullhouse'])) then
+                BLINDSIDE.alert_debuff(self, true, "Hand contains Two Pair")
+            else
+                BLINDSIDE.alert_debuff(self, false)
+            end
+        end
+        if context.before then
+            BLINDSIDE.alert_debuff(self, false)
+        end
         if context.setting_blind and not context.disabled then
             blind.active = true
         end
@@ -150,6 +180,17 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
+        if context.scoring_name and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
+            if next(context.poker_hands['bld_raise']) then
+                BLINDSIDE.alert_debuff(self, true, "Hand contains Raise")
+            else
+                BLINDSIDE.alert_debuff(self, false)
+            end
+
+        end
+        if context.before then
+            BLINDSIDE.alert_debuff(self, false)
+        end
         if context.setting_blind and not context.disabled then
             blind.active = true
         end
@@ -194,6 +235,16 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
+        if context.scoring_name and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
+            if has_group_of(5, context.poker_hands) then
+                BLINDSIDE.alert_debuff(self, true, "Hand contains Flush")
+            else
+                BLINDSIDE.alert_debuff(self, false)
+            end
+        end
+        if context.before then
+            BLINDSIDE.alert_debuff(self, false)
+        end
         if context.setting_blind and not context.disabled then
             blind.active = true
         end

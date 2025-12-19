@@ -62,7 +62,25 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
-        if context.after and not G.GAME.blind.disabled then
+        if context.scoring_hand and context.poker_hands and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
+            local red = false
+            for i = 1, #context.scoring_hand do
+                if context.scoring_hand[i]:is_color("Red") and context.scoring_hand[i].facing ~= "back" then
+                    red = true
+                end
+            end
+            if red then
+                BLINDSIDE.alert_debuff(self, true, "Hand contains a Red Blind")
+            else
+                BLINDSIDE.alert_debuff(self, false)
+            end
+        end
+
+        if context.before then
+            BLINDSIDE.alert_debuff(self, false)
+        end
+
+        if context.after and not G.GAME.blind.disabled then            
             local hasWildCanvas = false
             for i = 1, #context.scoring_hand do
                 if context.scoring_hand[i].seal == "bld_wild" and context.scoring_hand[i].facing ~= "back" and next(SMODS.find_card('j_bld_canvas')) then
@@ -76,7 +94,7 @@ SMODS.Blind({
                 end
             end
             if changed then
-            BLINDSIDE.chipsmodify(2 - (hasWildCanvas and 1 or 0), 0, 0)
+                BLINDSIDE.chipsmodify(2 - (hasWildCanvas and 1 or 0), 0, 0)
             end
         end
     end,
@@ -110,6 +128,24 @@ SMODS.Blind({
         end
     end,
     calculate = function(self, blind, context)
+        if context.scoring_hand and context.poker_hands and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
+            local red = false
+            for i = 1, #context.scoring_hand do
+                if context.scoring_hand[i]:is_color("Yellow") and context.scoring_hand[i].facing ~= "back" then
+                    red = true
+                end
+            end
+            if red then
+                BLINDSIDE.alert_debuff(self, true, "Hand contains a Yellow Blind")
+            else
+                BLINDSIDE.alert_debuff(self, false)
+            end
+        end
+
+        if context.before then
+            BLINDSIDE.alert_debuff(self, false)
+        end        
+
         if context.after and not G.GAME.blind.disabled then
             local hasWildCanvas = false
             for i = 1, #context.scoring_hand do
@@ -158,6 +194,24 @@ SMODS.Blind({
         end
     end,
     calculate = function(self, blind, context)
+        if context.scoring_hand and context.poker_hands and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
+            local red = false
+            for i = 1, #context.scoring_hand do
+                if context.scoring_hand[i]:is_color("Purple") and context.scoring_hand[i].facing ~= "back" then
+                    red = true
+                end
+            end
+            if red then
+                BLINDSIDE.alert_debuff(self, true, "Hand contains a Purple Blind")
+            else
+                BLINDSIDE.alert_debuff(self, false)
+            end
+        end
+
+        if context.before then
+            BLINDSIDE.alert_debuff(self, false)
+        end
+
         if context.after and not G.GAME.blind.disabled then
             local hasWildCanvas = false
             for i = 1, #context.scoring_hand do
@@ -204,6 +258,24 @@ SMODS.Blind({
         end
     end,
     calculate = function(self, blind, context)
+        if context.scoring_hand and context.poker_hands and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
+            local red = false
+            for i = 1, #context.scoring_hand do
+                if context.scoring_hand[i]:is_color("Green") and context.scoring_hand[i].facing ~= "back" then
+                    red = true
+                end
+            end
+            if red then
+                BLINDSIDE.alert_debuff(self, true, "Hand contains a Green Blind")
+            else
+                BLINDSIDE.alert_debuff(self, false)
+            end
+        end
+
+        if context.before then
+            BLINDSIDE.alert_debuff(self, false)
+        end
+
         if context.after and not G.GAME.blind.disabled then
             local hasWildCanvas = false
             for i = 1, #context.scoring_hand do
@@ -250,6 +322,24 @@ SMODS.Blind({
         end
     end,
     calculate = function(self, blind, context)
+        if context.scoring_hand and context.poker_hands and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
+            local red = false
+            for i = 1, #context.scoring_hand do
+                if context.scoring_hand[i]:is_color("Blue") and context.scoring_hand[i].facing ~= "back" then
+                    red = true
+                end
+            end
+            if red then
+                BLINDSIDE.alert_debuff(self, true, "Hand contains a Blue Blind")
+            else
+                BLINDSIDE.alert_debuff(self, false)
+            end
+        end
+
+        if context.before then
+            BLINDSIDE.alert_debuff(self, false)
+        end
+
         if context.after and not G.GAME.blind.disabled then
             local hasWildCanvas = false
             for i = 1, #context.scoring_hand do

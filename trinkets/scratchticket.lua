@@ -8,7 +8,7 @@
             extra = {
                 chance = 1,
                 trigger = 10,
-                money = 10,
+                money = 8,
                 chanceadd = 0,
                 colorsplayed = {}
             }
@@ -35,7 +35,7 @@
             end
         end,
         calculate = function(self, card, context)
-            if context.individual and context.cardarea == G.play and context.other_card.facing ~= "back" and not context.blueprint then
+            if context.individual and context.cardarea == G.play and not context.blueprint then -- this used to be only on non-debuffed but that's not consistent with wording
                 if context.other_card:is_color("Green") then
                     card.ability.extra.chanceadd = card.ability.extra.chanceadd + 1
                 end

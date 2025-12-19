@@ -19,6 +19,7 @@ return {
 			["k_filmcard_ex"] = "Channel!",
 			["k_reroll_ex"] = "Reroll!",
 			["k_tryone_ex"] = "Get One Free!",
+			["k_tryfree_ex"] = "What A Bargain!",
 			["k_dug_ex"] = "Excavated!",
 			["k_mineral_ex"] = "Mineral!",
 			["k_filmpack_ex"] = "Cinema!",
@@ -524,6 +525,13 @@ return {
 					--"next hand"
 				},
 			},
+			["tag_bld_joker"] = {
+				["name"] = "Joker Tag",
+				["text"] = {
+					"{C:mult}+1{} Mult to Joker",
+					"each played hand",
+				},
+			},
 		},
 		["bld_obj_mineral"] = {
 			["c_bld_stibnite"] = {
@@ -746,6 +754,23 @@ return {
 					"Blinds and {C:attention}reroll{} them",
 					"into Blinds of the",
 					"same {C:attention}hue"
+				},
+			},
+			["c_bld_evoke"] = {
+				["name"] = "Evoke",
+				["text"] = {
+					"Create up to {C:attention}#1#{}",
+					"{C:bld_obj_ritual}Ritual{} cards and",
+					"a {C:attention}Joker Tag{}",
+					"{C:inactive}(Must have room)"
+				},
+			},
+			["c_bld_invert"] = {
+				["name"] = "Invert",
+				["text"] = {
+					{"Turn an owned",
+					"trinket {C:dark_edition}Negative"},
+					{"{C:blue}-#1#{} #2#"}
 				},
 			},
 			--[[					"{C:dark_edition,E:1}Upgrade{} {C:attention}#1#",
@@ -1796,10 +1821,11 @@ return {
 			["m_bld_deck"] = {
 				["name"] = "The Deck",	
 				["text"] = {
-					"{X:chips,C:white}Blue{}",
+					{"{X:chips,C:white}Blue{}",
 					"{C:chips}+#1#{} Chips for each",
 					"remaining blind in deck",
-					"{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"
+					"{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)"},
+					{"{C:green}Retained"}
 				},
 			},
 			["m_bld_vast"] = {
@@ -2221,7 +2247,7 @@ return {
 				["name"] = "Taglock",
 				["text"] = {
 					"Freeze all {C:attention}Round Tags",
-					"Until start of {C:attention}Boss Joker"
+					"until start of {C:attention}Boss Joker"
 				}
 			},
 			['j_bld_miniature'] = {
@@ -2389,9 +2415,13 @@ return {
 			['j_bld_scratchticket'] = {
 				["name"] = "Scratch Ticket",
 				["text"] = {
-					{"{C:green}#2# in #3#{} chance for {C:money}+#1#${}"},
-					{"Chance increases for each",
-					"{X:green,C:white}Green{} Blind scored"}
+					{"Each hand, {C:green}#2# in #3#{}",
+					"chance for {C:money}+#1#${}"},
+					{"Payout chance increases",
+					"by {C:green}+1{} for each scoring",
+					"{X:green,C:white}Green{} Blind"},
+					{"Chance resets",
+					"after payout"}
 				}
 			},
 			['j_bld_ensign'] = {
@@ -2574,7 +2604,7 @@ return {
 			['j_bld_discount'] = {
 				["name"] = "Discount",
 				["text"] = {
-					"Initial booster packs",
+					"Initial packs and cards",
 					"in {C:attention}Boss Shop{} are free"
 				}
 			},
@@ -2766,6 +2796,14 @@ return {
 			},
 		},
 		["Other"] = {
+			["bld_boss_shop"]	= {
+				["name"] = "Boss Shop",
+				["text"] = {
+					"The shop with",
+					"{C:attention}Booster Packs",
+					"after each {C:attention}Boss",
+				}
+			},
 			["bld_self_scoring"] = {
 				["name"] = "Self-Scoring",
 				["text"] = {

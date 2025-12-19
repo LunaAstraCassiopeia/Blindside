@@ -7,6 +7,7 @@
                 value = 13,
                 chips = 4,
                 chipsup = 4,
+                retain = true,
             }},
         hues = {"Blue"},
         replace_base_card = true,
@@ -29,6 +30,7 @@
             end
         end,
         loc_vars = function(self, info_queue, card)
+            info_queue[#info_queue+1] = {key = 'bld_retain', set = 'Other'}
             return {
                 vars = {
                     card.ability.extra.chips, card.ability.extra.chips*((G.deck and G.deck.cards) and #G.deck.cards or 20)

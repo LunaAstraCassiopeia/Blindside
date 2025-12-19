@@ -27,5 +27,8 @@
                     message = localize('k_tryfree_ex'),
                 }
             end
+        end,
+        loc_vars = function (self, info_queue, card)
+            info_queue[#info_queue+1] = {key = 'bld_boss_shop', set = 'Other'}
         end
     })

@@ -3,7 +3,7 @@
         key = 'candle',
         atlas = 'bld_trinkets',
         pos = {x = 5, y = 5},
-        rarity = 'bld_curio',
+        rarity = 'bld_keepsake',
         config = {
             extra = {
                 mult_gain = 0.25,

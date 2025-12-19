@@ -165,6 +165,102 @@ meta.__call = function (...)
     return this:set_params()
 end
 
+---@ class BLINDSIDE.Joker : SMODS.Blind
+---@ field get_assist? fun(self: BLINDSIDE.Joker) Returns an assistant Joker object.
+---@ field is_assistant? boolean Whether this Joker should be excluded from the pool because it is an assistant.
+---@ field set_joker? fun(self: BLINDSIDE.Joker) Will be called after set_blind. Use as if it were set_blind.
+---@ field load_joker? fun(self: BLINDSIDE.Joker) Will be called after load. Use as if it were load.
+---@ field defeat_joker? fun(self: BLINDSIDE.Joker) Will be called after defeat. Use as if it were defeat.
+---@ field pool_override? fun(self: BLINDSIDE.Joker) Will be called in the middle of in_pool. Use as if it were in_pool.
+BLINDSIDE.Joker = SMODS.Blind:extend {
+    in_pool = function(self, args)
+        if self.is_assistant then
+            return false
+        end
+
+        local is_blindside = G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside
+        if not is_blindside then
+            return false
+        end
+
+        if self.pool_override then
+            return self:pool_override()
+        end
+
+        local min = -99
+        if self.small and self.small.min then
+            min = self.small.min
+        end
+        if self.big and self.big.min then
+            min = self.big.min
+        end
+        if self.boss and self.boss.min then
+            min = self.boss.min
+        end
+
+        if G.GAME.round_resets.ante < min then
+            return false
+        end
+
+        if self.boss and self.boss.showdown then
+            if G.GAME.round_resets.ante % 6 ~= 0 then
+                return false
+            end
+        end
+
+        -- all checks passed
+        return true
+    end,
+    set_blind = function(self, reset, silent)
+        if self.is_assistant then
+            return
+        end
+
+        local assistant = self.get_assist and self:get_assist()
+        if assistant then
+            G.GAME.blindassist.states.visible = true
+            G.GAME.blindassist:set_blind(assistant)
+            G.GAME.blindassist:change_dim(1.5,1.5)
+        else
+            G.GAME.blindassist.states.visible = false
+            G.GAME.blindassist:change_dim(0,0)
+        end
+
+        if self.set_joker then
+            self:set_joker()
+        end
+    end,
+    load = function(self)
+        if self.is_assistant then
+            return
+        end
+
+        local assistant = self.get_assist and self:get_assist()
+        if assistant then
+            G.GAME.blindassist.states.visible = true
+            G.GAME.blindassist:set_blind(assistant)
+            G.GAME.blindassist:change_dim(1.5,1.5)
+        else
+            G.GAME.blindassist.states.visible = false
+            G.GAME.blindassist:change_dim(0,0)
+        end
+
+        if self.load_joker then
+            self:load_joker()
+        end
+    end,
+    defeat = function(self)
+        local assistant = self.get_assist and self:get_assist()
+        if assistant then
+            G.GAME.blindassist:defeat()
+        end
+        
+        if self.defeat_joker then
+            self:defeat_joker()
+        end
+    end,
+}
+
 SMODS.current_mod.optional_features = {
     retrigger_joker = true,
     cardareas = {
@@ -397,7 +493,9 @@ local ritual_list = {
     "prayer",
     "pentagram",
     "sacrifice",
-    "intervene"
+    "intervene",
+    "evoke",
+    "invert",
 }
 
 

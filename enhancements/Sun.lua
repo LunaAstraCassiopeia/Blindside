@@ -4,9 +4,9 @@
         pos = {x = 2, y = 6},
         config = {
             extra = {
-                money = 4,
+                money = 5,
                 value = 10,
-                money_up = 2,
+                money_up = 4,
                 retain = true,
                 hues = {"Yellow"}
             }},

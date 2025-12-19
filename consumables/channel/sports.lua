@@ -4,7 +4,7 @@ SMODS.Consumable {
     atlas = 'bld_consumable',
     pos = {x=9, y=1},
     config = {
-        max_highlighted = 3
+        max_highlighted = 2
     },
     use = function(self, card, area)
         enhancements = {}
