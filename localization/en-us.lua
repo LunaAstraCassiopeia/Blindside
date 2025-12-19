@@ -544,6 +544,14 @@ return {
 					"{C:attention}1{} played Blind"
 				},
 			},
+			["tag_bld_awe"] = {
+				["name"] = "Awe Tag",
+				["text"] = {
+					"Before each hand,",
+					"{C:red}debuffs{} your {C:attention}leftmost{}",
+					"and {C:attention}rightmost{} Trinkets",
+				},
+			},
 		},
 		["bld_obj_mineral"] = {
 			["c_bld_stibnite"] = {
@@ -812,6 +820,17 @@ return {
 					"{C:dark_edition,E:1}Upgraded{} Blinds"},
 					{"Create a",
 					"{C:attention}Mantle Tag"}
+				},
+			},
+			["c_bld_worship"] = {
+				["name"] = "Worship",
+				["text"] = {
+					{"Turn an owned",
+					"trinket {C:dark_edition}Polychrome",
+					"(polychrome is placeholder)",
+					"(it still works though)"},
+					{"Create an",
+					"{C:attention}Awe Tag"}
 				},
 			},
 			--[[					"{C:dark_edition,E:1}Upgrade{} {C:attention}#1#",
