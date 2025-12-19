@@ -66,7 +66,7 @@ function Game:blindupdate_shop(dt)
                                         for _, key in ipairs(G.GAME.current_round.voucher or {}) do
                                             if G.P_CENTERS[key] and G.GAME.current_round.voucher.spawn[key] then
                                                 SMODS.add_voucher_to_shop(key)
-                                                G.shop_vouchers.cards[1].cost = G.shop_vouchers.cards[1].cost + 15*G.GAME.round_resets.tags_bought
+                                                G.shop_vouchers.cards[1].cost = G.shop_vouchers.cards[1].cost + 5*G.GAME.round_resets.tags_bought
                                             end
                                         end
                                     end
@@ -81,7 +81,7 @@ function Game:blindupdate_shop(dt)
                                             end
                                             G.load_shop_booster = nil
                                         else
-                                        for i=1, G.GAME.starting_params.boosters_in_shop + (G.GAME.last_joker and G.GAME.modifiers.extra_boosters or 0) + (not G.GAME.last_joker and 2 or 1) do
+                                        for i=1, G.GAME.starting_params.boosters_in_shop + (G.GAME.modifiers.extra_boosters or 0) + (not G.GAME.last_joker and 1 or 1) do
                                           if i <= 2 and G.GAME.last_joker then
                                             G.GAME.current_round.used_packs = G.GAME.current_round.used_packs or {}
                                             if not G.GAME.current_round.used_packs[i] then

@@ -1195,7 +1195,7 @@ position = 'after'
 payload = '''
 if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
 self.GAME.current_round.trinket = BLINDSIDE.get_next_trinket()
-G.GAME.round_resets.tags_bought = 0 
+-- G.GAME.round_resets.tags_bought = 0 
 end
 '''
 
@@ -1213,7 +1213,7 @@ if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effe
 for i = 1, G.GAME.shop.joker_max do
     G.GAME.current_round.trinket = BLINDSIDE.get_next_trinket()
 end
-G.GAME.round_resets.tags_bought = 0
+-- G.GAME.round_resets.tags_bought = 0
 end
 '''
 
@@ -1246,7 +1246,7 @@ G.GAME.round_resets.tags_bought = G.GAME.round_resets.tags_bought + 1
 for _, key in ipairs(G.GAME.current_round.voucher or {}) do
     if G.P_CENTERS[key] and G.GAME.current_round.voucher.spawn[key] then
         SMODS.add_voucher_to_shop(key)
-        G.shop_vouchers.cards[1].cost = G.shop_vouchers.cards[1].cost + 15*G.GAME.round_resets.tags_bought
+        G.shop_vouchers.cards[1].cost = G.shop_vouchers.cards[1].cost + 5*G.GAME.round_resets.tags_bought
     end
 end
 end
