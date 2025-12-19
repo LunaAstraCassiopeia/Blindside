@@ -765,6 +765,14 @@ return {
 					"{C:inactive}(Must have room)"
 				},
 			},
+			["c_bld_invert"] = {
+				["name"] = "Invert",
+				["text"] = {
+					{"Turn an owned",
+					"trinket {C:dark_edition}Negative"},
+					{"{C:blue}-#1#{} #2#"}
+				},
+			},
 			--[[					"{C:dark_edition,E:1}Upgrade{} {C:attention}#1#",
 					"selected Blinds",
 					"{C:attention}Destroy{} a random",

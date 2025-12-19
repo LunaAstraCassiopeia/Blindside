@@ -227,6 +227,7 @@
         "c_bld_pentagram",
         "c_bld_intervene",
         "c_bld_evoke",
+        "c_bld_invert",
         "bld_wild",
         "bld_astral",
         "bld_floral",

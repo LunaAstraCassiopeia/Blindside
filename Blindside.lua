@@ -495,6 +495,7 @@ local ritual_list = {
     "sacrifice",
     "intervene",
     "evoke",
+    "invert",
 }
 
 
