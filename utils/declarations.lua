@@ -244,6 +244,7 @@
         "c_bld_funeral",
         "c_bld_monsoon",
         "c_bld_journey",
+        "c_bld_purify",
         "bld_wild",
         "bld_astral",
         "bld_floral",

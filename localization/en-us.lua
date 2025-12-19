@@ -877,6 +877,15 @@ return {
 					"{C:attention}Burden Tag"}
 				},
 			},
+			["c_bld_purify"] = {
+				["name"] = "Purify",
+				["text"] = {
+					{"Remove all {C:attention}Modifiers{} from",
+					"up to {C:attention}#1#{} selected Blinds"},
+					{"If a {C:attention}Modifier{} was removed,",
+					"{C:dark_edition,E:1}Upgrade{} the Blind"}
+				},
+			},
 		},
 		["bld_obj_filmcard"] = {
 			["c_bld_horror"] = {
