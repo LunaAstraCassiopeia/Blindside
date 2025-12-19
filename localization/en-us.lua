@@ -525,6 +525,13 @@ return {
 					--"next hand"
 				},
 			},
+			["tag_bld_joker"] = {
+				["name"] = "Joker Tag",
+				["text"] = {
+					"{C:mult}+1{} Mult to Joker",
+					"each played hand",
+				},
+			},
 		},
 		["bld_obj_mineral"] = {
 			["c_bld_stibnite"] = {
@@ -747,6 +754,15 @@ return {
 					"Blinds and {C:attention}reroll{} them",
 					"into Blinds of the",
 					"same {C:attention}hue"
+				},
+			},
+			["c_bld_evoke"] = {
+				["name"] = "Evoke",
+				["text"] = {
+					"Create up to {C:attention}#1#{}",
+					"{C:bld_obj_ritual}Ritual{} cards and",
+					"a {C:attention}Joker Tag{}",
+					"{C:inactive}(Must have room)"
 				},
 			},
 			--[[					"{C:dark_edition,E:1}Upgrade{} {C:attention}#1#",

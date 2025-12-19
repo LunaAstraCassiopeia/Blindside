@@ -62,6 +62,9 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
+        if context.scoring_name then
+            print(context.scoring_name)
+        end
         if context.scoring_name and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
             local red = false
             for i = 1, #context.scoring_hand do

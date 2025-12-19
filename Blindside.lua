@@ -493,7 +493,8 @@ local ritual_list = {
     "prayer",
     "pentagram",
     "sacrifice",
-    "intervene"
+    "intervene",
+    "evoke",
 }
 
 
