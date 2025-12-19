@@ -2264,6 +2264,26 @@ return {
 					{"{C:green}Retained{}"}
 				},
 			},
+			["m_bld_grate"] = {
+				["name"] = "The Grate",
+				["text"] = {
+					"{X:red,C:white}Red{}",
+					"{C:mult}+#1#{} Mult for every",
+					"{C:attention}2{} Blinds above {C:attention}20",
+					"in your full deck",
+					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
+				},
+			},
+			["m_bld_grate_upgraded"] = {
+				["name"] = "The Grate",
+				["text"] = {
+					"{X:red,C:white}Red{}",
+					"{C:mult}+#1#{} Mult for",
+					"every {C:attention}2{} Blinds in",
+					"your full deck",
+					"{C:inactive}(Currently {C:mult}+#2#{C:inactive} Mult)"
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {

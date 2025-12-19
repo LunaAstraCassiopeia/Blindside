@@ -85,6 +85,7 @@
         "m_bld_tears",
         "m_bld_way",
         "m_bld_fossil",
+        "m_bld_grate",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",
