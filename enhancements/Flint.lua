@@ -4,7 +4,7 @@
         pos = {x = 6, y = 2},
         config = {
             h_mult = 5,
-            p_dollars = 2,
+            p_dollars = 4,
             extra = {
                 value = 13,
                 mult_gain = 5,

@@ -5,8 +5,8 @@
         config = {
             extra = {
                 value = 14,
-                money = 3,
-                money_up = 5,
+                money = 4,
+                money_up = 6,
             }},
         hues = {"Yellow"},
         loc_vars = function(self, info_queue, card)
