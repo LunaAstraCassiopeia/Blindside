@@ -5,6 +5,8 @@
         config = {
             extra = {
                 value = 12,
+                dollars = 10,
+                dollarsup = 5
             }},
         hues = {"Yellow"},
         rare = true,
@@ -17,7 +19,8 @@
                         func = function()
                             add_tag(Tag('tag_bld_wave'))
                         end,
-                        card = card
+                        card = card,
+                        money = card.ability.extra.dollars
                     }
                 else
                     if card.facing ~= 'back' and context.cardarea == G.play then
@@ -30,7 +33,7 @@
                 end
             end
 
-            if context.burn_card == card and #context.scoring_hand == 5 then
+            if context.burn_card == card and #context.scoring_hand == 5 or card.ability.extra.upgraded then
                 return {
                     remove = true,
                 }
@@ -46,6 +49,7 @@
         upgrade = function(card)
             if not card.ability.extra.upgraded then
             card.ability.extra.upgraded = true
+            card.ability.extra.dollars = card.ability.extra.dollars + card.ability.extra.dollarsup
             end
         end
     })
