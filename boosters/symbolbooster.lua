@@ -177,7 +177,7 @@ SMODS.Booster{
             end
         end,
         atlas = 'bld_booster',
-        cost = 4,
+        cost = 3,
         weight = 3,
         pos = { x = 0, y = 1 },
         loc_vars = function(self, info_queue, card)
@@ -217,7 +217,7 @@ SMODS.Booster{
             end
         end,
         atlas = 'bld_booster',
-        cost = 4,
+        cost = 3,
         weight = 3,
         pos = { x = 1, y = 1 },
         loc_vars = function(self, info_queue, card)
@@ -256,7 +256,7 @@ SMODS.Booster{
             end
         end,
         atlas = 'bld_booster',
-        cost = 5,
+        cost = 6,
         weight = 2,
         pos = { x = 2, y = 1 },
         loc_vars = function(self, info_queue, card)
@@ -295,7 +295,7 @@ SMODS.Booster{
             end
         end,
         atlas = 'bld_booster',
-        cost = 5,
+        cost = 6,
         weight = 2,
         pos = { x = 3, y = 1 },
         loc_vars = function(self, info_queue, card)

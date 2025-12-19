@@ -381,6 +381,9 @@ function BLINDSIDE.create_blindcard_for_shop(area, is_boss_shop)
               return card
             else
             local card = SMODS.create_card({set = v.type, area = area, bypass_discovery_center = true, discover = true})
+            if v.type ~= 'Base' then
+                card.cost = 2
+            end
             create_shop_card_ui(card, v.type, area)
             G.E_MANAGER:add_event(Event({
                 func = (function()
