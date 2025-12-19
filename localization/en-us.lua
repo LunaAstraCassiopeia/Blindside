@@ -552,6 +552,15 @@ return {
 					"and {C:attention}rightmost{} Trinkets",
 				},
 			},
+			["tag_bld_downpour"] = {
+				["name"] = "Downpour Tag",
+				["text"] = {
+					"After each hand,",
+					"{C:green}#1# in #2#{} chance for each",
+					"played Blind to lose",
+					"all {C:attention}Modifiers"
+				},
+			},
 		},
 		["bld_obj_mineral"] = {
 			["c_bld_stibnite"] = {
@@ -839,6 +848,16 @@ return {
 					{"Create {C:attention}Debuff Tags",
 					"for your 1st and 2nd",
 					"{C:attention}most played hands"}
+				},
+			},
+			["c_bld_monsoon"] = {
+				["name"] = "Monsoon",
+				["text"] = {
+					{"{C:green}#1# in #2#{} chance to give",
+					"a random {C:dark_edition}edition{} to",
+					"each Blind in hand"},
+					{"Create a",
+					"{C:attention}Downpour Tag"}
 				},
 			},
 		},
@@ -2894,6 +2913,14 @@ return {
 			}
 		},
 		["Other"] = {
+			["bld_modifiers"]	= {
+				["name"] = "Modifier",
+				["text"] = {
+					"{C:attention}Trims{} and",
+					"{C:dark_edition}Editions{}, but",
+					"not {C:dark_edition,E:1}Upgrades"
+				}
+			},
 			["bld_boss_shop"]	= {
 				["name"] = "Boss Shop",
 				["text"] = {

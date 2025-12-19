@@ -510,6 +510,7 @@ local ritual_list = {
     "eruption",
     "worship",
     "funeral",
+    "monsoon",
 }
 
 
