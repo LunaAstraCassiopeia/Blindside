@@ -535,6 +535,13 @@ return {
 					"each played hand",
 				},
 			},
+			["tag_bld_mantle"] = {
+				["name"] = "Mantle Tag",
+				["text"] = {
+					"Each hand, {C:red}destroys",
+					"{C:attention}1{} played Blind"
+				},
+			},
 		},
 		["bld_obj_mineral"] = {
 			["c_bld_stibnite"] = {
@@ -794,6 +801,15 @@ return {
 					"selected Blinds"},
 					{"{C:red}Destroy{} a random",
 					"owned trinket"}
+				},
+			},
+			["c_bld_eruption"] = {
+				["name"] = "Eruption",
+				["text"] = {
+					{"Create {C:attention}3{} random",
+					"{C:dark_edition,E:1}Upgraded{} Blinds"},
+					{"Create a",
+					"{C:attention}Mantle Tag"}
 				},
 			},
 			--[[					"{C:dark_edition,E:1}Upgrade{} {C:attention}#1#",

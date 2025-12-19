@@ -507,6 +507,7 @@ local ritual_list = {
     "invert",
     "assimilate",
     "exorcise",
+    "eruption",
 }
 
 
