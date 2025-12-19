@@ -3,10 +3,10 @@
         atlas = 'bld_blindrank',
         pos = {x = 5, y = 1},
         config = {
-            chips = 65,
+            chips = 80,
             extra = {
                 value = 11,
-                chipsup = 55,
+                chipsup = 80,
                 hues = {"Purple"}
             }},
         replace_base_card = true,
