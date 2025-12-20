@@ -19,7 +19,7 @@
             end
         end,
         loc_vars = function(self, info_queue, card)
-            local cards = card.ability.extra.upgraded and #G.playing_cards or #G.playing_cards - 20
+            local cards = G.playing_cards and (card.ability.extra.upgraded and #G.playing_cards or #G.playing_cards - 20) or 0
             return {
                 key = card.ability.extra.upgraded and 'm_bld_grate_upgraded' or 'm_bld_grate',
                 vars = {
