@@ -12,7 +12,7 @@ SMODS.Consumable {
         end
         return false
     end,
-    pos = {x=1, y=0},
+    pos = {x=10, y=3},
     use = function(self, card, area)
         for key, value in pairs(G.hand.cards) do
             if not value.edition and SMODS.pseudorandom_probability(card, pseudoseed('bld_rain'), 1, 3, 'bld_rain') then
