@@ -4,8 +4,7 @@ SMODS.Seal {
     pos = { x = 1, y = 1 },
     config = { 
         extra = { 
-            chips = 5,
-            chips_mod = 5
+            draw_extra = 1
         } 
     },
     badge_colour = HEX('757CDC'),
@@ -21,23 +20,36 @@ SMODS.Seal {
         ["bld_obj_enhancements"] = true,
     },
     calculate = function(self, card, context)
-        if context.main_scoring and context.cardarea == G.play and card.facing ~= 'back' then
-            SMODS.scale_card(card, {
-                ref_table = card.ability.seal.extra,
-                ref_value = "chips",
-                scalar_value = "chips_mod",
-                operation = '+',
-                message_colour = G.C.BLUE
-            })
-            return {
-                chips = card.ability.seal.extra.chips
-                }
+        if context.main_eval and (context.hand_drawn and context.cardarea == G.hand and tableContains(card, context.hand_drawn)) or (context.other_drawn and context.cardarea == G.hand and tableContains(card, context.other_drawn)) then
+            if G.GAME.draw_tech then
+                --print("this is a tech draw")
+            end
+            --print(#context.hand_drawn)
+            if not G.GAME.tech_draw_buffer then
+                G.GAME.tech_draw_buffer = 0
+            end
+            G.GAME.tech_draw_buffer = G.GAME.tech_draw_buffer + card.ability.seal.extra.draw_extra
+            G.E_MANAGER:add_event(Event({
+                blocking = false,
+                func = function()
+                    if G.STATE == G.STATES.SELECTING_HAND and G.GAME.tech_draw_buffer > 0 then
+                        --print("----------- tech draw")
+                        G.FUNCS.blind_draw_from_deck_to_hand(math.floor(G.GAME.tech_draw_buffer))
+                        G.GAME.tech_draw_buffer = 0
+                        return true
+                    elseif G.STATE == G.STATES.SHOP then -- no drawing later!
+                        return true
+                    elseif G.GAME.tech_draw_buffer == 0 then
+                        return true
+                    end
+                end
+            }))
         end
     end,
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.seal.extra.chips, card.ability.seal.extra.chips_mod,
+                card.ability.seal.extra.draw_extra
             }
         }
     end

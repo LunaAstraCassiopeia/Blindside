@@ -3003,9 +3003,8 @@ return {
 			["bld_tech_seal"] = {
 				["name"] = "Tech Blind",
 				["text"] = {
-					"{C:chips}+#2#{} Chips each time",
-					"this Blind is scored",
-					"{C:inactive}(Currently: {C:chips}+#1#{C:inactive} Chips)"
+					"When Blind is drawn,",
+					"draw {C:attention}#1#{} extra Blind"
 				}
 			},
 			["bld_hunter_seal"] = {
