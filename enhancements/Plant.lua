@@ -17,7 +17,7 @@
                     if SMODS.pseudorandom_probability(card, pseudoseed("flip"), card.ability.extra.chance, card.ability.extra.trigger, 'flip') and card.facing ~= 'back' then
                     for i=1, #G.play.cards do
                         if G.play.cards[i] ~= card then
-                            G.play.cards[i]:blind_debuff(G.play.cards[i], true)
+                            G.play.cards[i].config.center.blind_debuff(G.play.cards[i], true)
                         end
                         end
                     end

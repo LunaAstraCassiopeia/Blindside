@@ -19,10 +19,10 @@
                     end
                 end
                 if G.play.cards[self_pos-1] then
-                    G.play.cards[self_pos-1]:blind_debuff(G.play.cards[i], true)
+                    G.play.cards[self_pos-1].config.center.blind_debuff(G.play.cards[i], true)
                 end
                 if G.play.cards[self_pos+1] then
-                    G.play.cards[self_pos+1]:blind_debuff(G.play.cards[i], true)
+                    G.play.cards[self_pos+1].config.center.blind_debuff(G.play.cards[i], true)
                 end
             end
             if context.cardarea == G.play and context.main_scoring and context.scoring_hand then

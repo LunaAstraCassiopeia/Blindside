@@ -31,7 +31,7 @@
             if context.before then
                 for key, value in pairs(context.scoring_hand) do
                     if value:is_color("Faded") then
-                        value:blind_debuff(value, true)
+                        value.config.center.blind_debuff(value, true)
                     end
                 end
             end
