@@ -2480,9 +2480,8 @@ return {
 				["name"] = "Pumpkin",
 				["text"] = {
 					"{C:attention}Spooky Blinds{} reduce",
-					"Joker Chips by an",
-					"additional {X:dark_edition,C:white}10%{} and",
-					"are {C:attention}Burned",
+					"by an additional",
+					"{X:dark_edition,C:white}-2%{} and {C:attention}burn",
 				}
 			},
 			['j_bld_statuette'] = {

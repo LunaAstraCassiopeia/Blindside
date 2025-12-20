@@ -35,7 +35,7 @@ SMODS.Seal {
                     table.insert(sharing, value)
                 end
             end
-            local p = (card.ability.seal.extra.chipsreduc*#sharing)
+            local p = (card.ability.seal.extra.chipsreduc*#sharing*(1 + #SMODS.find_card("j_bld_pumpkin")))
             local chipsReduc = -(G.GAME.blind.basechips + G.GAME.chips_buffer)*p -- #SMODS.find_card("j_bld_pumpkin")
             G.GAME.chips_buffer = G.GAME.chips_buffer + chipsReduc
             return {
