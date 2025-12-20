@@ -2,7 +2,7 @@ SMODS.Consumable {
     key = 'variety',
     set = 'bld_obj_filmcard',
     atlas = 'bld_consumable',
-    pos = {x=1, y=0},
+    pos = {x=10, y=0},
     config = {
         extra = {
             channels = 2

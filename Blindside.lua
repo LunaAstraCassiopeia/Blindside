@@ -473,7 +473,8 @@ local channel_list = {
         "thriller",
         "experimental",
         "sports",
-        --"variety",
+        "variety",
+        "telenovela",
 }
 
 local mineral_list = {
