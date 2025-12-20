@@ -121,7 +121,7 @@ BLINDSIDE.Blind = SMODS.Enhancement:extend {
     blind_debuff = function(card, external)
         if not (external and card.seal == 'bld_wild') then
             if card.facing ~= 'back' then 
-            card:flip()
+                card:flip()
             end
             card:set_debuff(true)
         end

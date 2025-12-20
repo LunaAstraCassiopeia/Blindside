@@ -24,6 +24,7 @@ SMODS.Blind({
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
             ease_hands_played(-1)
         end
+
         if context.scoring_name and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
             if has_group_of(2, context.poker_hands) then
                 BLINDSIDE.alert_debuff(self, true, "Hand contains Pair")
@@ -33,6 +34,13 @@ SMODS.Blind({
         end
         if context.before then
             BLINDSIDE.alert_debuff(self, false)
+            if context.scoring_hand and not G.GAME.blind.disabled and G.GAME.modifiers.enable_bld_deadly_small_big and blind.active then
+                if has_group_of(2, context.poker_hands) then
+                    for key, value in pairs(context.scoring_hand) do
+                        value.config.center:blind_debuff(value, true)
+                    end
+                end
+            end
         end
         if context.setting_blind and not context.disabled then
             blind.active = true
@@ -89,6 +97,13 @@ SMODS.Blind({
         end
         if context.before then
             BLINDSIDE.alert_debuff(self, false)
+            if context.scoring_hand and not G.GAME.blind.disabled and G.GAME.modifiers.enable_bld_deadly_small_big and blind.active then
+                if has_group_of(3, context.poker_hands) then
+                    for key, value in pairs(context.scoring_hand) do
+                        value.config.center:blind_debuff(value, true)
+                    end
+                end
+            end
         end
         if context.setting_blind and not context.disabled then
             blind.active = true
@@ -145,6 +160,13 @@ SMODS.Blind({
         end
         if context.before then
             BLINDSIDE.alert_debuff(self, false)
+            if context.scoring_hand and not G.GAME.blind.disabled and G.GAME.modifiers.enable_bld_deadly_small_big and blind.active then
+                if (next(context.poker_hands['bld_blind_2pair']) or next(context.poker_hands['bld_blind_fullhouse'])) then
+                    for key, value in pairs(context.scoring_hand) do
+                        value.config.center:blind_debuff(value, true)
+                    end
+                end
+            end
         end
         if context.setting_blind and not context.disabled then
             blind.active = true
@@ -202,6 +224,13 @@ SMODS.Blind({
         end
         if context.before then
             BLINDSIDE.alert_debuff(self, false)
+            if context.scoring_hand and not G.GAME.blind.disabled and G.GAME.modifiers.enable_bld_deadly_small_big and blind.active then
+                if next(context.poker_hands['bld_raise']) then
+                    for key, value in pairs(context.scoring_hand) do
+                        value.config.center:blind_debuff(value, true)
+                    end
+                end
+            end
         end
         if context.setting_blind and not context.disabled then
             blind.active = true
@@ -259,6 +288,13 @@ SMODS.Blind({
         end
         if context.before then
             BLINDSIDE.alert_debuff(self, false)
+            if context.scoring_hand and not G.GAME.blind.disabled and G.GAME.modifiers.enable_bld_deadly_small_big and blind.active then
+                if has_group_of(5, context.poker_hands) then
+                    for key, value in pairs(context.scoring_hand) do
+                        value.config.center:blind_debuff(value, true)
+                    end
+                end
+            end
         end
         if context.setting_blind and not context.disabled then
             blind.active = true

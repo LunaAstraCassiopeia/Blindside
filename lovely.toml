@@ -1477,3 +1477,73 @@ if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effe
 self.config.sort = config.sort or 'color desc'
 end
 '''
+
+# skipping costs $2 per ante
+# thank you to CCC (celeste card collection) for this code and the following 3 patches
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = "G.FUNCS.skip_blind = function(e)"
+position = "after"
+payload = '''
+if G.GAME and G.GAME.modifiers and G.GAME.modifiers.enable_bld_skip_costs_money then
+	local skipcost = 2*(G.GAME.round_resets.ante)
+	if -skipcost < 0 then
+		if to_big( (G.GAME.dollars-G.GAME.bankrupt_at) - skipcost ) < to_big(0) then
+			e.disable_button = false
+			return
+		end
+	end
+	if -skipcost ~= 0 then
+		ease_dollars(-skipcost)
+	end
+end
+'''
+match_indent = true
+
+# show
+# lmao this is so long
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = "{n=G.UIT.T, config={text = localize('b_skip_blind'), scale = 0.4, colour = G.C.UI.TEXT_INACTIVE}}"
+position = "at"
+payload = '''
+{n=G.UIT.T, config={text = localize('b_skip_blind')..(
+	G.GAME and G.GAME.modifiers and G.GAME.modifiers.enable_bld_skip_costs_money and 
+		((-2*(G.GAME.round_resets.ante))<0 and ' (-' or ' (')..localize('$')..math.abs(-2*(G.GAME.round_resets.ante))..')' 
+	or ''
+), scale = 0.4, colour = G.C.UI.TEXT_INACTIVE}}
+'''
+match_indent = true
+
+# deal with button
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''_blind_choice.alignment.offset.y = -0.9
+if _tag and _tag_container then'''
+position = "after"
+payload = '''
+if not ( G.GAME.modifiers.enable_bld_skip_costs_money and to_big( (G.GAME.dollars-G.GAME.bankrupt_at) - (2*(G.GAME.round_resets.ante)) ) < to_big(0) ) then
+'''
+match_indent = true
+
+# back on my bullshit
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = "_sprite.config.force_focus = nil"
+position = "after"
+payload = '''
+else
+	_tag.children[2].config.button = 'skip_blind'	-- should be nil but tag colour isn't updating
+	_tag.config.outline_colour = G.C.UI.BACKGROUND_INACTIVE
+	_tag.children[2].config.hover = false
+	_tag.children[2].config.colour = G.C.UI.BACKGROUND_INACTIVE
+	_tag.children[2].children[1].config.colour = G.C.UI.TEXT_INACTIVE
+	local _sprite = _tag.config.ref_table
+	_sprite.config.force_focus = true
+end
+'''
+match_indent = true
