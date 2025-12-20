@@ -8,7 +8,7 @@ SMODS.Edition {
     atlas = 'bld_blindrank',
     pos = {x = 3, y = 0},
     config = {
- 		extra = {retriggers = 1,}
+ 		extra = {retriggers = 1}
     },
     weight = 1,
     in_shop = false,

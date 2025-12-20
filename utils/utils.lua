@@ -40,7 +40,7 @@
             G.GAME.hands['Four of a Kind'].visible = false
             G.GAME.hands['Straight Flush'].visible = false
             G.GAME.bld_doodad_mod = 5
-            G.GAME.bld_keepsake_mod = 2.5
+            G.GAME.bld_keepsake_mod = 2
             G.GAME.bld_curio_mod = 5
             G.GAME.bld_hobby_mod = 5
             G.GAME['common_mod'] = 0

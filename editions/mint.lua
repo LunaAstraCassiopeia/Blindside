@@ -16,7 +16,7 @@ SMODS.Edition {
             end
         end,
     config = {
- 		p_dollars = 3,
+ 		p_dollars = 2,
     },
     in_shop = false,
     weight = 3,

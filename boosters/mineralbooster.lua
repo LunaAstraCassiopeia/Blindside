@@ -13,7 +13,7 @@ SMODS.Booster{
         end,
         atlas = 'bld_booster',
         kind = 'mineral',
-        cost = 4,
+        cost = 3,
         weight = 1,
         pos = { x = 0, y = 4 },
         loc_vars = function(self, info_queue, card)
@@ -51,7 +51,7 @@ SMODS.Booster{
         end,
         atlas = 'bld_booster',
         kind = 'mineral',
-        cost = 4,
+        cost = 3,
         weight = 1,
         pos = { x = 1, y = 4 },
         loc_vars = function(self, info_queue, card)
@@ -89,7 +89,7 @@ SMODS.Booster{
         end,
         atlas = 'bld_booster',
         kind = 'mineral',
-        cost = 4,
+        cost = 3,
         weight = 1,
         pos = { x = 2, y = 4 },
         loc_vars = function(self, info_queue, card)
@@ -127,7 +127,7 @@ SMODS.Booster{
         end,
         atlas = 'bld_booster',
         kind = 'mineral',
-        cost = 4,
+        cost = 3,
         weight = 1,
         pos = { x = 3, y = 4 },
         loc_vars = function(self, info_queue, card)
@@ -165,7 +165,7 @@ SMODS.Booster{
         end,
         atlas = 'bld_booster',
         kind = 'mineral',
-        cost = 6,
+        cost = 4,
         weight = 1,
         pos = { x = 0, y = 5 },
         loc_vars = function(self, info_queue, card)
@@ -204,7 +204,7 @@ SMODS.Booster{
         end,
         atlas = 'bld_booster',
         kind = 'mineral',
-        cost = 6,
+        cost = 4,
         weight = 1,
         pos = { x = 1, y = 5 },
         loc_vars = function(self, info_queue, card)
@@ -243,7 +243,7 @@ SMODS.Booster{
         end,
         atlas = 'bld_booster',
         kind = 'mineral',
-        cost = 8,
+        cost = 6,
         weight = 1,
         pos = { x = 2, y = 5 },
         loc_vars = function(self, info_queue, card)
@@ -282,7 +282,7 @@ SMODS.Booster{
         end,
         atlas = 'bld_booster',
         kind = 'mineral',
-        cost = 8,
+        cost = 6,
         weight = 1,
         pos = { x = 3, y = 5 },
         loc_vars = function(self, info_queue, card)

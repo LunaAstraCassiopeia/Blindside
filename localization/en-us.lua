@@ -537,6 +537,38 @@ return {
 					"each played hand",
 				},
 			},
+			["tag_bld_mantle"] = {
+				["name"] = "Mantle Tag",
+				["text"] = {
+					"Each hand, {C:red}destroys",
+					"{C:attention}1{} played Blind"
+				},
+			},
+			["tag_bld_awe"] = {
+				["name"] = "Awe Tag",
+				["text"] = {
+					"Before each hand,",
+					"{C:red}debuffs{} your {C:attention}leftmost{}",
+					"and {C:attention}rightmost{} Trinkets",
+				},
+			},
+			["tag_bld_downpour"] = {
+				["name"] = "Downpour Tag",
+				["text"] = {
+					"After each hand,",
+					"{C:green}#1# in #2#{} chance for each",
+					"played Blind to lose",
+					"all {C:attention}Modifiers"
+				},
+			},
+			["tag_bld_burden"] = {
+				["name"] = "Burden Tag",
+				["text"] = {
+					"After each hand,",
+					"lose {C:attention}half{} of held",
+					"{C:money}money{} rounded down",
+				},
+			},
 		},
 		["bld_obj_mineral"] = {
 			["c_bld_stibnite"] = {
@@ -748,8 +780,10 @@ return {
 			["c_bld_pentagram"] = {
 				["name"] = "Pentagram",
 				["text"] = {
-					"Destroys {C:attention}#1#{} random Blinds,",
-					"{C:dark_edition,E:1}Upgrades{} {C:attention}#2#{} random Blinds",
+					{"Destroy {C:attention}#1#{}",
+					"random Blinds"},
+					{"Create {C:attention}3{} random",
+					"{C:dark_edition,E:1}Upgraded{} Blinds"},
 				},
 			},
 			["c_bld_intervene"] = {
@@ -798,10 +832,62 @@ return {
 					"owned trinket"}
 				},
 			},
-			--[[					"{C:dark_edition,E:1}Upgrade{} {C:attention}#1#",
-					"selected Blinds",
-					"{C:attention}Destroy{} a random",
-					"trinket"]]
+			["c_bld_eruption"] = {
+				["name"] = "Eruption",
+				["text"] = {
+					{"{C:dark_edition,E:1}Upgrade{} {C:attention}#1#{}",
+					"random Blinds"},
+					{"Create a",
+					"{C:attention}Mantle Tag"}
+				},
+			},
+			["c_bld_worship"] = {
+				["name"] = "Worship",
+				["text"] = {
+					{"Turn an owned",
+					"trinket {C:dark_edition}Shiny"},
+					{"Create an",
+					"{C:attention}Awe Tag"}
+				},
+			},
+			["c_bld_funeral"] = {
+				["name"] = "Funeral",
+				["text"] = {
+					{"{C:dark_edition,E:1}Upgrade{} up to {C:attention}#1#{}",
+					"selected Blinds"},
+					{"Create {C:attention}Debuff Tags",
+					"for your 1st and 2nd",
+					"{C:attention}most played hands"}
+				},
+			},
+			["c_bld_monsoon"] = {
+				["name"] = "Monsoon",
+				["text"] = {
+					{"{C:green}#1# in #2#{} chance to give",
+					"a random {C:dark_edition}edition{} to",
+					"each Blind in hand"},
+					{"Create a",
+					"{C:attention}Downpour Tag"}
+				},
+			},
+			["c_bld_journey"] = {
+				["name"] = "Journey",
+				["text"] = {
+					{"Give {C:money}Mint{} edition",
+					"to {C:attention}#1#{} random Blinds"},
+					{"Create a",
+					"{C:attention}Burden Tag"}
+				},
+			},
+			["c_bld_purify"] = {
+				["name"] = "Purify",
+				["text"] = {
+					{"Remove all {C:attention}Modifiers{} from",
+					"up to {C:attention}#1#{} selected Blinds"},
+					{"If a {C:attention}Modifier{} was removed,",
+					"{C:dark_edition,E:1}Upgrade{} the Blind"}
+				},
+			},
 		},
 		["bld_obj_filmcard"] = {
 			["c_bld_horror"] = {
@@ -2838,7 +2924,8 @@ return {
 			['e_bld_mint'] = {
 				name = "Mint",
 				text = {
-					"{C:money}+#1#${}",
+					"{C:money}+#1#${} when scored",
+					"or {C:attention}held in hand",
 				}
 			},
 			['e_bld_finish'] = {
@@ -2847,8 +2934,22 @@ return {
 					"{C:attention}+#1#{} Retrigger",
 				}
 			},
+			['e_bld_shiny'] = {
+				name = "Shiny",
+				text = {
+					"{C:white,X:mult}X#1#{} Mult"
+				}
+			}
 		},
 		["Other"] = {
+			["bld_modifiers"]	= {
+				["name"] = "Modifier",
+				["text"] = {
+					"{C:attention}Trims{} and",
+					"{C:dark_edition}Editions{}, but",
+					"not {C:dark_edition,E:1}Upgrades"
+				}
+			},
 			["bld_boss_shop"]	= {
 				["name"] = "Boss Shop",
 				["text"] = {
