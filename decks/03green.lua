@@ -9,7 +9,7 @@ SMODS.Back({
         extra = {
             blindside = true,
         },
-        ante_scaling = 1,
+        ante_scaling = 0.5,
         joker_slot = -1,
         consumable_slot = 1,
         vouchers = {

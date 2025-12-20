@@ -1051,14 +1051,14 @@ return {
 			["bl_bld_joker"] = {
 				["name"] = "Joker",
 				["text"] = {
-					"Gains +1 Mult",
+					"Gains +2 Mult",
 					"after every hand"
 				},
 			},
 			["bl_bld_lustyjoker"] = {
 				["name"] = "Lusty Joker",
 				["text"] = {
-					"Gains +2 Mult if",
+					"Gains +4 Mult if",
 					"scoring hand contains",
 					"a Red Blind",
 				},
@@ -1066,7 +1066,7 @@ return {
 			["bl_bld_gluttonousjoker"] = {
 				["name"] = "Gluttonous Joker",
 				["text"] = {
-					"Gains +2 Mult if",
+					"Gains +4 Mult if",
 					"scoring hand contains",
 					"a Green Blind",
 				},
@@ -1074,7 +1074,7 @@ return {
 			["bl_bld_wrathfuljoker"] = {
 				["name"] = "Wrathful Joker",
 				["text"] = {
-					"Gains +2 Mult if",
+					"Gains +4 Mult if",
 					"scoring hand contains",
 					"a Purple Blind",
 				},
@@ -1082,7 +1082,7 @@ return {
 			["bl_bld_slothfuljoker"] = {
 				["name"] = "Slothful Joker",
 				["text"] = {
-					"Gains +2 Mult if",
+					"Gains +4 Mult if",
 					"scoring hand contains",
 					"a Blue Blind",
 				},
@@ -1090,7 +1090,7 @@ return {
 			["bl_bld_greedyjoker"] = {
 				["name"] = "Greedy Joker",
 				["text"] = {
-					"Gains +2 Mult if",
+					"Gains +4 Mult if",
 					"scoring hand contains",
 					"a Yellow Blind",
 				},
@@ -1180,7 +1180,7 @@ return {
 			["bl_bld_hittheroad"] = {
 				["name"] = "Hit The Road",
 				["text"] = {
-					"Gains +1 Mult for",
+					"Gains +2 Mult for",
 					"each discarded blind",
 				},
 			},
@@ -1189,7 +1189,7 @@ return {
 				["text"] = {
 					"Removes trims from",
 					"played scoring blinds",
-					"+0.5 Mult for each",
+					"+1 Mult for each",
 					"removed trim"
 				},
 			},
@@ -1203,7 +1203,7 @@ return {
 			["bl_bld_obelisk"] = {
 				["name"] = "Obelisk",
 				["text"] = {
-					"Gains +2 Mult when",
+					"Gains +4 Mult when",
 					"playing a repeat",
 					"hand type",
 				},
@@ -1218,7 +1218,7 @@ return {
 			["bl_bld_baron"] = {
 				["name"] = "Baron's Court",
 				["text"] = {
-					"Gains +0.5 Mult",
+					"Gains +1 Mult",
 					"for each blind",
 					"held in hand"
 				},
@@ -1226,7 +1226,7 @@ return {
 			["bl_bld_mime"] = {
 				["name"] = "Baron's Court",
 				["text"] = {
-					"Gains +0.5 Mult",
+					"Gains +1 Mult",
 					"for each blind",
 					"held in hand"
 				},

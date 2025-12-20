@@ -3,7 +3,7 @@ BLINDSIDE.Joker({
     atlas = 'bld_joker',
     pos = {x=0, y=12},
     boss_colour = HEX('5D8EA4'),
-    mult = 3,
+    mult = 6,
     dollars = 6,
     order = 12,
     boss = {min = 1},
@@ -49,7 +49,7 @@ BLINDSIDE.Joker({
     atlas = 'bld_joker',
     pos = {x=0, y=13},
     boss_colour = HEX('5D8EA4'),
-    mult = 3,
+    mult = 6,
     dollars = 6,
     boss = {min = 1},
     order = 13,
@@ -61,7 +61,7 @@ BLINDSIDE.Joker({
     atlas = 'bld_joker',
     pos = {x=0, y=11},
     boss_colour = HEX('C8B37C'),
-    mult = 10,
+    mult = 20,
     dollars = 8,
     order = 14,
     boss = {min = 2},
@@ -86,7 +86,7 @@ BLINDSIDE.Joker({
     atlas = 'bld_joker',
     pos = {x=0, y=14},
     boss_colour = HEX('FD5F55'),
-    mult = 6,
+    mult = 12,
     dollars = 6,
     order = 15,
     boss = {min = 1},
@@ -109,7 +109,7 @@ BLINDSIDE.Joker({
     atlas = 'bld_joker',
     pos = {x=0, y=15},
     boss_colour = HEX('4F6367'),
-    mult = 6,
+    mult = 12,
     dollars = 6,
     order = 16,
     boss = {min = 4},
@@ -133,14 +133,14 @@ BLINDSIDE.Joker({
     atlas = 'bld_joker',
     pos = {x=0, y=16},
     boss_colour = HEX('92836A'),
-    mult = 6,
+    mult = 12,
     dollars = 6,
     order = 17,
     boss = {min = 1},
     active = true,
     calculate = function(self, blind, context)
         if not blind.disabled and context.discard and context.hook ~= true then
-            BLINDSIDE.chipsmodify(1, 0, 0)
+            BLINDSIDE.chipsmodify(2, 0, 0)
             blind:wiggle()
             BLINDSIDE.chipsupdate()
         end
@@ -152,7 +152,7 @@ BLINDSIDE.Joker({
     atlas = 'bld_joker',
     pos = {x=0, y=17},
     boss_colour = HEX('DD463C'),
-    mult = 8,
+    mult = 16,
     dollars = 8,
     order = 18,
     boss = {min = 3},
@@ -167,7 +167,7 @@ BLINDSIDE.Joker({
                         func = function()
                             scored_card:juice_up()
                             scored_card.vampired = nil
-                            BLINDSIDE.chipsmodify(0.5, 0, 0)
+                            BLINDSIDE.chipsmodify(1, 0, 0)
                             return true
                         end
                     }))
@@ -186,7 +186,7 @@ BLINDSIDE.Joker({
     atlas = 'bld_joker',
     pos = {x=0, y=18},
     boss_colour = HEX('FA940B'),
-    mult = 12,
+    mult = 24,
     dollars = 10,
     order = 19,
     boss = {min = 2},
@@ -196,7 +196,7 @@ BLINDSIDE.Joker({
             blind.active = true
         end
         if not blind.disabled and context.selling_card and blind.active then
-            BLINDSIDE.chipsmodify(-8, 0, 0)
+            BLINDSIDE.chipsmodify(-16, 0, 0)
             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
             BLINDSIDE.chipsupdate()
             blind.active = false
@@ -211,7 +211,7 @@ BLINDSIDE.Joker({
     atlas = 'bld_joker',
     pos = {x=0, y=19},
     boss_colour = HEX('B27EC6'),
-    mult = 8,
+    mult = 16,
     dollars = 6,
     order = 20,
     boss = {min = 1},
@@ -237,7 +237,7 @@ BLINDSIDE.Joker({
         end
         end
         if not blind.disabled and context.after and blind.hands[context.scoring_name] then
-            BLINDSIDE.chipsmodify(2, 0, 0)
+            BLINDSIDE.chipsmodify(4, 0, 0)
             blind:wiggle()
             BLINDSIDE.chipsupdate()
         end
@@ -252,7 +252,7 @@ BLINDSIDE.Joker({
     atlas = 'bld_joker',
     pos = {x=0, y=20},
     boss_colour = HEX('52957B'),
-    mult = 8,
+    mult = 16,
     dollars = 6,
     order = 21,
     boss = {min = 1},
@@ -281,7 +281,7 @@ BLINDSIDE.Joker({
     atlas = 'bld_joker',
     pos = {x=0, y=21},
     boss_colour = HEX('8368E1'),
-    mult = 6,
+    mult = 12,
     dollars = 8,
     order = 22,
     boss = {min = 1},
@@ -291,7 +291,7 @@ BLINDSIDE.Joker({
     end,
     calculate = function(self, blind, context)
         if not blind.disabled and context.after then
-            BLINDSIDE.chipsmodify(0.5*#G.hand.cards, 0, 0)
+            BLINDSIDE.chipsmodify(1*#G.hand.cards, 0, 0)
             blind:wiggle()
             BLINDSIDE.chipsupdate()
         end
@@ -303,7 +303,7 @@ BLINDSIDE.Joker({
     atlas = 'bld_joker',
     pos = {x=0, y=22},
     boss_colour = HEX('8368E1'),
-    mult = 6,
+    mult = 12,
     dollars = 8,
     order = 23,
     boss = {min = 1},
@@ -317,7 +317,7 @@ BLINDSIDE.Joker({
     atlas = 'bld_joker',
     pos = {x=0, y=23},
     boss_colour = HEX('537A82'),
-    mult = 4,
+    mult = 8,
     dollars = 6,
     order = 24,
     boss = {min = 2},

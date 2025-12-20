@@ -9,7 +9,7 @@ SMODS.Back({
             cash = 8,
             blindside = true,
         },
-        ante_scaling = 1,
+        ante_scaling = 0.5,
     },
     unlocked = true,
     pos = { x = 3, y = 0 },

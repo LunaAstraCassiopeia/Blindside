@@ -3,7 +3,7 @@ SMODS.Blind({
     atlas = 'bld_joker',
     pos = {x=0, y=39},
     boss_colour = HEX('e8b867'),
-    mult = 8,
+    mult = 16,
     dollars = 10,
     boss = {min = 1, showdown = true},
     in_pool = function(self, args)

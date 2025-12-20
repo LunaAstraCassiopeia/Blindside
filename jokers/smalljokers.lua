@@ -3,7 +3,7 @@ SMODS.Blind({
     atlas = 'bld_joker',
     pos = {x=0, y=0},
     boss_colour = G.C.RED,
-    mult = 3,
+    mult = 6,
     dollars = 4,
     small = {min = 1},
     order = 1,
@@ -27,7 +27,7 @@ SMODS.Blind({
                     hasWildCanvas = true
                 end
             end
-            BLINDSIDE.chipsmodify(1 - (hasWildCanvas and 0.5 or 0), 0, 0)
+            BLINDSIDE.chipsmodify(2 - (hasWildCanvas and 1 or 0), 0, 0)
         end
     end,
     load = function()
@@ -41,7 +41,7 @@ SMODS.Blind({
     atlas = 'bld_joker',
     pos = {x=0, y=2},
     boss_colour = G.C.RED,
-    mult = 3,
+    mult = 6,
     dollars = 4,
     order = 2,
     small = {min = 1},
@@ -90,7 +90,7 @@ SMODS.Blind({
                 end
             end
             if changed then
-                BLINDSIDE.chipsmodify(2 - (hasWildCanvas and 1 or 0), 0, 0)
+                BLINDSIDE.chipsmodify(4 - (hasWildCanvas and 2 or 0), 0, 0)
             end
         end
     end,
@@ -107,7 +107,7 @@ SMODS.Blind({
     atlas = 'bld_joker',
     pos = {x=0, y=1},
     boss_colour = G.C.MONEY,
-    mult = 3,
+    mult = 6,
     dollars = 4,
     order = 3,
     small = {min = 1},
@@ -156,7 +156,7 @@ SMODS.Blind({
                 end
             end
             if changed then
-                BLINDSIDE.chipsmodify(2- (hasWildCanvas and 1 or 0), 0, 0)
+                BLINDSIDE.chipsmodify(4 - (hasWildCanvas and 2 or 0), 0, 0)
             end
         end
     end,
@@ -173,7 +173,7 @@ SMODS.Blind({
     atlas = 'bld_joker',
     pos = {x=0, y=3},
     boss_colour = G.C.PURPLE,
-    mult = 3,
+    mult = 6,
     dollars = 4,
     order = 4,
     small = {min = 1},
@@ -222,7 +222,7 @@ SMODS.Blind({
                 end
             end
             if changed then
-                BLINDSIDE.chipsmodify(2- (hasWildCanvas and 1 or 0), 0, 0)
+                BLINDSIDE.chipsmodify(4 - (hasWildCanvas and 2 or 0), 0, 0)
             end
         end
     end,
@@ -237,7 +237,7 @@ SMODS.Blind({
     atlas = 'bld_joker',
     pos = {x=0, y=4},
     boss_colour = G.C.GREEN,
-    mult = 3,
+    mult = 6,
     dollars = 4,
     order = 5,
     small = {min = 1},
@@ -286,7 +286,7 @@ SMODS.Blind({
                 end
             end
             if changed then
-                BLINDSIDE.chipsmodify(2- (hasWildCanvas and 1 or 0), 0, 0)
+                BLINDSIDE.chipsmodify(4 - (hasWildCanvas and 2 or 0), 0, 0)
             end
         end
     end,
@@ -301,7 +301,7 @@ SMODS.Blind({
     atlas = 'bld_joker',
     pos = {x=0, y=5},
     boss_colour = G.C.CHIPS,
-    mult = 3,
+    mult = 6,
     dollars = 4,
     small = {min = 1},
     order = 6,
@@ -350,7 +350,7 @@ SMODS.Blind({
                 end
             end
             if changed then
-                BLINDSIDE.chipsmodify(2- (hasWildCanvas and 1 or 0), 0, 0)
+                BLINDSIDE.chipsmodify(4 - (hasWildCanvas and 2 or 0), 0, 0)
             end
         end
     end,

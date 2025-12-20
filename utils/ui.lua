@@ -181,7 +181,7 @@ function blind_jokers_ui(exit)
 					nodes = {
 						{ n = G.UIT.O, config = { object = blind_chip } },
 						{ n = G.UIT.C, config = { align = "cm", minw = 0.03, minh = 0.01 },                                                                                                                                  nodes = {} },
-						{ n = G.UIT.T, config = { text = number_format(get_blind_amount(i)), scale = 0.4, colour = i <= G.PROFILES[G.SETTINGS.profile].high_scores.furthest_ante.amt and G.C.RED or G.C.JOKER_GREY, shadow = true } },
+						{ n = G.UIT.T, config = { text = number_format(get_blind_amount(i)*0.5), scale = 0.4, colour = i <= G.PROFILES[G.SETTINGS.profile].high_scores.furthest_ante.amt and G.C.RED or G.C.JOKER_GREY, shadow = true } },
 					}
 				}
 			}
