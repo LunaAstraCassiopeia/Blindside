@@ -22,7 +22,7 @@ SMODS.Seal {
     calculate = function(self, card, context)
         if not context.end_of_round and context.repetition and context.other_card == card and (context.cardarea == G.play and card.facing ~= 'back' or context.cardarea == G.hand) and G.GAME.current_round.hands_left <= 2 then
             return {
-                repetitions = 1
+                repetitions = 1 + #SMODS.find_card('j_bld_snowglobe')
             }
         end
     end,

@@ -2676,10 +2676,8 @@ return {
 			['j_bld_snowglobe'] = {
 				["name"] = "Snow Globe",
 				["text"] = {
-					"{C:attention}Frost Blinds{} start with",
-					"{X:chips,C:white}X2{} Chips and lose",
-					"{X:chips,C:white}X0.1{} Chips for each",
-					"hand played this round",
+					"{C:attention}Frost Blinds{} retrigger",
+					"{C:attention}1{} additional time"
 				}
 			},
 			['j_bld_pendant'] = {
