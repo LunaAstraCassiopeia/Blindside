@@ -2994,7 +2994,42 @@ return {
 				}
 			}
 		},
+		["Stake"] = {
+			["stake_bld_red_deck"] = {
+				name = "Red Stake?",
+				text = {
+					"\"I'm about to {C:attention,E:1}Blindside{} you, kid!\"",
+					"- {C:red}Jimbo{}, probably"
+				}
+			},
+			["stake_bld_green_deck"] = {
+				name = "Green Stake?",
+				text = {
+					"Skipping Jokers costs",
+					"{C:money}$2{} per {C:attention}Ante"
+				}
+			},
+			["stake_bld_black_deck"] = {
+				name = "Black Stake?",
+				text = {
+					"{C:blue}-1{} Hand on",
+					"{C:attention}Small{} and {C:attention}Big{} Jokers"
+				}
+			},
+			["stake_bld_magic_deck"] = {
+				name = "Magic Stake??",
+				text = {
+					"{C:attention}Small{} Jokers {C:red}debuff",
+					"their respective {C:attention}hue",
+					"{C:attention}Big{} Jokers {C:red}debuff",
+					"their respective {C:attention}hand",
+				}
+			}
+		},
 		["Other"] = {
+			["bld_red_deck"] = {
+
+			},
 			["bld_modifiers"]	= {
 				["name"] = "Modifier",
 				["text"] = {

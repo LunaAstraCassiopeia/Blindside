@@ -20,6 +20,9 @@ SMODS.Blind({
         end
     end,
     calculate = function(self, blind, context)
+        if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
+            ease_hands_played(-1)
+        end
         if context.after and not G.GAME.blind.disabled then
             local hasWildCanvas = false
             for i = 1, #context.scoring_hand do
@@ -58,6 +61,9 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
+        if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
+            ease_hands_played(-1)
+        end
         if context.scoring_hand and context.poker_hands and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
             local red = false
             for i = 1, #context.scoring_hand do
@@ -74,6 +80,11 @@ SMODS.Blind({
 
         if context.before then
             BLINDSIDE.alert_debuff(self, false)
+            if context.scoring_hand then
+                for key, value in pairs(context.scoring_hand) do
+                    context
+                end
+            end
         end
 
         if context.after and not G.GAME.blind.disabled then            
@@ -124,6 +135,9 @@ SMODS.Blind({
         end
     end,
     calculate = function(self, blind, context)
+        if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
+            ease_hands_played(-1)
+        end
         if context.scoring_hand and context.poker_hands and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
             local red = false
             for i = 1, #context.scoring_hand do
@@ -190,6 +204,9 @@ SMODS.Blind({
         end
     end,
     calculate = function(self, blind, context)
+        if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
+            ease_hands_played(-1)
+        end
         if context.scoring_hand and context.poker_hands and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
             local red = false
             for i = 1, #context.scoring_hand do
@@ -254,6 +271,9 @@ SMODS.Blind({
         end
     end,
     calculate = function(self, blind, context)
+        if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
+            ease_hands_played(-1)
+        end
         if context.scoring_hand and context.poker_hands and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
             local red = false
             for i = 1, #context.scoring_hand do
@@ -318,6 +338,9 @@ SMODS.Blind({
         end
     end,
     calculate = function(self, blind, context)
+        if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
+            ease_hands_played(-1)
+        end
         if context.scoring_hand and context.poker_hands and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
             local red = false
             for i = 1, #context.scoring_hand do

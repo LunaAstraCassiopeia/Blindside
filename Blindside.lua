@@ -79,6 +79,12 @@
         px = 34,
         py = 34,
     })
+    SMODS.Atlas({
+        key = 'bld_stakes',
+        path = 'stakes.png',
+        px = 29,
+        py = 29,
+    })
 
 function tableContains(value, tbl)
   for _, v in ipairs(tbl) do
@@ -541,6 +547,10 @@ end
 local path = SMODS.current_mod.path .. 'tags/'
 for _, v in pairs(NFS.getDirectoryItems(path)) do
     assert(SMODS.load_file('tags/' .. v))()
+end
+local path = SMODS.current_mod.path .. 'stakes/'
+for _, v in pairs(NFS.getDirectoryItems(path)) do
+    assert(SMODS.load_file('stakes/' .. v))()
 end
 for _, key in ipairs(channel_list) do
     assert(SMODS.load_file('consumables/channel/' .. key .. '.lua'))()

@@ -1477,21 +1477,3 @@ if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effe
 self.config.sort = config.sort or 'color desc'
 end
 '''
-
-# ruin undebuff
-[[patches]]
-[patches.pattern]
-target = 'functions/state_events.lua'
-pattern = '''
--- TARGET: effects after hand evaluation
-'''
-match_indent = true
-position = 'after'
-payload = '''
-for k, v in pairs(G.play.cards) do
-    if v.seal == 'bld_ruin' and v.ability.extra.i_debuffed_myself_btw then
-        v:set_debuff(false)
-        v.ability.extra.i_debuffed_myself_btw = false
-    end
-end
-'''

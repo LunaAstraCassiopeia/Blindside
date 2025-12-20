@@ -21,6 +21,9 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
+        if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
+            ease_hands_played(-1)
+        end
         if context.scoring_name and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
             if has_group_of(2, context.poker_hands) then
                 BLINDSIDE.alert_debuff(self, true, "Hand contains Pair")
@@ -74,6 +77,9 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
+        if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
+            ease_hands_played(-1)
+        end
         if context.scoring_name and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
             if has_group_of(3, context.poker_hands) then
                 BLINDSIDE.alert_debuff(self, true, "Hand contains Three of a Blind")
@@ -127,6 +133,9 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
+        if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
+            ease_hands_played(-1)
+        end
         if context.scoring_name and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
             if (next(context.poker_hands['bld_blind_2pair']) or next(context.poker_hands['bld_blind_fullhouse'])) then
                 BLINDSIDE.alert_debuff(self, true, "Hand contains Two Pair")
@@ -180,6 +189,9 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
+        if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
+            ease_hands_played(-1)
+        end
         if context.scoring_name and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
             if next(context.poker_hands['bld_raise']) then
                 BLINDSIDE.alert_debuff(self, true, "Hand contains Raise")
@@ -235,6 +247,9 @@ SMODS.Blind({
         G.GAME.blindassist:change_dim(0,0)
     end,
     calculate = function(self, blind, context)
+        if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
+            ease_hands_played(-1)
+        end
         if context.scoring_name and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled and blind.active then
             if has_group_of(5, context.poker_hands) then
                 BLINDSIDE.alert_debuff(self, true, "Hand contains Flush")
