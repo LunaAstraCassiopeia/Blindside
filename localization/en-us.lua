@@ -1013,9 +1013,10 @@ return {
 			["c_bld_crime"] = {
 				["name"] = "Crime",
 				["text"] = {
-					"Create a random",
-					"{C:attention}Dual-Hue{} blind",
-					"in your hand"
+					{"Strip {C:attention}Trim{} and {C:dark_edition}Edition",
+					"from {C:attention}#1#{} selected blind"},
+					{"Apply them to {C:attention}2{} random",
+					"cards held in hand",}
 				},
 			},
 			["c_bld_thriller"] = {
