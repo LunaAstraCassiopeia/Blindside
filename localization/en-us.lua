@@ -731,8 +731,9 @@ return {
 			["c_bld_joker404"] = {
 				["name"] = "JOKER 404",
 				["text"] = {
-                    "When {C:attention}active{}",
-                    "{C:mult}-1{} Mult to Joker" ,
+                    "When {C:attention}active{},",
+                    "{C:mult}-1{} Mult to Joker",
+					"each played hand",
                     "{C:inactive}(#1#/#2# Rounds){}"
 				},
 			},

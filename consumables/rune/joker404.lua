@@ -25,6 +25,7 @@ SMODS.Consumable {
     use = function(self, card, area, copier)
         card.ability.extra.active = true
         card.ability.extra.roundsActive = card.ability.extra.roundsActive + 1
+        --card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('ph_boss_disabled'), colour = G.C.DARK_EDITION, card = card})
         play_sound('bld_rune1', 1.1 + math.random()*0.1, 0.8)
         local eval = function(card) return card.ability.extra.active end
         juice_card_until(card, eval, true)
