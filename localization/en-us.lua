@@ -1290,7 +1290,7 @@ return {
 				["name"] = "Deceitful Jokers",
 				["text"] = {
 					"Once per Round,",
-					"Gains X3 Chips if",
+					"Gains X2 Chips if",
 					"played hand contains",
 					"a Pair",
 				},
@@ -1299,9 +1299,81 @@ return {
 				["name"] = "Deceitful Jokers",
 				["text"] = {
 					"Once per Round,",
-					"Gains X3 Chips if",
+					"Gains X2 Chips if",
 					"played hand contains",
 					"a Pair",
+				},
+			},
+			["bl_bld_madjoker1"] = {
+				["name"] = "Mad Jokers",
+				["text"] = {
+					"Once per Round,",
+					"X3 Chips if hand",
+					"contains Three of a",
+					"Blind or Two Pair",
+				},
+			},
+			["bl_bld_madjoker2"] = {
+				["name"] = "Mad Jokers",
+				["text"] = {
+					"Once per Round,",
+					"X3 Chips if hand",
+					"contains Three of a",
+					"Blind or Two Pair",
+				},
+			},
+			["bl_bld_impracticaljoker1"] = {
+				["name"] = "Impractical Jokers",
+				["text"] = {
+					"Once per Round,",
+					"X4 Chips if hand",
+					"contains Three of a",
+					"Blind or Raise",
+				},
+			},
+			["bl_bld_impracticaljoker2"] = {
+				["name"] = "Impractical Jokers",
+				["text"] = {
+					"Once per Round,",
+					"X4 Chips if hand",
+					"contains Three of a",
+					"Blind or Raise",
+				},
+			},
+			["bl_bld_schemingjoker1"] = {
+				["name"] = "Schemeing Jokers",
+				["text"] = {
+					"Once per Round,",
+					"X4 Chips if hand",
+					"contains Flush",
+					"or Two Pair",
+				},
+			},
+			["bl_bld_schemingjoker2"] = {
+				["name"] = "Schemeing Jokers",
+				["text"] = {
+					"Once per Round,",
+					"X4 Chips if hand",
+					"contains Flush",
+					"or Two Pair",
+				},
+			},
+			["bl_bld_maliciousjoker1"] = {
+				["name"] = "Malicious Jokers",
+				["text"] = {
+					"Once per Round,",
+					"X4 Chips if hand",
+					"contains Flush",
+					"or Raise",
+				},
+			},
+			["bl_bld_maliciousjoker2"] = {
+				["name"] = "Malicious Jokers",
+				["text"] = {
+					"Once per Round,",
+					"X4 Chips if hand",
+					"contains Flush",
+					"or Raise",
 				},
 			},
 			["bl_bld_chad"] = {
