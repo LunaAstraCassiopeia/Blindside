@@ -10,6 +10,7 @@
                 x_chips_up = 0.5,
                 chips_up = -10,
             }},
+        always_scores = true,
         hues = {"Purple"},
         loc_vars = function(self, info_queue, card)
             return {
