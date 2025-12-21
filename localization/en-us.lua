@@ -82,6 +82,7 @@ return {
 			["bld_enameled"] = 'Enamel',
 			["bld_mint"] = 'Mint',
 			["bld_finish"] = 'Finish',
+			["bld_shiny"] = 'Shiny',
 			["bld_wild_seal"] = 'Wild Blind',
 			["bld_astral_seal"] = 'Astral Blind',
 			["bld_floral_seal"] = 'Floral Blind',
