@@ -597,7 +597,7 @@ return {
 				["name"] = "Imprisonment Tag",
 				["text"] = {
 					"Disables next",
-					"Boss Joker"
+					"{C:attention}Boss Joker{}"
 				},
 			}
 		},
