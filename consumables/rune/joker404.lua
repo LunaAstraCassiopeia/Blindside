@@ -25,7 +25,6 @@ SMODS.Consumable {
     use = function(self, card, area, copier)
         card.ability.extra.active = true
         card.ability.extra.roundsActive = card.ability.extra.roundsActive + 1
-        card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('ph_boss_disabled'), colour = G.C.DARK_EDITION, card = card})
         play_sound('bld_rune1', 1.1 + math.random()*0.1, 0.8)
         local eval = function(card) return card.ability.extra.active end
         juice_card_until(card, eval, true)
@@ -39,8 +38,15 @@ SMODS.Consumable {
         card.ability.extra.active = true
         card.ability.extra.roundsActive = card.ability.extra.roundsActive + 1
         end
-        if context.after and card.ability.extra.active then
-            BLINDSIDE.chipsmodify(-1, 0, 0)
+        if context.joker_main and card.ability.extra.active then
+            return {
+                extra = {focus = card, message = localize{type='variable',key='a_rmult',vars={-1}}, 
+                colour = G.C.RED, func = function()
+                    BLINDSIDE.chipsmodify(-1, 0 , 0)
+                end},
+                colour = G.C.RED,
+                card = card
+            }
         end
         if context.end_of_round and not context.repetition and not context.individual and not card.getting_sliced and card.ability.extra.active and card.ability.extra.roundsActive == card.ability.extra.rounds then
             card.getting_sliced = true
