@@ -2,7 +2,7 @@ SMODS.Tag {
     key = "mantle",
     hide_ability = false,
     atlas = 'bld_tag',
-    pos = {x = 4, y = 2},
+    pos = {x = 2, y = 4},
         in_pool = function(self, args)
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
