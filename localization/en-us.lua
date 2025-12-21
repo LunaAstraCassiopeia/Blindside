@@ -3005,7 +3005,7 @@ return {
 			['j_bld_clock'] = {
 				["name"] = "Cuckoo Clock",
 				["text"] = {
-					"{C:white,X:mult}X#1#{} every 4 used",
+					"{C:white,X:mult}X#1#{} Mult every 4 used",
 					"{C:blue}hands{} and {C:red}discards{}",
 					"{C:inactive}(Currently: #2# left)",
 				}
