@@ -281,10 +281,10 @@ end
 function BLINDSIDE.chipsupdate()
     local final_chips = G.GAME.blind.basechips*G.GAME.blind.mult
     local chip_mod -- iterate over ~120 ticks
-    if type(G.GAME.blind.chips) ~= 'table' then
-        chip_mod = math.ceil((final_chips - G.GAME.blind.chips) / 120)
+    if G.GAME.blind.chips then
+        chip_mod = (final_chips - G.GAME.blind.chips) / 120
     else
-        chip_mod = ((final_chips - G.GAME.blind.chips) / 120):ceil()
+        chip_mod = ((final_chips - G.GAME.blind.chips) / 120)
     end
     local step = 0
     local greater = false
