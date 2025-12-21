@@ -25,10 +25,6 @@ SMODS.Consumable {
     use = function(self, card, area, copier)
         card.ability.extra.active = true
         card.ability.extra.roundsActive = card.ability.extra.roundsActive + 1
-        if G.GAME.blind and not G.GAME.blind.disabled then
-            G.GAME.blind:disable()
-            G.GAME.blindassist:disable()
-        end
         card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('ph_boss_disabled'), colour = G.C.DARK_EDITION, card = card})
         play_sound('bld_rune1', 1.1 + math.random()*0.1, 0.8)
         local eval = function(card) return card.ability.extra.active end
@@ -42,6 +38,9 @@ SMODS.Consumable {
         if context.setting_blind and card.ability.extra.active then 
         card.ability.extra.active = true
         card.ability.extra.roundsActive = card.ability.extra.roundsActive + 1
+        end
+        if context.after and card.ability.extra.active then
+            BLINDSIDE.chipsmodify(-1, 0, 0)
         end
         if context.end_of_round and not context.repetition and not context.individual and not card.getting_sliced and card.ability.extra.active and card.ability.extra.roundsActive == card.ability.extra.rounds then
             card.getting_sliced = true
