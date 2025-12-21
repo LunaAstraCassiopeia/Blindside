@@ -3049,8 +3049,7 @@ return {
 					"{C:attention}Small{} Jokers {C:red}debuff",
 					"their respective {C:attention}hue",
 					"{C:attention}Big{} Jokers {C:red}debuff",
-					"all Blinds in the hand",
-					"that triggers them"
+					"Blinds when triggered"
 				}
 			}
 		},
