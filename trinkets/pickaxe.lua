@@ -16,7 +16,7 @@
             end
         end,
         calculate = function(self, card, context)
-            if context.reshuffle then 
+            if context.reshuffle and G.consumeables.config.card_limit > #G.consumeables.cards + G.GAME.consumeable_buffer then
                 G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                 return {
                     extra = {focus = card, message = localize('k_dug_ex'), func = function()

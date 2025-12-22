@@ -9,7 +9,7 @@ SMODS.Consumable {
         },
     },
     use = function(self, card, area)
-        for i = 1, math.min(card.ability.extra.channels, G.consumeables.config.card_limit - #G.consumeables.cards) do
+        for i = 1, math.min(card.ability.extra.channels, ) do
             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
                 if G.consumeables.config.card_limit > #G.consumeables.cards then
                     play_sound('timpani')
