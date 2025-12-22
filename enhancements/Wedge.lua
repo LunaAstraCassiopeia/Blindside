@@ -6,6 +6,7 @@
             extra = {
                 value = 14,
             }},
+        always_scores = true,
         hues = {"Green"},
         calculate = function(self, card, context) 
             if context.burn_card and context.cardarea == G.play and context.burn_card == card and not card.ability.extra.upgraded then
