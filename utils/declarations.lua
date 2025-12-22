@@ -416,6 +416,33 @@
         },
     }
 
+    
+    SMODS.ObjectType {
+        key = "bld_obj_excludejokers",
+        cards = {
+        "bl_bld_lustful1",
+        "bl_bld_lustful2",
+        "bl_bld_hoarder1",
+        "bl_bld_hoarder2",
+        "bl_bld_hedonist1",
+        "bl_bld_hedonist2",
+        "bl_bld_covetous1",
+        "bl_bld_covetous2",
+        "bl_bld_vengeful",
+        "bl_bld_arrowhead",
+        "bl_bld_deceitfuljoker1",
+        "bl_bld_deceitfuljoker2",
+        "bl_bld_madjoker1",
+        "bl_bld_madjoker2",
+        "bl_bld_impracticaljoker1",
+        "bl_bld_impracticaljoker2",
+        "bl_bld_schemingjoker1",
+        "bl_bld_schemingjoker2",
+        "bl_bld_maliciousjoker1",
+        "bl_bld_maliciousjoker2",
+        },
+    }
+
     SMODS.ObjectType {
         key = "bld_obj_blindcard_generate",
 	    default = "m_bld_flip",

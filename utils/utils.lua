@@ -14,6 +14,14 @@
         end
     end
 
+    function BLINDSIDE.is_dupe(string)
+        for _, v in ipairs(SMODS.ObjectTypes.bld_obj_excludejokers.cards) do
+            if v == string then
+            return true
+            end
+        end
+    end
+
     function BLINDSIDE.set_up_blindside()
             G.GAME.blind_rate = 4
             G.GAME.tarot_rate = 0

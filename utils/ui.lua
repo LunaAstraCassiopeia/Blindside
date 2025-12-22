@@ -214,7 +214,7 @@ function blind_jokers_ui(exit)
 	end
     local blindjokers = {}
     for k, v in pairs(G.P_BLINDS) do
-        if BLINDSIDE.is_blindside(v.key)then
+        if BLINDSIDE.is_blindside(v.key) and not BLINDSIDE.is_dupe(v.key) then
             table.insert(blindjokers, v)
         end
     end
