@@ -2841,7 +2841,7 @@ return {
 				["name"] = "Bookmark",
 				["text"] = {
 					"{X:mult,C:white}X#1#{} Mult if deck",
-					"has at most {C:attention}2{}",
+					"has at most {C:attention}#2#{}",
 					"blinds left",
 				}
 			},

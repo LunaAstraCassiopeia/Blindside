@@ -6,7 +6,8 @@
         rarity = 'bld_keepsake',
         config = {
             extra = {
-                xmult = 3
+                xmult = 3,
+                at_most = 5,
             }
         },
         cost = 15,
@@ -15,7 +16,8 @@
         loc_vars = function (self, info_queue, card)
             return {
                 vars = {
-                card.ability.extra.xmult
+                card.ability.extra.xmult,
+                card.ability.extra.at_most
             }
         }
         end,
@@ -28,7 +30,7 @@
             end
         end,
         calculate = function(self, card, context)
-            if context.joker_main and #G.deck.cards <= 2 then
+            if context.joker_main and #G.deck.cards <= card.ability.extra.at_most then
                 return {
                     xmult = card.ability.extra.xmult
                 }
