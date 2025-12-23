@@ -345,7 +345,7 @@ BLINDSIDE.Joker({
     small = {min = 1},
     order = 6,
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up')) > 0.5
+        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
     end,
     calculate = function(self, blind, context)
         local color1 = "Red"
@@ -434,7 +434,7 @@ BLINDSIDE.Joker({
     small = {min = 1},
     order = 6,
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up')) > 0.5
+        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
     end,
     calculate = function(self, blind, context)
         local color1 = "Blue"
@@ -523,7 +523,7 @@ BLINDSIDE.Joker({
     small = {min = 1},
     order = 6,
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up')) > 0.5
+        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
     end,
     calculate = function(self, blind, context)
         local color1 = "Green"
@@ -612,7 +612,7 @@ BLINDSIDE.Joker({
     small = {min = 1},
     order = 6,
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up')) > 0.5
+        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
     end,
     calculate = function(self, blind, context)
         local color1 = "Yellow"
@@ -701,7 +701,7 @@ BLINDSIDE.Joker({
     small = {min = 1},
     order = 6,
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up')) > 0.5
+        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
     end,
     calculate = function(self, blind, context)
         local color1 = "Purple"
