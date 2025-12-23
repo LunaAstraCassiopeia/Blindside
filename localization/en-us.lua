@@ -3219,7 +3219,8 @@ return {
 				["text"] = {
 					{"{C:attention}+#1#{} hand size"},
 					{"When using a {C:red}discard,",
-					"always draw {C:attention}3{} Blinds"}
+					"always draw at least",
+					"{C:attention}3{} Blinds"}
 				}
 			}
 		},
