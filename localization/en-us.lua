@@ -1483,7 +1483,7 @@ return {
 			["bl_bld_stone"] = {
 				["name"] = "Stone Joker",
 				["text"] = {
-					"Gain #1# The Tablet",
+					"Gain #1# The Tablet,",
 					"+6 Mult if scoring hand",
 					"contains a Faded Blind"
 				},
