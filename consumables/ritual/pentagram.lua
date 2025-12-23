@@ -27,7 +27,6 @@ SMODS.Consumable {
 
         local cards = {}
         for i = 1, 3 do
-            print(enhancements[i])
             cards[i] = SMODS.add_card { set = "Base", enhancement = enhancements[i] }
         end
         upgrade_blinds(cards, nil, true)
