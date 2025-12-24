@@ -486,7 +486,6 @@ G.FUNCS.blind_draw_from_deck_to_hand = function(e)
             return true
         end
     }))
-    end
         G.E_MANAGER:add_event(Event({
             trigger = 'immediate',
             func = function()
@@ -525,6 +524,7 @@ G.FUNCS.blind_draw_from_deck_to_hand = function(e)
             end
         }))
 
+    end
     G.E_MANAGER:add_event(Event({
         trigger = 'before',
         delay = 0.4,

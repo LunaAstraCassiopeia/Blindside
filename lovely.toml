@@ -1553,3 +1553,15 @@ if G.GAME.playing_with_fire > 0 then
 end
 '''
 match_indent = true
+
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = '''if (area.config.type == 'joker' or area.config.type == 'hand') and not area.config.fixed_limit then'''
+position = "at"
+payload = '''
+if (area.config.type == 'joker' or area.config.type == 'hand') and not area.config.fixed_limit and not G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
+'''
+match_indent = true
+
