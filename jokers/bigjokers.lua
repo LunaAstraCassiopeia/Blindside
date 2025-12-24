@@ -9,7 +9,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return not G.GAME.modifiers.enable_bld_double_up or G.GAME.round_resets.ante == 1
+        return true
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -43,6 +43,8 @@ BLINDSIDE.Joker({
                     hasWildCanvas = true
                 end
             end
+            G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_big_joker"
+            G.GAME.playing_with_fire = G.GAME.playing_with_fire + 2
             BLINDSIDE.chipsmodify(0, 0, 0, 2- (hasWildCanvas and 0.5 or 0))
             blind.active = false
         end
@@ -60,7 +62,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return not G.GAME.modifiers.enable_bld_double_up or G.GAME.round_resets.ante == 1
+        return true
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -93,6 +95,8 @@ BLINDSIDE.Joker({
                     hasWildCanvas = true
                 end
             end
+            G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_big_joker"
+            G.GAME.playing_with_fire = G.GAME.playing_with_fire + 3
             BLINDSIDE.chipsmodify(0, 0, 0, 3- (hasWildCanvas and 0.5 or 0))
             blind.active = false
         end
@@ -110,7 +114,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return not G.GAME.modifiers.enable_bld_double_up or G.GAME.round_resets.ante == 1
+        return true
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -143,6 +147,8 @@ BLINDSIDE.Joker({
                     hasWildCanvas = true
                 end
             end
+            G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_big_joker"
+            G.GAME.playing_with_fire = G.GAME.playing_with_fire + 3
             BLINDSIDE.chipsmodify(0, 0, 0, 3- (hasWildCanvas and 0.5 or 0))
             blind.active = false
         end
@@ -160,7 +166,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return not G.GAME.modifiers.enable_bld_double_up or G.GAME.round_resets.ante == 1
+        return true
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -194,6 +200,8 @@ BLINDSIDE.Joker({
                     hasWildCanvas = true
                 end
             end
+            G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_big_joker"
+            G.GAME.playing_with_fire = G.GAME.playing_with_fire + 4
             BLINDSIDE.chipsmodify(0, 0, 0, 4- (hasWildCanvas and 1 or 0))
             blind.active = false
         end
@@ -212,7 +220,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return not G.GAME.modifiers.enable_bld_double_up or G.GAME.round_resets.ante == 1
+        return true
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -245,6 +253,8 @@ BLINDSIDE.Joker({
                     hasWildCanvas = true
                 end
             end
+            G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_big_joker"
+            G.GAME.playing_with_fire = G.GAME.playing_with_fire + 4
             BLINDSIDE.chipsmodify(0, 0, 0, 4- (hasWildCanvas and 1 or 0))
             blind.active = false
         end
@@ -262,7 +272,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1
+        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
     end,
     calculate = function(self, blind, context)
         local cond1 = context.poker_hands and has_group_of(3, context.poker_hands)
@@ -303,6 +313,8 @@ BLINDSIDE.Joker({
                     hasWildCanvas = true
                 end
             end
+            G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_big_joker"
+            G.GAME.playing_with_fire = G.GAME.playing_with_fire + 3
             BLINDSIDE.chipsmodify(0, 0, 0, 3 - (hasWildCanvas and 0.5 or 0))
             blind.active = false
         end
@@ -336,7 +348,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1
+        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
     end,
     calculate = function(self, blind, context)
         local cond2 = context.poker_hands and has_group_of(3, context.poker_hands)
@@ -377,6 +389,8 @@ BLINDSIDE.Joker({
                     hasWildCanvas = true
                 end
             end
+            G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_big_joker"
+            G.GAME.playing_with_fire = G.GAME.playing_with_fire + 4
             BLINDSIDE.chipsmodify(0, 0, 0, 4 - (hasWildCanvas and 0.5 or 0))
             blind.active = false
         end
@@ -410,7 +424,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1
+        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
     end,
     calculate = function(self, blind, context)
         local cond2 = context.poker_hands and has_group_of(5, context.poker_hands)
@@ -451,6 +465,8 @@ BLINDSIDE.Joker({
                     hasWildCanvas = true
                 end
             end
+            G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_big_joker"
+            G.GAME.playing_with_fire = G.GAME.playing_with_fire + 4
             BLINDSIDE.chipsmodify(0, 0, 0, 4 - (hasWildCanvas and 0.5 or 0))
             blind.active = false
         end
@@ -484,7 +500,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1
+        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
     end,
     calculate = function(self, blind, context)
         local cond1 = context.poker_hands and has_group_of(5, context.poker_hands)
@@ -525,6 +541,8 @@ BLINDSIDE.Joker({
                     hasWildCanvas = true
                 end
             end
+            G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_big_joker"
+            G.GAME.playing_with_fire = G.GAME.playing_with_fire + 4
             BLINDSIDE.chipsmodify(0, 0, 0, 4 - (hasWildCanvas and 0.5 or 0))
             blind.active = false
         end
@@ -558,7 +576,7 @@ BLINDSIDE.Joker({
     active = true,
     big = {min = 1},
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1
+        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
     end,
     calculate = function(self, blind, context)
         local cond1 = context.poker_hands and has_group_of(2, context.poker_hands)
@@ -599,6 +617,8 @@ BLINDSIDE.Joker({
                     hasWildCanvas = true
                 end
             end
+            G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_big_joker"
+            G.GAME.playing_with_fire = G.GAME.playing_with_fire + 2
             BLINDSIDE.chipsmodify(0, 0, 0, 2 - (hasWildCanvas and 0.5 or 0))
             blind.active = false
         end

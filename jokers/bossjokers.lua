@@ -125,6 +125,8 @@ BLINDSIDE.Joker({
     end,
     calculate = function(self, blind, context)
         if not blind.disabled and context.after and context.scoring_name == G.GAME.current_round.most_played_poker_hand then
+            G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_boss_joker"
+            G.GAME.playing_with_fire = G.GAME.playing_with_fire + 1
             BLINDSIDE.chipsmodify(0, 0, 2)
             BLINDSIDE.chipsupdate()
         end
@@ -143,6 +145,8 @@ BLINDSIDE.Joker({
     active = true,
     calculate = function(self, blind, context)
         if not blind.disabled and context.discard and context.hook ~= true then
+            G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_boss_joker"
+            G.GAME.playing_with_fire = G.GAME.playing_with_fire + 1
             BLINDSIDE.chipsmodify(2, 0, 0)
             blind:wiggle()
             BLINDSIDE.chipsupdate()
@@ -162,9 +166,11 @@ BLINDSIDE.Joker({
     active = true,
     calculate = function(self, blind, context)
         if not blind.disabled and context.before then
+            local vampired = false
             for _, scored_card in ipairs(context.scoring_hand) do
                 if (scored_card):get_seal() and not scored_card.vampired then
                     scored_card.vampired = true
+                    vampired = true
                     scored_card:set_seal(nil, nil, true)
                     G.E_MANAGER:add_event(Event({
                         func = function()
@@ -175,6 +181,10 @@ BLINDSIDE.Joker({
                         end
                     }))
                 end
+            end
+            if vampired then    
+                G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_boss_joker"
+                G.GAME.playing_with_fire = G.GAME.playing_with_fire + 1
             end
             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
             BLINDSIDE.chipsupdate()
@@ -240,6 +250,8 @@ BLINDSIDE.Joker({
         end
         end
         if not blind.disabled and context.after and blind.hands[context.scoring_name] then
+            G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_boss_joker"
+            G.GAME.playing_with_fire = G.GAME.playing_with_fire + 1
             BLINDSIDE.chipsmodify(4, 0, 0)
             blind:wiggle()
             BLINDSIDE.chipsupdate()
@@ -294,6 +306,8 @@ BLINDSIDE.Joker({
     end,
     calculate = function(self, blind, context)
         if not blind.disabled and context.after then
+            G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_boss_joker"
+            G.GAME.playing_with_fire = G.GAME.playing_with_fire + 1
             BLINDSIDE.chipsmodify(1*#G.hand.cards, 0, 0)
             blind:wiggle()
             BLINDSIDE.chipsupdate()
@@ -393,6 +407,8 @@ BLINDSIDE.Joker({
                 end
             end
             if changed then
+                G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_boss_joker"
+                G.GAME.playing_with_fire = G.GAME.playing_with_fire + 1
                 BLINDSIDE.chipsmodify(6 - (hasWildCanvas and 3 or 0), 0, 0)
             end
         end
@@ -448,6 +464,8 @@ BLINDSIDE.Joker({
 
         if context.after and not G.GAME.blind.disabled then
             if #context.full_hand > 3 then
+                G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_boss_joker"
+                G.GAME.playing_with_fire = G.GAME.playing_with_fire + 1
                 BLINDSIDE.chipsmodify(4, 0, 0)
             end
         end

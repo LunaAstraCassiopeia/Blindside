@@ -21,10 +21,6 @@ SMODS.Seal {
     },
     calculate = function(self, card, context)
         if context.main_eval and (context.hand_drawn and context.cardarea == G.hand and tableContains(card, context.hand_drawn)) or (context.other_drawn and context.cardarea == G.hand and tableContains(card, context.other_drawn)) then
-            if G.GAME.draw_tech then
-                --print("this is a tech draw")
-            end
-            --print(#context.hand_drawn)
             if not G.GAME.tech_draw_buffer then
                 G.GAME.tech_draw_buffer = 0
             end
@@ -32,7 +28,7 @@ SMODS.Seal {
             G.E_MANAGER:add_event(Event({
                 blocking = false,
                 func = function()
-                    if G.STATE == G.STATES.SELECTING_HAND and G.GAME.tech_draw_buffer > 0 then
+                    if (G.STATE == G.STATES.SELECTING_HAND or G.STATE == G.STATES.SMODS_BOOSTER_OPENED) and G.GAME.tech_draw_buffer > 0 then
                         --print("----------- tech draw")
                         G.FUNCS.blind_draw_from_deck_to_hand(math.floor(G.GAME.tech_draw_buffer))
                         G.GAME.tech_draw_buffer = 0

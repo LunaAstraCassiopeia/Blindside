@@ -21,6 +21,8 @@ BLINDSIDE.Joker({
                     hasWildCanvas = true
                 end
             end
+            G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_boss_joker"
+            G.GAME.playing_with_fire = G.GAME.playing_with_fire + 1
             BLINDSIDE.chipsmodify(2 - (hasWildCanvas and 1 or 0), 0, 0)
         end
     end,
@@ -36,7 +38,7 @@ BLINDSIDE.Joker({
     order = 2,
     small = {min = 1},
     pool_override = function()
-        return not G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1
+        return G.GAME.round_resets.ante ~= 1
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -81,6 +83,8 @@ BLINDSIDE.Joker({
                 end
             end
             if changed then
+                G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_small_joker"
+                G.GAME.playing_with_fire = G.GAME.playing_with_fire + 2
                 BLINDSIDE.chipsmodify(4 - (hasWildCanvas and 2 or 0), 0, 0)
             end
         end
@@ -99,7 +103,7 @@ BLINDSIDE.Joker({
     order = 3,
     small = {min = 1},
     pool_override = function()
-        return not G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1
+        return G.GAME.round_resets.ante ~= 1
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -144,6 +148,9 @@ BLINDSIDE.Joker({
                 end
             end
             if changed then
+                G.GAME.playing_with_fire = G.GAME.playing_with_fire + 2
+                G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_small_joker"
+                G.GAME.playing_with_fire = G.GAME.playing_with_fire + 2
                 BLINDSIDE.chipsmodify(4 - (hasWildCanvas and 2 or 0), 0, 0)
             end
         end
@@ -162,7 +169,7 @@ BLINDSIDE.Joker({
     order = 4,
     small = {min = 1},
     pool_override = function()
-        return not G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1
+        return G.GAME.round_resets.ante ~= 1
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -207,6 +214,9 @@ BLINDSIDE.Joker({
                 end
             end
             if changed then
+                G.GAME.playing_with_fire = G.GAME.playing_with_fire + 2
+                G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_small_joker"
+                G.GAME.playing_with_fire = G.GAME.playing_with_fire + 2
                 BLINDSIDE.chipsmodify(4 - (hasWildCanvas and 2 or 0), 0, 0)
             end
         end
@@ -223,7 +233,7 @@ BLINDSIDE.Joker({
     order = 5,
     small = {min = 1},
     pool_override = function()
-        return not G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1
+        return G.GAME.round_resets.ante ~= 1
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -268,6 +278,8 @@ BLINDSIDE.Joker({
                 end
             end
             if changed then
+                G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_small_joker"
+                G.GAME.playing_with_fire = G.GAME.playing_with_fire + 2
                 BLINDSIDE.chipsmodify(4 - (hasWildCanvas and 2 or 0), 0, 0)
             end
         end
@@ -284,7 +296,7 @@ BLINDSIDE.Joker({
     small = {min = 1},
     order = 6,
     pool_override = function()
-        return not G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1
+        return G.GAME.round_resets.ante ~= 1
     end,
     calculate = function(self, blind, context)
         if context.setting_blind and G.GAME.modifiers.enable_bld_deplete_hands and G.GAME.current_round.hands_left > 1 then
@@ -329,6 +341,8 @@ BLINDSIDE.Joker({
                 end
             end
             if changed then
+                G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_small_joker"
+                G.GAME.playing_with_fire = G.GAME.playing_with_fire + 2
                 BLINDSIDE.chipsmodify(4 - (hasWildCanvas and 2 or 0), 0, 0)
             end
         end
@@ -345,7 +359,7 @@ BLINDSIDE.Joker({
     small = {min = 1},
     order = 6,
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1
+        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
     end,
     calculate = function(self, blind, context)
         local color1 = "Red"
@@ -401,6 +415,8 @@ BLINDSIDE.Joker({
                 end
             end
             if changed then
+                G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_small_joker"
+                G.GAME.playing_with_fire = G.GAME.playing_with_fire + 2
                 BLINDSIDE.chipsmodify(4 - (hasWildCanvas and 2 or 0), 0, 0)
             end
         end
@@ -434,7 +450,7 @@ BLINDSIDE.Joker({
     small = {min = 1},
     order = 6,
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1
+        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
     end,
     calculate = function(self, blind, context)
         local color1 = "Blue"
@@ -490,6 +506,8 @@ BLINDSIDE.Joker({
                 end
             end
             if changed then
+                G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_small_joker"
+                G.GAME.playing_with_fire = G.GAME.playing_with_fire + 2
                 BLINDSIDE.chipsmodify(4 - (hasWildCanvas and 2 or 0), 0, 0)
             end
         end
@@ -523,7 +541,7 @@ BLINDSIDE.Joker({
     small = {min = 1},
     order = 6,
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1
+        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
     end,
     calculate = function(self, blind, context)
         local color1 = "Green"
@@ -579,6 +597,8 @@ BLINDSIDE.Joker({
                 end
             end
             if changed then
+                G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_small_joker"
+                G.GAME.playing_with_fire = G.GAME.playing_with_fire + 2
                 BLINDSIDE.chipsmodify(4 - (hasWildCanvas and 2 or 0), 0, 0)
             end
         end
@@ -612,7 +632,7 @@ BLINDSIDE.Joker({
     small = {min = 1},
     order = 6,
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1
+        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
     end,
     calculate = function(self, blind, context)
         local color1 = "Yellow"
@@ -668,6 +688,8 @@ BLINDSIDE.Joker({
                 end
             end
             if changed then
+                G.GAME.playing_with_fire_each = "bld_playing_with_fire_each_small_joker"
+                G.GAME.playing_with_fire = G.GAME.playing_with_fire + 2
                 BLINDSIDE.chipsmodify(4 - (hasWildCanvas and 2 or 0), 0, 0)
             end
         end
@@ -701,7 +723,7 @@ BLINDSIDE.Joker({
     small = {min = 1},
     order = 6,
     pool_override = function()
-        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1
+        return G.GAME.modifiers.enable_bld_double_up and G.GAME.round_resets.ante ~= 1 and pseudorandom(pseudoseed('bld_double_up' .. G.GAME.round_resets.ante)) > 0.65
     end,
     calculate = function(self, blind, context)
         local color1 = "Purple"

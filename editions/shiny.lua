@@ -21,7 +21,7 @@ SMODS.Edition {
             xmult = 1.3
         }
     },
-    weight = 1,
+    weight = 0.5,
     loc_vars = function(self, info_queue, card)
         return {
             vars = {

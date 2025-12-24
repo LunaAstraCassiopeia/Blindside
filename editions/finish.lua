@@ -10,7 +10,7 @@ SMODS.Edition {
     config = {
  		extra = {retriggers = 1}
     },
-    weight = 1,
+    weight = 0.5,
     in_shop = false,
     loc_vars = function(self, info_queue, card)
         return {

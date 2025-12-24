@@ -55,6 +55,10 @@ return {
 			['k_base_blinds'] = "Base Blinds",
 			['k_fossil_excavate'] = "Excavated!",
 			['k_exorcised_ex'] = "Exorcised!",
+			['bld_playing_with_fire'] = "Playing With Fire",
+			['bld_playing_with_fire_each_boss_joker'] = "$1 each",
+			['bld_playing_with_fire_each_big_joker'] = "$1 each XMult",
+			['bld_playing_with_fire_each_small_joker'] = "$2 each",
 			},
 		["v_dictionary"] = {
 			["a_rmult"] = "-#1#",
@@ -1483,7 +1487,7 @@ return {
 			["bl_bld_stone"] = {
 				["name"] = "Stone Joker",
 				["text"] = {
-					"Gain #1# The Tablet",
+					"Gain #1# The Tablet,",
 					"+6 Mult if scoring hand",
 					"contains a Faded Blind"
 				},
@@ -2841,7 +2845,7 @@ return {
 				["name"] = "Bookmark",
 				["text"] = {
 					"{X:mult,C:white}X#1#{} Mult if deck",
-					"has at most {C:attention}2{}",
+					"has at most {C:attention}#2#{}",
 					"blinds left",
 				}
 			},
@@ -3205,6 +3209,31 @@ return {
 					"for each held {C:attention}Tag"
 				}
 			},
+			['j_bld_hourglass'] = {
+				["name"] = "Hourglass",
+				["text"] = {
+					"First time {C:blue}hands{} are",
+					"less than {C:red}discards{} this",
+					"round, gives {C:blue}+#1# hands",
+					"{C:inactive}(Currently: #2#)"
+				}
+			},
+			['j_bld_snaketotem'] = {
+				["name"] = "Snake Totem",
+				["text"] = {
+					{"{C:attention}+#1#{} hand size"},
+					{"When using a {C:red}discard,",
+					"always draw at least",
+					"{C:attention}3{} Blinds"}
+				}
+			},
+			['j_bld_bingoball'] = {
+				["name"] = "Bingo Ball",
+				["text"] = {
+					"Retrigger {C:attention}2{} scoring",
+					"Blinds at random"
+				}
+			}
 		},
 		["Edition"] = {
 			['e_bld_enameled'] = {

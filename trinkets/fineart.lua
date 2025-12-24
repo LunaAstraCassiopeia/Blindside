@@ -7,7 +7,7 @@
         config = {
             extra = {
                 xmult = 3,
-                odds = 5,
+                odds = 8,
                 secret = 0,
             }
         },
