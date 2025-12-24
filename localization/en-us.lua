@@ -446,8 +446,9 @@ return {
 			["tag_bld_symmetry"] = {
 				["name"] = "Symmetry Tag",
 				["text"] = {
-					"{C:green}#1# in #2#{} chance to retrigger",
-					"scoring blinds"
+					"{C:green}#1# in #2#{} chance",
+					"to retrigger each",
+					"scoring blind"
 				},
 			},
 			["tag_bld_additive"] = {
@@ -2940,8 +2941,8 @@ return {
 			['j_bld_doubloon'] = {
 				["name"] = "Copper Doubloon",
 				["text"] = {
-					"Retriggers all scoring",
-					"{X:green,C:white}Green{} Blinds",
+					"When {C:attention}Joker{} is selected,",
+					"creates a {C:green}Symmetry Tag"
 				}
 			},
 			['j_bld_toyrobot'] = {
