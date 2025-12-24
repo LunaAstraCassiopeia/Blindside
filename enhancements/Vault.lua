@@ -15,7 +15,7 @@
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue+1] = {key = 'bld_retain', set = "Other"}
             return {
-                key = card.ability.extra.upgraded and 'm_bld_vault_upgrade' or 'm_bld_vault',
+                key = card.ability.extra.upgraded and 'm_bld_vault_upgraded' or 'm_bld_vault',
                 vars = {
                     card.ability.extra.gain,
                     card.ability.extra.total
