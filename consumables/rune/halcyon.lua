@@ -37,7 +37,7 @@ SMODS.Consumable {
         if context.setting_blind and card.ability.extra.active then 
         card.ability.extra.roundsActive = card.ability.extra.roundsActive + 1
         end
-        if context.repetition and card.ability.extra.active and context.other_card.facing ~= 'back' and context.other_card:is_color("Yellow") then
+        if context.repetition and card.ability.extra.active and context.other_card and context.other_card.facing ~= 'back' and context.other_card:is_color("Yellow") then
             return {
                 repetitions = 1
             }
