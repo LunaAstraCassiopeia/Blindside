@@ -77,12 +77,8 @@ SMODS.Back({
         return true end }))
     end,
     calculate = function(self, back, context)
-        if context.after then     
-            
-        end
-
         if context.after then
-            back.effect.center.config.extra.last_hand_played = context.scoring_name
+            G.GAME.gold_last_played = context.scoring_name
             for i = 1, #G.playing_cards do
                 G.playing_cards[i]:set_debuff(false)
             end
@@ -91,13 +87,15 @@ SMODS.Back({
         if context.blind_defeated then
             ease_dollars(-3)
 
-            if not context.beat_boss then
+            if not context.beat_boss and G.GAME.gold_last_played then
                 G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.8,
                     func = function ()
                         SMODS.upgrade_poker_hands({
-                            hands = back.effect.center.config.extra.last_hand_played,
+                            hands = G.GAME.gold_last_played,
                             func = function(base, hand, parameter)
-                                    return base + G.GAME.hands[back.effect.center.config.extra.last_hand_played]['l_' .. parameter] * 1
+                                    return base + G.GAME.hands[G.GAME.gold_last_played]['l_' .. parameter] * 1
                             end,
                             level_up = 1
                         })
