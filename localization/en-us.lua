@@ -1807,7 +1807,7 @@ return {
 				["text"] = {
 					"{X:money,C:white}Yellow{}",
 					"If scoring hand",
-					"conatins 5 Blinds, creates a",
+					"contains 5 Blinds, creates a",
 					"{C:chips,E:1}Wave Tag{} and {C:attention}burns{}"
 				},
 			},
@@ -1966,7 +1966,7 @@ return {
 					"Retriggers all",
 					"{C:attention}scored blinds"},
 					{"Always Scores"},
-					{"If played hand conatins",
+					{"If played hand contains",
 					"{C:attention}5{} Blinds, {C:red}debuffs{} self",}
 				},
 			},
@@ -2581,7 +2581,7 @@ return {
 				["text"] = {
 					"{X:mult,C:white}Red{} {X:money,C:white}Yellow{}",
 					"If scoring hand",
-					"conatins at least",
+					"contains at least",
 					"3 Blinds, creates a",
 					"{C:mult,E:1}Strike Tag{} and {C:attention}burns{}"
 				},
@@ -2592,7 +2592,7 @@ return {
 					{"{X:mult,C:white}Red{} {X:money,C:white}Yellow{}",
 					"{C:money}+#1#${}"},
 					{"If scoring hand",
-					"conatins at least",
+					"contains at least",
 					"3 Blinds, creates a",
 					"{C:mult,E:1}Strike Tag{} and {C:attention}burns{}"}
 				},
