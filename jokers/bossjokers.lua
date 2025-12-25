@@ -246,11 +246,14 @@ BLINDSIDE.Joker({
                 BLINDSIDE.alert_debuff(self, false)
             end
         end
-        if context.setting_blind and not context.disabled then
-        for _, poker_hand in ipairs(G.handlist) do
-        blind.hands = {}
-            blind.hands[poker_hand] = false
+        if context.pre_discard or context.before then
+            BLINDSIDE.alert_debuff(self, false)
         end
+        if context.setting_blind and not context.disabled then
+            for _, poker_hand in ipairs(G.handlist) do
+                blind.hands = {}
+                blind.hands[poker_hand] = false
+            end
         end
         if not blind.disabled and context.after and blind.hands[context.scoring_name] then
             G.GAME.playing_with_fire_num = G.GAME.playing_with_fire_num + 1
@@ -260,7 +263,7 @@ BLINDSIDE.Joker({
             blind:wiggle()
             BLINDSIDE.chipsupdate()
         end
-        if context.after then     
+        if context.after then
             blind.hands[context.scoring_name] = true
         end
     end,
