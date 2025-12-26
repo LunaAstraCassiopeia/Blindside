@@ -442,7 +442,7 @@ return {
 					"{C:attention}top{} of the deck",
 				},
 			},
-			["tag_bld_vaccine"] = {
+			["v_bld_vaccine"] = {
 				["name"] = "Vaccine",
 				["text"] = {	
 					"All {C:attention}Blinds and Booster Packs{}",

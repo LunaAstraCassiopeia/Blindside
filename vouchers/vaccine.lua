@@ -1,7 +1,7 @@
 SMODS.Voucher {
     key = 'vaccine',
     atlas = 'bld_price_tag',
-    pos = {x = 4, y = 4},
+    pos = {x = 3, y = 3},
     cost = 15,
     in_pool = function(self, args)
         if G.GAME.selected_back.effect.center.config.extra then
@@ -17,6 +17,9 @@ SMODS.Voucher {
         badges[#badges+1] = create_badge(localize('k_relic'), G.C.RED, G.C.WHITE, 1.2 )
     end,
     redeem = function(self, card)
+        for i = 1, #G.shop_booster.cards do
+            G.shop_booster.cards[i].cost = G.shop_booster.cards[i].cost - 1
+        end
         add_tag(Tag('tag_bld_vaccine_relic'))
     end,
 }
