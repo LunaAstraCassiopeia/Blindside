@@ -20,5 +20,6 @@ SMODS.Voucher {
             value:set_cost()
         end
         add_tag(Tag('tag_bld_exactoblade_relic'))
-    end
+    end,
+    requires = {'v_bld_scissors'}
 }
