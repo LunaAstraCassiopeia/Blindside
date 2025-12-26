@@ -22,4 +22,5 @@ SMODS.Voucher {
         end
         add_tag(Tag('tag_bld_vaccine_relic'))
     end,
+    requires = {'v_bld_antidote'}
 }

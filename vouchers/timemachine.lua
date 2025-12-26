@@ -21,5 +21,6 @@ SMODS.Voucher {
         G.GAME.round_resets.blind_ante = G.GAME.round_resets.blind_ante + 1
         G.GAME.round_resets.hands = G.GAME.round_resets.hands + 2
         ease_hands_played(2)
-    end
+    end,
+    requires = {'v_bld_timecapsule'}
 }

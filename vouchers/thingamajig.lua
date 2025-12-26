@@ -20,4 +20,5 @@ SMODS.Voucher {
     redeem = function(self, card)
         add_tag(Tag('tag_bld_thingamajig_relic'))
     end,
+    requires = {'v_bld_magnet'}
 }

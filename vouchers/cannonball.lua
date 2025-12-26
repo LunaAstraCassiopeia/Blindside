@@ -20,4 +20,5 @@ SMODS.Voucher {
     loc_vars = function (self, info_queue, tag)
         info_queue[#info_queue+1] = G.P_TAGS['tag_bld_toss']
     end,
+    requires = {'v_bld_jugglingballs'}
 }
