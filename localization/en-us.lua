@@ -335,6 +335,13 @@ return {
 					"each {C:attention}Joker{} is defeated"
 				},
 			},
+			["v_bld_microscope"] = {
+				["name"] = "Microscope",
+				["text"] = {
+					"Rerolls cost",
+					"{C:money}$2{} less"
+				},
+			},
 			["v_bld_meteor"] = {
 				["name"] = "Meteor",
 				["text"] = {
@@ -426,6 +433,13 @@ return {
 				["text"] = {
 					"Create a {C:attention}Reroll{} Tag after",
 					"each {C:attention}Joker{} is defeated"
+				},
+			},
+			["tag_bld_microscope_relic"] = {
+				["name"] = "Microscope",
+				["text"] = {
+					"Rerolls cost",
+					"{C:money}$2{} less"
 				},
 			},
 			["tag_bld_meteor_relic"] = {
