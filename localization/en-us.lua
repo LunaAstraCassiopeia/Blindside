@@ -314,8 +314,17 @@ return {
 			["v_bld_scissors"] = {
 				["name"] = "Scissors",
 				["text"] = {
-					"Leftmost initial blind or",
-					"booster each shop is {C:attention}free"
+					"Leftmost initial Blind,",
+					"Booster, or card each",
+					"shop is {C:attention}free"
+				},
+			},
+			["v_bld_exactoblade"] = {
+				["name"] = "Exacto Blade",
+				["text"] = {
+					"All initial Blinds,",
+					"Boosters, and cards",
+					"each shop are {C:attention}free"
 				},
 			},
 			["v_bld_swearjar"] = {
@@ -437,8 +446,17 @@ return {
 			["tag_bld_scissors_relic"] = {
 				["name"] = "Scissors",
 				["text"] = {
-					"Leftmost initial blind or",
-					"booster each shop is {C:attention}free"
+					"Leftmost initial Blind,",
+					"Booster, or card each",
+					"shop is {C:attention}free"
+				},
+			},
+			["tag_bld_exactoblade_relic"] = {
+				["name"] = "Exacto Blade",
+				["text"] = {
+					"All initial Blinds,",
+					"Boosters, and cards",
+					"each shop are {C:attention}free"
 				},
 			},
 			["tag_bld_swearjar_relic"] = {
