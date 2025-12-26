@@ -434,6 +434,14 @@ return {
 					"always {C:green}retain"
 				},
 			},
+			["v_bld_thingamajig"] = {
+				["name"] = "Thingamajig",
+				["text"] = {
+					"{C:dark_edition,E:1}Upgraded{} Blinds",
+					"are reshuffled to the",
+					"{C:attention}top{} of the deck",
+				},
+			},
 		},
 		["Tag"] = {
 			["tag_bld_reroll"] = {
@@ -781,7 +789,15 @@ return {
 					"Leftover {C:red}discards",
 					"give {C:money}$5{} each"
 				},
-			}
+			},
+			["tag_bld_thingamajig_relic"] = {
+				["name"] = "Thingamajig",
+				["text"] = {	
+					"{C:dark_edition,E:1}Upgraded{} Blinds",
+					"are reshuffled to the",
+					"{C:attention}top{} of the deck",
+				},
+			},
 		},
 		["bld_obj_mineral"] = {
 			["c_bld_stibnite"] = {
