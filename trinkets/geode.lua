@@ -31,22 +31,27 @@
         end,
         calculate = function(self, card, context)
             if context.setting_blind then
+                local pool = {}
                 for key, value in pairs(G.consumeables.cards) do
                     if value.config.center.set == 'bld_obj_mineral' then
-                        card.ability.extra.eating_good = true
-                        return {
-                            message = localize('k_bld_ate_mineral'),
-                            func = function ()
-                                G.E_MANAGER:add_event(Event({
-                                    func = function ()
-                                        value:start_dissolve()
-                                        return true
-                                    end
-                                }))
-                            end
-                        }
+                        table.insert(pool, value)
                     end
                 end
+                if #pool > 0 then
+                    card.ability.extra.eating_good = true
+                    return {
+                        message = localize('k_bld_ate_mineral'),
+                        func = function ()
+                            G.E_MANAGER:add_event(Event({
+                                func = function ()
+                                    choose_stuff(pool, 1, pseudoseed('geode_eat'))[1]:start_dissolve()
+                                    return true
+                                end
+                            }))
+                        end
+                    }
+                end
+
                 card.ability.extra.eating_good = false
                 return {
                     message = localize('k_nope_ex')

@@ -3550,8 +3550,9 @@ return {
 				["text"] = {
 					{"When {C:attention}Joker{} is selected,",
 					"destroy a random {C:bld_obj_mineral}Mineral"},
-					{"If successful, {C:white,X:mult}X#1#{} Mult",
-					"for the round",
+					{"When a {C:bld_obj_mineral}Mineral{} is",
+					"destroyed, {C:white,X:mult}X#1#{} Mult",
+					"until end of round",
 					"{C:inactive}(Currently: #2#)"}
 				}
 			}
