@@ -13,7 +13,7 @@ SMODS.Back({
         joker_slot = -1,
         extra_hand_bonus = 2,
     },
-    unlocked = true,
+    unlocked = false,
     pos = { x = 4, y = 0 },
     loc_vars = function (self, info_queue, card)
         return {

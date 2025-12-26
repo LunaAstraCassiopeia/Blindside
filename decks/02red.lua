@@ -12,7 +12,7 @@ SMODS.Back({
         ante_scaling = 0.5,
         joker_slot = -1,
     },
-    unlocked = true,
+    unlocked = false,
     pos = { x = 0, y = 0 },
     apply = function(self)
         BLINDSIDE.set_up_blindside()

@@ -165,6 +165,10 @@ return {
 					"???",
 					"{C:attention}+2{} {C:red}discard{} size"
 				},
+				["unlock"] = {
+					"Reach Ante {C:attention}4",
+					"with {C:inactive}White Deck?"
+				}
 			},
 			["b_bld_greendispenser"] = {
 				["name"] = "Green Deck?",
@@ -174,6 +178,10 @@ return {
 					"Start with {C:attention,T:v_bld_coolrock}Cool Rock{}",
 					"and {C:attention,T:v_bld_television}Television{}",
 				},
+				["unlock"] = {
+					"Reach Ante {C:attention}5",
+					"with {C:red}Red Deck?"
+				}
 			},
 			["b_bld_blackdispenser"] = {
 				["name"] = "Black Deck?",
@@ -182,6 +190,10 @@ return {
 					"{C:attention}+1{} Trinket slot",
 					"{C:blue}-1{} hand",
 				},
+				["unlock"] = {
+					"Reach Ante {C:attention}6",
+					"with {C:green}Green Deck?"
+				}
 			},
 			["b_bld_bluedispenser"] = {
 				["name"] = "Blue Deck?",
@@ -191,6 +203,10 @@ return {
 					"give {C:money}$2{} each",
 					"{C:red}-1{} discard",
 				},
+				["unlock"] = {
+					"Reach Ante {C:attention}6",
+					"with Black Deck?"
+				}
 			},
 			["b_bld_purpledispenser"] = {
 				["name"] = "Purple Deck?",
@@ -203,6 +219,10 @@ return {
 					"{s:0.2} {}",
 					"{C:attention}-1{} hand size"
 				},
+				["unlock"] = {
+					"Defeat Ante {C:attention}6",
+					"with {C:blue}Blue Deck?"
+				}
 			},
 			["b_bld_orangedispenser"] = {
 				["name"] = "Orange Deck?",
@@ -214,6 +234,10 @@ return {
 					"{s:0.2} {}",
 					"All Blinds {C:attention,T:bld_burn}burn"
 				},
+				["unlock"] = {
+					"Defeat Ante {C:attention}6",
+					"with {C:purple}Purple Deck?"
+				}
 			},
 			["b_bld_golddispenser"] = {
 				["name"] = "Gold Deck? (not shiny yet)",
@@ -225,6 +249,10 @@ return {
 					"{s:0.2} {}",
 					"Lose {C:money}$3{} each round"
 				},
+				["unlock"] = {
+					"Defeat Ante {C:attention}6",
+					"with {C:attention}Orange Deck?"
+				}
 			},
 			["b_bld_yellowdispenser"] = {
 				["name"] = "Penny Deck?",
@@ -235,6 +263,11 @@ return {
 					"Extra hands earn",
 					"{C:attention}no money"
 				},
+				["unlock"] = {
+					"Earn {C:money}$8 in a",
+					"single round from",
+					"{C:attention,E:1}Playing with Fire",
+				}
 			},
 			["b_bld_painteddispenser"] = {
 				["name"] = "Painted Deck?",
@@ -242,6 +275,10 @@ return {
 					"???",
 					"{C:attention}+2{} hand size",
 					"{C:attention}-1{} Trinket slot",
+				},
+				["unlock"] = {
+					"Defeat all {C:attention}6",
+					"{C:attention}Small Jokers"
 				},
 			}
 		},
