@@ -54,12 +54,12 @@
                                     local streak_card = retrigger_cards[streak_index]
                                     for _, play_card in ipairs(G.play.cards) do
                                         if play_card == streak_card and streak_card.ability.extra.rescore ~= 1 then
-                                    card_eval_status_text(card, 'extra', nil, nil, nil, {
-                                        message = localize('k_again_ex'),
-                                        colour = G.C.DARK_EDITION})
-                                        card:juice_up()
-                                            local passed_context = context
-                                            BLINDSIDE.rescore_card(play_card, passed_context)
+                                            card:juice_up()
+                                            card_eval_status_text(card, 'extra', nil, nil, nil, {
+                                            message = localize('k_again_ex'),
+                                            colour = G.C.DARK_EDITION})
+                                                local passed_context = context
+                                                BLINDSIDE.rescore_card(play_card, passed_context)
                                         end
                                     end
                                 end
