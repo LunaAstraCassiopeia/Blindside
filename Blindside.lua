@@ -378,6 +378,7 @@ local card_list = {
         "Grate",
         "Vault",
         "Tablet",
+        "Template",
 }
 
 local trinket_list = {

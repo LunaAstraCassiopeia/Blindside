@@ -2959,6 +2959,15 @@ return {
 					{"{C:green}Retained"}
 				},
 			},
+			["m_bld_template"] = {
+				["name"] = "The Template",
+				["text"] = {
+					{"{X:chips,C:white}Blue{}",
+					"Retrigger scoring Blind",
+					"to the right {C:attention}#1#{} times"},
+					{"Always Scores"},
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {
