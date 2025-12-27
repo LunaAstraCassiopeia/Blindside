@@ -142,7 +142,11 @@ function BLINDSIDE.Blind:set_params()
         self.pools["bld_obj_blindcard_single"] = true
     end
 
-    if not self.basic and not self.hidden then
+    if self.curse then
+        self.pools["bld_obj_blindcard_curse"] = true
+    end
+
+    if not self.basic and not self.hidden and not self.curse then
         self.pools["bld_obj_blindcard_generate"] = true
 
         if tableContains("Red", self.hues) or tableContains("Yellow", self.hues) or tableContains("Green", self.hues) then
@@ -380,6 +384,7 @@ local card_list = {
         "Tablet",
         "Template",
         "Rich",
+        "Curse",
 }
 
 local trinket_list = {

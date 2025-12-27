@@ -97,6 +97,7 @@
         "m_bld_tablet",
         "m_bld_template",
         "m_bld_rich",
+        "m_bld_curse",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",

@@ -6,7 +6,7 @@
             extra = {
                 xmult = 1,
                 xmult_gain = 0.25,
-                xmult_gainup = 0.15,
+                xmult_gainup = 0.25,
                 value = 11,
             }},
         hues = {"Purple"},

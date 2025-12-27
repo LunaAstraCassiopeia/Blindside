@@ -1,30 +1,27 @@
     BLINDSIDE.Blind({
-        key = 'wound',
+        key = 'curse',
         atlas = 'bld_blindrank',
-        pos = {x = 5, y = 9},
+        pos = {x = 0, y = 10},
         config = {
             extra = {
                 value = 30,
-                xmult = 1.5,
+                joker_mult = 2,
             }},
-        hues = {"Red"},
+        hues = {"Faded"},
         curse = true,
         calculate = function(self, card, context)
             if context.burn_card and context.cardarea == G.play and context.burn_card == card then
                 return { remove = true }
             end
-            if card.ability.extra.upgraded and context.cardarea == G.play and context.main_scoring then
-                return {
-                    xmult = card.ability.extra.xmult
-                }
+            if context.cardarea == G.play and context.main_scoring then
+                BLINDSIDE.chipsmodify(card.ability.extra.joker_mult, 0, 0)
             end
         end,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}
             return {
-                key = card.ability.extra.upgraded and 'm_bld_wound_upgraded' or 'm_bld_wound',
                 vars = {
-                    card.ability.extra.xmult
+                    card.ability.extra.joker_mult
                 }
             }
         end,
