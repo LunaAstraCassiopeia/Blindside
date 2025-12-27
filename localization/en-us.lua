@@ -2982,8 +2982,18 @@ return {
 				["name"] = "The Curse",
 				["text"] = {
 					{"{X:dark_edition,C:white}Faded{} {X:black,C:white}Cursed{}",
-					"{C:mult}+#1#{} Mult to {C:attention}Joker"},
+					"{C:mult}+#1#{} Mult",
+					"to {C:attention}Joker"},
 					{"{C:attention}Burns"},
+				},
+			},
+			["m_bld_daze"] = {
+				["name"] = "The Daze",
+				["text"] = {
+					{"{X:purple,C:white}Purple{} {X:black,C:white}Cursed{}",
+					"{C:white,X:chips}X#1#{} Chips",
+					"to {C:attention}Joker"},
+					{"{C:attention}Stubborn"},
 				},
 			},
 		},
@@ -3668,6 +3678,13 @@ return {
 			}
 		},
 		["Other"] = {
+			["bld_stubborn"] = {
+				["name"] = "Stubborn",
+				["text"] = {
+					"Cannot be part",
+					"of a {C:red}discard"
+				}
+			},
 			["bld_modifiers"] = {
 				["name"] = "Modifier",
 				["text"] = {

@@ -30,16 +30,13 @@ SMODS.Blind({
 })
 
 local can_discardref = G.FUNCS.can_discard
-G.FUNCS.cant_discardLOL = function(e)
-    if G.GAME.blind and G.GAME.blind.name == '' then
-        if G.GAME.current_round.discards_left <= 0 or #G.hand.highlighted <= 4 or #G.hand.highlighted > math.max(G.GAME.starting_params.discard_limit, 0) then
+G.FUNCS.can_discard = function(e)
+    for key, value in pairs(G.hand.highlighted) do
+        if value.config.center and value.config.center.config.extra and value.config.center.config.extra.stubborn then
             e.config.colour = G.C.UI.BACKGROUND_INACTIVE
             e.config.button = nil
-        else
-            e.config.colour = G.C.RED
-            e.config.button = 'discard_cards_from_highlighted'
+            return
         end
-    else
-        can_discardref(e)
     end
-  end
+    can_discardref(e)
+end
