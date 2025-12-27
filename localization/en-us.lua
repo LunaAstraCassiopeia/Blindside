@@ -3555,7 +3555,13 @@ return {
 					"until end of round",
 					"{C:inactive}(Currently: #2#)"}
 				}
-			}
+			},
+			['j_bld_peppermintcandycane'] = {
+				["name"] = "Peppermint Candy Cane",
+				["text"] = {
+
+				}
+			},
 		},
 		["Edition"] = {
 			['e_bld_enameled'] = {

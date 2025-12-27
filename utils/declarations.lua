@@ -203,6 +203,7 @@
         "j_bld_nixietubes",
         "j_bld_prayerwheel",
         "j_bld_geode",
+        "j_bld_peppermintcandycane",
         "c_bld_horror",
         "c_bld_action",
         "c_bld_comedy",
