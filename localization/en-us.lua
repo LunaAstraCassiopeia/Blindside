@@ -3628,8 +3628,12 @@ return {
 			["stake_bld_magic_deck"] = {
 				name = "Magic Stake??",
 				text = {
-					"Start with",
-					"{C:attention}2{} {X:dark_edition,C:white}Cursed{} Blinds"
+					"{C:attention}Small{} Jokers {C:red}debuff",
+					"their respective {C:attention}hue",
+					"{C:attention}Big{} Jokers {C:red}debuff",
+					"Blinds when triggered"
+					--"Start with",
+					--"{C:attention}2{} {X:dark_edition,C:white}Cursed{} Blinds"
 				}
 			},
 			["stake_bld_anaglyph_deck"] = {
