@@ -2464,7 +2464,8 @@ return {
 				["name"] = "The Mark",
 				["text"] = {
 					{"{X:red,C:white}Red{}",
-					"{X:mult,C:white}X#1#{} Mult"},
+					"{X:mult,C:white}X#1#{} Mult when scored",
+					"or {C:attention}held in hand"},
 					{"Drawn face down"},
 					{"Always scores"},
 				},
@@ -3028,6 +3029,15 @@ return {
 					"{X:chips,C:white}Blue{} {X:black,C:white}Cursed{}",
 					"{C:red}Debuffs{} adjacent",
 					"scoring Blinds",
+				},
+			},
+			["m_bld_silence"] = {
+				["name"] = "The Silence",
+				["text"] = {
+					"{X:dark_edition,C:white}Faded{} {X:black,C:white}Cursed{}",
+					"While {C:attention}held in hand{},",
+					"{C:red}Debuffs{} all cards",
+					"{C:attention}held in hand{}"
 				},
 			},
 		},
