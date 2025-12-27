@@ -3022,6 +3022,14 @@ return {
 					{"{C:attention}Burns"},
 				},
 			},
+			["m_bld_sad"] = {
+				["name"] = "The Sad",
+				["text"] = {
+					"{X:chips,C:white}Blue{} {X:black,C:white}Cursed{}",
+					"{C:red}Debuffs{} adjacent",
+					"scoring Blinds",
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {

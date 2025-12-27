@@ -101,6 +101,7 @@
         "m_bld_thirst",
         "m_bld_spent",
         "m_bld_sick",
+        "m_bld_sad",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",
