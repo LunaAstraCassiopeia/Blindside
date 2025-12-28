@@ -5,9 +5,9 @@
         config = {
             mult = 10,
             extra = {
-                value = 141,
+                value = 10,
                 cost = 2,
-                mult_gain = 8,
+                mult_gain = 10,
                 cost_gain = 1,
             }},
         hues = {"Yellow"},
