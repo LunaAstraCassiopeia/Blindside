@@ -2239,7 +2239,7 @@ return {
 				["text"] = {
 					"{X:money,C:white}Yellow{}",
 					"{C:money}+#1#${} when scored",
-					"or held in hand",
+					"or {C:attention}held in hand",
 				},
 			},
 			["m_bld_price"] = {
