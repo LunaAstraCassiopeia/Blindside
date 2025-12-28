@@ -6,6 +6,7 @@
             extra = {
                 value = 999,
                 rescore = 1,
+                retrigger = 3,
                 rescore_up = 2,
             }},
         hues = {"Blue"}, -- Faded?
@@ -55,14 +56,14 @@
         loc_vars = function(self, info_queue, card)
             return {
                 vars = {
-                    card.ability.extra.rescore
+                    card.ability.extra.retrigger
                 }
             }
         end,
         upgrade = function(card) 
             if not card.ability.extra.upgraded then
             card.ability.extra.upgraded = true
-            card.ability.extra.rescore = card.ability.extra.rescore + card.ability.extra.rescore_up
+            card.ability.extra.retrigger = card.ability.extra.retrigger + card.ability.extra.rescore_up
             end
         end
     })
