@@ -5,7 +5,7 @@
         config = {
             extra = {
                 money = 4,
-                mult = 5,
+                mult = 8,
                 money_up = 1,
                 mult_up = 3,
                 value = 11,
