@@ -106,6 +106,7 @@
         "m_bld_mold",
         "m_bld_stress",
         "m_bld_hunger",
+        "m_bld_lottery",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",
