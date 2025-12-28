@@ -103,6 +103,7 @@
         "m_bld_sick",
         "m_bld_sad",
         "m_bld_silence",
+        "m_bld_mold",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",

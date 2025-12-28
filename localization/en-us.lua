@@ -3039,6 +3039,16 @@ return {
 					"{C:attention}held in hand{}"
 				},
 			},
+			["m_bld_mold"] = {
+				["name"] = "The Mold",
+				["text"] = {
+					{"{X:green,C:white}Green{} {X:black,C:white}Cursed{}",
+					"While {C:attention}held in hand{},",
+					"{C:green}#2# in #3#{} chance for",
+					"{C:red}+#1#{} Mult to {C:attention}Joker"},
+					{"{C:green}Retained"}
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {
