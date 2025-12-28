@@ -23,7 +23,7 @@
             end
         end,
         calculate = function(self, card, context)
-            if context.individual and context.cardarea == G.play and context.other_card:is_color("Yellow") then
+            if context.individual and context.cardarea == G.play and (context.other_card:is_color("Yellow") or context.other_card:is_color("Red")) then
                 return {
                     chips = G.GAME.dollars
                 }
