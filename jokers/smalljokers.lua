@@ -3,7 +3,7 @@ BLINDSIDE.Joker({
     atlas = 'bld_joker',
     pos = {x=0, y=0},
     boss_colour = G.C.RED,
-    mult = 6,
+    mult = 5,
     dollars = 4,
     small = {min = 1},
     order = 1,
