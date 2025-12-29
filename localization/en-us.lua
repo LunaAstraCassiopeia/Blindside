@@ -3605,8 +3605,8 @@ return {
 			['j_bld_matryoshka'] = {
 				["name"] = "Matryoshka",
 				["text"] = {
-					"When Joker is",
-					"selected, create the",
+					"When Joker is selected",
+					"create {C:attention}2{} copies of the",
 					"last consumed {C:attention}Tag",
 					"{C:inactive}(Currently: {C:attention}#1#{C:inactive})"
 				}

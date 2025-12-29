@@ -3,7 +3,7 @@
         atlas = 'bld_trinkets',
         pos = {x = 0, y = 6},
         rarity = 'bld_hobby',
-        cost = 8,
+        cost = 12,
         config = {
             extra = {
                 last_tag = nil
@@ -21,6 +21,16 @@
         end,
         calculate = function(self, card, context)
             if context.setting_blind and card.ability.extra.last_tag then
+                G.E_MANAGER:add_event(Event({
+                    func = function ()
+                        add_tag(Tag(card.ability.extra.last_tag))
+                        card:juice_up(0.65, 0.65)
+                        play_sound('generic1', 0.9 + math.random()*0.1, 0.8)
+                        play_sound('holo1', 1.2 + math.random()*0.1, 0.4)
+                        return true
+                    end
+                }))
+                delay(0.4)
                 G.E_MANAGER:add_event(Event({
                     func = function ()
                         add_tag(Tag(card.ability.extra.last_tag))
