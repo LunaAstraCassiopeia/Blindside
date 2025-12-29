@@ -2694,7 +2694,8 @@ return {
 					{"{C:attention,E:1}Self-Scoring{} with a",
 					"{C:green}#2# in #3#{} chance"},
 					{"{C:green}#2# in #3#{} chance to",
-					"score {C:attention}held in hand"}
+					"score {C:attention}held in hand"},
+					{"{C:green}Retained{}"}
 				},
 			},
 			["m_bld_moon"] = {

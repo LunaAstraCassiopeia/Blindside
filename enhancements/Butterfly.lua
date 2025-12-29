@@ -8,6 +8,7 @@
                 xchips = 2,
                 xchipsup = 0.5,
                 odds = 2,
+                retain = true
             }
         },
         hues = {"Green", "Blue"},
