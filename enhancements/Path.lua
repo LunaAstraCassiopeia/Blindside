@@ -4,6 +4,7 @@
         pos = {x = 2, y = 8},
         config = {
             mult = 10,
+            chips = 20,
             extra = {
                 value = 100,
                 poker_hand = "bld_blind_2pair",
@@ -14,7 +15,8 @@
             if context.modify_hand and context.cardarea == G.hand and context.scoring_hand and context.main_eval then
                 if next(context.poker_hands[card.ability.extra.poker_hand]) or (card.ability.extra.upgraded and has_group_of(2, context.poker_hands)) then
                     return {
-                        mult = card.ability.mult
+                        mult = card.ability.mult,
+                        chips = card.ability.chips,
                     }
                 end
             end
