@@ -26,6 +26,7 @@
                 key = card.ability.extra.upgraded and 'm_bld_path_upgraded' or 'm_bld_path',
                 vars = {
                     card.ability.mult,
+                    card.ability.chips
                 }
             }
         end,
