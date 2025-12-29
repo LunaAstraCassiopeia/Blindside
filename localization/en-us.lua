@@ -1986,12 +1986,17 @@ return {
 			["m_bld_path"] = {
 				["name"] = "The Path",
 				["text"] = {
-					{"{X:red,C:white}Red{} {X:blue,C:white}Blue{}",
+					--[[{"{X:red,C:white}Red{} {X:blue,C:white}Blue{}",
 					"{C:mult}+#1#{} Mult, {C:chips}+#2#{} Chips"},
 					{"If {C:attention}held in hand{} while",
 					"played hand contains {C:attention}Two Pair{},",
 					"{C:mult}+#1#{} Mult and {C:chips}+#2#{} Chips before",
-					"hand scores"},
+					"hand scores"},]]
+					{"{X:red,C:white}Red{} {X:blue,C:white}Blue{}",
+					"{C:mult}+#1#{} Mult"},
+					{"If {C:attention}held in hand{} while",
+					"played hand contains {C:attention}Two Pair{},",
+					"{C:mult}+#1#{} Mult before scoring"},
 				},
 			},
 			["m_bld_path_upgraded"] = {
