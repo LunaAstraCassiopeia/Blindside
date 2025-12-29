@@ -13,7 +13,7 @@
         calculate = function(self, card, context) 
             if context.cardarea == G.play and context.main_scoring then
                 return {
-                    chips = card.ability.extra.chips*card.ability.cell_tally
+                    chips = card.ability.extra.chips*card.ability.extra.blue_tally
                 }
             end
         end,
