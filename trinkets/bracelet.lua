@@ -19,13 +19,7 @@
         in_pool = function(self, args)
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
-                    if G.playing_cards then
-                        for i = 1, #G.playing_cards do
-                            if G.playing_cards[i].seal == 'bld_floral' then
-                                return true
-                            end
-                        end
-                    end
+                return true
             else
             return false
             end
