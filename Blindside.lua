@@ -303,7 +303,7 @@ local card_list = {
     "Pot",
     "Bite",
     "Blank",
-    
+
     "Hook",
     "Ox",
     "House",
@@ -340,6 +340,7 @@ local card_list = {
     "Way",
     "Fossil",
     "Grate",
+    "Rupture",
 
     "Wall",
     "Fish",
