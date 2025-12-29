@@ -5,9 +5,6 @@
         config = {
             extra = {
                 value = 16,
-                chips = 20,
-                chips_mod = 40,
-                chips_modup = 20,
             }
         },
         replace_base_card = true,
@@ -24,23 +21,30 @@
             end
         end,
         calculate = function(self, card, context)
-            if context.cardarea == G.play and context.main_scoring then
-                return {
-                    chips = card.ability.extra.chips + card.ability.extra.chips_mod*G.GAME.current_round.reshuffles_round
-                }
-            end
+        if context.discard and context.other_card == card and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+            G.E_MANAGER:add_event(Event({
+                trigger = 'before',
+                delay = 0.0,
+                func = function()
+                    SMODS.add_card({ set = 'bld_obj_filmcard' })
+                    G.GAME.consumeable_buffer = 0
+                    return true
+                end
+            }))
+            return { message = localize('k_filmcard_ex'), colour = G.C.SECONDARY_SET.bld_obj_filmcard, burn = not card.ability.extra.upgraded }
+        end
         end,
         loc_vars = function(self, info_queue, card)
+            if not card.ability.extra.upgraded then
+                info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}
+            end
             return {
-                vars = {
-                    card.ability.extra.chips_mod,
-                    card.ability.extra.chips + card.ability.extra.chips_mod*G.GAME.current_round.reshuffles_round
-                }
+                key = card.ability.extra.upgraded and 'm_bld_bell_upgraded' or 'm_bld_bell',
             }
         end,
         upgrade = function(card) 
             if not card.ability.extra.upgraded then
-                card.ability.extra.chips_mod =card.ability.extra.chips_mod + card.ability.extra.chips_modup
             card.ability.extra.upgraded = true
             end
         end

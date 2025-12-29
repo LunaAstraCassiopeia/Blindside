@@ -6,10 +6,10 @@
             extra = {
                 value = 1,
                 mult = 6,
-                chips = 12,
+                chips = 20,
                 chance = 1,
                 trigger = 2,
-                chipsup = 18,
+                chipsup = 20,
                 multup = 6,
             }
         },

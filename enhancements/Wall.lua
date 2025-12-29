@@ -5,7 +5,7 @@
         config = {
             extra = {
                 value = 12,
-                x_mult = 0.5,
+                x_mult = 0.75,
                 x_mult_bonus = 0.25,
             }},
         hues = {"Purple"},

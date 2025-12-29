@@ -5,8 +5,8 @@
         config = {
             extra = {
                 value = 11,
-                money = 8,
-                money_up = 8,
+                money = 10,
+                money_up = 10,
             }},
         hues = {"Faded"},
         rare = true,

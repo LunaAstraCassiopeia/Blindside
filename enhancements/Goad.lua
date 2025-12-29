@@ -6,7 +6,7 @@
             chips = 80,
             extra = {
                 value = 11,
-                chipsup = 80,
+                chipsup = 100,
             }},
         hues = {"Purple"},
         calculate = function(self, card, context)

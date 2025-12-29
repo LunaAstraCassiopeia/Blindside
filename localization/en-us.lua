@@ -2180,18 +2180,20 @@ return {
 			["m_bld_bones"] = {
 				["name"] = "The Bones",
 				["text"] = {
-					"{X:green,C:white}Green{} {X:dark_edition,C:white}Faded{}",
+					{"{X:green,C:white}Green{} {X:dark_edition,C:white}Faded{}",
 					"Increases all {C:green,E:1}probabilities{}",
-					"by {C:green}#1#{} this hand",
+					"by {C:green}#1#{} this hand"},
+					{"{C:attention}Burns"},
 				},
 			},
 			["m_bld_bones_upgrade"] = {
 				["name"] = "The Bones",
 				["text"] = {
-					"{X:green,C:white}Green{} {X:dark_edition,C:white}Faded{}",
+					{"{X:green,C:white}Green{} {X:dark_edition,C:white}Faded{}",
 					"Increases all {C:green,E:1}probabilities{}",
 					"by {C:green}#1#{} this hand when scored",
-					"or held in hand",
+					"or held in hand"},
+					{"{C:attention}Burns"},
 				},
 			},
 			["m_bld_fruit"] = {
@@ -2509,10 +2511,8 @@ return {
 				["text"] = {
 					"{X:chips,C:white}Blue{}",
 					"While held in hand,",
-					"if scoring hand contains",
-					"{C:attention}#1#{} {X:chips,C:white}Blue{} Blinds, creates a",
-					"random {C:attention}Mineral{} card",
-					"{C:inactive,S:0.8}(Must have room)"
+					"{C:attention}retriggers{} adjacent",
+					"blinds held in hand"
 				},
 			},
 			["m_bld_vast_upgraded"] = {
@@ -2529,20 +2529,10 @@ return {
 			["m_bld_pile"] = {
 				["name"] = "The Pile",	
 				["text"] = {
-					{"{X:chips,C:white}Blue{}",
-					"{C:chips}+#2#{} Chips"},
-					{"{C:green}Retain{} all Blinds",
-					"{C:attention}held in hand"},
-				},
-			},
-			["m_bld_pile_upgraded"] = {
-				["name"] = "The Pile",
-				["text"] = {
-					{"{X:chips,C:white}Blue{}",
-					"{C:chips}+#2#{} Chips"},
-					{"{C:green}Retain{} all Blinds",
-					"{C:attention}held in hand"},
-					{"{C:green}Retained"}
+					"{X:blue,C:white}Blue{}",
+					"{C:chips}+#1#{} Chips for each",
+					"{X:blue,C:white}Blue{} blind in full deck",
+					"{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
 				},
 			},
 			["m_bld_top"] = {
@@ -2654,6 +2644,7 @@ return {
 					{"{X:dark_edition,C:white}Faded{}",
 					"{X:red,C:white}X#1#{} Mult"},
 					{"Always scores"},
+					{"Retriggers once"},
 					{"Might be useful",
 					"to {C:attention}lockpick{} things"}
 				},
@@ -2684,10 +2675,17 @@ return {
 				["name"] = "The Bell",	
 				["text"] = {
 					{"{X:green,C:white}Green{}",
-					"Currently {C:chips}+#2#{} Chips"},
-					{"Gains {C:chips}+#1#{} Chips when",
-					"deck is {C:attention}reshuffled{}"},
-					{"{C:attention}Resets{} each round"}
+					"When discarded, creates a",
+					"random {C:bld_obj_filmcard}Channel{} card"},
+					{"{C:attention}Burns{}"}
+				},
+			},
+			["m_bld_bell_upgraded"] = {
+				["name"] = "The Bell",	
+				["text"] = {
+					"{X:green,C:white}Green{}",
+					"When discarded, creates a",
+					"random {C:bld_obj_filmcard}Channel{} card"
 				},
 			},
 			["m_bld_butterfly"] = {
@@ -2698,7 +2696,8 @@ return {
 					{"{C:attention,E:1}Self-Scoring{} with a",
 					"{C:green}#2# in #3#{} chance"},
 					{"{C:green}#2# in #3#{} chance to",
-					"score {C:attention}held in hand"}
+					"score {C:attention}held in hand"},
+					{"{C:green}Retained{}"}
 				},
 			},
 			["m_bld_moon"] = {
@@ -2710,8 +2709,19 @@ return {
 					"{C:inactive}(Currently: {C:mult}+#2#{C:inactive} Mult)"},
 					{"Creates a random",
 					"{C:attention}Round Tag{} when",
-					"discarded"}
-
+					"played"}
+				},
+			},
+			["m_bld_moon_inactive"] = {
+				["name"] = "The Moon",
+				["text"] = {
+					{"{X:money,C:white}Yellow{}",
+					"{C:mult}+#1#{} Mult for",
+					"each {C:attention}Tag{} held",
+					"{C:inactive}(Currently: {C:mult}+#2#{C:inactive} Mult)"},
+					{"{C:inactive}Creates a random",
+					"{C:inactive}Round Tag when",
+					"{C:inactive}played"}
 				},
 			},
 			["m_bld_dove"] = {
@@ -3095,6 +3105,15 @@ return {
 					"All {C:green,E:1}probabilities{} during played",
 					"hands will fail while {C:attention}held in hand",},
 					{"{C:green}Retained"}
+				},
+			},
+			["m_bld_rupture"] = {
+				["name"] = "The Rupture",
+				["text"] = {
+					{"{X:green,C:white}Green{}",
+					"{C:mult}+#1#{} Mult and {C:chips}+#4#{} Chips",},
+					{"{C:attention,E:1}Self-Scoring{} with a",
+					"{C:green}#2# in #3#{} chance"}
 				},
 			},
 		},

@@ -5,7 +5,7 @@
         config = {
             extra = {
                 value = 13,
-                mult = 5,
+                mult = 3,
                 xmult = 1.5,
                 xmult_gain = 0.5,
             }},

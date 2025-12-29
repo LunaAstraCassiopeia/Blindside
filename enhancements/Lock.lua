@@ -2,7 +2,7 @@
         key = 'lock',
         atlas = 'bld_blindrank',
         pos = {x = 2, y = 5},
-        config = {bonus = 30,
+        config = {bonus = 40,
             extra = {
                 value = 2,
                 repetitions = 1,

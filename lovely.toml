@@ -1552,7 +1552,7 @@ target = "functions/state_events.lua"
 pattern = '''if G.GAME.current_round.hands_left > 0 and not G.GAME.modifiers.no_extra_hand_money then'''
 position = "before"
 payload = '''
-if G.GAME.playing_with_fire > 0 then
+if (G.GAME.playing_with_fire or 0) > 0 then
     if G.GAME.playing_with_fire >= 8 then
         unlock_card(G.P_CENTERS.b_bld_yellowdispenser)
     end
@@ -1610,7 +1610,7 @@ target = '=[SMODS _ "src/utils.lua"]'
 pattern = '''if (area.config.type == 'joker' or area.config.type == 'hand') and not area.config.fixed_limit then'''
 position = "at"
 payload = '''
-if (area.config.type == 'joker' or area.config.type == 'hand') and not area.config.fixed_limit and not G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
+if (area.config.type == 'joker' or area.config.type == 'hand' and not (G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside) ) and not area.config.fixed_limit then
 '''
 match_indent = true
 

@@ -4,8 +4,8 @@
         pos = {x = 3, y = 3},
         config = {
             extra = {
-                xmult_mod = 0.25,
-                xmult_mod_up = 0.15,
+                xmult_mod = 0.5,
+                xmult_mod_up = 0.25,
                 xmult = 1,
                 value = 15,
             }},

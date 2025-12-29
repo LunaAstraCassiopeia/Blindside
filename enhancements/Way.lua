@@ -23,7 +23,7 @@
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.main_scoring then
                 return {
-                    chips = card.ability.extra.chips,
+                    chips = math.min(card.ability.extra.chips, hand_chips),
                     xchips = card.ability.extra.x_chips
                 }
             end

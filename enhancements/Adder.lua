@@ -5,9 +5,9 @@
         config = {
             extra = {
                 value = 1,
-                chips = 20,
+                chips = 25,
                 xchips = 1.25,
-                chipsup = 20,
+                chipsup = 25,
             }
         },
         hues = {"Blue"},
