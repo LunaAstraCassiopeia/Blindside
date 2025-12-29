@@ -7,7 +7,7 @@
         config = {
             extra = {
                 xmult = 3,
-                at_most = 5,
+                at_most = 7,
             }
         },
         cost = 15,
