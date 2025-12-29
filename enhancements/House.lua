@@ -5,7 +5,7 @@
         config = {
             extra = {
                 value = 11,
-                chips = 40,
+                chips = 50,
                 xchips = 1.5,
                 cards_to_hand = {},
                 flipped = true,
