@@ -3107,6 +3107,15 @@ return {
 					{"{C:green}Retained"}
 				},
 			},
+			["m_bld_rupture"] = {
+				["name"] = "The Rupture",
+				["text"] = {
+					{"{X:green,C:white}Green{}",
+					"{C:mult}+#1#{} Mult and {C:chips}+#4#{} Chips",},
+					{"{C:attention,E:1}Self-Scoring{} with a",
+					"{C:green}#2# in #3#{} chance"}
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {
