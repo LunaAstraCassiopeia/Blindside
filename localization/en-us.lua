@@ -2180,18 +2180,20 @@ return {
 			["m_bld_bones"] = {
 				["name"] = "The Bones",
 				["text"] = {
-					"{X:green,C:white}Green{} {X:dark_edition,C:white}Faded{}",
+					{"{X:green,C:white}Green{} {X:dark_edition,C:white}Faded{}",
 					"Increases all {C:green,E:1}probabilities{}",
-					"by {C:green}#1#{} this hand",
+					"by {C:green}#1#{} this hand"},
+					{"{C:attention}Burns"},
 				},
 			},
 			["m_bld_bones_upgrade"] = {
 				["name"] = "The Bones",
 				["text"] = {
-					"{X:green,C:white}Green{} {X:dark_edition,C:white}Faded{}",
+					{"{X:green,C:white}Green{} {X:dark_edition,C:white}Faded{}",
 					"Increases all {C:green,E:1}probabilities{}",
 					"by {C:green}#1#{} this hand when scored",
-					"or held in hand",
+					"or held in hand"},
+					{"{C:attention}Burns"},
 				},
 			},
 			["m_bld_fruit"] = {
