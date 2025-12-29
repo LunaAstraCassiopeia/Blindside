@@ -2068,19 +2068,20 @@ return {
 			["m_bld_psychic"] = {
 				["name"] = "The Psychic",
 				["text"] = {
-					"{X:money,C:white}Yellow{}",
-					"If scoring hand",
-					"contains 5 Blinds, creates a",
-					"{C:chips,E:1}Wave Tag{} and {C:attention}burns{}"
+					{"{X:money,C:white}Yellow{}",
+					"If scoring hand contains",
+					"5 Blinds, {C:money}+$#1#{} and creates",
+					"a {C:chips,E:1}Wave Tag{}"},
+					{"{C:attention}Burns"}
 				},
 			},
 			["m_bld_psychic_upgraded"] = {
 				["name"] = "The Psychic",
 				["text"] = {
-					"{X:money,C:white}Yellow{}",
-					"Creates a",
-					"{C:chips,E:1}Wave Tag{}",
-					"and {C:attention}burns{}"
+					{"{X:money,C:white}Yellow{}",
+					"{C:money}+$#1#{} and creates",
+					"a {C:chips,E:1}Wave Tag{}"},
+					{"{C:attention}Burns"}
 				},
 			},
 			["m_bld_goad"] = {
@@ -2644,8 +2645,8 @@ return {
 				["text"] = {
 					{"{X:dark_edition,C:white}Faded{}",
 					"{X:red,C:white}X#1#{} Mult"},
-					{"Always scores"},
-					{"Retriggers once"},
+					{"Always scores and",
+					"retriggers once"},
 					{"Might be useful",
 					"to {C:attention}lockpick{} things"}
 				},
