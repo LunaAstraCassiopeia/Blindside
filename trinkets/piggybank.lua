@@ -8,7 +8,7 @@ SMODS.Joker({
             dollars = 6,
         }
     },
-    cost = 1,
+    cost = 5,
     blueprint_compat = false,
     eternal_compat = true,
     loc_vars = function (self, info_queue, card)
