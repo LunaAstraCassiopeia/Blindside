@@ -2527,20 +2527,10 @@ return {
 			["m_bld_pile"] = {
 				["name"] = "The Pile",	
 				["text"] = {
-					{"{X:chips,C:white}Blue{}",
-					"{C:chips}+#2#{} Chips"},
-					{"{C:green}Retain{} all Blinds",
-					"{C:attention}held in hand"},
-				},
-			},
-			["m_bld_pile_upgraded"] = {
-				["name"] = "The Pile",
-				["text"] = {
-					{"{X:chips,C:white}Blue{}",
-					"{C:chips}+#2#{} Chips"},
-					{"{C:green}Retain{} all Blinds",
-					"{C:attention}held in hand"},
-					{"{C:green}Retained"}
+					"{X:blue,C:white}Blue{}",
+					"{C:chips}+#1#{} Chips for each",
+					"{X:blue,C:white}Blue{} blind in full deck",
+					"{C:inactive}(Currently {C:chips}+#2#{C:inactive} Chips)",
 				},
 			},
 			["m_bld_top"] = {
