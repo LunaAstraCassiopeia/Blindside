@@ -3211,11 +3211,19 @@ return {
 			["m_bld_rain"] = {
 				["name"] = "The Rain",
 				["text"] = {
-					{"{X:chips,C:white}Blue{}",
+					{"{X:chips,C:white}Blue{} {X:black,C:white}Cursed{}",
 					"{C:white,X:chips}X0{} Chips"},
 					{"{C:white,X:chips}+X#1#{} Chips for every",
 					"other {C:white,X:chips}Blue{} Blind played",
 					"or {C:attention}held in hand"},
+				},
+			},
+			["m_bld_death"] = {
+				["name"] = "The Death",
+				["text"] = {
+					"{X:dark_edition,C:white}Faded{} {X:black,C:white}Cursed{}",
+					"When scoring, {C:red}destroys",
+					"another played Blind",
 				},
 			},
 		},

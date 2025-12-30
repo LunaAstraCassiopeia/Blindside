@@ -111,6 +111,7 @@
         "m_bld_rupture",
         "m_bld_market",
         "m_bld_rain",
+        "m_bld_death",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",
