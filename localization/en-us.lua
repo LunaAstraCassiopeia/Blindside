@@ -3168,6 +3168,18 @@ return {
 					"{C:green}#2# in #3#{} chance"}
 				},
 			},
+			["m_bld_market"] = {
+				["name"] = "The Market",
+				["text"] = {
+					{"{X:purple,C:white}Purple{}",
+					"Currently {C:white,X:mult}X#1#{} Mult"},
+					{"When held in hand,",
+					"gains {C:white,X:mult}+X#2#{} Mult",
+					"and is {C:green}retained"},
+					{"When scored, loses",
+					"{C:white,X:mult}X#3#{} Mult"},
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {

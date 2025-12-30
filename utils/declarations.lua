@@ -109,6 +109,7 @@
         "m_bld_lottery",
         "m_bld_bank",
         "m_bld_rupture",
+        "m_bld_market",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",

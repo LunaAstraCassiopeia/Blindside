@@ -407,6 +407,7 @@ local card_list = {
     "Rich",
     "Template",
     "Bank",
+    "Market",
 
     "Top",
     "Path",
