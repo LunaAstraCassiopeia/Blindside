@@ -1171,6 +1171,10 @@ end
 
   local refGameupdate = Game.update_hand_played
   function Game:update_hand_played(dt)
+    if G.playing_cards and type(G.playing_cards) == 'table' and #G.playing_cards > 0 and #G.playing_cards <= 18 then
+        unlock_card(G.P_CENTERS['b_bld_buttondispenser'])
+    end
+
     if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
     if self.buttons then self.buttons:remove(); self.buttons = nil end
     if self.shop then self.shop:remove(); self.shop = nil end

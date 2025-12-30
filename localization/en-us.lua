@@ -274,6 +274,19 @@ return {
 					"{C:attention,E:1}Playing with Fire",
 				}
 			},
+			["b_bld_buttondispenser"] = {
+				["name"] = "Button Deck?",
+				["text"] = {
+					"???",
+					"First {C:attention}2{} times the",
+					"deck {C:attention}reshuffles{} each",
+					"round, {C:red}+1{} discard",
+				},
+				["unlock"] = {
+					"Reach a deck",
+					"size of 18"
+				},
+			},
 			["b_bld_painteddispenser"] = {
 				["name"] = "Painted Deck?",
 				["text"] = {
