@@ -61,9 +61,9 @@ function BLINDSIDE.get_most_common_blind()
         local key = card.config.center.key
 
         if not blinds_list[key] then
-            blinds_list[key] = 1
+            blinds_list[key] = card.base.times_played
         else
-            blinds_list[key] = blinds_list[key] + 1
+            blinds_list[key] = blinds_list[key] + card.base.times_played
         end
     end
 
