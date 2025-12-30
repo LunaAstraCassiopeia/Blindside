@@ -466,7 +466,13 @@
         "tag_bld_cannonball_relic",
         "tag_bld_antidote_relic",
         "tag_bld_television_relic",
+        "tag_bld_microscope_relic",
+        "tag_bld_satellite_relic",
+        "tag_bld_exactoblade_relic",
         "tag_bld_clapper_relic",
+        "tag_bld_film_reel_relic",
+        "tag_bld_nametag_relic",
+        "tag_bld_birthcertificate_relic",
         },
     }
 
