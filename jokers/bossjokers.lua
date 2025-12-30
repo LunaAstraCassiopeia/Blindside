@@ -562,6 +562,7 @@ BLINDSIDE.Joker({
     active = true,
     set_joker = function(self)
         if G.GAME.round_resets.blind_states.Small == 'Skipped' or G.GAME.round_resets.blind_states.Big == 'Skipped' then
+            G.GAME.playing_with_fire_num = G.GAME.playing_with_fire_num + 1
             BLINDSIDE.chipsmodify(0, 0, 4, 0, true)
             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
                 BLINDSIDE.chipsupdate()
