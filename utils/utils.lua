@@ -992,7 +992,7 @@ function BLINDSIDE.poll_enhancement(args)
                 local wght = G.P_CENTERS[v].weight or 5
                 local multicolor = #G.P_CENTERS[v].config.extra.hues > 1
                 local good_rarity = (wght == 5 and rarity == 0) or (wght == 3 and rarity == 1) or (wght == 1 and rarity == 2) or (wght == 67 and rarity == 3)
-                local good_colors = rarity == 0 or (multicolor and rand >= 0.95) or (not multicolor and rand < 0.95)
+                local good_colors = rarity == 0 or (multicolor and rand >= 0.95) or (not multicolor and rand < 0.95) or rarity == 3
 
                 if good_colors and good_rarity then
                     enhance_option = { key = v, weight = 5 }
@@ -1004,7 +1004,7 @@ function BLINDSIDE.poll_enhancement(args)
                 local wght = v.weight or 5
                 local multicolor = #v.config.extra.hues > 1
                 local good_rarity = (wght == 5 and rarity == 0) or (wght == 3 and rarity == 1) or (wght == 1 and rarity == 2) or (wght == 67 and rarity == 3)
-                local good_colors = rarity == 0 or (multicolor and rand >= 0.95) or (not multicolor and rand < 0.95)
+                local good_colors = rarity == 0 or (multicolor and rand >= 0.95) or (not multicolor and rand < 0.95) or rarity == 3
 
                 if good_colors and good_rarity then
                     enhance_option = { key = v.key, weight = 5 }
