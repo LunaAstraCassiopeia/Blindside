@@ -3298,6 +3298,14 @@ return {
 					{"{C:attention}Stubborn"}
 				},
 			},
+			["m_bld_famous"] = {
+				["name"] = "The Famous",
+				["text"] = {
+					"{X:chips,C:white}Blue{} {X:black,C:white}Cursed{}",
+					"{C:attention}Forced to",
+					"{C:attention}be selected",
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {
