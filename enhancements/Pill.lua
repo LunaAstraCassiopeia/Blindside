@@ -13,6 +13,13 @@ BLINDSIDE.Blind({
     curse = true,
     always_scores = true,
     calculate = function(self, card, context)
+        -- does not work in booster packs. intentional.
+        -- also contains a failsafe for if the card cannot be selected due to # of cards
+        -- if another reason applies hopefully add_to_highlighted will be sufficient to stop silliness
+        if tableContains(card, G.hand.cards) and not tableContains(card, G.hand.highlighted) and #G.hand.highlighted < 5 and G.STATE == G.STATES.SELECTING_HAND then
+            card.ability.forced_selection = true
+            G.hand:add_to_highlighted(card, true)
+        end
         if context.cardarea == G.play and context.before and card.facing ~= 'back' then
             if SMODS.pseudorandom_probability(card, pseudoseed("pill"), 1, card.ability.extra.odds, 'pill') and card.facing ~= "back" then
                 card:flip()

@@ -10,7 +10,10 @@
         hues = {"Blue"},
         curse = true,
         calculate = function(self, card, context)
-
+            if tableContains(card, G.hand.cards) and not tableContains(card, G.hand.highlighted) and #G.hand.highlighted < 5 and G.STATE == G.STATES.SELECTING_HAND then
+                card.ability.forced_selection = true
+                G.hand:add_to_highlighted(card, true)
+            end
         end,
         loc_vars = function(self, info_queue, card)
 
