@@ -8,7 +8,7 @@ BLINDSIDE.Blind({
             dollars = -4,
             stubborn = true,
         }},
-    hues = {"Red"},
+    hues = {"Yellow"},
     curse = true,
     calculate = function(self, card, context)
         if context.burn_card and context.cardarea == G.play and context.burn_card == card then
@@ -21,6 +21,7 @@ BLINDSIDE.Blind({
         end
     end,
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}
         info_queue[#info_queue+1] = {key = 'bld_stubborn', set = 'Other'}
         return {
             vars = {
