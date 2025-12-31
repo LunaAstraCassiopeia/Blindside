@@ -3243,6 +3243,13 @@ return {
 					{"{C:green}Retained"}
 				},
 			},
+			["m_bld_nil"] = {
+				["name"] = "The Nil",
+				["text"] = {
+					"{X:dark_edition,C:white}Faded{} {X:black,C:white}Cursed{}",
+					"Sets {C:mult}Mult{} to {C:attention}0",
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {

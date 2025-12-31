@@ -114,6 +114,7 @@
         "m_bld_death",
         "m_bld_sinker",
         "m_bld_downer",
+        "m_bld_nil",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",
