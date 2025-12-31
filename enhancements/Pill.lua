@@ -16,7 +16,7 @@ BLINDSIDE.Blind({
         -- does not work in booster packs. intentional.
         -- also contains a failsafe for if the card cannot be selected due to # of cards
         -- if another reason applies hopefully add_to_highlighted will be sufficient to stop silliness
-        if tableContains(card, G.hand.cards) and not tableContains(card, G.hand.highlighted) and #G.hand.highlighted < 5 and G.STATE == G.STATES.SELECTING_HAND then
+        if tableContains(card, G.hand.cards) and not tableContains(card, G.hand.highlighted) and #G.hand.highlighted < 5 and G.STATE ~= G.STATES.SMODS_BOOSTER_OPENED then
             card.ability.forced_selection = true
             G.hand:add_to_highlighted(card, true)
         end
