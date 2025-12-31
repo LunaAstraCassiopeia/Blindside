@@ -62,6 +62,18 @@ SMODS.Back({
     end
 })
 
-
+SMODS.DrawStep {
+    key = 'bld_gold_shiny',
+    order = 21,
+    func = function (self, layer)
+        if self.area and self.area.config then
+            local current_back = not self.params.galdur_selector
+                and ((Galdur and Galdur.config.use and type(self.params.galdur_back) == "table" and self.params.galdur_back) or type(self.params.viewed_back) == "table" and self.params.viewed_back or (self.params.viewed_back and G.GAME.viewed_back or G.GAME.selected_back) or Back(G.P_CENTERS["b_red"]))
+            if current_back and (current_back.effect.center.key == 'b_bld_golddispenser' or current_back.effect.center.key == 'b_bld_yellowdispenser') and self.sprite_facing == 'back' then
+                self.children.back:draw_shader('voucher', nil, self.ARGS.send_to_shader, true)
+            end
+        end
+    end
+}
 ----------------------------------------------
 ------------MOD CODE END----------------------

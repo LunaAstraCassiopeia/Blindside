@@ -113,7 +113,7 @@ function Game:main_menu(change_context)
                     n = G.UIT.T,
                     config = {
                         scale = 0.3,
-                        text = "Blindside ALPHA v0.4.0",
+                        text = "Blindside ALPHA v0.5.0",
                         colour = G.C.UI.TEXT_LIGHT
                     }
                 }
@@ -206,6 +206,10 @@ function BLINDSIDE.Blind:set_params()
 
     if self.rare then
         self.weight = 3 -- secret code for "i am rare"
+    end
+
+    if self.basic then
+        self.weight = 33 -- secret code for "i am basic"
     end
 
     if self.curse then

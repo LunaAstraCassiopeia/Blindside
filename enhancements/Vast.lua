@@ -22,7 +22,7 @@
                         repetitions = card.ability.extra.repetitions
                     }
                 end
-                if G.hand.cards[self_pos-1] == context.other_card then
+                if G.hand.cards[self_pos+1] == context.other_card then
                     return {
                         repetitions = card.ability.extra.repetitions
                     }

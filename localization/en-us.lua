@@ -1866,6 +1866,14 @@ return {
 					"probability fails"
 				},
 			},
+			["bl_bld_certificate"] = {
+				["name"] = "Certificate",
+				["text"] = {
+					"Shuffles #1# random",
+					"Basic Blinds into",
+					"the deck"
+				},
+			},
 			["bl_bld_yorick"] = {
 				["name"] = "Yorick",
 				["text"] = {

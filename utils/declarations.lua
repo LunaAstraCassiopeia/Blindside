@@ -436,6 +436,7 @@
         "bl_bld_bull",
         "bl_bld_matador",
         "bl_bld_luckycat",
+        "bl_bld_certificate",
         "bl_bld_yorick",
         },
     }

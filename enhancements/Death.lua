@@ -10,7 +10,7 @@
         hues = {"Faded"},
         curse = true,
         calculate = function(self, card, context)
-            if context.before then
+            if context.before and tableContains(card, context.scoring_hand) then
                 local choices = {}
 
                 for key, value in pairs(G.play.cards) do

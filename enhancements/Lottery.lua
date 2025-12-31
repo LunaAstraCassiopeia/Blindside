@@ -8,7 +8,7 @@
                 chance = 1000,
                 retain = true
             }},
-        hues = {"Red"},
+        hues = {"Green"},
         curse = true,
         calculate = function(self, card, context)
             if (context.cardarea == G.hand or (card.ability.extra.upgraded and context.cardarea == G.hand)) and context.before then

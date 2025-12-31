@@ -5,8 +5,8 @@
         config = {
             extra = {
                 value = 14,
-                xmult = 0.5,
-                xmultup = 0.25,
+                xmult = 0.75,
+                xmultup = 0.75,
             }},
         hues = {"Red"},
         rare = true,
