@@ -3556,8 +3556,9 @@ return {
 			['j_bld_dicejail'] = {
 				["name"] = "Dice Jail",
 				["text"] = {
-					"{C:money}+#1#${} when ",
-					"a probability fails",
+					"{C:money}+#1#${} when a",
+					"probability fails",
+					"on a Blind"
 				}
 			},
 			['j_bld_clock'] = {

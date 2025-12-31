@@ -28,11 +28,17 @@
             end
         end,
         calculate = function(self, card, context)
-            if context.pseudorandom_result and not context.result then
-            return {
-                dollars = card.ability.extra.money,
-                juice_card = context.blueprint_card or card
-            }
+            if context.pseudorandom_result and not context.result
+            and context.trigger_obj
+            and context.trigger_obj.config
+            and context.trigger_obj.config.center
+            and context.trigger_obj.config.center.config
+            and context.trigger_obj.config.center.config.extra
+            and context.trigger_obj.config.center.config.extra.hues then
+                return {
+                    dollars = card.ability.extra.money,
+                    juice_card = context.blueprint_card or card
+                }
             end
         end
     })
