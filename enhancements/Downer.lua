@@ -6,6 +6,7 @@
             extra = {
                 value = 30,
                 xchips = 0.5,
+                retain = true
             }},
         hues = {"Purple"},
         curse = true,
