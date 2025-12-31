@@ -26,12 +26,14 @@
         end,
         loc_vars = function(self, info_queue, card)
             local curses = 0
-            for key, value in pairs(G.playing_cards) do
-                if value.config.center.weight == 67 then
-                    curses = curses + 1
+            if G.playing_cards then
+                for key, value in pairs(G.playing_cards) do
+                    if value.config.center.weight == 67 then
+                        curses = curses + 1
+                    end
                 end
             end
-
+            
             local total_mult = card.ability.extra.mult + card.ability.extra.mult_each * curses
             return {
                 vars = {
