@@ -1178,7 +1178,7 @@ t[#t+1] = G.hand
 [patches.pattern]
 target = 'game.lua'
 pattern = '''
-self.GAME.current_round.voucher = forced_voucher and {forced_voucher, spawn = {[forced_voucher] = true }} or SMODS.get_next_vouchers()
+G.GAME.current_round.hands_left = G.GAME.round_resets.hands
 '''
 match_indent = true
 position = 'after'
