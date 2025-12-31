@@ -458,6 +458,7 @@ local card_list = {
     "Grind",
     "Pill",
     "Rain",
+    "Work",
     "Death",
 }
 

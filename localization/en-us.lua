@@ -3336,6 +3336,21 @@ return {
 					"Blind in played hand",
 				},
 			},
+			["m_bld_work"] = {
+				["name"] = "The Work",
+				["text"] = {
+					{"{X:purple,C:white}Purple{} {X:black,C:white}Cursed{}",
+					"When played, creates",
+					"a copy of {C:attention}The Stress"},
+					{
+						"When {C:attention}held in hand{},",
+						"gives {X:mult,C:white}+X#1#{} Mult for",
+						"every {X:black,C:white}Cursed{} Blind",
+						"{C:attention}held in hand",
+					}
+					
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {
