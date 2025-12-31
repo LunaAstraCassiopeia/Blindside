@@ -515,7 +515,7 @@ BLINDSIDE.Joker({
     active = true,
     calculate = function(self, blind, context)
         if context.scoring_hand and context.individual and context.cardarea == G.play then
-            if tableContains(context.other_card, context.scoring_hand) and context.other_card.config.center.key == BLINDSIDE.get_most_common_blind() then
+            if tableContains(context.other_card, context.scoring_hand) and context.other_card.config.center.key == G.GAME.bld_idol_blind then
                 return {
                     message = "X1.5 JMult",
                     colour = G.C.BLACK,
@@ -526,7 +526,6 @@ BLINDSIDE.Joker({
                             trigger = 'before',
                             delay = 0.8,
                             func = function ()
-                                
                                 return true
                             end
                         }))
@@ -549,6 +548,9 @@ BLINDSIDE.Joker({
                 }
             }
         end
+    end,
+    set_joker = function ()
+        G.GAME.bld_idol_blind = BLINDSIDE.get_most_common_blind()
     end
 })
 
