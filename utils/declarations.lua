@@ -232,6 +232,7 @@
         "j_bld_geode",
         "j_bld_peppermintcandycane",
         "j_bld_fruitycandycane",
+        "j_bld_inkandquill",
         "c_bld_horror",
         "c_bld_action",
         "c_bld_comedy",

@@ -3348,7 +3348,6 @@ return {
 						"every {X:black,C:white}Cursed{} Blind",
 						"{C:attention}held in hand",
 					}
-					
 				},
 			},
 		},
@@ -3968,6 +3967,13 @@ return {
 					"becomes {C:attention}Enamel"
 				},
 			},
+			['j_bld_inkandquill'] = {
+				["name"] = "Ink & Quill",
+				["text"] = {
+					"{C:white,X:mult}X#1#{} Mult if poker",
+					"hand contains a {C:attention}Down{}",
+				},
+			},
 		},
 		["Edition"] = {
 			['e_bld_enameled'] = {
@@ -4057,6 +4063,14 @@ return {
 			},
 		},
 		["Other"] = {
+			["bld_down"] = {
+				["name"] = "Down",
+				["text"] = {
+					"A special poker hand",
+					"formed when 2 {C:attention}Pairs{} of",
+					"different {C:attention}hues{} overlap"
+				}
+			},
 			["bld_stubborn"] = {
 				["name"] = "Stubborn",
 				["text"] = {

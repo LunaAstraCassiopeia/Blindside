@@ -535,7 +535,8 @@ local trinket_list = {
         "prayerwheel",
         "geode",
         "peppermintcandycane",
-        "fruitycandycane"
+        "fruitycandycane",
+        "inkandquill"
 }
 
 local joker_list = {
