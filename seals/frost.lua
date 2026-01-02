@@ -4,7 +4,7 @@ SMODS.Seal {
     pos = { x = 3, y = 1 },
     config = { 
         extra = { 
-            howmany = 2
+            howmany = 1
         } 
     },
     badge_colour = HEX('757CDC'),
@@ -20,9 +20,9 @@ SMODS.Seal {
         ["bld_obj_enhancements"] = true,
     },
     calculate = function(self, card, context)
-        if not context.end_of_round and context.repetition and context.other_card == card and (context.cardarea == G.play and card.facing ~= 'back' or context.cardarea == G.hand) and G.GAME.current_round.hands_left <= 1 and context.other_card.ability.extra.rescore ~= 1 then
+        if not context.end_of_round and context.repetition and context.other_card == card and (context.cardarea == G.play and card.facing ~= 'back' or context.cardarea == G.hand) and G.GAME.current_round.hands_left%2 == 0 and context.other_card.ability.extra.rescore ~= 1 then
             return {
-                repetitions = 1 + #SMODS.find_card('j_bld_snowglobe')
+                repetitions = 1
             }
         end
     end,
