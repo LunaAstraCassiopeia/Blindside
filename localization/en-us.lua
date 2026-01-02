@@ -3639,8 +3639,10 @@ return {
 			['j_bld_snowglobe'] = {
 				["name"] = "Snow Globe",
 				["text"] = {
-					"{C:attention}Frost Blinds{} retrigger",
-					"{C:attention}1{} additional time"
+					"If remaining hands of round",
+					"are {C:attention}even{}, the first and last",
+					"scoring blinds of hand",
+					"give {X:blue,C:white}X#1#{} Chips"
 				}
 			},
 			['j_bld_pendant'] = {
