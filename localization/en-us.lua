@@ -4496,6 +4496,24 @@ return {
 					"use immediately"
 				}
 			},
+			["p_bld_ritual_jumbo1"] = {
+				["group_name"] = "Hallow Pack",
+				["name"] = "Jumbo Hallow Pack",
+				["text"] = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2#{C:attention} {C:bld_obj_rune}Ritual{} cards to",
+					"use immediately"
+				}
+			},
+			["p_bld_ritual_mega1"] = {
+				["group_name"] = "Hallow Pack",
+				["name"] = "Mega Hallow Pack",
+				["text"] = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2#{C:attention} {C:bld_obj_rune}Ritual{} cards to",
+					"use immediately"
+				}
+			},
 			["p_bld_voodoo"] = {
 				["group_name"] = "Cursed Pack",
 				["name"] = "Cursed Pack",
