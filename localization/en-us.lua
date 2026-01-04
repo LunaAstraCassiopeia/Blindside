@@ -502,7 +502,7 @@ return {
 				},
 			},
 			["v_bld_birthcertificate"] = {
-				["name"] = "Birth Certificate",
+				["name"] = "Devil's Deal",
 				["text"] = {
 					"Play {C:dark_edition,E:1}+1{} Blind",
 					"in each hand"
@@ -907,7 +907,7 @@ return {
 				},
 			},
 			["tag_bld_birthcertificate_relic"] = {
-				["name"] = "Birth Certificate",
+				["name"] = "Devil's Deal",
 				["text"] = {	
 					"Play {C:dark_edition,E:1}+1{} Blind",
 					"in each hand"
