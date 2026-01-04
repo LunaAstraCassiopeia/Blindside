@@ -2,7 +2,7 @@ SMODS.Tag {
     key = "neon",
     hide_ability = false,
     atlas = 'bld_tag',
-    pos = {x = 5, y = 4},
+    pos = {x = 5, y = 3},
     in_pool = function(self, args)
         return false
     end,
