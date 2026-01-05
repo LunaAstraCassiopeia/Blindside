@@ -50,7 +50,7 @@
         upgrade = function(card) 
             if not card.ability.extra.upgraded then
             card.ability.mult = card.ability.mult + card.ability.extra.multup
-            card.ability.xmult = card.ability.xmult + card.ability.extra.xmultup
+            card.ability.x_mult = card.ability.x_mult + card.ability.extra.xmultup
             card.ability.extra.upgraded = true
             end
         end
