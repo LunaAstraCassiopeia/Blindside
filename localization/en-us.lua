@@ -3331,10 +3331,11 @@ return {
 			["m_bld_grind"] = {
 				["name"] = "The Grind",
 				["text"] = {
-					"{X:money,C:white}Yellow{} {X:black,C:white}Cursed{}",
+					{"{X:money,C:white}Yellow{} {X:black,C:white}Cursed{}",
 					"{C:money}-$#1#{}, then {C:money}+$#2#{} for",
 					"every other {X:black,C:white}Cursed{}",
-					"Blind in played hand",
+					"Blind in played hand"},
+					{"{C:attention}Stubborn"}
 				},
 			},
 			["m_bld_work"] = {
