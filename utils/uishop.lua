@@ -377,7 +377,7 @@ function BLINDSIDE.create_blindcard_for_shop(area, is_boss_shop)
               end
               if card.ability.set == 'Base' or card.ability.set == 'Enhanced' then
                 card.cost = card.cost + 2
-                  + ((card.config and card.config.center and card.config.center.weight) and 1 or 0)
+                  + ((card.config and card.config.center and card.config.center.weight and card.config.center.weight ~= 67) and 1 or 0)
                   + (card.edition and 1 or 0)
                   - (G.GAME.used_vouchers["v_bld_vaccine"] and 1 or 0)
                   + (card.ability.upgraded and 2 or 0)
