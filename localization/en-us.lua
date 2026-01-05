@@ -28,6 +28,7 @@ return {
 			["k_locked2"] = "to Reroll",
 			["k_hue"] = "Hue",
 			["k_staff"] = "Yoink!",
+			["k_view_upgrades"] = "View Upgrades",
 			["bld_ui_blindcards"] = "Blind Cards",
 			["bld_ui_unknown"] = "???",
 			["bld_ui_edition"] = "Editions",
