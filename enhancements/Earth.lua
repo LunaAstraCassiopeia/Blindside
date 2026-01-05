@@ -5,7 +5,7 @@
         config = {
             extra = {
                 value = 10,
-                odds = 3,
+                odds = 5,
             }
         },
         hues = {"Green"},
@@ -13,7 +13,7 @@
         rare = true,
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.before and card.facing ~= 'back' then
-                if (SMODS.pseudorandom_probability(card, pseudoseed("earth"), 1, card.ability.extra.odds, 'earth') or card.ability.extra.upgraded) and card.facing ~= "back" then
+                if (SMODS.pseudorandom_probability(card, pseudoseed("earth"), 2, card.ability.extra.odds, 'earth') or card.ability.extra.upgraded) and card.facing ~= "back" then
                     card:flip()
                     card:flip()
                 else
@@ -58,7 +58,7 @@
         end,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue+1] = {key = 'bld_self_scoring', set = 'Other'}
-            local chance, trigger = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'earth')
+            local chance, trigger = SMODS.get_probability_vars(card, 2, card.ability.extra.odds, 'earth')
             return {
                 key = card.ability.extra.upgraded and 'm_bld_earth_upgraded' or 'm_bld_earth',
                 vars = {

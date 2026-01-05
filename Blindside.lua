@@ -412,6 +412,7 @@ local card_list = {
     "Template",
     "Bank",
     "Market",
+    "Loop",
 
     "Top",
     "Path",

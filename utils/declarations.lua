@@ -122,6 +122,7 @@
         "m_bld_hurt",
         "m_bld_grind",
         "m_bld_work",
+        "m_bld_loop",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",
