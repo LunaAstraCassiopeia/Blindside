@@ -66,7 +66,7 @@ BLINDSIDE.Joker({
         end
 
         if context.scoring_name and G.STATE == G.STATES.SELECTING_HAND and not G.GAME.blind.disabled then
-            if #G.hand.highlighted % 2 == 0 then
+            if #G.hand.highlighted > 0 and #G.hand.highlighted % 2 == 0 then
                 BLINDSIDE.alert_debuff(self, true, "Hand is even")
             else
                 BLINDSIDE.alert_debuff(self, false)
