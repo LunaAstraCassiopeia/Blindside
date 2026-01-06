@@ -12,6 +12,11 @@
         hues = {"Blue"}, -- Faded?
         always_scores = true,
         rare = true,
+        credit = {
+            art = "pangaea47",
+            code = "base4",
+            concept = "base4"
+        },
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.main_scoring and context.scoring_hand then
                 return {

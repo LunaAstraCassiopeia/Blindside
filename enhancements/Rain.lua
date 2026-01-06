@@ -9,6 +9,11 @@
             }},
         hues = {"Blue"},
         curse = true,
+        credit = {
+            art = "pangaea47",
+            code = "base4",
+            concept = "base4"
+        },
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.main_scoring then
                 local blues = -1

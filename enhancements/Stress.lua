@@ -11,6 +11,11 @@
         },
         hues = {"Purple"},
         curse = true,
+        credit = {
+            art = "Gud",
+            code = "base4",
+            concept = "base4"
+        },
         loc_vars = function(self, info_queue, card)
             return {
                 vars = {

@@ -10,6 +10,11 @@
             }},
         hues = {"Green"},
         curse = true,
+        credit = {
+            art = "AnneBean",
+            code = "base4",
+            concept = "base4"
+        },
         calculate = function(self, card, context)
             if (context.cardarea == G.hand or (card.ability.extra.upgraded and context.cardarea == G.hand)) and context.before then
                 G.GAME.probabilities.normal = G.GAME.probabilities.normal - card.ability.extra.chance

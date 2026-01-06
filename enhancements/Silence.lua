@@ -9,6 +9,11 @@
         },
         hues = {"Faded"},
         curse = true,
+        credit = {
+            art = "Gud",
+            code = "base4",
+            concept = "base4"
+        },
         upgrade = function(card)
             if not card.ability.extra.upgraded then
                 card.ability.extra.upgraded = true

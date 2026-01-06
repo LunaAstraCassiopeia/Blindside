@@ -10,6 +10,11 @@
             }},
         hues = {"Purple"},
         curse = true,
+        credit = {
+            art = "Gappie",
+            code = "base4",
+            concept = "base4"
+        },
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.main_scoring then
                 BLINDSIDE.chipsmodify(0, 0, 0, card.ability.extra.jokerxchips)

@@ -11,6 +11,11 @@ BLINDSIDE.Blind({
         }},
     hues = {"Green"},
     curse = true,
+        credit = {
+            art = "Gud",
+            code = "base4",
+            concept = "base4"
+        },
     always_scores = true,
     calculate = function(self, card, context)
         -- does not work in booster packs. intentional.

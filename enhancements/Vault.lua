@@ -12,6 +12,11 @@
             }},
         hues = {"Yellow"},
         rare = true,
+        credit = {
+            art = "Monachrome",
+            code = "base4",
+            concept = "Monachrome & base4"
+        },
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue+1] = {key = 'bld_retain', set = "Other"}
             return {

@@ -9,6 +9,11 @@
             }},
         hues = {"Purple"},
         curse = true,
+        credit = {
+            art = "Gud",
+            code = "base4",
+            concept = "base4"
+        },
         calculate = function(self, card, context)
             if context.after and context.cardarea == G.play and card.facing ~= 'back' then
                 G.playing_card = (G.playing_card and G.playing_card + 1) or 1

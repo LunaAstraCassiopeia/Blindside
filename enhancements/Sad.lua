@@ -8,6 +8,11 @@
             }},
         hues = {"Blue"},
         curse = true,
+        credit = {
+            art = "Gud",
+            code = "base4",
+            concept = "base4"
+        },
         calculate = function(self, card, context)
             if not card.ability.extra.upgraded and context.cardarea == G.play and context.before and card.facing ~= 'back' then
                 local self_pos = nil

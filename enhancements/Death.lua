@@ -9,6 +9,11 @@
             }},
         hues = {"Faded"},
         curse = true,
+        credit = {
+            art = "pangaea47",
+            code = "base4",
+            concept = "base4"
+        },
         calculate = function(self, card, context)
             if context.before and tableContains(card, context.scoring_hand) then
                 local choices = {}

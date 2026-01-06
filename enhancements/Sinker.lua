@@ -9,6 +9,11 @@
             }},
         hues = {"Red"},
         curse = true,
+        credit = {
+            art = "AnneBean",
+            code = "base4",
+            concept = "AnneBean"
+        },
         calculate = function(self, card, context)
             if context.burn_card and context.cardarea == G.play and context.burn_card == card then
                 return { remove = true }

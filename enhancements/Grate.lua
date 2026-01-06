@@ -8,6 +8,11 @@
                 mult_gain = 1,
             }},
         hues = {"Red"},
+        credit = {
+            art = "AnneBean",
+            code = "base4",
+            concept = "base4"
+        },
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.main_scoring then
                 local cards = card.ability.extra.upgraded and #G.playing_cards or #G.playing_cards - 16

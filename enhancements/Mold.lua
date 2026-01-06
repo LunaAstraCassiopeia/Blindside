@@ -11,6 +11,11 @@
             }},
         hues = {"Green"},
         curse = true,
+        credit = {
+            art = "Gappie",
+            code = "base4",
+            concept = "base4"
+        },
         calculate = function(self, card, context)
             if context.cardarea == G.hand and context.main_scoring then
                 if SMODS.pseudorandom_probability(card, pseudoseed('bld_sick'), 1, card.ability.extra.odds, 'bld_sick') then

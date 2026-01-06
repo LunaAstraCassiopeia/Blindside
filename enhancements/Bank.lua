@@ -11,6 +11,11 @@
                 dollars = -3
             }
         },
+        credit = {
+            art = "pangaea47",
+            code = "base4",
+            concept = "base4"
+        },
         hues = {"Yellow"},
         rare = true,
         calculate = function(self, card, context)

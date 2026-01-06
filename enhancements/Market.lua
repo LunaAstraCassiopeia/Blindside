@@ -14,6 +14,11 @@
             }},
         hues = {"Purple"},
         rare = true,
+        credit = {
+            art = "Gud",
+            code = "base4",
+            concept = "base4"
+        },
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.main_scoring then
                 local mult = card.ability.extra.xmult

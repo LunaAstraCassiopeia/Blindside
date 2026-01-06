@@ -12,6 +12,11 @@
             }},
         hues = {"Blue"},
         rare = true,
+        credit = {
+            art = "SadCube",
+            code = "base4",
+            concept = "SadCube"
+        },
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.repetition and context.other_card and context.other_card == card and context.other_card.facing ~= "back" then
                 return {

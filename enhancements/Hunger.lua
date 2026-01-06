@@ -10,6 +10,11 @@
             }},
         hues = {"Red"},
         curse = true,
+        credit = {
+            art = "AnneBean",
+            code = "base4",
+            concept = "AnneBean"
+        },
         calculate = function(self, card, context)
             if context.hand_discard and context.other_card == card then
                 return { burn = true }
