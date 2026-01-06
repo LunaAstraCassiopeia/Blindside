@@ -1912,6 +1912,14 @@ return {
 					"deck is reshuffled",
 				},
 			},
+			["bl_bld_triboulet"] = {
+				["name"] = "Triboulet",
+				["text"] = {
+					"Shuffles 8 The Kings",
+					"and 8 The Queens",
+					"into the deck"
+				},
+			},
 		},
 		["Enhanced"] = {
 			["m_bld_adder"] = {
