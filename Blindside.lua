@@ -469,7 +469,8 @@ local card_list = {
     "Amber_Acorn",
     "Cerulean_Bell",
     "Violet_Vessel",
-    "Crimson_Heart"
+    "Crimson_Heart",
+    "Verdant_Leaf"
 }
 
 local trinket_list = {

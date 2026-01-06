@@ -135,6 +135,7 @@
         "m_bld_cerulean_bell",
         "m_bld_violet_vessel",
         "m_bld_crimson_heart",
+        "m_bld_verdant_leaf",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",

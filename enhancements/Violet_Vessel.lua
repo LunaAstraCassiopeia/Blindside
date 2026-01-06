@@ -1,11 +1,11 @@
     BLINDSIDE.Blind({
         key = 'violet_vessel',
         atlas = 'bld_blindrank',
-        pos = {x = 9, y = 9},
+        pos = {x = 1, y = 12},
         config = {
             extra = {
                 value = 1,
-                jokerxchips = 0.7,
+                jokerxchips = 0.5,
                 jokerxchipsup = -0.2,
             }
         },

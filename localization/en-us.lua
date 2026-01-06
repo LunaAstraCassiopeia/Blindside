@@ -3481,6 +3481,16 @@ return {
 					"{C:inactive}(Currently: #1#)"
 				},
 			},
+			["m_bld_verdant_leaf"] = {
+				["name"] = "Verdant Leaf",
+				["text"] = {
+					"{X:green,C:white}Green{} {C:white,X:purple,E:1}Legendary{}",
+					"Gains {C:white,X:mult}+X#2#{} Mult when",
+					"{C:attention}held in hand{} while a",
+					"{C:attention}Trinket{} is sold",
+					"{C:inactive}(Currently: {C:white,X:mult}X#1#{C:inactive} Mult)"
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {

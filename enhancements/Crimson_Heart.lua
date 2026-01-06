@@ -39,7 +39,7 @@
         end,
         loc_vars = function(self, info_queue, card)
             local verbage = ""
-            if card.ability.extra.disabled_this_ante == 0 then
+            if card.ability.extra.disabled_this_ante == 0 or card.ability.extra.upgraded then
                 verbage = "Active!"
             elseif card.ability.extra.disabled_this_ante == 1 and not card.ability.extra.upgraded or card.ability.extra.disabled_this_ante >= 2 then
                 verbage = "Inactive"
