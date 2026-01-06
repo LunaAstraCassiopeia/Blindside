@@ -3434,6 +3434,18 @@ return {
 					"{C:white,X:mult}X#1#{} Mult",
 				},
 			},
+			["m_bld_amber_acorn"] = {
+				["name"] = "Amber Acorn",
+				["text"] = {
+					{"{X:money,C:white}Yellow{} {C:white,X:purple,E:1}Legendary{}",
+					"Currently {C:white,X:chips}X#1#{} Chips"},
+					{"Flips all Blinds",
+					"{C:attention}held in hand{} until",
+					"end of round"},
+					{"Gains {C:white,X:chips}+X#2#{} Chips for",
+					"each Blind flipped",},
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {

@@ -131,6 +131,7 @@
         "m_bld_queen",
         "m_bld_small",
         "m_bld_big",
+        "m_bld_amber_acorn",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",
