@@ -32,7 +32,7 @@ BLINDSIDE.Joker({
         if context.setting_blind and not context.disabled then
             blind.active = true
         end
-        if context.after and not G.GAME.blind.disabled and #G.hand.highlighted % 2 == 1 then
+        if context.after and not G.GAME.blind.disabled and #G.play.cards % 2 == 1 then
             local hasWildCanvas = false
             for i = 1, #context.scoring_hand do
                 if (context.scoring_hand[i].seal == "bld_wild" or #context.scoring_hand[i].ability.extra.hues >= 2) and context.scoring_hand[i].facing ~= "back" and next(SMODS.find_card('j_bld_canvas')) then
@@ -81,7 +81,7 @@ BLINDSIDE.Joker({
         if context.setting_blind and not context.disabled then
             blind.active = true
         end
-        if context.after and not G.GAME.blind.disabled and #G.hand.highlighted % 2 == 0 then
+        if context.after and not G.GAME.blind.disabled and #G.play.cards % 2 == 0 then
             local hasWildCanvas = false
             for i = 1, #context.scoring_hand do
                 if (context.scoring_hand[i].seal == "bld_wild" or #context.scoring_hand[i].ability.extra.hues >= 2) and context.scoring_hand[i].facing ~= "back" and next(SMODS.find_card('j_bld_canvas')) then
