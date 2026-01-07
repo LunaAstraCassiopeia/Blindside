@@ -15,4 +15,9 @@
             return false
             end
         end,
+        credit = {
+            art = "AstraLuna",
+            code = "AstraLuna",
+            concept = "AstraLuna"
+        },
     })

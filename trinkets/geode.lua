@@ -21,6 +21,11 @@
                 xmult = 3,
             }
         },
+        credit = {
+            art = "Gappie",
+            code = "base4",
+            concept = "FILL LATER"
+        },
         loc_vars = function(self, info_queue, card)
             return {
                 vars = {

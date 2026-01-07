@@ -21,6 +21,11 @@
             return false
             end
         end,
+        credit = {
+            art = "AstraLuna",
+            code = "AstraLuna",
+            concept = "AstraLuna"
+        },
         loc_vars = function(self, info_queue, card)
             return {
                 vars = {

@@ -24,6 +24,11 @@
                 return false
             end
         end,
+        credit = {
+            art = "AstraLuna",
+            code = "base4",
+            concept = "AstraLuna"
+        },
         calculate = function (self, card, context)
             if context.after and G.GAME.current_round.hands_left == 3 then
                 G.E_MANAGER:add_event(Event({

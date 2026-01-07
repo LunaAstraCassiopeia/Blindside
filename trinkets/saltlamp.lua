@@ -20,6 +20,11 @@
             return false
             end
         end,
+        credit = {
+            art = "AstraLuna",
+            code = "AstraLuna",
+            concept = "AstraLuna"
+        },
         calculate = function(self, card, context)
             if context.first_hand_drawn then
                 card.ability.extra.active = true

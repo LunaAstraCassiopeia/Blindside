@@ -22,6 +22,11 @@ SMODS.Joker({
         }
     }
     end,
+    credit = {
+        art = "AstraLuna",
+        code = "AstraLuna",
+        concept = "AstraLuna"
+    },
     in_pool = function(self, args)
         if G.GAME.selected_back.effect.center.config.extra then
             if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end

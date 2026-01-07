@@ -15,6 +15,11 @@
             return false
             end
         end,
+        credit = {
+            art = "AstraLuna",
+            code = "FILL LATER",
+            concept = "AstraLuna"
+        },
         calculate = function(self, card, context)
             if context.setting_blind then
                 G.E_MANAGER:add_event(Event({

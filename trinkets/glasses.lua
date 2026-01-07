@@ -15,6 +15,11 @@
             return false
             end
         end,
+        credit = {
+            art = "AstraLuna",
+            code = "AstraLuna",
+            concept = "AstraLuna"
+        },
         calculate = function(self, card, context)
             if context.joker_main then
                 local r_color, all_cards, b_color = 0, 0, 0

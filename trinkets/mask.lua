@@ -15,6 +15,11 @@
             return false
             end
         end,
+        credit = {
+            art = "AstraLuna",
+            code = "AstraLuna",
+            concept = "AstraLuna"
+        },
         calculate = function(self, card, context)
             if context.selling_self then
                 if G.GAME.round_resets.blind_states.Small == 'Select' then

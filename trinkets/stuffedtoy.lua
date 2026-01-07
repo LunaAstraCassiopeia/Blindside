@@ -27,6 +27,11 @@
             return false
             end
         end,
+        credit = {
+            art = "AstraLuna",
+            code = "AstraLuna",
+            concept = "AstraLuna"
+        },
         calculate = function(self, card, context)
             if context.joker_main then
                 if #context.full_hand <= 3 then

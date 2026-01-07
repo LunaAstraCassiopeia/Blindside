@@ -15,6 +15,11 @@
             return false
             end
         end,
+        credit = {
+            art = "AstraLuna",
+            code = "AstraLuna",
+            concept = "AstraLuna"
+        },
         calculate = function(self, card, context)
             if context.mod_probability and not context.blueprint then
                 return {

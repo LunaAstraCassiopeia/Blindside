@@ -17,4 +17,9 @@
             return false
             end
         end,
+        credit = {
+            art = "TarkanTheDragonBird",
+            code = "base4",
+            concept = "TarkanTheDragonBird"
+        },
     })

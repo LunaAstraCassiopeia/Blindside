@@ -11,6 +11,11 @@
             }
         },
         cost = 15,
+        credit = {
+            art = "AstraLuna",
+            code = "base4",
+            concept = "AstraLuna"
+        },
         blueprint_compat = true,
         eternal_compat = true,
         loc_vars = function (self, info_queue, card)

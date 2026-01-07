@@ -13,6 +13,11 @@
         cost = 10,
         blueprint_compat = false,
         eternal_compat = true,
+        credit = {
+            art = "AstraLuna",
+            code = "AstraLuna",
+            concept = "AstraLuna"
+        },
         loc_vars = function (self, info_queue, card)
         info_queue[#info_queue + 1] = G.P_TAGS['tag_bld_recursive']
             return {

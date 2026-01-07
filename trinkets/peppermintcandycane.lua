@@ -18,6 +18,11 @@
             return false
             end
         end,
+        credit = {
+            art = "AnneBean",
+            code = "base4",
+            concept = "base4"
+        },
         calculate = function(self, card, context)
             if context.after then
                 local red = nil

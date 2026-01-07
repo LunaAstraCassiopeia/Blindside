@@ -28,6 +28,11 @@ SMODS.Joker({
             handsize = 1
         }
     },
+        credit = {
+            art = "Gappie",
+            code = "base4",
+            concept = "AstraLuna"
+        },
     calculate = function(self, card, context)
         if context.pre_discard then
             card.ability.extra.armed = true

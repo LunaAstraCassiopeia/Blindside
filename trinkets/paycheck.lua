@@ -30,6 +30,11 @@
             return false
             end
         end,
+        credit = {
+            art = "AstraLuna",
+            code = "AstraLuna",
+            concept = "AstraLuna"
+        },
         calculate = function(self, card, context)
             if context.after and next(context.poker_hands['bld_raise']) and not context.blueprint then
                 SMODS.scale_card(card, {

@@ -20,6 +20,11 @@
             return false
             end
         end,
+        credit = {
+            art = "AstraLuna",
+            code = "base4",
+            concept = "AstraLuna"
+        },
         calculate = function(self, card, context)
             if context.joker_main and context.scoring_hand then
                 local purples = {}

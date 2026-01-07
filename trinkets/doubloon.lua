@@ -18,6 +18,11 @@
         loc_vars = function (self, info_queue, card)
             info_queue[#info_queue+1] = G.P_TAGS['tag_bld_symmetry']
         end,
+        credit = {
+            art = "AstraLuna",
+            code = "base4",
+            concept = "AstraLuna"
+        },
         calculate = function(self, card, context)
             if context.setting_blind then
                 if context.setting_blind then

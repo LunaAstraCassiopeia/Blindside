@@ -13,6 +13,11 @@
         cost = 12,
         blueprint_compat = true,
         eternal_compat = true,
+        credit = {
+            art = "base4",
+            code = "base4",
+            concept = "AstraLuna"
+        },
         loc_vars = function (self, info_queue, card)
             return {
                 vars = {

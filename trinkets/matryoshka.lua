@@ -19,6 +19,11 @@
             return false
             end
         end,
+        credit = {
+            art = "AstraLuna",
+            code = "base4",
+            concept = "AstraLuna"
+        },
         calculate = function(self, card, context)
             if context.setting_blind and card.ability.extra.last_tag then
                 G.E_MANAGER:add_event(Event({

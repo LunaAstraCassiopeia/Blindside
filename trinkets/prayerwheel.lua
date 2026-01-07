@@ -15,6 +15,11 @@
             return false
             end
         end,
+        credit = {
+            art = "Gappie",
+            code = "base4",
+            concept = "FILL LATER"
+        },
         calculate = function(self, card, context)
             if context.playing_card_added then
                 for key, the_card in pairs(context.cards) do

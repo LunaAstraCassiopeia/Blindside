@@ -19,6 +19,11 @@
             }
         }
         end,
+        credit = {
+            art = "AstraLuna",
+            code = "AstraLuna",
+            concept = "AstraLuna"
+        },
         calculate = function(self, card, context)
             if context.individual and context.cardarea == G.play and context.other_card and context.other_card.facing ~= "back" and not context.end_of_round then
                 if (context.other_card == context.scoring_hand[1] or context.other_card == context.scoring_hand[#context.scoring_hand]) and G.GAME.current_round.hands_left%2 == 0 then

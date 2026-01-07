@@ -18,6 +18,11 @@
             return false
             end
         end,
+        credit = {
+            art = "AstraLuna",
+            code = "AstraLuna",
+            concept = "AstraLuna"
+        },
         calculate = function(self, card, context)
             if context.reshuffle then
                 G.E_MANAGER:add_event(Event({

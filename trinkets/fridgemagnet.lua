@@ -16,6 +16,11 @@
             return false
             end
         end,
+        credit = {
+            art = "AstraLuna",
+            code = "AstraLuna",
+            concept = "AstraLuna"
+        },
         calculate = function(self, card, context)
             if context.retrigger_joker_check and context.other_card ~= card then
                 for i = 1, #G.jokers.cards do
