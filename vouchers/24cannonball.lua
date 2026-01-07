@@ -17,6 +17,11 @@ SMODS.Voucher {
     redeem = function(self, card)
         add_tag(Tag('tag_bld_cannonball_relic'))
     end,
+    credit = {
+        art = "pangaea47",
+        code = "base4",
+        concept = "AstraLuna"
+    },
     loc_vars = function (self, info_queue, tag)
         info_queue[#info_queue+1] = G.P_TAGS['tag_bld_toss']
     end,

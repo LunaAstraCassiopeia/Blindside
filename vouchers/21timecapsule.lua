@@ -14,6 +14,11 @@ SMODS.Voucher {
     set_card_type_badge = function(self, card, badges)
         badges[#badges+1] = create_badge(localize('k_relic'), G.C.RED, G.C.WHITE, 1.2 )
     end,
+    credit = {
+        art = "N/A",
+        code = "AstraLuna",
+        concept = "AstraLuna"
+    },
     redeem = function(self, card)
         add_tag(Tag('tag_bld_timecapsule_relic'))
         ease_ante(-1)

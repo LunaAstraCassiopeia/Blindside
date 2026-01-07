@@ -19,5 +19,10 @@ SMODS.Voucher {
         G.GAME.round_resets.reroll_cost = G.GAME.round_resets.reroll_cost - 2
         G.GAME.current_round.reroll_cost = math.max(0, G.GAME.current_round.reroll_cost - 2)
     end,
+    credit = {
+        art = "AnneBean",
+        code = "AstraLuna",
+        concept = "AstraLuna"
+    },
     requires = {'v_bld_magnifyingglass'}
 }

@@ -20,5 +20,10 @@ SMODS.Voucher {
     redeem = function(self, card)
         add_tag(Tag('tag_bld_irradiate_relic'))
     end,
+    credit = {
+        art = "pangaea47",
+        code = "base4",
+        concept = "AstraLuna"
+    },
     requires = {'v_bld_polish'}
 }

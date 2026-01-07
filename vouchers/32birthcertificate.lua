@@ -18,6 +18,11 @@ SMODS.Voucher {
         add_tag(Tag('tag_bld_birthcertificate_relic'))
         SMODS.change_play_limit(1)
     end,
+    credit = {
+        art = "AnneBean",
+        code = "base4",
+        concept = "AstraLuna"
+    },
     remove_from_deck = function (self, card, from_debuff)
         SMODS.change_play_limit(-1)
     end,

@@ -16,6 +16,11 @@ SMODS.Voucher {
     set_card_type_badge = function(self, card, badges)
         badges[#badges+1] = create_badge(localize('k_relic'), G.C.RED, G.C.WHITE, 1.2 )
     end,
+    credit = {
+        art = "pangaea47",
+        code = "AstraLuna",
+        concept = "AstraLuna"
+    },
     redeem = function(self, card)
         for i = 1, #G.shop_booster.cards do
             G.shop_booster.cards[i].cost = G.shop_booster.cards[i].cost - 1

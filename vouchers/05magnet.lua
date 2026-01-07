@@ -15,6 +15,11 @@ SMODS.Voucher {
         info_queue[#info_queue+1] = {key = 'bld_retain', set = 'Other'}
         info_queue[#info_queue+1] = {key = 'bld_upgrade', set = 'Other'}
     end,
+    credit = {
+        art = "Gappie",
+        code = "base4",
+        concept = "AstraLuna"
+    },
     set_card_type_badge = function(self, card, badges)
         badges[#badges+1] = create_badge(localize('k_relic'), G.C.RED, G.C.WHITE, 1.2 )
     end,
