@@ -6,6 +6,7 @@
             extra = {
                 value = 30,
                 jokermult = 2,
+                jokermultup = -3,
                 odds = 2,
                 retain = true
             }},
@@ -36,7 +37,7 @@
             local n,d = SMODS.get_probability_vars(card, 1, card.ability.extra.odds)
             return {
                 vars = {
-                    card.ability.extra.jokermult,
+                    (card.ability.extra.jokermult > 0 and "+" or "") .. card.ability.extra.jokermult,
                     n,
                     d,
                 }
@@ -44,6 +45,7 @@
         end,
         upgrade = function(card)
             if not card.ability.extra.upgraded then
+                card.ability.extra.jokermult = card.ability.extra.jokermult + card.ability.extra.jokermultup
                 card.ability.extra.upgraded = true
             end
         end

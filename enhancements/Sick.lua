@@ -6,6 +6,7 @@
             extra = {
                 value = 30,
                 jokerxchips = 1.5,
+                jokerxchipsup = -0.75,
                 odds = 2
             }},
         hues = {"Green"},
@@ -46,6 +47,7 @@
         end,
         upgrade = function(card)
             if not card.ability.extra.upgraded then
+                card.ability.extra.jokerxchips = card.ability.extra.jokerxchips + card.ability.extra.jokerxchipsup
                 card.ability.extra.upgraded = true
             end
         end

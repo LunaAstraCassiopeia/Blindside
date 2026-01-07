@@ -6,6 +6,7 @@
             extra = {
                 value = 30,
                 joker_mult = 2,
+                joker_multup = -3,
             }},
         hues = {"Faded"},
         curse = true,
@@ -30,12 +31,13 @@
             info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}
             return {
                 vars = {
-                    card.ability.extra.joker_mult
+                    (card.ability.extra.joker_mult > 0 and "+" or "") .. card.ability.extra.joker_mult,
                 }
             }
         end,
         upgrade = function(card)
             if not card.ability.extra.upgraded then
+                card.ability.extra.joker_mult = card.ability.extra.joker_mult + card.ability.extra.joker_multup
                 card.ability.extra.upgraded = true
             end
         end

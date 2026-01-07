@@ -6,6 +6,7 @@
             extra = {
                 value = 30,
                 dollars = -2,
+                dollarsup = 4,
                 retain = true
             }},
         hues = {"Yellow"},
@@ -26,12 +27,13 @@
             info_queue[#info_queue+1] = {key = 'bld_retain', set = 'Other'}
             return {
                 vars = {
-                    -card.ability.extra.dollars
+                    (card.ability.extra.dollars > 0 and ("+$" .. card.ability.extra.dollars) or ("-$" .. -card.ability.extra.dollars))
                 }
             }
         end,
         upgrade = function(card)
             if not card.ability.extra.upgraded then
+                card.ability.extra.dollars = card.ability.extra.dollars + card.ability.extra.dollarsup
                 card.ability.extra.upgraded = true
             end
         end

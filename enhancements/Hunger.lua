@@ -6,6 +6,7 @@
             extra = {
                 value = 30,
                 mult = -8,
+                multup = 20,
                 stubborn = true,
             }},
         hues = {"Red"},
@@ -30,12 +31,13 @@
             info_queue[#info_queue+1] = {key = 'bld_stubborn', set = 'Other'}
             return {
                 vars = {
-                    card.ability.extra.mult
+                    (card.ability.extra.mult > 0 and "+" or "") .. card.ability.extra.mult
                 }
             }
         end,
         upgrade = function(card)
             if not card.ability.extra.upgraded then
+                card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.multup
                 card.ability.extra.upgraded = true
             end
         end

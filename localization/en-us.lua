@@ -3169,7 +3169,7 @@ return {
 				["name"] = "The Curse",
 				["text"] = {
 					{"{X:dark_edition,C:white}Faded{} {X:black,C:white}Cursed{}",
-					"{C:mult}+#1#{} Mult",
+					"{C:mult}#1#{} Mult",
 					"to {C:attention}Joker"},
 					{"{C:attention}Burns"},
 				},
@@ -3195,7 +3195,7 @@ return {
 				["name"] = "The Spent",
 				["text"] = {
 					{"{X:money,C:white}Yellow{} {X:black,C:white}Cursed{}",
-					"{C:money}-$#1#{} while",
+					"{C:money}#1#{} while",
 					"{C:attention}held in hand"},
 					{"{C:green}Retained"},
 				},
@@ -3232,7 +3232,7 @@ return {
 					{"{X:green,C:white}Green{} {X:black,C:white}Cursed{}",
 					"While {C:attention}held in hand{},",
 					"{C:green}#2# in #3#{} chance for",
-					"{C:red}+#1#{} Mult to {C:attention}Joker"},
+					"{C:red}#1#{} Mult to {C:attention}Joker"},
 					{"{C:green}Retained"}
 				},
 			},
@@ -3340,7 +3340,7 @@ return {
 				["name"] = "The Bill",
 				["text"] = {
 					{"{X:money,C:white}Yellow{} {X:black,C:white}Cursed{}",
-					"{C:money}-$#1#{} and {C:attention}burns"},
+					"{C:money}#1#{} and {C:attention}burns"},
 					{"{C:attention}Stubborn"}
 				},
 			},

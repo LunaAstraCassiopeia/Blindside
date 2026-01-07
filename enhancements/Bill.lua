@@ -6,6 +6,7 @@ BLINDSIDE.Blind({
         extra = {
             value = 30,
             dollars = -4,
+            dollarsup = 10,
             stubborn = true,
         }},
     hues = {"Yellow"},
@@ -30,12 +31,13 @@ BLINDSIDE.Blind({
         info_queue[#info_queue+1] = {key = 'bld_stubborn', set = 'Other'}
         return {
             vars = {
-                -card.ability.extra.dollars
+                (card.ability.extra.dollars > 0 and ("+$" .. card.ability.extra.dollars) or ("-$" .. -card.ability.extra.dollars))
             }
         }
     end,
     upgrade = function(card)
         if not card.ability.extra.upgraded then
+            card.ability.extra.dollars = card.ability.extra.dollars + card.ability.extra.dollarsup
             card.ability.extra.upgraded = true
         end
     end
