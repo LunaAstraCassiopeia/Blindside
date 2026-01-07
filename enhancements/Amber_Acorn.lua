@@ -1,7 +1,7 @@
     BLINDSIDE.Blind({
         key = 'amber_acorn',
         atlas = 'bld_blindrank',
-        pos = {x = 9, y = 9},
+        pos = {x = 4, y = 12},
         config = {
             extra = {
                 value = 1,
