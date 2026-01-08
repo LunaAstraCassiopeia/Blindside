@@ -3237,8 +3237,8 @@ return {
 				["text"] = {
 					"{X:dark_edition,C:white}Faded{} {X:black,C:white}Cursed{}",
 					"While {C:attention}held in hand{},",
-					"{C:red}debuffs{} all cards",
-					"{C:attention}held in hand{}"
+					"creates a {C:attention}Debuff Tag{}",
+					"for the {C:attention}played hand{}"
 				},
 			},
 			["m_bld_mold"] = {
@@ -4442,8 +4442,8 @@ return {
 					"at round start",
 					"{s:0.2} {}",
 					"{C:green}#1# in #2#{} chance",
-					"to {C:red}debuff{} self",
-					"when played"
+					"to temporarily {C:red}debuff{}",
+					"self when played"
 				}
 			},
 			["bld_frost_seal"] = {

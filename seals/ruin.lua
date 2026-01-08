@@ -2,9 +2,9 @@ SMODS.Seal {
     key = "ruin",
     atlas = 'bld_enhance', 
     pos = { x = 2, y = 1 },
-    config = { 
+    config = {
         extra = {
-            odds = 5
+            odds = 6
         }
     },
     badge_colour = HEX('757CDC'),
