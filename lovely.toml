@@ -1666,7 +1666,7 @@ UIBox_button({label = {localize('b_reroll_boss'), '1 Hand'}, button = "blind_rer
 '''
 match_indent = true
 
-# clapper
+# blindsoul
 [[patches]]
 [patches.pattern]
 target = "functions/common_events.lua"
@@ -1685,3 +1685,184 @@ for _, v in ipairs(SMODS.Consumable.legendaries) do
 end
 '''
 match_indent = true
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''G.SPLASH_LOGO.dissolve = 1   '''
+position = "after"
+payload = '''
+G.BLINDSIDE_LOGO = Sprite(0, 0, 
+        13*SC_scale, 
+        13*SC_scale*(G.ASSET_ATLAS["bld_logo"].py/G.ASSET_ATLAS["bld_logo"].px),
+        G.ASSET_ATLAS["bld_logo"], {x=0,y=0})
+
+    G.BLINDSIDE_LOGO:set_alignment({
+        major = G.title_top,
+        type = 'cm',
+        bond = 'Strong',
+        offset = {x=0,y=0.4}
+    })
+    G.BLINDSIDE_LOGO:define_draw_steps({{
+            shader = 'dissolve',
+        }})
+
+    G.BLINDSIDE_LOGO.dissolve_colours = {G.C.WHITE, G.C.WHITE}
+    G.BLINDSIDE_LOGO.dissolve = 1   
+'''
+match_indent = true
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''if G.debug_splash_size_toggle then '''
+position = "before"
+payload = '''
+    if G.BLINDSIDE_LOGO then
+        love.graphics.push()
+        G.BLINDSIDE_LOGO:translate_container()
+        G.BLINDSIDE_LOGO:draw()
+        love.graphics.pop()
+    end 
+'''
+match_indent = true
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''ease_value(G.SPLASH_LOGO, 'dissolve', -1, nil, nil, nil, change_context == 'splash' and 2.3 or 0.9)'''
+position = "before"
+payload = '''
+ease_value(G.BLINDSIDE_LOGO, 'dissolve', -1, nil, nil, nil, change_context == 'splash' and 2.3 or 0.9)
+'''
+match_indent = true
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''self.title_top = CardArea('''
+position = "before"
+payload = '''
+    self.blindside_title_top = CardArea(
+        0, 0,
+        CAI.TITLE_TOP_W,CAI.TITLE_TOP_H,
+        {card_limit = 1, type = 'title'})
+'''
+match_indent = true
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''replace_card.ambient_tilt = 0.0'''
+position = "before"
+payload = '''
+local blind_card = Card(self.blindside_title_top.T.x, self.blindside_title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CARDS.S_A, G.P_CENTERS.m_bld_flip)
+    self.blindside_title_top:emplace(blind_card)
+
+    blind_card.states.visible = false
+    blind_card.no_ui = true
+    blind_card.ambient_tilt = 0.2
+'''
+match_indent = true
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''if change_context == 'splash' then '''
+position = "before"
+payload = '''
+            if change_context == 'splash' then 
+                blind_card.states.visible = true
+                blind_card:start_materialize({G.C.WHITE,G.C.WHITE}, true, 2.5)
+                play_sound('whoosh1', math.random()*0.1 + 0.3,0.3)
+                play_sound('crumple'..math.random(1,5), math.random()*0.2 + 0.6,0.65)
+            else
+                blind_card.states.visible = true
+                blind_card:start_materialize({G.C.WHITE,G.C.WHITE}, nil, 1.2)
+            end
+'''
+match_indent = true
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''self.title_top:hard_set_cards()'''
+position = "after"
+payload = '''
+    self.blindside_title_top:sort('order')
+    self.blindside_title_top:set_ranks()
+    self.blindside_title_top:align_cards()
+    self.blindside_title_top:hard_set_cards()
+'''
+match_indent = true
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''G.title_top.T.y = G.TILE_H/2 - G.title_top.T.h/2 -(G.debug_splash_size_toggle and 2 or 1.2)--|||||||||||||||||'''
+position = "after"
+payload = '''
+G.blindside_title_top.T.x = G.TILE_W/2 - G.blindside_title_top.T.w/2
+G.blindside_title_top.T.y = G.TILE_H/2 - G.blindside_title_top.T.h/2 -(G.debug_splash_size_toggle and 2 or 1.2) + 3.4
+'''
+match_indent = true
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''G.title_top:hard_set_VT()'''
+position = "after"
+payload = '''
+G.blindside_title_top:hard_set_VT()
+'''
+match_indent = true
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''if self.SPLASH_LOGO then self.SPLASH_LOGO:remove(); self.SPLASH_LOGO = nil end'''
+position = "after"
+payload = '''
+        if self.BLINDSIDE_LOGO then self.BLINDSIDE_LOGO:remove(); self.BLINDSIDE_LOGO = nil end
+'''
+match_indent = true
+
+# credits
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''      local cols'''
+position = "before"
+payload = '''
+if AUT.credits then
+    local name_nodes = {{n=G.UIT.T, config={text = "Artist", scale = 0.32, colour = G.C.UI.TEXT_LIGHT}}}
+    local t = {
+	{n=G.UIT.R, config={align = "cm"}, nodes={
+		{n=G.UIT.T, config={text = "Art by ", colour = G.C.UI.TEXT_DARK, scale = 0.33}},
+		{n=G.UIT.T, config={text = AUT.credits.art, colour = G.C.ORANGE, scale = 0.33}},
+        }}
+    }
+    local artistdisplay = {n=G.UIT.R, config={align = "cm", colour = lighten(G.C.GREY, 0.15), r = 0.1}, nodes={
+      {n=G.UIT.R, config={align = "tm", minh = 0.36, padding = 0.03}, nodes=name_nodes},
+      {n=G.UIT.R, config={align = "cm", minw = 1.5, minh = 0.4, r = 0.1, padding = 0.05, colour = G.C.WHITE}, nodes={{n=G.UIT.R, config={align = "cm", padding = 0.03}, nodes=t}}}
+    }}
+info_boxes[#info_boxes+1] =
+    {n=G.UIT.R, config={align = "cm"}, nodes={
+        {n=G.UIT.R, config={align = "cm", colour = lighten(G.C.JOKER_GREY, 0.5), r = 0.1, padding = 0.05, emboss = 0.05}, nodes={
+        artistdisplay
+        }}
+    }}
+end
+'''
+match_indent = true
+

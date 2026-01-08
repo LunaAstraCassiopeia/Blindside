@@ -85,6 +85,12 @@
         px = 29,
         py = 29,
     })
+    SMODS.Atlas({
+        key = 'bld_logo',
+        path = 'logo.png',
+        px = 333,
+        py = 216,
+    })
 
 function tableContains(value, tbl)
   for _, v in ipairs(tbl) do

@@ -1442,5 +1442,13 @@ function create_UIBox_buttons()
     end
   end
 
+local generate_UIBox_ability_table_ref = Card.generate_UIBox_ability_table
+
+function Card.generate_UIBox_ability_table(self, vars_only)
+	local AUT = generate_UIBox_ability_table_ref(self, vars_only)
+	if not vars_only then AUT.credits = self.config.center.credit or nil end
+	return AUT
+end
+
 ----------------------------------------------
 ------------MOD CODE END----------------------
