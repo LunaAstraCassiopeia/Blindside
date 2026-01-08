@@ -2267,8 +2267,8 @@ return {
 				["name"] = "The Blend",
 				["text"] = {
 					{"{X:purple,C:white}Purple{}",
-					"Creates up to",
-					"{C:attention}2{} random {C:bld_obj_filmcard}Channel{} cards",
+					"Creates up to {C:attention}2{}",
+					"random {C:bld_obj_filmcard}Channel{} cards",
 					"{C:inactive,S:0.8}(Must have room)"},
 					{"{C:red}Debuffs{} all scoring",
 					"{X:mult,C:white}Red{} and {X:chips,C:white}Blue{} Blinds"},
@@ -4390,7 +4390,8 @@ return {
 					"{C:attention}Always scores",
 					"{s:0.2} {}",
 					"If {C:green}chance{} fails,",
-					"{C:red}debuffs{} self"
+					"instead {C:red}fails{}",
+					"to score"
 				}
 			},
 			["bld_wild_seal"]	= {
