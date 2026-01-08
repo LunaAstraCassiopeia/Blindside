@@ -4,8 +4,8 @@
         pos = {x = 8, y = 5},
         config = {
             extra = {
-                xmult = 0.2,
-                xmultup = 0.2,
+                xmult = 0.25,
+                xmultup = 0.25,
                 discards = 1,
                 value = 10,
             }},
