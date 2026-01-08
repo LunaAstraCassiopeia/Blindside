@@ -23,9 +23,20 @@
             if context.after then
                 card.ability.forced_selection = false
             end
+
+            if card.ability.extra.upgraded and context.discard then
+                if tableContains(card, G.hand.highlighted) then
+                    return { burn = true }
+                end
+            end
         end,
         loc_vars = function(self, info_queue, card)
-
+            if card.ability.extra.upgraded then
+                info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}
+            end
+            return {
+                key = card.ability.extra.upgraded and 'm_bld_famous_upgraded' or 'm_bld_famous'
+            }
         end,
         upgrade = function(card)
             if not card.ability.extra.upgraded then

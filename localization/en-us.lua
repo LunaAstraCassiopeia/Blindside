@@ -3347,6 +3347,16 @@ return {
 					{"{C:green}Retained"}
 				},
 			},
+			["m_bld_sinker_upgraded"] = {
+				["name"] = "The Sinker",
+				["text"] = {
+					{"{X:mult,C:white}Red{} {X:black,C:white}Cursed{}",
+					"When discarded,",
+					"{C:red}+1{} discard",
+					"and {C:attention}burns"},
+					{"{C:green}Retained"},
+				},
+			},
 			["m_bld_downer"] = {
 				["name"] = "The Downer",
 				["text"] = {
@@ -3405,6 +3415,16 @@ return {
 					"{X:chips,C:white}Blue{} {X:black,C:white}Cursed{}",
 					"{C:attention}Forced to",
 					"{C:attention}be selected",
+				},
+			},
+			["m_bld_famous_upgraded"] = {
+				["name"] = "The Famous",
+				["text"] = {
+					{"{X:chips,C:white}Blue{} {X:black,C:white}Cursed{}",
+					"{C:attention}Forced to",
+					"{C:attention}be selected"},
+					{"When discarded, {C:attention}burn{}",
+					"all discarded Blinds"}
 				},
 			},
 			["m_bld_pill"] = {
