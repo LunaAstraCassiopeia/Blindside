@@ -5,7 +5,10 @@
         config = {
             extra = {
                 value = 30,
+                xchips = 0,
+                xchipsup = 1,
                 xchips_gain = 0.5,
+                xchips_gainup = 0.25,
             }},
         hues = {"Blue"},
         curse = true,
@@ -28,7 +31,7 @@
                     end
                 end
                 return {
-                    xchips = card.ability.extra.xchips_gain * blues
+                    xchips = card.ability.extra.xchips_gain * blues + card.ability.extra.xchips
                 }
             end
         end,
@@ -36,12 +39,15 @@
             info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}
             return {
                 vars = {
-                    card.ability.extra.xchips_gain
+                    card.ability.extra.xchips_gain,
+                    card.ability.extra.xchips
                 }
             }
         end,
         upgrade = function(card)
             if not card.ability.extra.upgraded then
+                card.ability.extra.xchips_gain = card.ability.extra.xchips_gain + card.ability.extra.xchips_gainup
+                card.ability.extra.xchips = card.ability.extra.xchips + card.ability.extra.xchipsup
                 card.ability.extra.upgraded = true
             end
         end

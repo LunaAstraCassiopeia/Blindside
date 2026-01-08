@@ -5,7 +5,8 @@
         config = {
             extra = {
                 value = 30,
-                xchips = 0.5,
+                xmult = 0.5,
+                mult = 20,
                 retain = true
             }},
         hues = {"Purple"},
@@ -17,16 +18,24 @@
         },
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.main_scoring then
-                return {
-                    xchips = card.ability.extra.xchips
-                }
+                if card.ability.extra.upgraded then
+                    return {
+                        mult = card.ability.extra.mult,
+                        xmult = card.ability.extra.xmult
+                    }
+                else
+                    return {
+                        xmult = card.ability.extra.xmult
+                    }
+                end
             end
         end,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue+1] = {key = 'bld_retain', set = 'Other'}
             return {
+                key = card.ability.extra.upgraded and 'm_bld_downer_upgraded' or 'm_bld_downer',
                 vars = {
-                    card.ability.extra.xchips
+                    card.ability.extra.xmult
                 }
             }
         end,

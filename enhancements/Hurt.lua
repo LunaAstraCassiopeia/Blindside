@@ -6,6 +6,7 @@
             extra = {
                 value = 30,
                 mult = -10,
+                multup = 10,
                 mult_each = 2
             }},
         hues = {"Red"},
@@ -41,6 +42,7 @@
             
             local total_mult = card.ability.extra.mult + card.ability.extra.mult_each * curses
             return {
+                key = card.ability.extra.upgraded and 'm_bld_hurt_upgraded' or 'm_bld_hurt',
                 vars = {
                     card.ability.extra.mult,
                     card.ability.extra.mult_each,
@@ -50,6 +52,7 @@
         end,
         upgrade = function(card)
             if not card.ability.extra.upgraded then
+                card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.multup
                 card.ability.extra.upgraded = true
             end
         end

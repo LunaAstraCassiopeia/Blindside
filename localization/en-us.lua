@@ -3217,6 +3217,14 @@ return {
 					"scoring Blinds",
 				},
 			},
+			["m_bld_sad_upgraded"] = {
+				["name"] = "The Sad",
+				["text"] = {
+					"{X:chips,C:white}Blue{} {X:black,C:white}Cursed{}",
+					"{C:red}Debuffs{} and {C:attention}burns{}",
+					"scoring {X:black,C:white}Cursed{} Blinds",
+				},
+			},
 			["m_bld_silence"] = {
 				["name"] = "The Silence",
 				["text"] = {
@@ -3273,6 +3281,15 @@ return {
 					{"{C:green}Retained"}
 				},
 			},
+			["m_bld_lottery_upgraded"] = {
+				["name"] = "The Lottery",
+				["text"] = {
+					{"{X:green,C:white}Green{} {X:black,C:white}Cursed{}",
+					"{C:white,X:green}+1{} to all {C:green,E:1}probabilities{} during",
+					"scoring while {C:attention}held in hand",},
+					{"{C:green}Retained"}
+				},
+			},
 			["m_bld_rupture"] = {
 				["name"] = "The Rupture",
 				["text"] = {
@@ -3298,7 +3315,7 @@ return {
 				["name"] = "The Rain",
 				["text"] = {
 					{"{X:chips,C:white}Blue{} {X:black,C:white}Cursed{}",
-					"{C:white,X:chips}X0{} Chips"},
+					"{C:white,X:chips}X#2#{} Chips"},
 					{"{C:white,X:chips}+X#1#{} Chips for every",
 					"other {C:white,X:chips}Blue{} Blind played",
 					"or {C:attention}held in hand"},
@@ -3310,6 +3327,15 @@ return {
 					"{X:dark_edition,C:white}Faded{} {X:black,C:white}Cursed{}",
 					"When scoring, {C:red}destroys",
 					"another played Blind",
+				},
+			},
+			["m_bld_death_upgraded"] = {
+				["name"] = "The Death",
+				["text"] = {
+					"{X:dark_edition,C:white}Faded{} {X:black,C:white}Cursed{}",
+					"When scoring, {C:red}destroys",
+					"played Blind {C:attention}to the left",
+					"{C:inactive}(If one exists)"
 				},
 			},
 			["m_bld_sinker"] = {
@@ -3325,7 +3351,16 @@ return {
 				["name"] = "The Downer",
 				["text"] = {
 					{"{X:purple,C:white}Purple{} {X:black,C:white}Cursed{}",
-					"{C:white,X:chips}X#1#{} Chips"},
+					"{C:white,X:mult}X#1#{} Mult"},
+					{"{C:green}Retained"}
+				},
+			},
+			["m_bld_downer_upgraded"] = {
+				["name"] = "The Downer",
+				["text"] = {
+					{"{X:purple,C:white}Purple{} {X:black,C:white}Cursed{}",
+					"{C:mult}+20{} Mult, then",
+					"{C:white,X:mult}X#1#{} Mult"},
 					{"{C:green}Retained"}
 				},
 			},
@@ -3354,6 +3389,16 @@ return {
 					{"{C:attention}Stubborn"}
 				},
 			},
+			["m_bld_tax_upgraded"] = {
+				["name"] = "The Tax",
+				["text"] = {
+					{"{X:money,C:white}Yellow{} {X:black,C:white}Cursed{}",
+					"{C:attention}Doubles{} held money if",
+					"you have {C:money}$10{} or less",
+					"{C:inactive}(Currently {C:money}+$#1#{C:inactive})"},
+					{"{C:attention}Stubborn"}
+				},
+			},
 			["m_bld_famous"] = {
 				["name"] = "The Famous",
 				["text"] = {
@@ -3373,6 +3418,16 @@ return {
 					"{C:attention}be selected",}
 				},
 			},
+			["m_bld_pill_upgraded"] = {
+				["name"] = "The Pill",
+				["text"] = {
+					{"{X:green,C:white}Green{} {X:black,C:white}Cursed{}",
+					"{C:white,X:mult}X#1#{} Mult"},
+					{"Always scores"},
+					{"{C:attention}Forced to",
+					"{C:attention}be selected",}
+				},
+			},
 			["m_bld_hurt"] = {
 				["name"] = "The Hurt",
 				["text"] = {
@@ -3383,6 +3438,16 @@ return {
 					"{C:inactive}(Currently {C:mult}#3#{C:inactive} Mult)"
 				},
 			},
+			["m_bld_hurt_upgraded"] = {
+				["name"] = "The Hurt",
+				["text"] = {
+					"{X:mult,C:white}Red{} {X:black,C:white}Cursed{}",
+					"{C:mult}+#2#{} Mult for",
+					"every {X:black,C:white}Cursed{} Blind",
+					"in full deck",
+					"{C:inactive}(Currently {C:mult}#3#{C:inactive} Mult)"
+				},
+			},
 			["m_bld_grind"] = {
 				["name"] = "The Grind",
 				["text"] = {
@@ -3390,6 +3455,16 @@ return {
 					"{C:money}-$#1#{}, then {C:money}+$#2#{} for",
 					"every other {X:black,C:white}Cursed{}",
 					"Blind in played hand"},
+					{"{C:attention}Stubborn"}
+				},
+			},
+			["m_bld_grind_upgraded"] = {
+				["name"] = "The Grind",
+				["text"] = {
+					{"{X:money,C:white}Yellow{} {X:black,C:white}Cursed{}",
+					"{C:money}+$#2#{} for every",
+					"other {X:black,C:white}Cursed{} Blind",
+					"in played hand"},
 					{"{C:attention}Stubborn"}
 				},
 			},

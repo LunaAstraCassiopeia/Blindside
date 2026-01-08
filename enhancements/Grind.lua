@@ -6,6 +6,7 @@
             extra = {
                 value = 30,
                 money = -8,
+                moneyup = 8,
                 money_gain = 8,
                 stubborn = true,
             }},
@@ -32,6 +33,7 @@
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue+1] = {key = 'bld_stubborn', set = 'Other'}
             return {
+                key = card.ability.extra.upgraded and 'm_bld_grind_upgraded' or 'm_bld_grind',
                 vars = {
                     -card.ability.extra.money,
                     card.ability.extra.money_gain,
@@ -40,6 +42,7 @@
         end,
         upgrade = function(card)
             if not card.ability.extra.upgraded then
+                card.ability.extra.money = card.ability.extra.money + card.ability.extra.moneyup
                 card.ability.extra.upgraded = true
             end
         end

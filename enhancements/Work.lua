@@ -6,6 +6,7 @@
             extra = {
                 value = 30,
                 xmult_per = 1,
+                xmult_perup = 1,
             }},
         hues = {"Purple"},
         curse = true,
@@ -62,6 +63,7 @@
         end,
         upgrade = function(card)
             if not card.ability.extra.upgraded then
+                card.ability.extra.xmult_per = card.ability.extra.xmult_per + card.ability.extra.xmult_perup
                 card.ability.extra.upgraded = true
             end
         end

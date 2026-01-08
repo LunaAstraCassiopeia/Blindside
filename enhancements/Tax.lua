@@ -17,15 +17,16 @@
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.main_scoring then
                 return {
-                    dollars = -math.floor(math.max(G.GAME.dollars - 20, 0)/2)
+                    dollars = card.ability.extra.upgraded and (G.GAME.dollars <= 10 and G.GAME.dollars or 0) or -math.floor(math.max(G.GAME.dollars - 20, 0)/2)
                 }
             end
         end,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue+1] = {key = 'bld_stubborn', set = 'Other'}
             return {
+                key = card.ability.extra.upgraded and 'm_bld_tax_upgraded' or 'm_bld_tax',
                 vars = {
-                    math.floor(math.max(G.GAME.dollars - 20, 0)/2)
+                    card.ability.extra.upgraded and (G.GAME.dollars <= 10 and G.GAME.dollars or 0) or math.floor(math.max(G.GAME.dollars - 20, 0)/2)
                 }
             }
         end,

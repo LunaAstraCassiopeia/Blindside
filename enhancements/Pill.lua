@@ -26,7 +26,7 @@ BLINDSIDE.Blind({
             G.hand:add_to_highlighted(card, true)
         end
         if context.cardarea == G.play and context.before and card.facing ~= 'back' then
-            if SMODS.pseudorandom_probability(card, pseudoseed("pill"), 1, card.ability.extra.odds, 'pill') and card.facing ~= "back" then
+            if (card.ability.extra.upgraded or SMODS.pseudorandom_probability(card, pseudoseed("pill"), 1, card.ability.extra.odds, 'pill')) and card.facing ~= "back" then
                 card:flip()
                 card:flip()
             else
@@ -56,6 +56,7 @@ BLINDSIDE.Blind({
     info_queue[#info_queue+1] = {key = 'bld_self_scoring', set = 'Other'}
         local chance, trigger = SMODS.get_probability_vars(card, 1, card.ability.extra.odds, 'pill')
         return {
+            key = card.ability.extra.upgraded and 'm_bld_pill_upgraded' or 'm_bld_pill',
             vars = {
                 card.ability.extra.xmult,
                 chance,
