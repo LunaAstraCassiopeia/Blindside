@@ -49,9 +49,9 @@
                 end
             end
 
-            if context.burn_card and context.burn_card == card and card.ability.extra.activated and not card.ability.extra.upgraded then
+            if context.hand_retain and card.ability.extra.activated and not card.ability.extra.upgraded then
                 card.ability.extra.activated = false
-                return {remove = true}
+                return {burn = true}
             end
         end,
         loc_vars = function(self, info_queue, card)
