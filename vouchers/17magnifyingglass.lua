@@ -2,7 +2,7 @@ SMODS.Voucher {
     key = 'magnifyingglass',
     atlas = 'bld_price_tag',
     pos = {x = 4, y = 0},
-    cost = 15,
+    cost = 10,
     in_pool = function(self, args)
         if G.GAME.selected_back.effect.center.config.extra then
             if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end

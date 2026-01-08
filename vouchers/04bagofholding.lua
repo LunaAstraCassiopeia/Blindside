@@ -2,7 +2,7 @@ SMODS.Voucher {
     key = 'bagofholding',
     atlas = 'bld_price_tag',
     pos = {x = 1, y = 1},
-    cost = 15,
+    cost = 10,
     in_pool = function(self, args)
         if G.GAME.selected_back.effect.center.config.extra then
             if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end

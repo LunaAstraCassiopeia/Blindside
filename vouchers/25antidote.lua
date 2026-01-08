@@ -2,7 +2,7 @@ SMODS.Voucher {
     key = 'antidote',
     atlas = 'bld_price_tag',
     pos = {x = 3, y = 2},
-    cost = 15,
+    cost = 10,
     config = { extra = { shop_size = 1 } },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.extra.shop_size } }
