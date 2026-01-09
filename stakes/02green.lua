@@ -9,7 +9,6 @@ SMODS.Stake{
         G.GAME.modifiers.enable_bld_less_joker_reward = true
         -- 
     end,
-    unlocked = true,
 
     --colour = ,
 

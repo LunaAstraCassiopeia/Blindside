@@ -4320,8 +4320,6 @@ return {
 				text = {
 					"After {C:attention}Ante 1{}, decrease",
 					"{C:attention}Joker{} rewards by {C:money}$2"
-					--[["Skipping Jokers costs",
-					"{C:money}$2{} per {C:attention}Ante"]]
 				}
 			},
 			["stake_bld_black_deck"] = {
@@ -4335,7 +4333,10 @@ return {
 				name = "Magic Stake??",
 				text = {
 					"Start with",
-					"{C:attention}2{} {X:black,C:white}Cursed{} Blinds"
+					"{C:attention}2{} {X:black,C:white}Cursed{} Blinds",
+					"{s:0.2} {}",
+					"{C:white,X:black}Cursed{} Blinds may",
+					"appear in {C:attention}shops"
 				}
 			},
 			["stake_bld_anaglyph_deck"] = {
@@ -4349,15 +4350,15 @@ return {
 			["stake_bld_zodiac_deck"] = {
 				name = "Zodiac Stake??",
 				text = {
-					"{C:white,X:black}Cursed{} Blinds may",
-					"appear in {C:attention}shops"
+					"Face off against {C:red}tougher",
+					"{C:attention}Small{} and {C:attention}Big Jokers"
 				}
 			},
 			["stake_bld_plasma_deck"] = {
 				name = "Plasma Stake??",
 				text = {
-					"Face off against {C:red}tougher",
-					"{C:attention}Small{} and {C:attention}Big Jokers"
+					"Skipping Jokers costs",
+					"{C:money}$2{} per {C:attention}Ante"
 				}
 			},
 			["stake_bld_ghost_deck"] = {

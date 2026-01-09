@@ -7,9 +7,9 @@ SMODS.Stake{
     
     modifiers = function()
         G.GAME.modifiers.enable_bld_starting_curses = true
+        G.GAME.modifiers.enable_shop_curses = true
         --G.GAME.modifiers.enable_bld_deadly_small_big = true
     end,
-    unlocked = true,
 
     --colour = ,
 

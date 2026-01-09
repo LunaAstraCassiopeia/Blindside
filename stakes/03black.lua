@@ -9,7 +9,6 @@ SMODS.Stake{
         G.GAME.modifiers.enable_bld_deplete_hands = true
     end,
 
-    unlocked = true,
 
     --colour = ,
 

@@ -1917,3 +1917,29 @@ end
 '''
 match_indent = true
 
+# stakes unlocked by default in UI
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/overrides.lua"]'
+pattern = "if (deck_usage and deck_usage.wins[i - 1]) or (not next(G.P_CENTER_POOLS.Stake[i].applied_stakes or {})) or G.PROFILES[G.SETTINGS.profile].all_unlocked then valid_option = true end"
+position = 'after'
+match_indent = true
+payload = '''
+if (G.P_CENTER_POOLS['Stake'][i].key == 'stake_bld_green_deck' or G.P_CENTER_POOLS['Stake'][i].key == 'stake_bld_black_deck' or G.P_CENTER_POOLS['Stake'][i].key == 'stake_bld_magic_deck') then valid_option = true end
+'''
+
+
+
+# stakes unlocked by default
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/overrides.lua"]'
+pattern = "if not deck.wins_by_key[applied_stake] then return false end"
+position = 'at'
+match_indent = true
+payload = '''
+print(applied_stake)
+if (applied_stake ~= 'stake_bld_green_deck' and applied_stake ~= 'stake_bld_black_deck' and applied_stake ~= 'stake_bld_red_deck') then
+    if not deck.wins_by_key[applied_stake] then return false end
+end
+'''
