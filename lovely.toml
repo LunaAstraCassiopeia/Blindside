@@ -1447,7 +1447,6 @@ if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effe
                         end
                     end
                 end
-                print(burned)
                 table.insert(cards, _cards[i])
                 if removed then
                     destroyed_cards[#destroyed_cards + 1] = cards[i]
