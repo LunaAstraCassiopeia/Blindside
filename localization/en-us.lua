@@ -4318,8 +4318,10 @@ return {
 			["stake_bld_green_deck"] = {
 				name = "Green Stake?",
 				text = {
-					"Skipping Jokers costs",
-					"{C:money}$2{} per {C:attention}Ante"
+					"After {C:attention}Ante 1{}, decrease",
+					"{C:attention}Joker{} rewards by {C:money}$2"
+					--[["Skipping Jokers costs",
+					"{C:money}$2{} per {C:attention}Ante"]]
 				}
 			},
 			["stake_bld_black_deck"] = {

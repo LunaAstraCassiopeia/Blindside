@@ -341,7 +341,7 @@ BLINDSIDE.Joker = SMODS.Blind:extend {
 
 BLINDSIDE.Joker.__index = function(self, key)
   if key == "dollars" then
-    return math.max(rawget(self, 'base_dollars') - (G.GAME.modifiers.enable_bld_less_joker_reward and 2 or 0), 0) 
+    return math.max(rawget(self, 'base_dollars') - ((G.GAME.modifiers.enable_bld_less_joker_reward and G.GAME.round_resets.ante and G.GAME.round_resets.ante > 1) and 2 or 0), 0) 
   end
   return rawget(BLINDSIDE.Joker, key) or SMODS.Blind[key]
 end
