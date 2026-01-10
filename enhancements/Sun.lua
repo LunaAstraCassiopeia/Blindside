@@ -7,7 +7,7 @@
             extra = {
                 money = 5,
                 value = 10,
-                money_up = 5,
+                money_up = 3,
                 x_mult_up = 0.45,
                 retain = true,
             }},
