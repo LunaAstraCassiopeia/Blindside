@@ -3409,7 +3409,7 @@ return {
 				["name"] = "The Nil",
 				["text"] = {
 					"{X:dark_edition,C:white}Faded{} {X:black,C:white}Cursed{}",
-					"Sets {C:mult}Mult{} to {C:attention}0",
+					"Sets {C:mult}Mult{} to {C:attention}#1#",
 				},
 			},
 			["m_bld_bill"] = {
