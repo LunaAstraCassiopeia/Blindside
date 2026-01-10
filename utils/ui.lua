@@ -939,7 +939,6 @@ end
             G.P_BLINDS[k] = nil
         end
         end
-        G.P_BLINDS = remove_nils(G.P_BLINDS)
         local ret = func()
 
         for k, v in pairs(removed) do
@@ -956,7 +955,6 @@ end
             G.P_BLINDS[k] = nil
         end
         end
-        G.P_BLINDS = remove_nils(G.P_BLINDS)
         local ret = func(args)
 
         for k, v in pairs(removed) do
@@ -965,7 +963,7 @@ end
         return ret
     end
     
-    local function wrap_without_blindtags(func)
+    local function wrap_without_blindtags(func, page)
         local removed = {}
         for k, v in pairs(G.P_TAGS) do
         if BLINDSIDE.is_blindside(v.key) then
@@ -973,23 +971,7 @@ end
             G.P_TAGS[k] = nil
         end
         end
-        local ret = func()
-
-        for k, v in pairs(removed) do
-        G.P_TAGS[k] = v
-        end
-        return ret
-    end
-    
-    local function wrap_without_blindtagspage(func,args)
-        local removed = {}
-        for k, v in pairs(G.P_TAGS) do
-        if BLINDSIDE.is_blindside(v.key) then
-            removed[k] = v
-            G.P_TAGS[k] = nil
-        end
-        end
-        local ret = func(args)
+        local ret = func(page)
 
         for k, v in pairs(removed) do
         G.P_TAGS[k] = v
@@ -1062,15 +1044,10 @@ end
     end
 
     local tag_ui_ref = create_UIBox_your_collection_tags_content
-    create_UIBox_your_collection_tags_content = function()
-        return wrap_without_blindtags(tag_ui_ref)
+    create_UIBox_your_collection_tags_content = function(page)
+        return wrap_without_blindtags(tag_ui_ref, page)
     end
     
-    local tags_page_ref = G.FUNCS.your_collection_tags_page
-    function G.FUNCS.your_collection_tags_page(args)
-        return wrap_without_blindtagspage(tags_page_ref,args)
-    end
-
     local joker_ui_seal = create_UIBox_your_collection_seals
     create_UIBox_your_collection_seals = function()
         return wrap_without_blindenhancement(joker_ui_seal)
