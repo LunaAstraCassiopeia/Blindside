@@ -1468,7 +1468,7 @@ return {
 				["name"] = "Cartoon",
 				["text"] = {
                     "Select {C:attention}#1#{} blinds,",
-                    "apply the {C:attention}right{} blind's",
+                    "copy the {C:attention}right{} blind's",
 					"{C:attention}Trim{} and {C:dark_edition}Edition",
                     "onto the {C:attention}left{} blind",
 				},
