@@ -15,7 +15,7 @@ SMODS.Voucher {
         badges[#badges+1] = create_badge(localize('k_relic'), G.C.RED, G.C.WHITE, 1.2 )
     end,
     credit = {
-        art = "N/A",
+        art = "AstraLuna",
         code = "AstraLuna",
         concept = "AstraLuna"
     },
