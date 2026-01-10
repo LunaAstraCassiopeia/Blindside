@@ -2492,7 +2492,8 @@ return {
 				["name"] = "The Meteor",
 				["text"] = {
 					{"{X:blue,C:white}Blue{}",
-					"{C:chips}+#1#{} Chips"},
+					"{C:chips}+#1#{} Chips,",
+					"{C:white,X:chips}X#2#{} Chips"},
 					{"Hand must",
 					"be {C:attention}Bet"},
 				},
@@ -2501,7 +2502,8 @@ return {
 				["name"] = "The Meteor",
 				["text"] = {
 					{"{X:blue,C:white}Blue{}",
-					"{C:chips}+#1#{} Chips"},
+					"{C:chips}+#1#{} Chips",
+					"{C:white,X:chips}X#2#{} Chips"},
 					{"Hand must be",
 					"{C:attention}Bet or {C:attention}Pair"},
 				},
