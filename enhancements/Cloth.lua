@@ -22,24 +22,24 @@
             end
         end,
         calculate = function(self, card, context)
-            if context.pre_discard and not context.hook then
-                card.ability.extra.text = nil
-                for i = 1, #context.full_hand do
+            if context.scoring_name then
+                card.ability.extra.text = context.scoring_name
+                --[[for i = 1, #context.full_hand do
                     if context.full_hand[i] == card and card.ability.extra.ikeeptrackofdiscards ~= G.GAME.current_round.discards_left then
                         card.ability.extra.text, _ = G.FUNCS.get_poker_hand_info(G.hand.highlighted)
                     end
-                end
+                end]]
             end
-            if context.pre_discard and not context.main_eval then
-                card.ability.extra.ikeeptrackofdiscards = G.GAME.current_round.discards_left
+            if context.discard and context.other_card == card and not context.hook and context.main_eval then
+                --card.ability.extra.ikeeptrackofdiscards = G.GAME.current_round.discards_left
                 if card.ability.extra.text then
                     return {
                         level_up = true,
                         level_up_hand = card.ability.extra.text
-                    }   
+                    }
                 end
             end
-            if context.discard and context.other_card == card and not card.ability.extra.upgraded then
+            if context.discard and context.other_card == card and not card.ability.extra.upgraded and not context.hook then
                 return {
                     burn = true
                 }
