@@ -457,7 +457,7 @@ BLINDSIDE.Joker({
     atlas = 'bld_joker',
     pos = {x=0, y=25},
     boss_colour = G.C.RED,
-    mult = 12,
+    mult = 10,
     base_dollars = 8,
     order = 14,
     boss = {min = 1},
