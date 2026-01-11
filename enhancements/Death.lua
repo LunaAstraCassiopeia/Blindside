@@ -41,11 +41,21 @@
                         card.ability.extra.victim = choose_stuff(choices, 1, pseudoseed('bld_death'))[1]
                     end
                 end
-            end
-
-            if card.ability.extra.victim and context.destroy_card == card.ability.extra.victim then
-                card.ability.extra.victim = nil
-                return {remove = true}
+                if card.ability.extra.victim then
+                    SMODS.calculate_context({remove_playing_cards = true, removed = {card.ability.extra.victim}, scoring_hand = context.scoring_hand})
+                    card.ability.extra.victim.destroyed = true
+                    G.E_MANAGER:add_event(Event({trigger = 'before', delay = 1, func = function()
+                        card.ability.extra.victim:start_dissolve()
+                        card_eval_status_text(
+                            card.ability.extra.victim,
+                            'extra',
+                            nil, nil, nil,
+                            {message = "Destroyed!", colour = G.C.ORANGE, instant = true}
+                        )
+                        delay(0.6)
+                        return true
+                    end}))
+                end
             end
         end,
         loc_vars = function(self, info_queue, card)
