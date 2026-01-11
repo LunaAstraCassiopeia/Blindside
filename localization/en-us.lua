@@ -3653,6 +3653,17 @@ return {
 					"{C:inactive}(Currently #2# time#3#)"},
 				},
 			},
+			["m_bld_trench"] = {
+				["name"] = "The Trench",
+				["text"] = {
+					{"{X:chips,C:white}Blue{}",
+					"Currently {X:chips,C:white}X#2#{} Chips"},
+					{"Gains {C:white,X:chips}X#1#{} Chips",
+					"when {C:attention}scored"},
+					{"{C:attention}Resets{} to {C:white,X:chips}X#3#",
+					"each round"},
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {

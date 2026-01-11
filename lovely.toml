@@ -2032,3 +2032,20 @@ if not silent then
 end
 '''
 match_indent = true
+
+# the trench reset
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = '''
+-- TARGET: effects after end of round evaluation
+'''
+match_indent = true
+position = 'after'
+payload = '''
+for i, card in pairs(G.playing_cards) do
+    if card.ability and card.ability.extra and card.ability.extra.xchips and SMODS.has_enhancement(card, 'm_bld_trench') then
+        card.ability.extra.xchips = card.ability.extra.xchipsbase
+    end
+end
+'''

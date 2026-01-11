@@ -138,6 +138,7 @@
         "m_bld_crimson_heart",
         "m_bld_verdant_leaf",
         "m_bld_bid",
+        --"m_bld_trench",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",
