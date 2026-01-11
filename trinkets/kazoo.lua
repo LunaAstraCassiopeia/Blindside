@@ -43,7 +43,6 @@
                 card.ability.extra.ikeeptrackofdiscards = G.GAME.current_round.discards_left
             end
             if context.discard and context.other_card == context.full_hand[#context.full_hand] then
-                print(card.ability.extra.reds .. "removed")
                 card.ability.extra.reds = 0
             end
         end

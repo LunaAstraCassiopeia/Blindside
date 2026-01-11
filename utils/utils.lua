@@ -627,6 +627,7 @@ function update_joker_hand_text(config, vals)
 end
 
 function Card:start_burn(cardarea, dissolve_colours, silent, dissolve_time_fac, no_juice)
+    if not self.destroyed then
     if next(find_joker('j_bld_crane')) and SMODS.pseudorandom_probability(self, pseudoseed('bld_crane'), 1, 2, 'bld_crane') then
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
@@ -647,7 +648,6 @@ function Card:start_burn(cardarea, dissolve_colours, silent, dissolve_time_fac, 
         else
             print("an error has occured")
             play_sound('card1', 0.85 + percent*0.2/100, 0.6*(vol or 1))
-            self = G.discard:draw_card_from(cardarea, stay_flipped, discarded_only)
             if self then drawn = true end
         end
         return true
@@ -720,7 +720,6 @@ function Card:start_burn(cardarea, dissolve_colours, silent, dissolve_time_fac, 
             G.exhaust:emplace(self, nil, stay_flipped)
         else
             print("an error has occured")
-            self = G.exhaust:draw_card_from(cardarea, stay_flipped, discarded_only)
             if self then drawn = true end
         end
         if not mute and drawn then
@@ -746,6 +745,7 @@ function Card:start_burn(cardarea, dissolve_colours, silent, dissolve_time_fac, 
 return true
 end
     }))
+end
 end
 
 
@@ -802,7 +802,7 @@ function BLINDSIDE.calculate_burning_cards(context, cards_burned, scoring_hand)
         local burned = nil
         --un-highlight all cards
         local in_scoring = scoring_hand and SMODS.in_scoring(card, context.scoring_hand)
-        if scoring_hand and in_scoring and not card.destroyed then 
+        if scoring_hand and in_scoring and not (card.destroyed or card.burned) then 
             -- Use index of card in scoring hand to determine pitch
             local m = 1
             for j, _card in pairs(scoring_hand) do

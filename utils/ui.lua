@@ -624,7 +624,6 @@ function blind_decks_ui()
   local ordered_names = {}
   for k, v in ipairs(deck_pool) do
       ordered_names[#ordered_names+1] = v.key
-      print(v.key)
   end
   
   local t = create_UIBox_generic_options({ 

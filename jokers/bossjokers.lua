@@ -597,18 +597,18 @@ BLINDSIDE.Joker({
     end,
     calculate = function(self, blind, context)
         if context.after and not G.GAME.blind.disabled then
-            BLINDSIDE.chipsmodify(0, 0, 2, 0, true)
-            G.GAME.playing_with_fire_num = G.GAME.playing_with_fire_num + 1
-            G.GAME.playing_with_fire = G.GAME.playing_with_fire + (G.GAME.used_vouchers.v_bld_swearjar and 2 or 1)
-            G.GAME.playing_with_fire_each = G.GAME.used_vouchers.v_bld_swearjar and "bld_playing_with_fire_each_3" or "bld_playing_with_fire_each_2"
             if blind.original_mult*blind.original_chips < G.GAME.chips + SMODS.calculate_round_score() then
-                print(G.GAME.chips + SMODS.calculate_round_score())
-            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function()
-                play_sound('glass'..math.random(1, 6), math.random()*0.2 + 0.9,0.5)
-                blind.disabled = true
-                blind:set_text()
-                blind:wiggle()
-            return true end }))
+                G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function()
+                    play_sound('glass'..math.random(1, 6), math.random()*0.2 + 0.9,0.5)
+                    blind.disabled = true
+                    blind:set_text()
+                    blind:wiggle()
+                return true end }))
+            else
+                BLINDSIDE.chipsmodify(0, 0, 2, 0, true)
+                G.GAME.playing_with_fire_num = G.GAME.playing_with_fire_num + 1
+                G.GAME.playing_with_fire = G.GAME.playing_with_fire + (G.GAME.used_vouchers.v_bld_swearjar and 2 or 1)
+                G.GAME.playing_with_fire_each = G.GAME.used_vouchers.v_bld_swearjar and "bld_playing_with_fire_each_3" or "bld_playing_with_fire_each_2"
             end
         end
     end,

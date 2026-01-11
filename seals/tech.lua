@@ -29,7 +29,6 @@ SMODS.Seal {
                 blocking = false,
                 func = function()
                     if (G.STATE == G.STATES.SELECTING_HAND or G.STATE == G.STATES.SMODS_BOOSTER_OPENED) and G.GAME.tech_draw_buffer > 0 then
-                        --print("----------- tech draw")
                         G.FUNCS.blind_draw_from_deck_to_hand(math.floor(G.GAME.tech_draw_buffer))
                         G.GAME.tech_draw_buffer = 0
                         return true

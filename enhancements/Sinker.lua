@@ -29,7 +29,6 @@
             end
 
             if card.ability.extra.upgraded and context.discard and context.other_card == card and context.main_eval then
-                print(inspect(context))
                 G.E_MANAGER:add_event(Event({
                     func = function ()
                         card:juice_up()

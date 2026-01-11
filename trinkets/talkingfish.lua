@@ -28,7 +28,6 @@
                         blues = blues + 1
                     end
                 end
-                print(blues)
                 if blues >= 2 then
                     return {
                         extra = {
