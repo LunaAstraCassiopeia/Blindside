@@ -14,7 +14,7 @@
         hues = {"Blue"},
         rare = true,
         credit = {
-            art = "Gappie",
+            art = "Zayden",
             code = "base4",
             concept = "base4"
         },
