@@ -140,6 +140,7 @@
         "m_bld_bid",
         "m_bld_trench",
         "m_bld_square",
+        "m_bld_uno",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",

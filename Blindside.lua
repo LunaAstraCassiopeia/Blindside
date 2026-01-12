@@ -441,6 +441,7 @@ local card_list = {
     "Bid",
     "Trench",
     "Square",
+    "Uno",
 
     "Top",
     "Path",

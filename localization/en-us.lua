@@ -3673,6 +3673,15 @@ return {
 					"exactly {C:attention}4{} Blinds"
 				},
 			},
+			["m_bld_uno"] = {
+				["name"] = "The Uno",
+				["text"] = {
+					{"{X:mult,C:white}Red{}",
+					"{X:mult,C:white}X#1#{} Mult"},
+					{"{C:white,X:mult}-X#2#{} Mult for every",
+					"other {C:attention}scoring Blind"}
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {
