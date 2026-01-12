@@ -442,6 +442,7 @@ local card_list = {
     "Trench",
     "Square",
     "Uno",
+    "Monolith",
 
     "Top",
     "Path",

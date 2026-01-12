@@ -141,6 +141,7 @@
         "m_bld_trench",
         "m_bld_square",
         "m_bld_uno",
+        "m_bld_monolith",
         "e_bld_finish",
         "e_bld_blue",
         "e_bld_mint",

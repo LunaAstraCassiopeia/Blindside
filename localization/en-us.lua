@@ -70,6 +70,7 @@ return {
 			['k_bld_inactive'] = "Inactive",
 			['k_bld_ate_mineral'] = "Crunch!",
 			['bld_idol_placeholder'] = "[most common blind]",
+			['k_downgrade_ex'] = "Downgrade!",
 			},
 		["v_dictionary"] = {
 			["a_rmult"] = "-#1#",
@@ -3680,6 +3681,18 @@ return {
 					"{X:mult,C:white}X#1#{} Mult"},
 					{"{C:white,X:mult}-X#2#{} Mult for every",
 					"other {C:attention}scoring Blind"}
+				},
+			},
+			["m_bld_monolith"] = {
+				["name"] = "The Monolith",
+				["text"] = {
+					{"{X:purple,C:white}Purple{}",
+					"Currently {C:white,X:mult}X#1#{} Mult"},
+					{"When played, if poker",
+					"hand is {C:attention}most played{},",
+					"loses {C:white,X:mult}-X#3#{} Mult"},
+					{"Otherwise, gains",
+					"{C:white,X:mult}+X#2#{} Mult"},
 				},
 			},
 		},
