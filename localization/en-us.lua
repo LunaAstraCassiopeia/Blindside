@@ -1112,7 +1112,7 @@ return {
 			["c_bld_arengeetwo"] = {
 				["name"] = "Arengee",
 				["text"] = {
-                    "{C:money}+#3#${}",
+                    "{C:money}+$#3#{}",
 					"{C:inactive}(Changes each hand)",
                     "{C:inactive}(#1#/#2# Rounds){}"
 				},
@@ -1171,7 +1171,7 @@ return {
 				["text"] = {
 					"Destroy {C:attention}#1#{} random",
 					"Blinds held in hand",
-					"and gain {C:money}#2#$",
+					"and gain {C:money}$#2#",
 				},
 			},
 			["c_bld_pentagram"] = {
@@ -1343,7 +1343,7 @@ return {
 			["c_bld_fantasy"] = {
 				["name"] = "Fantasy",
 				["text"] = {
-					"Gives {C:money}#2#${} for each",
+					"Gives {C:money}$#2#{} for each",
 					"unique hue in hand",
 					"{C:inactive}(Currently {C:money}$#1#{C:inactive})"
 				},
@@ -2068,7 +2068,7 @@ return {
 					"{C:mult}+#2#{} Mult if played",
 					"{C:attention}poker hand{} is most",
 					"played this run"},
-					{"Otherwise, {C:money}+#1#${}"}
+					{"Otherwise, {C:money}+$#1#{}"}
 				},
 			},
 			["m_bld_ox_upgraded"] = {
@@ -2078,7 +2078,7 @@ return {
 					"{C:mult}+#2#{} Mult if played",
 					"{C:attention}poker hand{} is most",
 					"played this run"},
-					{"Otherwise, {C:money}+#1#${}"},
+					{"Otherwise, {C:money}+$#1#{}"},
 					{"Also scores when",
 					"{C:attention}held in hand"}
 				},
@@ -2325,7 +2325,7 @@ return {
 				["name"] = "The Ore",
 				["text"] = {
 					{"{X:money,C:white}Yellow{}",
-					"{C:money}+#1#${} and creates",
+					"{C:money}+$#1#{} and creates",
 					"a {C:attention}Max Tag"},
 					{"{C:attention}Burns"},
 				},
@@ -2334,7 +2334,7 @@ return {
 				["name"] = "The Paint",
 				["text"] = {
 					"{X:money,C:white}Yellow{}",
-					"{C:money}+#1#${} for every",
+					"{C:money}+$#1#{} for every",
 					"{C:attention}2 Tags{} held",
 				},
 			},
@@ -2342,7 +2342,7 @@ return {
 				["name"] = "The Paint",
 				["text"] = {
 					"{X:money,C:white}Yellow{}",
-					"{C:money}+#1#${} for every",
+					"{C:money}+$#1#{} for every",
 					"{C:attention}Tag{} held",
 				},
 			},
@@ -2407,7 +2407,7 @@ return {
 				["name"] = "The Window",
 				["text"] = {
 					{"{X:dark_edition,C:white}Faded{}",
-					"{C:money}+#1#${}"},
+					"{C:money}+$#1#{}"},
 					{"{C:red}Debuffs{} all",
 					"scoring {X:money,C:white}Yellow{} Blinds"},
 				},
@@ -2436,7 +2436,7 @@ return {
 				["name"] = "The Pot",
 				["text"] = {
 					"{X:money,C:white}Yellow{}",
-					"{C:money}+#1#${} when scored",
+					"{C:money}+$#1#{} when scored",
 					"or {C:attention}held in hand",
 				},
 			},
@@ -2445,7 +2445,7 @@ return {
 				["text"] = {
 					"{X:money,C:white}Yellow{}",
 					"{C:mult}+#1#{} Mult",
-					"{C:money}-#2#${}",
+					"{C:money}-$#2#{}",
 				},
 			},
 			["m_bld_eye"] = {
@@ -2515,7 +2515,7 @@ return {
 				["text"] = {
 					"{X:blue,C:white}Blue{} {X:money,C:white}Yellow",
 					"{C:chips}+#1#{} Chips for",
-					"every {C:money}#3#${} held",
+					"every {C:money}$#3#{} held",
 					"{C:inactive}(Currently: {C:blue}+#2#{C:inactive} Chips)",
 				},
 			},
@@ -2638,7 +2638,7 @@ return {
 				["name"] = "The Tooth",
 				["text"] = {
 					"{X:red,C:white}Red{}",
-					"{C:money}+#1#${} for each Blind",
+					"{C:money}+$#1#{} for each Blind",
 					"in {C:attention}played hand",
 				},
 			},
@@ -2646,7 +2646,7 @@ return {
 				["name"] = "The Tooth",
 				["text"] = {
 					"{X:red,C:white}Red{}",
-					"{C:money}+#1#${} and {C:mult}+#2# Mult{}",
+					"{C:money}+$#1#{} and {C:mult}+#2# Mult{}",
 					"for each Blind",
 					"in {C:attention}played hand",
 				},
@@ -2655,7 +2655,7 @@ return {
 				["name"] = "The Flint",
 				["text"] = {
 					{"{X:money,C:white}Yellow{}",
-					"{C:money}+#2#${} when scored"},
+					"{C:money}+$#2#{} when scored"},
 					{"{C:mult}+#1#{} Mult while",
 					"{C:attention}held in hand{}"},
 				},
@@ -2776,7 +2776,7 @@ return {
 					{"{X:money,C:white}Yellow{}",
 					"{C:white,X:mult}X#1#{} Mult when",
 					"{C:attention}held in hand"},
-					{"{C:money}+#2#${} when {C:attention}held in",
+					{"{C:money}+$#2#{} when {C:attention}held in",
 					"{C:attention}hand{} at end",
 					"of round"},
 					{"{C:green}Retained"}
@@ -3058,7 +3058,7 @@ return {
 				["name"] = "The Spear",
 				["text"] = {
 					{"{X:mult,C:white}Red{} {X:money,C:white}Yellow{}",
-					"{C:money}+#1#${}"},
+					"{C:money}+$#1#{}"},
 					{"If scoring hand",
 					"contains at least",
 					"3 Blinds, creates a",
@@ -3884,7 +3884,7 @@ return {
 				["name"] = "Scratch Ticket",
 				["text"] = {
 					{"Each hand, {C:green}#2# in #3#{}",
-					"chance for {C:money}+#1#${}"},
+					"chance for {C:money}+$#1#{}"},
 					{"Payout chance increases",
 					"by {C:green}+1{} for each scoring",
 					"{X:green,C:white}Green{} Blind"},
@@ -4016,7 +4016,7 @@ return {
 					{"Creates a {C:attention}Strike Tag{}",
 					"when Joker is selected"},
 					{"{C:attention}Hunter{} Blinds always",
-					"give at least {C:money}+#1#${}"},
+					"give at least {C:money}+$#1#{}"},
 				}
 			},
 			['j_bld_bracelet'] = {
@@ -4040,7 +4040,7 @@ return {
 			['j_bld_dicejail'] = {
 				["name"] = "Dice Jail",
 				["text"] = {
-					"{C:money}+#1#${} when a",
+					"{C:money}+$#1#{} when a",
 					"probability fails",
 					"on a Blind"
 				}
@@ -4086,7 +4086,7 @@ return {
 				["name"] = "Piggy Bank",
 				["text"] = {
 					{"When {C:attention}Joker{} is selected,",
-					"gain {C:money}+#1#${}"},
+					"gain {C:money}+$#1#{}"},
 					{"When a {C:attention}Trinket{} is bought,",
                     "{S:1.1,C:red,E:2}self destructs{}"}
 				}
@@ -4353,7 +4353,7 @@ return {
 			['e_bld_mint'] = {
 				name = "Mint",
 				text = {
-					"{C:money}+#1#${} when scored",
+					"{C:money}+$#1#{} when scored",
 					"or {C:attention}held in hand",
 				}
 			},
@@ -4511,7 +4511,7 @@ return {
 			["bld_hunter_seal"] = {
 				["name"] = "Hunter Blind",
 				["text"] = {
-					"{C:money}+#1#${} when scored",
+					"{C:money}+$#1#{} when scored",
 					"during {C:attention}Boss Joker"
 				}
 			},
