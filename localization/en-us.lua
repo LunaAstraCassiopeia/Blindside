@@ -3708,8 +3708,9 @@ return {
 			['j_bld_taglock'] = {
 				["name"] = "Taglock",
 				["text"] = {
-					"Freeze all {C:attention}Round Tags",
-					"until start of {C:attention}Boss Joker"
+					"{C:attention}Round Tags{} are not",
+					"consumed until end",
+					"of {C:attention}Boss Joker"
 				}
 			},
 			['j_bld_miniature'] = {
