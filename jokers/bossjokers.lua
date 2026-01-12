@@ -290,14 +290,10 @@ BLINDSIDE.Joker({
     collection_loc_vars = function(self)
         return { vars = { '1', '3' } }
     end,
-    calculate = function(self, blind, context)
-        if not blind.disabled then
-            if context.stay_flipped and context.to_area == G.hand and
-                SMODS.pseudorandom_probability(blind, 'pareidolia', 1, 3) then
-                return {
-                    stay_flipped = true
-                }
-            end
+    stay_flipped = function(self, to, card, from)
+        if to == G.hand and
+            SMODS.pseudorandom_probability(blind, 'pareidolia', 1, 3) then
+            return true
         end
     end,
 })

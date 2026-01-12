@@ -639,6 +639,9 @@ function Card:start_burn(cardarea, dissolve_colours, silent, dissolve_time_fac, 
             if cardarea then self = cardarea:remove_card(self) end
             if self then drawn = true end
             local stay_flipped = G.GAME and G.GAME.blind and G.GAME.blind:stay_flipped(G.exhaust, self, G.play)
+            if not stay_flipped then
+                stay_flipped = G.GAME and G.GAME.blindassist and G.GAME.blindassist:stay_flipped(to, card, from)
+            end
             if G.GAME.modifiers.flipped_cards and to == G.hand then
                 if pseudorandom(pseudoseed('flipped_card')) < 1/G.GAME.modifiers.flipped_cards then
                     stay_flipped = true

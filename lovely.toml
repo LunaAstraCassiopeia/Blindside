@@ -2049,3 +2049,33 @@ for i, card in pairs(G.playing_cards) do
     end
 end
 '''
+
+# pareidolia perkeo
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''
+local stay_flipped = G.GAME and G.GAME.blind and G.GAME.blind:stay_flipped(to, card, from)
+'''
+match_indent = true
+position = 'after'
+payload = '''
+                if not stay_flipped then
+                    stay_flipped = G.GAME and G.GAME.blindassist and G.GAME.blindassist:stay_flipped(to, card, from)
+                end
+'''
+
+# pareidolia perkeo
+[[patches]]
+[patches.pattern]
+target = 'cardarea.lua'
+pattern = '''
+local stay_flipped = G.GAME and G.GAME.blind and G.GAME.blind:stay_flipped(self, card, area)
+'''
+match_indent = true
+position = 'after'
+payload = '''
+                if not stay_flipped then
+                    stay_flipped = G.GAME and G.GAME.blindassist and G.GAME.blindassist:stay_flipped(to, card, from)
+                end
+'''
