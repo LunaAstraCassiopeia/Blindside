@@ -168,7 +168,8 @@ BLINDSIDE.Blind = SMODS.Enhancement:extend {
             end
             card:set_debuff(true)
         end
-    end
+    end,
+    blindside_blind = true,
 }
 
 function BLINDSIDE.Blind:set_params()
@@ -251,6 +252,7 @@ end
 ---@ field defeat_joker? fun(self: BLINDSIDE.Joker) Will be called after defeat. Use as if it were defeat.
 ---@ field pool_override? fun(self: BLINDSIDE.Joker) Will be called in the middle of in_pool. Use as if it were in_pool.
 BLINDSIDE.Joker = SMODS.Blind:extend {
+    blindside_joker = true,
     in_pool = function(self, args)
         if self.is_assistant then
             return false
@@ -438,6 +440,9 @@ local card_list = {
     "Loop",
     "Bid",
     "Trench",
+    "Square",
+    "Uno",
+    "Monolith",
 
     "Top",
     "Path",

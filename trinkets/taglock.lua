@@ -3,7 +3,7 @@
         atlas = 'bld_trinkets',
         pos = {x = 1, y = 0},
         rarity = 'bld_keepsake',
-        cost = 5,
+        cost = 12,
         blueprint_compat = true,
         eternal_compat = true,
         credit = {

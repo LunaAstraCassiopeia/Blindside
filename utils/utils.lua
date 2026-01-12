@@ -1,6 +1,6 @@
     function BLINDSIDE.is_blindside(string)
         for _, v in ipairs(SMODS.ObjectTypes.bld_obj_blindside.cards) do
-            if v == string or (G.P_CENTERS[string] and G.P_CENTERS[string].hues) then
+            if v == string or (G.P_CENTERS[string] and G.P_CENTERS[string].blindside_blind) or (G.P_BLINDS[string] and G.P_BLINDS[string].blindside_joker) then
                 return true
             end
         end

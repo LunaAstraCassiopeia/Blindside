@@ -70,6 +70,7 @@ return {
 			['k_bld_inactive'] = "Inactive",
 			['k_bld_ate_mineral'] = "Crunch!",
 			['bld_idol_placeholder'] = "[most common blind]",
+			['k_downgrade_ex'] = "Downgrade!",
 			},
 		["v_dictionary"] = {
 			["a_rmult"] = "-#1#",
@@ -3664,6 +3665,36 @@ return {
 					"each round"},
 				},
 			},
+			["m_bld_square"] = {
+				["name"] = "The Square",
+				["text"] = {
+					"{X:mult,C:white}Red{}",
+					"{X:mult,C:white}X#1#{} Mult if",
+					"{C:attention}scoring hand{} contains",
+					"exactly {C:attention}4{} Blinds"
+				},
+			},
+			["m_bld_uno"] = {
+				["name"] = "The Uno",
+				["text"] = {
+					{"{X:mult,C:white}Red{}",
+					"{X:mult,C:white}X#1#{} Mult"},
+					{"{C:white,X:mult}-X#2#{} Mult for every",
+					"other {C:attention}scoring Blind"}
+				},
+			},
+			["m_bld_monolith"] = {
+				["name"] = "The Monolith",
+				["text"] = {
+					{"{X:purple,C:white}Purple{}",
+					"Currently {C:white,X:mult}X#1#{} Mult"},
+					{"When played, if poker",
+					"hand is {C:attention}most played{},",
+					"loses {C:white,X:mult}-X#3#{} Mult"},
+					{"Otherwise, gains",
+					"{C:white,X:mult}+X#2#{} Mult"},
+				},
+			},
 		},
 		['Joker'] = {
 			['j_bld_paycheck'] = {
@@ -3677,8 +3708,9 @@ return {
 			['j_bld_taglock'] = {
 				["name"] = "Taglock",
 				["text"] = {
-					"Freeze all {C:attention}Round Tags",
-					"until start of {C:attention}Boss Joker"
+					"{C:attention}Round Tags{} are not",
+					"consumed until end",
+					"of {C:attention}Boss Joker"
 				}
 			},
 			['j_bld_miniature'] = {
