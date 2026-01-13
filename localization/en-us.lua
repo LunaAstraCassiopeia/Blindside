@@ -2448,8 +2448,9 @@ return {
 				["name"] = "The Ore",
 				["text"] = {
 					{"{X:money,C:white}Yellow{}",
-					"{C:money}+$#1#{} and creates",
-					"a {C:attention}Max Tag"},
+					"{C:money}+$#1#{}"},
+					{"Before hand scores,",
+					"creates a {C:attention}Max Tag"},
 					{"{C:attention}Burns"},
 				},
 			},
@@ -3156,9 +3157,10 @@ return {
 			["m_bld_ball"] = {
 				["name"] = "The Ball",
 				["text"] = {
-					"{X:purple,C:white}Purple{}",
+					{"{X:purple,C:white}Purple{}",
 					"Creates a {C:attention}Toss Tag",
-					"and {C:attention}Burns",
+					"before hand scores"},
+					{"{C:attention}Burns"},
 				},
 			},
 			["m_bld_ball_upgraded"] = {
