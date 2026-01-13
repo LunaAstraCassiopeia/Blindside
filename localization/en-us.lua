@@ -69,7 +69,7 @@ return {
 			['bld_neon_discards'] = 'Discards, Neon Tag ($5 each)',
 			['k_bld_inactive'] = "Inactive",
 			['k_bld_ate_mineral'] = "Crunch!",
-			['bld_idol_placeholder'] = "[most common blind]",
+			['bld_idol_placeholder'] = "[most played blind]",
 			['k_downgrade_ex'] = "Downgrade!",
 			},
 		["v_dictionary"] = {

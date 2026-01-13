@@ -533,19 +533,20 @@ BLINDSIDE.Joker({
         end
     end,
     loc_vars = function (self)
-        if G.playing_cards and #G.playing_cards > 0 then
+        if BLINDSIDE.get_most_common_blind() then
             return {
                 vars = {
                     localize({key = BLINDSIDE.get_most_common_blind(), type = 'name_text', set = 'Enhanced'})
                 }
             }
-        else
-            return {
-                vars = {
-                    localize('bld_idol_placeholder')
-                }
-            }
         end
+    end,
+    collection_loc_vars = function(self)
+        return {
+            vars = {
+                localize('bld_idol_placeholder')
+            }
+        }
     end,
     set_joker = function ()
         G.GAME.bld_idol_blind = BLINDSIDE.get_most_common_blind()
