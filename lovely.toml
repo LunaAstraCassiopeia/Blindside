@@ -1198,7 +1198,7 @@ match_indent = true
 position = 'after'
 payload = '''
 if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
-self.GAME.current_round.trinket = BLINDSIDE.get_next_trinket()
+self.GAME.current_round.trinket = ((G.SETTINGS.blindside_tutorial_progress or {}).forced_shop) or BLINDSIDE.get_next_trinket()
 G.GAME.round_resets.tags_bought = 0 
 end
 '''
@@ -2078,4 +2078,82 @@ payload = '''
                 if not stay_flipped then
                     stay_flipped = G.GAME and G.GAME.blindassist and G.GAME.blindassist:stay_flipped(to, card, from)
                 end
+'''
+
+# TUTORIAL - Start Run
+[[patches]]
+[patches.pattern]
+target = '-- disable functions/UI_definitions.lua'
+pattern = '''
+UIBox_button{id = 'main_menu_play', button = not G.SETTINGS.tutorial_complete and "start_run" or "setup_run", colour = G.C.BLUE, minw = 3.65, minh = 1.55, label = {localize('b_play_cap')}, scale = text_scale*2, col = true},
+'''
+match_indent = true
+position = 'at'
+payload = '''
+UIBox_button{id = 'main_menu_play', button = (not G.SETTINGS.tutorial_complete and "start_run") or (not G.SETTINGS.blindside_tutorial_complete and "start_blind_run") or ("setup_run"), colour = G.C.BLUE, minw = 3.65, minh = 1.55, label = {localize('b_play_cap')}, scale = text_scale*2, col = true},
+'''
+
+# TUTORIAL - Tutorial Controller
+[[patches]]
+[patches.pattern]
+target = '-- disable game.lua'
+pattern = '''
+if not G.SETTINGS.tutorial_complete then G.FUNCS.tutorial_controller() end
+'''
+match_indent = true
+position = 'after'
+payload = '''
+if not G.SETTINGS.blindside_tutorial_complete then G.FUNCS.blindside_tutorial_controller() end
+'''
+
+# TUTORIAL - No skips
+[[patches]]
+[patches.pattern]
+target = '-- disable functions/button_callbacks.lua'
+pattern = '''
+if _tag_container and not G.SETTINGS.tutorial_complete and not G.SETTINGS.tutorial_progress.completed_parts['shop_1'] then _tag_container.states.visible = false
+'''
+match_indent = true
+position = 'after'
+payload = '''
+elseif _tag_container and not G.SETTINGS.blindside_tutorial_complete and not G.SETTINGS.blindside_tutorial_progress.completed_parts['shop_3'] then _tag_container.states.visible = false
+'''
+
+# TUTORIAL - Forced generation
+[[patches]]
+[patches.pattern]
+target = '-- disable game.lua'
+pattern = '''
+local forced_voucher = (G.SETTINGS.tutorial_progress or {}).forced_voucher
+'''
+match_indent = true
+position = 'after'
+payload = '''
+forced_voucher = (G.SETTINGS.blindside_tutorial_progress or {}).forced_voucher
+'''
+
+# TUTORIAL - Forced generation
+[[patches]]
+[patches.pattern]
+target = '-- disable game.lua'
+pattern = '''
+self.GAME.round_resets.blind_tags.Small = G.SETTINGS.tutorial_progress and G.SETTINGS.tutorial_progress.forced_tags and G.SETTINGS.tutorial_progress.forced_tags[1] or get_next_tag_key()
+'''
+match_indent = true
+position = 'at'
+payload = '''
+self.GAME.round_resets.blind_tags.Small = G.SETTINGS.tutorial_progress and G.SETTINGS.tutorial_progress.forced_tags and G.SETTINGS.tutorial_progress.forced_tags[1] or (G.SETTINGS.blindside_tutorial_progress and G.SETTINGS.blindside_tutorial_progress.forced_tags and G.SETTINGS.blindside_tutorial_progress.forced_tags[1]) or get_next_tag_key()
+'''
+
+# TUTORIAL - Forced generation
+[[patches]]
+[patches.pattern]
+target = '-- disable game.lua'
+pattern = '''
+self.GAME.round_resets.blind_tags.Big = G.SETTINGS.tutorial_progress and G.SETTINGS.tutorial_progress.forced_tags and G.SETTINGS.tutorial_progress.forced_tags[2] or get_next_tag_key()
+'''
+match_indent = true
+position = 'at'
+payload = '''
+self.GAME.round_resets.blind_tags.Big = G.SETTINGS.tutorial_progress and G.SETTINGS.tutorial_progress.forced_tags and G.SETTINGS.tutorial_progress.forced_tags[2] or (G.SETTINGS.blindside_tutorial_progress and G.SETTINGS.blindside_tutorial_progress.forced_tags and G.SETTINGS.blindside_tutorial_progress.forced_tags[2]) or get_next_tag_key()
 '''

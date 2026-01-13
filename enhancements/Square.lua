@@ -19,7 +19,7 @@
             end
         end,
         credit = {
-            art = "TarkanTheDragonBird",
+            art = "AstraLuna",
             code = "base4",
             concept = "TarkanTheDragonBird"
         },
