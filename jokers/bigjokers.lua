@@ -49,6 +49,31 @@ BLINDSIDE.Joker({
             end
         end
     end,
+    joker_defeat = function()
+        G.E_MANAGER:add_event(Event({
+            func = function ()
+                G.E_MANAGER:add_event(Event({
+                    func = function ()
+                        G.E_MANAGER:add_event(Event({
+                            func = function ()
+                                G.E_MANAGER:add_event(Event({
+                                    func = function ()
+                                        G.GAME.blind.T.r = 0
+                                        G.GAME.blind.children.animatedSprite.pinch.x = false
+                                        G.GAME.blind.states.drag.is = false
+                                        return true
+                                    end
+                                }))
+                                return true
+                            end
+                        }))
+                        return true
+                    end
+                }))
+                return true
+            end
+        }))
+    end
 })
 
 BLINDSIDE.Joker({
@@ -102,9 +127,31 @@ BLINDSIDE.Joker({
             end
         end
     end,
-    defeat_joker = function()
-        G.GAME.gros_xmult = 1.4
-    end,
+    joker_defeat = function()
+        G.E_MANAGER:add_event(Event({
+            func = function ()
+                G.E_MANAGER:add_event(Event({
+                    func = function ()
+                        G.E_MANAGER:add_event(Event({
+                            func = function ()
+                                G.E_MANAGER:add_event(Event({
+                                    func = function ()
+                                        G.GAME.blind.T.r = 0
+                                        G.GAME.blind.children.animatedSprite.pinch.x = false
+                                        G.GAME.blind.states.drag.is = false
+                                        return true
+                                    end
+                                }))
+                                return true
+                            end
+                        }))
+                        return true
+                    end
+                }))
+                return true
+            end
+        }))
+    end
 })
 
 BLINDSIDE.Joker({

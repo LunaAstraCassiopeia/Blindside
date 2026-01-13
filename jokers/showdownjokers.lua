@@ -70,7 +70,7 @@ BLINDSIDE.Joker({
         return false
         end
     end,
-    set_joker = function ()
+    joker_set = function ()
         for i = 1, 8, 1 do
             local enhancement = 'm_bld_king'
             local card = SMODS.create_card { set = "Base", enhancement = enhancement, area = G.discard }
@@ -171,7 +171,7 @@ BLINDSIDE.Joker({
     base_dollars = 10,
     hands = {},
     boss = {min = 1, showdown = true},
-    set_joker = function(self)
+    joker_set = function(self)
         self.hands = {}
         for _, poker_hand in ipairs(G.handlist) do
             self.hands[poker_hand] = false
@@ -375,7 +375,7 @@ BLINDSIDE.Joker({
             end
         end
     end,
-    defeat_joker = function()
+    joker_defeat = function()
         for key, value in pairs(G.playing_cards) do
             if value.original then
                 value:set_ability(value.original.config.center)
@@ -453,7 +453,7 @@ BLINDSIDE.Joker({
             joker.ability.canio_debuffed = nil
         end
     end,
-    defeat_joker = function()
+    joker_defeat = function()
         for _, joker in ipairs(G.jokers.cards) do
             joker.ability.canio_debuffed = nil
         end

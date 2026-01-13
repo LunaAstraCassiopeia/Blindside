@@ -94,14 +94,14 @@ BLINDSIDE.Joker({
     order = 15,
     boss = {min = 1},
     active = true,
-    set_joker = function(self)
+    joker_set = function(self)
         BLINDSIDE.chipsmodify(0, ((G.GAME.blind.basechips*(2))), 0, 0, true)
         G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
             BLINDSIDE.chipsupdate()
         return true end }))
 		G.hand:change_size(2)
     end,
-    defeat_joker = function(self)
+    joker_defeat = function(self)
 		G.hand:change_size(-2)
     end,
 })
@@ -236,7 +236,7 @@ BLINDSIDE.Joker({
     order = 20,
     boss = {min = 1},
     active = true,
-    set_joker = function(self)
+    joker_set = function(self)
         self.hands = {}
         for _, poker_hand in ipairs(G.handlist) do
             self.hands[poker_hand] = false
@@ -347,7 +347,7 @@ BLINDSIDE.Joker({
     order = 24,
     boss = {min = 2},
     active = true,
-    set_joker = function(self)
+    joker_set = function(self)
         ease_hands_played(- G.GAME.round_resets.hands + 2)
         ease_discard(3)
     end,
@@ -422,7 +422,7 @@ BLINDSIDE.Joker({
             end
         end
     end,
-    set_joker = function()
+    joker_set = function()
         for i = 1, 2+2*G.GAME.round_resets.ante, 1 do
             local beta = SMODS.create_card { set = "Base", enhancement = "m_bld_tablet", area = G.discard }
             G.playing_card = (G.playing_card and G.playing_card + 1) or 1
@@ -439,7 +439,7 @@ BLINDSIDE.Joker({
             }))
         end
     end,
-    defeat_joker = function()
+    joker_defeat = function()
         for key, value in pairs(G.playing_cards) do
             if SMODS.has_enhancement(value, 'm_bld_tablet') then
                 value:start_dissolve()
@@ -548,7 +548,7 @@ BLINDSIDE.Joker({
             }
         }
     end,
-    set_joker = function ()
+    joker_set = function ()
         G.GAME.bld_idol_blind = BLINDSIDE.get_most_common_blind()
     end
 })
@@ -563,7 +563,7 @@ BLINDSIDE.Joker({
     order = 17,
     boss = {min = 1},
     active = true,
-    set_joker = function(self)
+    joker_set = function(self)
         if G.GAME.round_resets.blind_states.Small == 'Skipped' or G.GAME.round_resets.blind_states.Big == 'Skipped' then
             G.GAME.playing_with_fire_num = G.GAME.playing_with_fire_num + 1
             G.GAME.playing_with_fire_each = G.GAME.used_vouchers.v_bld_swearjar and "bld_playing_with_fire_each_big_joker_2" or "bld_playing_with_fire_each_big_joker_1"
@@ -633,7 +633,7 @@ BLINDSIDE.Joker({
     order = 20,
     boss = {min = 2},
     active = true,
-    set_joker = function ()
+    joker_set = function ()
         local times = math.floor(G.GAME.dollars/8)
         if times > 0 then
             G.GAME.playing_with_fire_num = G.GAME.playing_with_fire_num + times
@@ -704,7 +704,7 @@ BLINDSIDE.Joker({
     order = 22,
     boss = {min = 2},
     active = true,
-    set_joker = function ()
+    joker_set = function ()
         for i = 1, G.GAME.round_resets.ante * 2 + 8, 1 do
             local enhancement = pseudorandom_element({'m_bld_sharp', 'm_bld_adder', 'm_bld_flip', 'm_bld_bite', 'm_bld_pot', 'm_bld_sharp', 'm_bld_adder', 'm_bld_flip', 'm_bld_bite', 'm_bld_pot', 'm_bld_blank'}, pseudoseed('bld_certificate'))
             local card = SMODS.create_card { set = "Base", enhancement = enhancement, area = G.discard }
@@ -723,7 +723,7 @@ BLINDSIDE.Joker({
             card.ability.extra.certificate_generated = true
         end
     end,
-    defeat_joker = function ()
+    joker_defeat = function ()
         for key, value in pairs(G.playing_cards) do
             if value.ability.extra.certificate_generated then
                 value:start_dissolve()
