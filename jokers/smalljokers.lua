@@ -27,7 +27,7 @@ BLINDSIDE.Joker({
             BLINDSIDE.chipsmodify(1 - (hasWildCanvas and 0.5 or 0), 0, 0)
         end
     end,
-    defeat_joker = function(self)
+    joker_defeat = function(self)
         BLINDSIDE.inc_stats('small_joker_defeat', self.key, true)
     end
 })
@@ -97,7 +97,7 @@ BLINDSIDE.Joker({
             end
         end
     end,
-    defeat_joker = function(self)
+    joker_defeat = function(self)
         BLINDSIDE.inc_stats('small_joker_defeat', self.key, true)
     end
 })
@@ -169,7 +169,7 @@ BLINDSIDE.Joker({
             end
         end
     end,
-    defeat_joker = function(self)
+    joker_defeat = function(self)
         BLINDSIDE.inc_stats('small_joker_defeat', self.key, true)
     end
 })
@@ -241,7 +241,7 @@ BLINDSIDE.Joker({
             end
         end
     end,
-    defeat_joker = function(self)
+    joker_defeat = function(self)
         BLINDSIDE.inc_stats('small_joker_defeat', self.key, true)
     end
 })
@@ -311,7 +311,7 @@ BLINDSIDE.Joker({
             end
         end
     end,
-    defeat_joker = function(self)
+    joker_defeat = function(self)
         BLINDSIDE.inc_stats('small_joker_defeat', self.key, true)
     end
 })
@@ -381,7 +381,7 @@ BLINDSIDE.Joker({
             end
         end
     end,
-    defeat_joker = function(self)
+    joker_defeat = function(self)
         BLINDSIDE.inc_stats('small_joker_defeat', self.key, true)
     end
 })

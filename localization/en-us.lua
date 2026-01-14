@@ -13,25 +13,25 @@ return {
             },
             ["bld_fh_3"] = {
                 "On this side of the world,",
-                "you play {C:attention}blinds{} instead of",
-                "playing cards to score"
+                "you play {C:attention}Blinds{} instead of",
+                "playing cards to score."
             },
             ["bld_fh_4"] = {
-                "Each blind has a unique {C:attention}effect{},",
-                "hover over each to see!",
+                "Each blind has a unique {C:attention}effect{}.",
+                "Hover over them to see!",
             },
             ["bld_fh_5"] = {
                 "As always, you can check",
                 "the {C:attention}Run Info{} screen to",
-                "see the {C:attention}Poker Hands{} playable",
-                "with these new blinds!",
+                "see the playable {C:attention}Poker Hands{}.",
+                "There might be some new ones!",
             },
             ["bld_fh_6"] = {
 				"Now, put those classic {C:attention}Balatro{}",
-				"skills to the test, and play a hand!",
+				"skills to the test and play a hand!",
             },
             ["bld_wtf_1"] = {
-				"Whats this? Seems like the {C:attention}Joker",
+				"What's this? Seems like the {C:attention}Joker",
 				"increased their {C:attention}score{} too!",
             },
             ["bld_wtf_2"] = {
@@ -40,24 +40,26 @@ return {
 				"for a brand new one!",
             },
             ["bld_wtf_4"] = {
-				"Whatever the case, try",
-				"to beat this {C:attention}devilish fellow{}",
+				"You're gonna have to",
+				"beat this {C:attention}devilish fellow{}",
 				"before they beat you!",
             },
             ["bld_sh_1"] = {
 				"Different {C:attention}Jokers{} have different",
-				"triggers for their effects!",
+				"triggers for their effects.",
             },
             ["bld_sh_2"] = {
-				"So you better watch out, or",
-				"you'll be {C:attention}playing with fire{}",
+				"So you'd better watch out!",
+				"Triggering the Joker on purpose",
+				"would be {C:attention,E:1}Playing With Fire{}...",
             },
             ["bld_st_1"] = {
-				"This time, lets focus on {C:attention}Trinkets{}!",
+				"This time, let's focus on {C:attention}Trinkets{}!",
             },
             ["bld_st_2"] = {
-				"These items fill the role of your",
-				"standard Balatro {C:attention}Joker{}. Buy one!",
+				"These items are a little like",
+				"your standard Balatro {C:attention}Jokers{}.",
+				"Buy one!",
             },
             ["bld_st_3"] = {
 				"With plenty of options to choose",
@@ -78,11 +80,11 @@ return {
 				"These help improve your run and deck.",
             },
             ["bld_sb_4"] = {
-				"Buy as much as you need, since you wont",
+				"Buy as much as you need, since you won't",
 				"be getting this anywhere else.",
             },
             ["bld_sb_5"] = {
-				"Ive taught you all you need to know.",
+				"I've taught you all you need to know.",
 				"Good luck out there, and have fun!",
             },
             ["bld_rshfl_1"] = {
@@ -90,19 +92,19 @@ return {
             },
             ["bld_rshfl_2"] = {
 				"Don't worry! Your deck will",
-				"{C:attention}reshuffle{} on its own when empty!",
+				"{C:attention}reshuffle{} when empty!",
             },
             ["bld_s_1"] = {
 				"Not the {C:attention}shop{} you're used to, huh?",
             },
             ["bld_s_2"] = {
-				"Lets focus on these {C:attention}blinds{} for now.",
-				"Here you can buy various blinds",
-				"that improve and fill your {C:attention}deck{}. Try one!",
+				"Let's focus on these for now.",
+				"Here you can buy various {C:attention}Blinds{}",
+				"to improve your {C:attention}deck{}. Go ahead!",
             },
             ["bld_s_3"] = {
-				"Then, we can proceed",
-				"onto the next Joker!",
+				"Now, we can proceed",
+				"to the next Joker!",
             },
         },
 		["dictionary"] = {
@@ -1984,8 +1986,8 @@ return {
 				["name"] = "Glass Joker",
 				["text"] = {
 					"X2 Mult each hand,",
-					"breaks when scoring",
-					"over #1# Chips",
+					"self-destructs when",
+					"scoring over #1# Chips",
 				},
 			},
 			["bl_bld_smeared"] = {
@@ -2045,16 +2047,16 @@ return {
 				["name"] = "Gros Michel",
 				["text"] = {
 					"+2 Mult each hand,",
-					"extinct when scoring",
-					"over #1# Chips",
+					"self-destructs when",
+					"scoring over #1# Chips",
 				},
 			},
 			["bl_bld_cavendish"] = {
 				["name"] = "Cavendish",
 				["text"] = {
 					"X1.5 Mult each hand,",
-					"extinct when scoring",
-					"over #1# Chips",
+					"self-destructs when",
+					"scoring over #1# Chips",
 				},
 			},
 			["bl_bld_yorick"] = {
@@ -2446,8 +2448,9 @@ return {
 				["name"] = "The Ore",
 				["text"] = {
 					{"{X:money,C:white}Yellow{}",
-					"{C:money}+$#1#{} and creates",
-					"a {C:attention}Max Tag"},
+					"{C:money}+$#1#{}"},
+					{"Before hand scores,",
+					"creates a {C:attention}Max Tag"},
 					{"{C:attention}Burns"},
 				},
 			},
@@ -3154,9 +3157,10 @@ return {
 			["m_bld_ball"] = {
 				["name"] = "The Ball",
 				["text"] = {
-					"{X:purple,C:white}Purple{}",
+					{"{X:purple,C:white}Purple{}",
 					"Creates a {C:attention}Toss Tag",
-					"and {C:attention}Burns",
+					"before hand scores"},
+					{"{C:attention}Burns"},
 				},
 			},
 			["m_bld_ball_upgraded"] = {

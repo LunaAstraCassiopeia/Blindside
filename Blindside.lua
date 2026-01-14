@@ -135,6 +135,8 @@ function Game:main_menu(change_context)
             major = G.ROOM_ATTACH
         }
     })
+
+    
 end
 
 
@@ -251,9 +253,9 @@ end
 ---@ field base_dollars number Dollars awarded when beaten. Do not set dollars.
 ---@ field get_assist? fun(self: BLINDSIDE.Joker) Returns an assistant Joker object.
 ---@ field is_assistant? boolean Whether this Joker should be excluded from the pool because it is an assistant.
----@ field set_joker? fun(self: BLINDSIDE.Joker) Will be called after set_blind. Use as if it were set_blind.
----@ field load_joker? fun(self: BLINDSIDE.Joker) Will be called after load. Use as if it were load.
----@ field defeat_joker? fun(self: BLINDSIDE.Joker) Will be called after defeat. Use as if it were defeat.
+---@ field joker_set? fun(self: BLINDSIDE.Joker) Will be called after set_blind. Use as if it were set_blind.
+---@ field joker_load? fun(self: BLINDSIDE.Joker) Will be called after load. Use as if it were load.
+---@ field joker_defeat? fun(self: BLINDSIDE.Joker) Will be called after defeat. Use as if it were defeat.
 ---@ field pool_override? fun(self: BLINDSIDE.Joker) Will be called in the middle of in_pool. Use as if it were in_pool.
 BLINDSIDE.Joker = SMODS.Blind:extend {
     blindside_joker = true,
@@ -310,8 +312,8 @@ BLINDSIDE.Joker = SMODS.Blind:extend {
             G.GAME.blindassist:change_dim(0,0)
         end
 
-        if self.set_joker then
-            self:set_joker()
+        if self.joker_set then
+            self:joker_set()
         end
     end,
     load = function(self)
@@ -329,8 +331,8 @@ BLINDSIDE.Joker = SMODS.Blind:extend {
             G.GAME.blindassist:change_dim(0,0)
         end
 
-        if self.load_joker then
-            self:load_joker()
+        if self.joker_load then
+            self:joker_load()
         end
     end,
     defeat = function(self)
@@ -339,8 +341,8 @@ BLINDSIDE.Joker = SMODS.Blind:extend {
             G.GAME.blindassist:defeat()
         end
         
-        if self.defeat_joker then
-            self:defeat_joker()
+        if self.joker_defeat then
+            self:joker_defeat()
         end
     end,
 }

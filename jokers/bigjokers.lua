@@ -44,11 +44,36 @@ BLINDSIDE.Joker({
             else
                 BLINDSIDE.chipsmodify(2, 0, 0, 0)
                 G.GAME.playing_with_fire_num = G.GAME.playing_with_fire_num + 1
-                G.GAME.playing_with_fire = G.GAME.playing_with_fire + (G.GAME.used_vouchers.v_bld_swearjar and 2 or 1)
+                G.GAME.playing_with_fire = G.GAME.playing_with_fire + (G.GAME.used_vouchers.v_bld_swearjar and 3 or 2)
                 G.GAME.playing_with_fire_each = G.GAME.used_vouchers.v_bld_swearjar and "bld_playing_with_fire_each_3" or "bld_playing_with_fire_each_2"
             end
         end
     end,
+    joker_defeat = function()
+        G.E_MANAGER:add_event(Event({
+            func = function ()
+                G.E_MANAGER:add_event(Event({
+                    func = function ()
+                        G.E_MANAGER:add_event(Event({
+                            func = function ()
+                                G.E_MANAGER:add_event(Event({
+                                    func = function ()
+                                        G.GAME.blind.T.r = 0
+                                        G.GAME.blind.children.animatedSprite.pinch.x = false
+                                        G.GAME.blind.states.drag.is = false
+                                        return true
+                                    end
+                                }))
+                                return true
+                            end
+                        }))
+                        return true
+                    end
+                }))
+                return true
+            end
+        }))
+    end
 })
 
 BLINDSIDE.Joker({
@@ -97,14 +122,36 @@ BLINDSIDE.Joker({
             else
                 BLINDSIDE.chipsmodify(0, 0, 1.5, 0)
                 G.GAME.playing_with_fire_num = G.GAME.playing_with_fire_num + 1
-                G.GAME.playing_with_fire = G.GAME.playing_with_fire + (G.GAME.used_vouchers.v_bld_swearjar and 2 or 1)
+                G.GAME.playing_with_fire = G.GAME.playing_with_fire + (G.GAME.used_vouchers.v_bld_swearjar and 3 or 2)
                 G.GAME.playing_with_fire_each = G.GAME.used_vouchers.v_bld_swearjar and "bld_playing_with_fire_each_3" or "bld_playing_with_fire_each_2"
             end
         end
     end,
-    defeat_joker = function()
-        G.GAME.gros_xmult = 1.4
-    end,
+    joker_defeat = function()
+        G.E_MANAGER:add_event(Event({
+            func = function ()
+                G.E_MANAGER:add_event(Event({
+                    func = function ()
+                        G.E_MANAGER:add_event(Event({
+                            func = function ()
+                                G.E_MANAGER:add_event(Event({
+                                    func = function ()
+                                        G.GAME.blind.T.r = 0
+                                        G.GAME.blind.children.animatedSprite.pinch.x = false
+                                        G.GAME.blind.states.drag.is = false
+                                        return true
+                                    end
+                                }))
+                                return true
+                            end
+                        }))
+                        return true
+                    end
+                }))
+                return true
+            end
+        }))
+    end
 })
 
 BLINDSIDE.Joker({
