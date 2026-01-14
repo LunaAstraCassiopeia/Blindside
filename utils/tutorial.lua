@@ -97,6 +97,7 @@ G.FUNCS.blindside_tutorial_controller = function()
         end
         if G.SETTINGS.blindside_tutorial_progress.hold_parts['shop_3'] then
             G.SETTINGS.blindside_tutorial_complete = true
+            G.SETTINGS.blindside_tutorial_progress = nil
         end
     end
 end
