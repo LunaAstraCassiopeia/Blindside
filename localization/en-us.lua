@@ -2171,7 +2171,7 @@ return {
 				["text"] = {
 					{"{X:mult,C:white}Red{}",
 					"Currently {C:mult}+#1#{} Mult"},
-					{"When played, {C:attention}destroys{}",
+					{"When played, {C:red}destroys{}",
 					"the leftmost owned trinket",
 					"and gains {C:mult}+#2#{} Mult"},
 				},
