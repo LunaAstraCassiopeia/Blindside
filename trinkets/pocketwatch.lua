@@ -42,7 +42,13 @@
                             delay = 0.5,
                             func = (function()
                                 BLINDSIDE.chipsmodify(-card.ability.extra.multreduc, 0 , 0)
-                                BLINDSIDE.chipsupdate()
+                                G.E_MANAGER:add_event(Event({
+                                    trigger = 'before',
+                                    delay = 0.5,
+                                    func = (function()
+                                        BLINDSIDE.chipsupdate()
+                                        return true
+                                    end)}))
                                 return true
                             end)}))
                     end},
