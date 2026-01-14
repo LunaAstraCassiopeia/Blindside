@@ -91,6 +91,13 @@
         px = 333,
         py = 216,
     })
+    SMODS.Atlas({
+        key = "modicon",
+        path = "modicon.png",
+        px = 34,
+        py = 34
+    })
+
 
 function tableContains(value, tbl)
   for _, v in ipairs(tbl) do
