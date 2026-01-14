@@ -318,7 +318,7 @@ BLINDSIDE.Joker({
     mult = 8,
     base_dollars = 8,
     order = 22,
-    boss = {min = 2},
+    boss = {min = 3},
     active = true,
     get_assist = function(self)
         return G.P_BLINDS["bl_bld_mime"]
@@ -343,7 +343,7 @@ BLINDSIDE.Joker({
     mult = 8,
     base_dollars = 8,
     order = 23,
-    boss = {min = 2},
+    boss = {min = 3},
     active = true,
     is_assistant = true
 })
