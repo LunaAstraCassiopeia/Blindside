@@ -135,6 +135,8 @@ function Game:main_menu(change_context)
             major = G.ROOM_ATTACH
         }
     })
+
+    
 end
 
 

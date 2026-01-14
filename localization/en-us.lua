@@ -1986,7 +1986,7 @@ return {
 				["name"] = "Glass Joker",
 				["text"] = {
 					"X2 Mult each hand,",
-					"breaks when scoring",
+					"disabled when scoring",
 					"over #1# Chips",
 				},
 			},
@@ -2047,7 +2047,7 @@ return {
 				["name"] = "Gros Michel",
 				["text"] = {
 					"+2 Mult each hand,",
-					"extinct when scoring",
+					"disabled when scoring",
 					"over #1# Chips",
 				},
 			},
@@ -2055,7 +2055,7 @@ return {
 				["name"] = "Cavendish",
 				["text"] = {
 					"X1.5 Mult each hand,",
-					"extinct when scoring",
+					"disabled when scoring",
 					"over #1# Chips",
 				},
 			},
