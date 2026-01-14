@@ -47,8 +47,10 @@ SMODS.Joker({
     end,
     remove_from_deck = function(self, card, from_debuff)
         G.hand:change_size(-card.ability.extra.handsize)
+        G.hand.config.fixed_limit = false
     end,
     add_to_deck = function(self, card, from_debuff)
         G.hand:change_size(card.ability.extra.handsize)
+        G.hand.config.fixed_limit = true
     end,
 })
