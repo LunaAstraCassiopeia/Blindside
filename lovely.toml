@@ -2090,7 +2090,7 @@ UIBox_button{id = 'main_menu_play', button = not G.SETTINGS.tutorial_complete an
 match_indent = true
 position = 'at'
 payload = '''
-UIBox_button{id = 'main_menu_play', button = (not G.SETTINGS.tutorial_complete and "start_run") or (not G.SETTINGS.blindside_tutorial_complete and "start_blind_run") or ("setup_run"), colour = G.C.BLUE, minw = 3.65, minh = 1.55, label = {localize('b_play_cap')}, scale = text_scale*2, col = true},
+UIBox_button{id = 'main_menu_play', button = (not G.SETTINGS.blindside_tutorial_complete and "start_blind_run") or ("setup_run"), colour = G.C.BLUE, minw = 3.65, minh = 1.55, label = {localize('b_play_cap')}, scale = text_scale*2, col = true},
 '''
 
 # TUTORIAL - Tutorial Controller
