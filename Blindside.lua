@@ -109,7 +109,7 @@ function tableContains(value, tbl)
 end
 
 BLINDSIDE = {}
-
+BLINDSIDE.current_mod = SMODS.current_mod
 
 local gameMainMenuRef = Game.main_menu
 function Game:main_menu(change_context)

@@ -1392,7 +1392,7 @@ function create_UIBox_blindside_collection()
   }))
   local t = create_UIBox_generic_options({ back_func = G.STAGE == G.STAGES.RUN and 'options' or 'exit_overlay_menu', contents = {
     {n=G.UIT.C, config={align = "cm", padding = 0.15}, nodes={
-        {n = G.UIT.O, config = {object = G.Blindside_Back}}}},
+        {n = G.UIT.O, config = {object = G.Blindside_Back}} or nil}},
     {n=G.UIT.C, config={align = "cm", padding = 0.15}, nodes={
       UIBox_button({button = 'your_collection_blindside_trinkets', label = {localize('bld_ui_trinkets')}, count = G.DISCOVER_TALLIES.blindtrinkets,  minw = 5, minh = 1.7, scale = 0.6, id = 'your_collection_blindside_trinkets'}),
       UIBox_button({button = 'your_collection_blindside_decks', label = {localize('bld_ui_decks')}, count = G.DISCOVER_TALLIES.blinddecks, minw = 5, id = 'your_collection_blindside_decks'}),
@@ -1477,6 +1477,239 @@ function Card.generate_UIBox_ability_table(self, vars_only)
 	local AUT = generate_UIBox_ability_table_ref(self, vars_only)
 	if not vars_only then AUT.credits = self.config.center.credit or nil end
 	return AUT
+end
+
+-- Structure copied from Handy!
+
+if SMODS then
+	local create_UIBox_mods_ref = create_UIBox_mods
+	function create_UIBox_mods(...)
+		if G.ACTIVE_MOD_UI and G.ACTIVE_MOD_UI == BLINDSIDE.current_mod then
+            BLINDSIDE.config_opened = nil
+			return G.UIDEF.blindside_mod()
+		end
+		return create_UIBox_mods_ref(...)
+	end
+
+	local mods_button_ref = G.FUNCS.mods_button
+	function G.FUNCS.mods_button(...)
+        BLINDSIDE.config_opened = nil
+		return mods_button_ref(...)
+	end
+end
+
+function G.UIDEF.blindside_mod()
+	local tabs = BLINDSIDE.get_options_tabs()
+	tabs[1].chosen = true
+	local t = create_UIBox_generic_options({
+		back_func = "mods_button",
+		contents = {
+			{
+				n = G.UIT.R,
+				config = { align = "cm", padding = 0 },
+				nodes = {
+					create_tabs({
+						tabs = tabs,
+						snap_to_nav = true,
+						no_shoulders = true,
+						colour = G.C.BOOSTER,
+					}),
+				},
+			},
+		},
+	})
+	return t
+end
+
+function BLINDSIDE.get_options_tabs()
+	local result = {}
+	for index, k in ipairs(BLINDSIDE.tabs_order) do
+		table.insert(result, {
+			label = localize(k, "blind_tabs"),
+			tab_definition_function = function()
+				return BLINDSIDE.get_config_tab(k, index)
+			end,
+		})
+	end
+	return result
+end
+
+function BLINDSIDE.get_config_tab(_tab, _index)
+	local result = {
+		n = G.UIT.ROOT,
+		config = { align = "cm", padding = 0.05, colour = G.C.CLEAR, minh = 5, minw = 5 },
+		nodes = BLINDSIDE.tabs_list[_tab].definition(),
+	}
+	BLINDSIDE.config_tab_index = _index
+	return result
+end
+
+BLINDSIDE.tabs_list = {
+	["Description"] = {
+		definition = function()
+			return mod_tab_description()
+		end,
+	},
+	["Collection"] = {
+		definition = function()
+			return mod_tab_collection()
+		end,
+	},
+}
+
+BLINDSIDE.tabs_order = {
+    "Description",
+    "Collection",
+}
+
+function mod_tab_collection()
+  return {
+        {n=G.UIT.C, config={align = "cm", padding = 0.15}, nodes={
+        UIBox_button({button = 'your_collection_blindside_trinkets', label = {localize('bld_ui_trinkets')}, count = G.DISCOVER_TALLIES.blindtrinkets,  minw = 5, minh = 1.7, scale = 0.6, id = 'your_collection_blindside_trinkets'}),
+        UIBox_button({button = 'your_collection_blindside_decks', label = {localize('bld_ui_decks')}, count = G.DISCOVER_TALLIES.blinddecks, minw = 5, id = 'your_collection_blindside_decks'}),
+        UIBox_button({button = 'your_collection_blindside_relics', label = {localize('bld_ui_relics')}, count = G.DISCOVER_TALLIES.blindrelics, minw = 5, id = 'your_collection_blindside_relics'}),
+        {n=G.UIT.R, config={align = "cm", padding = 0.1, r=0.2, colour = G.C.BLACK}, nodes={
+            {n=G.UIT.C, config={align = "cm", maxh=2.9}, nodes={
+            {n=G.UIT.T, config={text = localize('k_cap_consumables'), scale = 0.45, colour = G.C.L_BLACK, vert = true, maxh=2.2}},
+            }},
+            {n=G.UIT.C, config={align = "cm", padding = 0.15}, nodes={
+            UIBox_button({button = 'your_collection_blindside_filmcards', count = G.DISCOVER_TALLIES.allfilmcards, label = {localize('bld_ui_filmcards')}, minw = 4, id = 'your_collection_blindside_filmcards', colour = G.C.SECONDARY_SET.bld_obj_filmcard}),
+            UIBox_button({button = 'your_collection_blindside_minerals', count = G.DISCOVER_TALLIES.allminerals, label = {localize('bld_ui_minerals')}, minw = 4, id = 'your_collection_blindside_minerals', colour = G.C.SECONDARY_SET.bld_obj_mineral}),
+            UIBox_button({button = 'your_collection_blindside_rituals', count = G.DISCOVER_TALLIES.allrituals, label = {localize('bld_ui_rituals')}, minw = 4, id = 'your_collection_blindside_rituals', colour = G.C.SECONDARY_SET.bld_obj_ritual}),
+            UIBox_button({button = 'your_collection_blindside_runes', count = G.DISCOVER_TALLIES.allrunes, label = {localize('bld_ui_runes')}, minw = 4, id = 'your_collection_runes', colour = G.C.SECONDARY_SET.bld_obj_rune}),
+            }}
+        }},
+        }},
+        {n=G.UIT.C, config={align = "cm", padding = 0.15}, nodes={
+        UIBox_button({button = 'your_collection_blindside_blindcards', count = G.DISCOVER_TALLIES.allblindcards, label = {localize('bld_ui_blindcards')}, minw = 5, minh = 1.3, id = 'your_collection_blindside_blindcards'}),
+        UIBox_button({button = 'your_collection_blindside_enhance', label = {localize('bld_ui_enhance')}, minw = 5, id = 'your_collection_blindside_enhance'}),
+        UIBox_button({button = 'your_collection_blindside_editions', label = {localize('bld_ui_edition')}, count = G.DISCOVER_TALLIES.blindeditions, minw = 5, id = 'your_collection_blindside_editions'}),
+        UIBox_button({button = 'your_collection_blindside_boosters', label = {localize('bld_ui_boosters')}, count = G.DISCOVER_TALLIES.blindboosters, minw = 5, id = 'your_collection_blindside_boosters'}),
+        UIBox_button({button = 'your_collection_blindside_blindtags', label = {localize('bld_ui_tags')}, count = G.DISCOVER_TALLIES.blindtags, minw = 5, id = 'your_collection_blindside_blindtags'}),
+        UIBox_button({button = 'your_collection_blindside_jokers', label = {localize('bld_ui_jokers')}, count = G.DISCOVER_TALLIES.blindboosters, minw = 5, minh = 2.0, id = 'your_collection_blindside_jokers', focus_args = {snap_to = true}}),
+        }},
+    }
+end
+
+local function wrapText(text, maxChars)
+    local wrappedText = ""
+    local currentLineLength = 0
+
+    for word in text:gmatch("%S+") do
+        if currentLineLength + #word <= maxChars then
+            wrappedText = wrappedText .. word .. ' '
+            currentLineLength = currentLineLength + #word + 1
+        else
+            wrappedText = wrappedText .. '\n' .. word .. ' '
+            currentLineLength = #word + 1
+        end
+    end
+
+    return wrappedText
+end
+
+function mod_tab_description()
+            local mod = G.ACTIVE_MOD_UI
+            local modNodes = {}
+            local scale = 0.75 -- Scale factor for text
+            local maxCharsPerLine = 50
+
+            local wrappedDescription = wrapText(mod.description or '', maxCharsPerLine)
+
+            local authors = localize('authors', "blind_tabs")
+
+            -- Authors names
+            table.insert(modNodes, {
+                n = G.UIT.R,
+                config = {
+                    align = "cm",
+                    r = 0.1,
+                    emboss = 0.1,
+                    outline = 1,
+                    padding = 0.07,
+                    outline_colour = (mod.ui_config or {}).author_outline_colour,
+                    colour = (mod.ui_config or {}).author_bg_colour,
+                },
+                nodes = {
+                    {
+                        n = G.UIT.T,
+                        config = {
+                            text = authors,
+                            shadow = true,
+                            scale = scale * 0.65,
+                            colour = (mod.ui_config or {}).author_colour or G.C.BLUE,
+                        }
+                    }
+                }
+            })
+
+            -- Mod description
+            if (G.localization.descriptions.Mod or {})[mod.id] then
+                modNodes[#modNodes + 1] = {}
+                local loc_vars = mod.description_loc_vars and mod:description_loc_vars() or {}
+                localize { type = 'descriptions', key = loc_vars.key or mod.id, set = 'Mod', nodes = modNodes[#modNodes], vars = loc_vars.vars, scale = loc_vars.scale, text_colour = loc_vars.text_colour, shadow = loc_vars.shadow }
+                modNodes[#modNodes] = desc_from_rows(modNodes[#modNodes])
+                modNodes[#modNodes].config.colour = loc_vars.background_colour or modNodes[#modNodes].config.colour
+            else
+                table.insert(modNodes, {
+                    n = G.UIT.R,
+                    config = {
+                        padding = 0.2,
+                        align = "cm"
+                    },
+                    nodes = {
+                        {
+                            n = G.UIT.T,
+                            config = {
+                                text = wrappedDescription,
+                                shadow = true,
+                                scale = scale * 0.5,
+                                colour = G.C.UI.TEXT_LIGHT
+                            }
+                        }
+                    }
+                })
+            end
+
+            local custom_ui_func = mod.custom_ui
+            if custom_ui_func and type(custom_ui_func) == 'function' then
+                custom_ui_func(modNodes)
+            end
+
+            if not mod.can_load and not mod.disabled then
+                local _, _, msg_key, specific_vars = getModtagInfo(mod)
+                local text = localize { type = 'raw_descriptions', set = 'Other', key = msg_key, vars = specific_vars }
+                local text_nodes = {}
+                for _,v in ipairs(text) do
+                    text_nodes[#text_nodes+1] = {
+                        n = G.UIT.R, config = { align = 'cm' }, nodes = {
+                            { n = G.UIT.T, config = { text = v, colour = G.SETTINGS.reduced_motion and G.C.WHITE or SMODS.Gradients.warning_text, scale = 0.35, shadow = true } }
+                        }
+                    }
+                end
+                table.insert(modNodes, { n = G.UIT.R, config = { align = "cm" }, nodes = {
+                    { n = G.UIT.B, config = { w = 0.1, h = 0.1 }}
+                }})
+                table.insert(modNodes, {
+                    n = G.UIT.R, config = { align = "cm", r = 0.1, minw = 6, minh = 0.6, colour = G.SETTINGS.reduced_motion and G.C.RED or SMODS.Gradients.warning_bg, padding = 0.1 }, nodes={
+                        {
+                            n = G.UIT.C, config = { align = 'cm' }, nodes = {
+                                { n = G.UIT.O, config = { object = SMODS.create_sprite(0, 0, 0.8, 0.8, 'mod_tags', { x = 0, y = 0 }) } },
+                            }
+                        }, 
+                        { 
+                            n = G.UIT.C, config = { align = 'cm' }, nodes = text_nodes
+                        },
+                        {
+                            n = G.UIT.C, config = { align = 'cm' }, nodes = {
+                                { n = G.UIT.O, config = { object = SMODS.create_sprite(0, 0, 0.8, 0.8, 'mod_tags', { x = 0, y = 0 }) } },
+                            }
+                        }, 
+                    }
+                })
+            end
+
+  return {{n = G.UIT.C, config = {emboss = 0.05, minh = 6, r = 0.1, minw = 6, align = "tm",padding = 0.2, colour = G.C.BLACK}, nodes = modNodes }}
 end
 
 ----------------------------------------------

@@ -1,5 +1,10 @@
 return {
 	["misc"] = {
+		["blind_tabs"] = {
+			["authors"] = "By Luna, Anne & Base",
+			["Description"] = "Blindside",
+			["Collection"] = "Collection",
+		},
         ["tutorial"] = {
             ["bld_fh_1"] = {
                 "Hey there! My name is",
