@@ -1319,12 +1319,11 @@ return {
 			["c_bld_assimilate"] = {
 				["name"] = "Assimilate",
 				["text"] = {
-					{"Select {C:attention}#1#{} Blinds",
-					"of {C:attention}exactly{} 2",
-					"different hues"},
-					{"They are {C:attention}merged",
-					"into a single",
-					"{E:1}multicolor{} Blind"},
+					{"Select {C:attention}#1#{} Blinds of",
+					"only {C:attention}2 different hues"},
+					{"They are {C:red}destroyed{}, and",
+					"a {E:1}multicolor{} Blind of",
+					"their {C:attention}hues{} is created"},
 				},
 			},
 			["c_bld_exorcise"] = {
