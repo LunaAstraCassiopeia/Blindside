@@ -5,7 +5,8 @@
         config = {
             extra = {
                 value = 1,
-                xmult = 3
+                xmult = 2,
+                xmultup = 2,
             }
         },
         hues = {"Red"},
@@ -16,7 +17,7 @@
                 card.ability.extra.was_last_hand = true
             end
 
-            if context.cardarea == G.play and context.main_scoring and card.ability.extra.upgraded then
+            if context.cardarea == G.play and context.main_scoring then
                 return {
                     xmult = card.ability.extra.xmult
                 }
@@ -42,7 +43,6 @@
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue+1] = G.P_TAGS['tag_bld_heartbreak']
             return {
-                key = card.ability.extra.upgraded and 'm_bld_crimson_heart_upgraded' or 'm_bld_crimson_heart',
                 vars = {
                     card.ability.extra.xmult
                 }
@@ -50,6 +50,7 @@
         end,
         upgrade = function(card) 
             if not card.ability.extra.upgraded then
+                card.ability.extra.xmult = card.ability.extra.xmult + card.ability.extra.xmultup
                 card.ability.extra.upgraded = true
             end
         end
