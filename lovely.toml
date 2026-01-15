@@ -2090,7 +2090,7 @@ UIBox_button{id = 'main_menu_play', button = not G.SETTINGS.tutorial_complete an
 match_indent = true
 position = 'at'
 payload = '''
-UIBox_button{id = 'main_menu_play', button = (not G.SETTINGS.tutorial_complete and "start_run") or (not G.SETTINGS.blindside_tutorial_complete and "start_blind_run") or ("setup_run"), colour = G.C.BLUE, minw = 3.65, minh = 1.55, label = {localize('b_play_cap')}, scale = text_scale*2, col = true},
+UIBox_button{id = 'main_menu_play', button = (not G.SETTINGS.blindside_tutorial_complete and "start_blind_run") or ("setup_run"), colour = G.C.BLUE, minw = 3.65, minh = 1.55, label = {localize('b_play_cap')}, scale = text_scale*2, col = true},
 '''
 
 # TUTORIAL - Tutorial Controller
@@ -2182,4 +2182,17 @@ match_indent = true
 position = 'at'
 payload = '''
 if (e.config.ref_table.cost) > 0 and (e.config.ref_table.cost > G.GAME.dollars - G.GAME.bankrupt_at) or ((not G.SETTINGS.blindside_tutorial_complete and not G.SETTINGS.blindside_tutorial_progress.hold_parts['shop_3'])) then
+'''
+
+# TUTORIAL - tutorial autocomplete
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''
+if (not G.SETTINGS.tutorial_complete) and G.SETTINGS.tutorial_progress.completed_parts['big_blind'] then G.SETTINGS.tutorial_complete = true end
+'''
+match_indent = true
+position = 'at'
+payload = '''
+if (not G.SETTINGS.blindside_tutorial_complete) and G.SETTINGS.blindside_tutorial_progress and G.SETTINGS.blindside_tutorial_progress.completed_parts['shop_3'] then G.SETTINGS.tutorial_complete = true end
 '''

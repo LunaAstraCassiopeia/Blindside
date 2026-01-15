@@ -1403,6 +1403,7 @@ function BLINDSIDE.get_first_enhancement_with_exact_colors(colors)
 end
 
 function BLINDSIDE.rescore_card(card, context)
+        if card and context then
         context.main_scoring = true
         local effects = { eval_card(card, context) }
         SMODS.calculate_quantum_enhancements(card, effects, context)
@@ -1420,6 +1421,7 @@ function BLINDSIDE.rescore_card(card, context)
         context.individual = nil
         context.other_card = nil
         card.lucky_trigger = nil
+        end
 end
 
 -- borrowed from lucky rabbit
