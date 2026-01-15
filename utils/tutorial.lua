@@ -2,7 +2,7 @@ G.FUNCS.start_blind_run = function(e, args)
   G.SETTINGS.paused = true
   if e and e.config.id == 'restart_button' then G.GAME.viewed_back = nil end
   args = args or {}
-  args.deck = Back(G.P_CENTERS['b_bld_whitedispenser'])
+  G.GAME.selected_back = Back(G.P_CENTERS['b_bld_whitedispenser'])
   args.seed = "BLINDSDE"
   G.E_MANAGER:clear_queue()
   G.FUNCS.wipe_on()
