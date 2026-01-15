@@ -2196,3 +2196,16 @@ position = 'at'
 payload = '''
 if (not G.SETTINGS.blindside_tutorial_complete) and G.SETTINGS.blindside_tutorial_progress and G.SETTINGS.blindside_tutorial_progress.completed_parts['shop_3'] then G.SETTINGS.tutorial_complete = true end
 '''
+
+# weird deck rendering fix
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = '''
+self.children.back = Sprite(self.T.x, self.T.y, self.T.w, self.T.h, G.ASSET_ATLAS["centers"], self.params.bypass_back or (self.playing_card and G.GAME[self.back].pos or G.P_CENTERS['b_red'].pos))
+'''
+match_indent = true
+position = 'at'
+payload = '''
+self.children.back = Sprite(self.T.x, self.T.y, self.T.w, self.T.h, (self.playing_card and G.GAME[self.back].atlas) or G.ASSET_ATLAS["centers"], self.params.bypass_back or (self.playing_card and G.GAME[self.back].pos or G.P_CENTERS['b_red'].pos))
+'''
