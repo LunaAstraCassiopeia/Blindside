@@ -12,11 +12,11 @@
         hidden = true,
         legendary = true,
         calculate = function(self, card, context) 
-            if context.cardarea == G.play and context.after then
+            if context.cardarea == G.play and context.other_card == card and context.after then
                 card.ability.extra.was_last_hand = true
             end
 
-            if context.cardarea == G.play and card.ability.extra.upgraded then
+            if context.cardarea == G.play and context.main_scoring and card.ability.extra.upgraded then
                 return {
                     xmult = card.ability.extra.xmult
                 }
