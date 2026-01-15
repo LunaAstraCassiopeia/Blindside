@@ -472,6 +472,14 @@ G.FUNCS.blind_draw_from_deck_to_hand = function(e)
             draw_card(G.deck,G.hand, i*100/hand_space,'up', true, cards_to_draw[i])
         end
     end
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.7,
+        func = function()
+            save_run()
+            return true
+        end
+    }))
     delay(0.5)
     if #G.deck.cards < G.hand.config.card_limit - #G.hand.cards and G.hand.config.card_limit - #G.hand.cards >= 1 then
         local discard_count = #G.discard.cards
