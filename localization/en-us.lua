@@ -2838,11 +2838,10 @@ return {
 				["name"] = "The Vast",
 				["text"] = {
 					"{X:chips,C:white}Blue{}",
-					"While held in hand,",
-					"if scoring hand contains",
-					"a {X:chips,C:white}Blue{} Blind, creates a",
-					"random {C:attention}Mineral{} card",
-					"{C:inactive,S:0.8}(Must have room)"
+					"While {C:attention}held in hand{},",
+					"{C:attention}retriggers{} adjacent",
+					"Blinds {C:attention}held in hand{}",
+					"twice"
 				},
 			},
 			["m_bld_pile"] = {

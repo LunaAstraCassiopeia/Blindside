@@ -31,6 +31,7 @@
         end,
         loc_vars = function(self, info_queue, card)
             return {
+                key = card.ability.extra.upgraded and 'm_bld_vast_upgraded' or 'm_bld_vast',
                 vars = {
                     card.ability.extra.repetitions
                 }
