@@ -3115,7 +3115,7 @@ return {
 			["m_bld_wound_upgraded"] = {
 				["name"] = "The Wound",
 				["text"] = {
-					{"{X:mult,C:white}Red{}",
+					{"{X:mult,C:white}Red{} {X:black,C:white}Cursed{}",
 					"{X:mult,C:white}X#1#{} Mult"},
 					{"{C:attention}Burns{}"}
 				},
