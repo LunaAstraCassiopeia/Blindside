@@ -2101,7 +2101,7 @@ pattern = '''
 if not G.SETTINGS.tutorial_complete then G.FUNCS.tutorial_controller() end
 '''
 match_indent = true
-position = 'after'
+position = 'at'
 payload = '''
 if not G.SETTINGS.blindside_tutorial_complete then G.FUNCS.blindside_tutorial_controller() end
 '''
