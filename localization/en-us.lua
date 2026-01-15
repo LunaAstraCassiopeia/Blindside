@@ -2611,11 +2611,6 @@ return {
 					"{X:blue,C:white}X#1#{} Chips if poker",
 					"hand does not contain",
 					"{C:attention}Three of a Blind{}"
-					--[[{"{X:blue,C:white}Blue{}",
-					"Currently {X:blue,C:white}X#1#{} Chips"},
-					{"If poker hand does not",
-					"contain {C:attention}Three of a Blind{},",
-					"gains {X:blue,C:white}X#2#{} Chips"},]]
 				},
 			},
 			["m_bld_meteor"] = {
@@ -3780,6 +3775,10 @@ return {
 					{"{C:attention}Retriggers{} once for",
 					"every {C:attention}2{} Tags held",
 					"{C:inactive}(Currently #2# time#3#)"},
+					{"This blind is bugged,",
+					"and retriggers ALL blinds",
+					"when held in hand! You may enjoy",
+					"this bug until next update"}
 				},
 			},
 			["m_bld_trench"] = {
