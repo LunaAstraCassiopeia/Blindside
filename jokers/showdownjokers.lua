@@ -215,7 +215,7 @@ function Blind:set_assist_blind(blind, reset, silent)
         self.small = blind and not not blind.small
         self.big = blind and not not blind.big
         self.base_dollars = blind and blind.dollars or 0
-        self.sound_pings = self.dollars + 2
+        self.sound_pings = blind.dollars + 2
         if G.GAME.modifiers.no_blind_reward and G.GAME.modifiers.no_blind_reward[self:get_type()] then self.base_dollars = 0 end
         self.debuff = blind and blind.debuff or {}
         self.pos = blind and blind.pos
