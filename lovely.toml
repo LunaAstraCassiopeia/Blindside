@@ -1141,7 +1141,7 @@ local cards_burned = {}
     for i=1, #cards_burned do
         G.E_MANAGER:add_event(Event({
             func = function()
-                cards_burned[i]:start_burn(cards_burned[i].area)
+                cards_burned[i]:start_burn(cards_burned[i].area, true)
                 return true
             end
             }))
@@ -1458,7 +1458,7 @@ if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effe
                 else 
                     if burned then
                         burned_cards[#burned_cards + 1] = cards[i]
-                        cards[i]:start_burn(G.hand)
+                        cards[i]:start_burn(G.hand, true)
                     else
                         cards[i].ability.discarded = true
                         draw_card(G.hand, G.discard, i*100/#cards, 'down', false, cards[i])
@@ -1492,7 +1492,7 @@ if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effe
                 else 
                     if burned then
                         burned_cards[#burned_cards + 1] = cards[#cards]
-                        cards[#cards]:start_burn(G.hand)
+                        cards[#cards]:start_burn(G.hand, true)
                     else
                         --do nothing because it was retained
                         --cards[#cards].ability.discarded = true

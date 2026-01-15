@@ -626,7 +626,7 @@ function update_joker_hand_text(config, vals)
     end}))
 end
 
-function Card:start_burn(cardarea, dissolve_colours, silent, dissolve_time_fac, no_juice)
+function Card:start_burn(cardarea, cell_fix, dissolve_colours, silent, dissolve_time_fac, no_juice)
     if not self.destroyed then
     if next(find_joker('j_bld_crane')) and SMODS.pseudorandom_probability(self, pseudoseed('bld_crane'), 1, 2, 'bld_crane') then
     G.E_MANAGER:add_event(Event({
@@ -666,7 +666,7 @@ function Card:start_burn(cardarea, dissolve_colours, silent, dissolve_time_fac, 
     self.dissolve_colours = dissolve_colours
         or {G.C.BLACK, G.C.ORANGE, G.C.RED, G.C.GOLD, G.C.JOKER_GREY}
     if not no_juice then self:juice_up() end
-    if cardarea then self = cardarea:remove_card(self) end
+    if cardarea and cell_fix then self = cardarea:remove_card(self) end
     
     G.E_MANAGER:add_event(Event({
         trigger = 'before',
