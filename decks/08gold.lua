@@ -42,7 +42,7 @@ SMODS.Back({
         if context.blind_defeated then
             ease_dollars(-3)
 
-            if not context.beat_boss and G.GAME.gold_last_played then
+            if not context.beat_boss and G.GAME.gold_last_played and not G.GAME.last_joker then
                 G.E_MANAGER:add_event(Event({
                     trigger = 'after',
                     delay = 0.8,
