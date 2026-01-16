@@ -691,7 +691,7 @@ function blindtags_ui()
     for i = 1, math.ceil(counter / 6) do
         table.insert(tag_matrix, {})
     end
-
+	table.sort(tag_tab, function(a, b) return a.order < b.order end)
     local tags_to_be_alerted = {}
     for k, v in ipairs(tag_tab) do
         local discovered = v.discovered
@@ -1714,3 +1714,4 @@ end
 
 ----------------------------------------------
 ------------MOD CODE END----------------------
+
