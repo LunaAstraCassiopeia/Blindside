@@ -1,10 +1,10 @@
-SMODS.Shader({key = 'booster', path = "booster.fs"})
+SMODS.Shader({key = 'enameled', path = "enamel.fs"})
 
 SMODS.Edition {
     key = 'enameled',
     discovered = false,
     unlocked = true,
-    shader = 'booster',
+    shader = 'enameled',
     atlas = 'bld_blindrank',
         in_pool = function(self, args)
             if G.GAME.selected_back.effect.center.config.extra then
