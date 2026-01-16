@@ -435,20 +435,25 @@ BLINDSIDE.Joker({
         end
     end,
     joker_set = function()
-        for i = 1, 2+2*G.GAME.round_resets.ante, 1 do
-            local beta = SMODS.create_card { set = "Base", enhancement = "m_bld_tablet", area = G.discard }
-            G.playing_card = (G.playing_card and G.playing_card + 1) or 1
-            beta.playing_card = G.playing_card
-            table.insert(G.playing_cards, beta)
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.3,
-                func = function()
-                        beta:start_materialize({ G.C.SECONDARY_SET.Enhanced })
-                        G.deck:emplace(beta)
-                    return true
-                end
-            }))
+        for i, v in pairs(G.GAME.tags) do
+            if v:apply_to_run({type = 'real_round_before_start', card = card}) then break end
+        end
+        if not G.GAME.blind.disabled then
+            for i = 1, 2+2*G.GAME.round_resets.ante, 1 do
+                local beta = SMODS.create_card { set = "Base", enhancement = "m_bld_tablet", area = G.discard }
+                G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+                beta.playing_card = G.playing_card
+                table.insert(G.playing_cards, beta)
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.3,
+                    func = function()
+                            beta:start_materialize({ G.C.SECONDARY_SET.Enhanced })
+                            G.deck:emplace(beta)
+                        return true
+                    end
+                }))
+            end
         end
     end,
 })
@@ -569,14 +574,19 @@ BLINDSIDE.Joker({
     boss = {min = 1},
     active = true,
     joker_set = function(self)
-        if G.GAME.round_resets.blind_states.Small == 'Skipped' or G.GAME.round_resets.blind_states.Big == 'Skipped' then
-            G.GAME.playing_with_fire_num = G.GAME.playing_with_fire_num + 1
-            G.GAME.playing_with_fire_each = G.GAME.used_vouchers.v_bld_swearjar and "bld_playing_with_fire_each_big_joker_2" or "bld_playing_with_fire_each_big_joker_1"
-            G.GAME.playing_with_fire = G.GAME.playing_with_fire + 4 * (G.GAME.used_vouchers.v_bld_swearjar and 2 or 1)
-            BLINDSIDE.chipsmodify(0, 0, 4, 0, true)
-            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
-                BLINDSIDE.chipsupdate()
-            return true end }))
+        for i, v in pairs(G.GAME.tags) do
+            if v:apply_to_run({type = 'real_round_before_start', card = card}) then break end
+        end
+        if not G.GAME.blind.disabled then
+            if G.GAME.round_resets.blind_states.Small == 'Skipped' or G.GAME.round_resets.blind_states.Big == 'Skipped' then
+                G.GAME.playing_with_fire_num = G.GAME.playing_with_fire_num + 1
+                G.GAME.playing_with_fire_each = G.GAME.used_vouchers.v_bld_swearjar and "bld_playing_with_fire_each_big_joker_2" or "bld_playing_with_fire_each_big_joker_1"
+                G.GAME.playing_with_fire = G.GAME.playing_with_fire + 4 * (G.GAME.used_vouchers.v_bld_swearjar and 2 or 1)
+                BLINDSIDE.chipsmodify(0, 0, 4, 0, true)
+                G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+                    BLINDSIDE.chipsupdate()
+                return true end }))
+            end
         end
     end,
 })
@@ -717,22 +727,27 @@ BLINDSIDE.Joker({
     boss = {min = 2},
     active = true,
     joker_set = function ()
-        for i = 1, G.GAME.round_resets.ante * 2 + 8, 1 do
-            local enhancement = pseudorandom_element({'m_bld_sharp', 'm_bld_adder', 'm_bld_flip', 'm_bld_bite', 'm_bld_pot', 'm_bld_sharp', 'm_bld_adder', 'm_bld_flip', 'm_bld_bite', 'm_bld_pot', 'm_bld_blank'}, pseudoseed('bld_certificate'))
-            local card = SMODS.create_card { set = "Base", enhancement = enhancement, area = G.discard }
-            G.playing_card = (G.playing_card and G.playing_card + 1) or 1
-            card.playing_card = G.playing_card
-            table.insert(G.playing_cards, card)
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.3,
-                func = function()
-                        card:start_materialize({ G.C.SECONDARY_SET.Enhanced })
-                        G.deck:emplace(card)
-                    return true
-                end
-            }))
-            card.ability.extra.certificate_generated = true
+        for i, v in pairs(G.GAME.tags) do
+            if v:apply_to_run({type = 'real_round_before_start', card = card}) then break end
+        end
+        if not G.GAME.blind.disabled then
+            for i = 1, G.GAME.round_resets.ante * 2 + 8, 1 do
+                local enhancement = pseudorandom_element({'m_bld_sharp', 'm_bld_adder', 'm_bld_flip', 'm_bld_bite', 'm_bld_pot', 'm_bld_sharp', 'm_bld_adder', 'm_bld_flip', 'm_bld_bite', 'm_bld_pot', 'm_bld_blank'}, pseudoseed('bld_certificate'))
+                local card = SMODS.create_card { set = "Base", enhancement = enhancement, area = G.discard }
+                G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+                card.playing_card = G.playing_card
+                table.insert(G.playing_cards, card)
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.3,
+                    func = function()
+                            card:start_materialize({ G.C.SECONDARY_SET.Enhanced })
+                            G.deck:emplace(card)
+                        return true
+                    end
+                }))
+                card.ability.extra.certificate_generated = true
+            end
         end
     end,
     joker_defeat = function ()

@@ -12,6 +12,10 @@ SMODS.Tag {
         return false
     end,
     apply = function(self, tag, context)
+        if context.type == 'real_round_before_start' then
+            G.GAME.blind:disable()
+            G.GAME.blindassist:disable()
+        end
         if not G.GAME.imprisonment_buffer and context.type == 'real_round_start' then
             G.GAME.imprisonment_buffer = true
             G.E_MANAGER:add_event(Event({
