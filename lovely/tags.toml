@@ -1,0 +1,169 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = "local nu_chip, nu_mult = G.GAME.selected_back:trigger_effect{context = 'final_scoring_step'*"
+position = 'before'
+match_indent = true
+payload = '''
+
+for i = 1, #G.GAME.tags do
+    G.GAME.tags[i]:apply_to_run({type = 'after_hand'})
+    delay(0.5)
+end
+
+'''
+
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = "SMODS.calculate_context({first_hand_drawn = not G.GAME.current_round.any_hand_drawn and G.GAME.facing_blind,"
+position = 'before'
+match_indent = true
+payload = '''
+if not G.GAME.current_round.any_hand_drawn and G.GAME.facing_blind then
+for i = 1, #G.GAME.tags do
+    G.GAME.tags[i]:apply_to_run({type = 'real_round_start'})
+end
+end
+
+'''
+
+[[patches]]
+[patches.pattern]
+target = 'functions/button_callbacks.lua'
+pattern = "SMODS.calculate_context({using_consumeable = true, consumeable = card, area = card.from_area})"
+position = 'before'
+match_indent = true
+payload = '''
+for i = 1, #G.GAME.tags do
+    G.GAME.tags[i]:apply_to_run({type = 'use_consumeable', consumeable = card, area = card.from_area})
+end
+'''
+[[patches]]
+[patches.pattern]
+target = 'functions/UI_definitions.lua'
+pattern = "function add_tag(_tag)"
+position = 'after'
+match_indent = true
+payload = '''
+if _tag.key == 'tag_bld_reroll' then
+    SMODS.change_free_rerolls(1)
+end
+
+'''
+
+# wave tag
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+match_indent = true
+position = 'before'
+pattern = '''
+local splashed = SMODS.always_scores(G.play.cards[i]) or next(find_joker('Splash'))
+'''
+payload = '''
+local waved = false
+for i = 1, #G.GAME.tags do
+    if G.GAME.tags[i].key == "tag_bld_wave" then
+        waved = true
+    end
+end
+'''
+# wave tag
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+match_indent = true
+position = 'after'
+pattern = '''
+local splashed = SMODS.always_scores(G.play.cards[i]) or next(find_joker('Splash'))
+'''
+payload = '''
+or waved
+'''
+
+# wave tag
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/overrides.lua"]'
+match_indent = true
+position = 'before'
+pattern = '''
+local splashed = SMODS.always_scores(cards[i]) or next(find_joker('Splash'))
+'''
+payload = '''
+local waved = false
+for i = 1, #G.GAME.tags do
+    if G.GAME.tags[i].key == "tag_bld_wave"  then
+        waved = true
+    end
+end
+'''
+
+# wave tag
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/overrides.lua"]'
+match_indent = true
+position = 'after'
+pattern = '''
+local splashed = SMODS.always_scores(cards[i]) or next(find_joker('Splash'))
+'''
+payload = '''
+or waved
+'''
+
+
+# symmetry tag
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+match_indent = true
+position = 'after'
+pattern = '''
+SMODS.score_card(card, context)
+'''
+payload = '''
+for i = 1, #G.GAME.tags do
+    G.GAME.tags[i]:apply_to_run({type = 'scoring_card', card = card, context = context})
+end
+'''
+
+
+# before tag context
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+match_indent = true
+position = 'after'
+pattern = '''
+SMODS.calculate_context({full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, before = true})
+'''
+payload = '''
+for i = 1, #G.GAME.tags do
+    G.GAME.tags[i]:apply_to_run({full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, type = 'before'})
+end
+'''
+
+
+# collector tag
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = "SMODS.calculate_context({open_booster = true, card = self, booster = booster_obj})"
+position = 'after'
+match_indent = true
+payload = '''
+
+for i = 1, #G.GAME.tags do
+    if self.config.center.kind == 'symbol' then
+        if G.GAME.tags[i]:apply_to_run({type = 'symbol_pack_opened'}) then break end
+    end
+end 
+
+'''

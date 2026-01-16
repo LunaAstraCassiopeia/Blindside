@@ -1,0 +1,449 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+# debuff tag
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/overrides.lua"]'
+pattern = 'if flags.prevent_debuff then return false end'
+position = 'before'
+match_indent = true
+payload = '''
+for i = 1, #G.GAME.tags do
+    if G.GAME.tags[i].key == "tag_bld_debuff" and G.GAME.tags[i].ability.debuffed_hand == handname then
+        flags.debuff = true
+        flags.debuff_text = G.GAME.tags[i].ability.debuff_text
+    end
+end
+
+'''
+
+# update to blindside shop
+
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''self:update_shop(dt)'''
+position = 'at'
+match_indent = true
+payload = '''
+if G.GAME.selected_back.effect.center.config.extra then
+    if not G.GAME.selected_back.effect.center.config.extra.blindside then return self:update_shop(dt) end
+    self:blindupdate_shop(dt)
+else
+self:update_shop(dt)
+end
+
+'''
+
+# update to blindside blind hud
+
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''self.HUD_blind = UIBox{'''
+position = 'before'
+match_indent = true
+payload = '''
+if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
+    self.HUD_blind = UIBox{
+        definition = create_UIBox_HUD_jokerblind(),
+        config = {major = G.HUD:get_UIE_by_ID('row_blind_bottom'), align = 'bmi', offset = {x=0,y=-10}, bond = 'Weak'}
+    }
+else
+
+'''
+
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''self.HUD_tags = {}'''
+position = 'before'
+match_indent = true
+payload = '''
+end
+'''
+
+# blindside blind chips area
+
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''blind_chips = self.HUD_blind:get_UIE_by_ID('HUD_blind_count'),'''
+position = 'before'
+match_indent = true
+payload = '''
+blind_mult_text = self.HUD_blind:get_UIE_by_ID('blind_mult'),
+blind_chip_text = self.HUD_blind:get_UIE_by_ID('blind_chips'),
+'''
+# blindside blind chips
+
+[[patches]]
+[patches.pattern]
+target = 'blind.lua'
+pattern = '''self.chips = get_blind_amount(G.GAME.round_resets.ante)*self.mult*G.GAME.starting_params.ante_scaling'''
+position = 'before'
+match_indent = true
+payload = '''
+self.original_mult = self.mult
+self.active = self.active
+self.small = self.small
+self.big = self.big
+self.extra = self.extra
+self.original_chips = get_blind_amount(G.GAME.round_resets.ante)*G.GAME.starting_params.ante_scaling
+self.basechips = get_blind_amount(G.GAME.round_resets.ante)*G.GAME.starting_params.ante_scaling
+self.basechips_text = number_format(self.basechips)
+self.mult_text = number_format(self.mult)
+self.blindassist = blind and blind.blindassist or nil
+
+'''
+
+# blindside blind chips saving
+[[patches]]
+[patches.pattern]
+target = 'blind.lua'
+pattern = '''chips = self.chips,'''
+position = 'before'
+match_indent = true
+payload = '''
+original_mult = self.original_mult,
+original_chips = self.original_chips,
+active = self.active,
+small = self.small,
+extra = self.extra,
+big = self.big,
+basechips = self.basechips,
+basechips_text = self.basechips_text,
+mult_text = self.mult_text,
+blindassist = self.blindassist,
+visible = self.visible,
+
+'''
+
+# blindside blind chips loading
+[[patches]]
+[patches.pattern]
+target = 'blind.lua'
+pattern = '''self.chips = blindTable.chips'''
+position = 'before'
+match_indent = true
+payload = '''
+self.original_mult = blindTable.original_mult
+self.original_chips = blindTable.original_chips
+self.active = blindTable.active
+self.basechips = blindTable.basechips
+self.small = blindTable.small
+self.extra = blindTable.extra
+self.big = blindTable.big
+self.basechips_text = blindTable.basechips_text
+self.mult_text = blindTable.mult_text
+self.blindassist = blindTable.blindassist
+self.visible = blindTable.visible
+
+'''
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = "{n=G.UIT.T, config={text = localize('b_skip_blind'), scale = 0.4, colour = G.C.UI.TEXT_INACTIVE}}"
+position = "at"
+payload = '''
+{n=G.UIT.T, config={text = localize('b_skip_blind')..(
+	G.GAME and G.GAME.modifiers and G.GAME.modifiers.enable_bld_skip_costs_money and 
+		((-2*(G.GAME.round_resets.ante))<0 and ' (-' or ' (')..localize('$')..math.abs(-2*(G.GAME.round_resets.ante))..')' 
+	or ''
+), scale = 0.4, colour = G.C.UI.TEXT_INACTIVE}}
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = '''_blind_choice.alignment.offset.y = -0.9
+if _tag and _tag_container then'''
+position = "after"
+payload = '''
+if not ( G.GAME.modifiers.enable_bld_skip_costs_money and to_big( (G.GAME.dollars-G.GAME.bankrupt_at) - (2*(G.GAME.round_resets.ante)) ) < to_big(0) ) then
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = "_sprite.config.force_focus = nil"
+position = "after"
+payload = '''
+else
+	_tag.children[2].config.button = 'skip_blind'	-- should be nil but tag colour isn't updating
+	_tag.config.outline_colour = G.C.UI.BACKGROUND_INACTIVE
+	_tag.children[2].config.hover = false
+	_tag.children[2].config.colour = G.C.UI.BACKGROUND_INACTIVE
+	_tag.children[2].children[1].config.colour = G.C.UI.TEXT_INACTIVE
+	local _sprite = _tag.config.ref_table
+	_sprite.config.force_focus = true
+end
+'''
+match_indent = true
+
+#playing with fire
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = '''if G.GAME.current_round.hands_left > 0 and not G.GAME.modifiers.no_extra_hand_money then'''
+position = "before"
+payload = '''
+if (G.GAME.playing_with_fire or 0) > 0 then
+    if G.GAME.playing_with_fire >= 8 then
+        unlock_card(G.P_CENTERS.b_bld_yellowdispenser)
+    end
+    add_round_eval_row({dollars = G.GAME.playing_with_fire, number = G.GAME.playing_with_fire_num, bonus='true', name='custom', text = localize('bld_playing_with_fire') .. ' (' .. localize(G.GAME.playing_with_fire_each) .. ')', pitch = pitch})
+    dollars = dollars + G.GAME.playing_with_fire
+    G.GAME.playing_with_fire_num = 0
+    G.GAME.playing_with_fire = 0
+end
+'''
+match_indent = true
+
+
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = '''if G.GAME.current_round.hands_left > 0 and not G.GAME.modifiers.no_extra_hand_money then'''
+position = "before"
+payload = '''
+for k, tag in pairs(G.GAME.tags) do
+    if tag.key == 'tag_bld_neon' and not tag.triggered then
+        if G.GAME.current_round.hands_left > 0 then
+            add_round_eval_row({dollars = G.GAME.current_round.hands_left * 3, bonus='true', number = G.GAME.current_round.hands_left, name='bld_neon_hands', text = localize('bld_neon_hands'), pitch = pitch})
+            dollars = dollars + G.GAME.current_round.hands_left * 3
+        end
+        if G.GAME.current_round.discards_left > 0 then
+            add_round_eval_row({dollars = G.GAME.current_round.discards_left * 5, bonus='true', number = G.GAME.current_round.discards_left, name='bld_neon_discards', text = localize('bld_neon_discards'), pitch = pitch})
+            dollars = dollars + G.GAME.current_round.discards_left * 5
+        end
+    end
+end
+'''
+match_indent = true
+
+
+# allow for multiple custom eval rows
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''elseif config.name == 'custom' then'''
+position = "before"
+payload = '''
+elseif config.name == 'bld_neon_hands' then
+    table.insert(left_text, {n=G.UIT.T, config={text = config.number, scale = 0.8*scale, colour = G.C.BLUE, shadow = true, juice = true}})
+    table.insert(left_text, {n=G.UIT.O, config={object = DynaText({string = {" "..config.text}, colours = {G.C.UI.TEXT_LIGHT}, shadow = true, pop_in = 0, scale = 0.4*scale, silent = true})}})
+elseif config.name == 'bld_neon_discards' then
+    table.insert(left_text, {n=G.UIT.T, config={text = config.number, scale = 0.8*scale, colour = G.C.RED, shadow = true, juice = true}})
+    table.insert(left_text, {n=G.UIT.O, config={object = DynaText({string = {" "..config.text}, colours = {G.C.UI.TEXT_LIGHT}, shadow = true, pop_in = 0, scale = 0.4*scale, silent = true})}})
+'''
+match_indent = true
+
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = '''if (area.config.type == 'joker' or area.config.type == 'hand') and not area.config.fixed_limit then'''
+position = "at"
+payload = '''
+if (area.config.type == 'joker' or area.config.type == 'hand' and not (G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside) ) and not area.config.fixed_limit then
+'''
+match_indent = true
+
+
+# joker text
+[[patches]]
+[patches.pattern]
+target = 'functions/UI_definitions.lua'
+pattern = "{n=G.UIT.T, config={text = localize('ph_defeat_this_blind_1'), scale = 0.4, colour = G.C.UI.TEXT_DARK}},"
+position = 'at'
+match_indent = true
+payload = '''
+BLINDSIDE.is_blindside(blind.key) and{n=G.UIT.T, config={text = localize('ph_defeat_this_joker_1'), scale = 0.4, colour = G.C.UI.TEXT_DARK}} or {n=G.UIT.T, config={text = localize('ph_defeat_this_blind_1'), scale = 0.4, colour = G.C.UI.TEXT_DARK}},
+'''
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''G.SPLASH_LOGO.dissolve = 1   '''
+position = "after"
+payload = '''
+G.BLINDSIDE_LOGO = Sprite(0, 0, 
+        13*SC_scale, 
+        13*SC_scale*(G.ASSET_ATLAS["bld_logo"].py/G.ASSET_ATLAS["bld_logo"].px),
+        G.ASSET_ATLAS["bld_logo"], {x=0,y=0})
+
+    G.BLINDSIDE_LOGO:set_alignment({
+        major = G.title_top,
+        type = 'cm',
+        bond = 'Strong',
+        offset = {x=0,y=0.4}
+    })
+    G.BLINDSIDE_LOGO:define_draw_steps({{
+            shader = 'dissolve',
+        }})
+
+    G.BLINDSIDE_LOGO.dissolve_colours = {G.C.WHITE, G.C.WHITE}
+    G.BLINDSIDE_LOGO.dissolve = 1   
+'''
+match_indent = true
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''if G.debug_splash_size_toggle then '''
+position = "before"
+payload = '''
+    if G.BLINDSIDE_LOGO then
+        love.graphics.push()
+        G.BLINDSIDE_LOGO:translate_container()
+        G.BLINDSIDE_LOGO:draw()
+        love.graphics.pop()
+    end 
+'''
+match_indent = true
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''ease_value(G.SPLASH_LOGO, 'dissolve', -1, nil, nil, nil, change_context == 'splash' and 2.3 or 0.9)'''
+position = "before"
+payload = '''
+ease_value(G.BLINDSIDE_LOGO, 'dissolve', -1, nil, nil, nil, change_context == 'splash' and 2.3 or 0.9)
+'''
+match_indent = true
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''self.title_top = CardArea('''
+position = "before"
+payload = '''
+    self.blindside_title_top = CardArea(
+        0, 0,
+        CAI.TITLE_TOP_W,CAI.TITLE_TOP_H,
+        {card_limit = 1, type = 'title'})
+'''
+match_indent = true
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''replace_card.ambient_tilt = 0.0'''
+position = "before"
+payload = '''
+local blind_card = Card(self.blindside_title_top.T.x, self.blindside_title_top.T.y, 1.2*G.CARD_W*SC_scale, 1.2*G.CARD_H*SC_scale, G.P_CARDS.S_A, G.P_CENTERS.m_bld_flip)
+    self.blindside_title_top:emplace(blind_card)
+
+    blind_card.states.visible = false
+    blind_card.no_ui = true
+    blind_card.ambient_tilt = 0.2
+'''
+match_indent = true
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''if change_context == 'splash' then '''
+position = "before"
+payload = '''
+            if change_context == 'splash' then 
+                blind_card.states.visible = true
+                blind_card:start_materialize({G.C.WHITE,G.C.WHITE}, true, 2.5)
+                play_sound('whoosh1', math.random()*0.1 + 0.3,0.3)
+                play_sound('crumple'..math.random(1,5), math.random()*0.2 + 0.6,0.65)
+            else
+                blind_card.states.visible = true
+                blind_card:start_materialize({G.C.WHITE,G.C.WHITE}, nil, 1.2)
+            end
+'''
+match_indent = true
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''self.title_top:hard_set_cards()'''
+position = "after"
+payload = '''
+    self.blindside_title_top:sort('order')
+    self.blindside_title_top:set_ranks()
+    self.blindside_title_top:align_cards()
+    self.blindside_title_top:hard_set_cards()
+'''
+match_indent = true
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''G.title_top.T.y = G.TILE_H/2 - G.title_top.T.h/2 -(G.debug_splash_size_toggle and 2 or 1.2)--|||||||||||||||||'''
+position = "after"
+payload = '''
+G.blindside_title_top.T.x = G.TILE_W/2 - G.blindside_title_top.T.w/2
+G.blindside_title_top.T.y = G.TILE_H/2 - G.blindside_title_top.T.h/2 -(G.debug_splash_size_toggle and 2 or 1.2) + 3.4
+'''
+match_indent = true
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''G.title_top:hard_set_VT()'''
+position = "after"
+payload = '''
+G.blindside_title_top:hard_set_VT()
+'''
+match_indent = true
+
+# logo
+[[patches]]
+[patches.pattern]
+target = "game.lua"
+pattern = '''if self.SPLASH_LOGO then self.SPLASH_LOGO:remove(); self.SPLASH_LOGO = nil end'''
+position = "after"
+payload = '''
+        if self.BLINDSIDE_LOGO then self.BLINDSIDE_LOGO:remove(); self.BLINDSIDE_LOGO = nil end
+'''
+match_indent = true
+
+# credits
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''      local cols'''
+position = "before"
+payload = '''
+if AUT.credits then
+    local name_nodes = {{n=G.UIT.T, config={text = "Artist", scale = 0.32, colour = G.C.UI.TEXT_LIGHT}}}
+    local t = {
+	{n=G.UIT.R, config={align = "cm"}, nodes={
+		{n=G.UIT.T, config={text = "Art by ", colour = G.C.UI.TEXT_DARK, scale = 0.33}},
+		{n=G.UIT.T, config={text = AUT.credits.art, colour = G.C.ORANGE, scale = 0.33}},
+        }}
+    }
+    local artistdisplay = {n=G.UIT.R, config={align = "cm", colour = lighten(G.C.GREY, 0.15), r = 0.1}, nodes={
+      {n=G.UIT.R, config={align = "tm", minh = 0.36, padding = 0.03}, nodes=name_nodes},
+      {n=G.UIT.R, config={align = "cm", minw = 1.5, minh = 0.4, r = 0.1, padding = 0.05, colour = G.C.WHITE}, nodes={{n=G.UIT.R, config={align = "cm", padding = 0.03}, nodes=t}}}
+    }}
+info_boxes[#info_boxes+1] =
+    {n=G.UIT.R, config={align = "cm"}, nodes={
+        {n=G.UIT.R, config={align = "cm", colour = lighten(G.C.JOKER_GREY, 0.5), r = 0.1, padding = 0.05, emboss = 0.05}, nodes={
+        artistdisplay
+        }}
+    }}
+end
+'''
+match_indent = true
