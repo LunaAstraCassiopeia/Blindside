@@ -1372,9 +1372,8 @@ return {
 				["text"] = {
 					{"{C:dark_edition,E:1}Upgrade{} up to {C:attention}#1#{}",
 					"selected Blinds"},
-					{"Create {C:attention}Debuff Tags",
-					"for your 1st and 2nd",
-					"{C:attention}most played hands"}
+					{"Create a {C:attention}Debuff Tag{} for",
+					"your {C:attention}most played hand"}
 				},
 			},
 			["c_bld_monsoon"] = {
