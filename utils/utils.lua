@@ -1611,6 +1611,11 @@ G.FUNCS.blind_reroll_boss_button = function(e)
     }))
   end
 
+--HOOK FOR CROSSMOD
+function BLINDSIDE.get_blindside_editions()
+    return {'e_bld_enameled', 'e_bld_finish', 'e_bld_mint'}
+end
+
 ----------------------------------------------
 ------------MOD CODE END----------------------
 

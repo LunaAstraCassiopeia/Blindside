@@ -10,7 +10,7 @@ SMODS.Consumable {
           end
             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.1, func = function()
                 local _card = pseudorandom_element(cards, pseudoseed('romance'))
-                local edition = poll_edition(pseudoseed('romance'), nil, true, true, {'e_bld_enameled', 'e_bld_finish', 'e_bld_mint'})
+                local edition = poll_edition(pseudoseed('romance'), nil, true, true, BLINDSIDE.get_blindside_editions())
                 _card:set_edition(edition, true)
             return true end }))
         card:juice_up(0.3, 0.5)
@@ -31,4 +31,5 @@ SMODS.Consumable {
             return false
         end
     end
+
 }
