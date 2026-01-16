@@ -1,0 +1,138 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+# collection add blind
+[[patches]]
+[patches.pattern]
+target = 'functions/UI_definitions.lua'
+pattern = "UIBox_button({button = 'your_collection_blinds', label = {localize('b_blinds')}, count = G.DISCOVER_TALLIES.blinds, minw = 5, minh = 2.0, id = 'your_collection_blinds', focus_args = {snap_to = true}}),UIBox_button({button = 'your_collection_other_gameobjects', label = {localize('k_other')}, minw = 5, id = 'your_collection_other_gameobjects', focus_args = {snap_to = true}}),"
+position = 'at'
+match_indent = true
+payload = '''
+      UIBox_button({button = 'your_collection_blinds', label = {localize('b_blinds')}, count = G.DISCOVER_TALLIES.blinds, minw = 5, minh = 2.0, id = 'your_collection_blinds', focus_args = {snap_to = true}}),UIBox_button({button = 'your_collection_other_gameobjects', label = {localize('k_other')}, minw = 5, id = 'your_collection_other_gameobjects', focus_args = {snap_to = true}}),
+    }},
+    {n=G.UIT.C, config={align = "cm", padding = 0.15}, nodes={
+        {n = G.UIT.O, config = {object = G.Blindside_Collection}}
+'''
+
+# collection add blind
+[[patches]]
+[patches.pattern]
+target = 'functions/UI_definitions.lua'
+pattern = "function create_UIBox_your_collection()"
+position = 'after'
+match_indent = true
+payload = '''
+  G.Blindside_Collection = CardArea(
+        0, 0,
+    1.05*G.CARD_W,
+    1.05*G.CARD_H, 
+        {card_limit = 1, type = 'title'})
+'''
+
+
+# collection cardarea add blind click
+[[patches]]
+[patches.pattern]
+target = 'cardarea.lua'
+pattern = "function CardArea:click() "
+position = 'after'
+match_indent = true
+payload = '''
+    if self == G.Blindside_Collection then 
+        G.FUNCS.blindside_collection()
+    end
+    if self == G.Blindside_Collection then
+        G.FUNCS.your_collection()
+    end
+'''
+
+# collection cardarea add blind click
+[[patches]]
+[patches.pattern]
+target = 'cardarea.lua'
+pattern = "function CardArea:update(dt)"
+position = 'after'
+match_indent = true
+payload = '''
+    if self == G.Blindside_Collection then 
+        self.states.collide.can = true
+        self.states.click.can = true
+    end
+    if self == G.Blindside_Collection then
+        self.states.collide.can = true
+        self.states.click.can = true
+    end
+'''
+
+
+# collection card add blind click
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = "if self.area and self.area == G.deck and self.area.cards[1] == self then "
+position = 'before'
+match_indent = true
+payload = '''
+    if self.area and self.area == G.Blindside_Collection and self.area.cards[1] == self then 
+        G.FUNCS.blindside_collection()
+    end
+    if self.area and self.area == G.Blindside_Back and self.area.cards[1] == self then 
+        G.FUNCS.your_collection()
+    end
+'''
+
+
+# collection card remove tallies
+[[patches]]
+[patches.pattern]
+target = 'functions/misc_functions.lua'
+pattern = "if not v.omit and not v.no_collection then "
+position = 'at'
+match_indent = true
+payload = '''
+    if not v.omit and not v.no_collection and not BLINDSIDE.is_blindside(v.key) then 
+'''
+
+# collection card remove tallies
+[[patches]]
+[patches.pattern]
+target = 'functions/misc_functions.lua'
+pattern = "if not v.no_collection then "
+position = 'at'
+match_indent = true
+payload = '''
+    if not v.no_collection and not BLINDSIDE.is_blindside(v.key) then 
+'''
+
+# remove all non blindside jokers
+
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''if add and not G.GAME.banned_keys[v.key] then'''
+position = 'before'
+match_indent = true
+payload = '''
+    if (not BLINDSIDE.is_blindside(v.key)) and (G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside) then
+        add = false
+    end 
+'''
+
+# remove all non blindside boosters
+
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/overrides.lua"]'
+match_indent = true
+position = 'before'
+pattern = '''
+if add and not G.GAME.banned_keys[v.key] then cume = cume + (v.current_weight or 1); temp_in_pool[v.key] = true end
+'''
+payload = '''
+if (not BLINDSIDE.is_blindside(v.key)) and (G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside) then
+    add = false
+end
+'''

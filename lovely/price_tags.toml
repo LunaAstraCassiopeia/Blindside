@@ -1,0 +1,53 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+
+# voucher refresh
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+pattern = '''
+if self.shop_voucher then G.GAME.current_round.voucher.spawn[self.config.center_key] = false end
+'''
+match_indent = true
+position = 'after'
+payload = '''
+if self.shop_voucher and G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then 
+G.GAME.current_round.voucher = SMODS.get_next_vouchers()
+G.GAME.round_resets.tags_bought = G.GAME.round_resets.tags_bought + 1
+for _, key in ipairs(G.GAME.current_round.voucher or {}) do
+    if G.P_CENTERS[key] and G.GAME.current_round.voucher.spawn[key] then
+        SMODS.add_voucher_to_shop(key)
+        G.shop_vouchers.cards[1].cost = math.max(G.shop_vouchers.cards[1].cost + 5*G.GAME.round_resets.tags_bought - (G.GAME.used_vouchers['v_bld_treasurechest'] and 20 or 0), 0)
+    end
+end
+end
+'''
+
+# microscope
+[[patches]]
+[patches.pattern]
+target = "card.lua"
+pattern = "if self.ability.set == 'Booster' then"
+position = "after"
+payload = '''
+    if G.GAME.used_vouchers.v_bld_satellite and self.config.center.kind == 'channel' then
+        self.ability.choose = (self.ability.choose or 1) + 1
+    end
+'''
+match_indent = true
+
+# clapper
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''UIBox_button({label = {localize('b_reroll_boss'), localize('$')..'10'}, button = "reroll_boss", func = 'reroll_boss_button'}) or nil'''
+position = "at"
+payload = '''
+UIBox_button({label = {localize('b_reroll_boss'), localize('$')..'10'}, button = "reroll_boss", func = 'reroll_boss_button'}) or nil,
+(G.GAME.used_vouchers["v_bld_clapper"] or G.GAME.used_vouchers["v_bld_film_reel"]) and
+UIBox_button({label = {localize('b_reroll_boss'), '1 Hand'}, button = "blind_reroll_boss", func = 'blind_reroll_boss_button'}) or nil,
+'''
+match_indent = true

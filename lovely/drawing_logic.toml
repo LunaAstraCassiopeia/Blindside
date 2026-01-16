@@ -1,0 +1,539 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+[[patches]]
+[patches.pattern]
+target = 'blind.lua'
+pattern = '''if self.name == 'The Wheel' and SMODS.pseudorandom_probability(self, pseudoseed('wheel'), 1, 7, 'wheel') then'''
+position = 'before'
+match_indent = true
+payload = '''
+if card.config.center.config.extra and card.config.center.config.extra.flipped or (card.ability and card.ability.extra and card.ability.extra.temp_flipped) then
+    return true
+end
+
+'''
+# static draw from play to discard
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = "draw_card(G.play,G.discard, it*100/play_count,'down', false, v)"
+position = 'at'
+match_indent = true
+payload = '''
+
+local cards_to_hand = {}
+for _, c in ipairs(G.play.cards) do
+    if c.config.center.key == 'm_bld_house' then
+        for __, card in ipairs(G.play.cards) do
+        if card ~= c then
+            table.insert(cards_to_hand, card)
+            end
+        end
+        break
+    end
+end
+
+if cards_to_hand ~= {} then
+    local condition = false
+    for _, card_to_hand in ipairs(cards_to_hand) do
+        if v == card_to_hand then
+            condition = true
+        end
+    end
+    if condition then
+        draw_card(G.play,G.hand, it*100/play_count,'up', true, v)
+    else
+        draw_card(G.play,G.discard, it*100/play_count,'down', false, v)
+    end
+else
+    draw_card(G.play,G.discard, it*100/play_count,'down', false, v)
+end
+'''
+
+# reshuffle
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''
+if G.FUNCS.draw_from_deck_to_hand(nil) then 
+'''
+match_indent = true
+position = 'before'
+payload = '''
+if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
+if G.FUNCS.blind_draw_from_deck_to_hand(nil) then
+    return true
+end
+else
+'''
+
+# reshuffle
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''
+-- removed first hand drawn context
+'''
+match_indent = true
+position = 'before'
+payload = '''
+end
+'''
+
+# [[patches]]
+# [patches.pattern]
+# target = '=[SMODS _ "src/utils.lua"]'
+# pattern = '''
+# G.FUNCS.draw_from_deck_to_hand(self.config.card_limits.total_slots - self.config.card_count - (SMODS.cards_to_draw or 0))
+# '''
+# match_indent = true
+# position = 'before'
+# payload = '''
+# if not BLINDSIDE.draw_queued then
+# '''
+# 
+# [[patches]]
+# [patches.pattern]
+# target = '=[SMODS _ "src/utils.lua"]'
+# pattern = '''
+# G.FUNCS.draw_from_deck_to_hand(self.config.card_limits.total_slots - self.config.card_count - (SMODS.cards_to_draw or 0))
+# '''
+# match_indent = true
+# position = 'after'
+# payload = '''
+# end
+# '''
+# 
+# [[patches]]
+# [patches.pattern]
+# target = '=[SMODS _ "src/utils.lua"]'
+# pattern = '''
+# G.FUNCS.draw_from_deck_to_hand((self.config.card_limits.total_slots - self.config.card_limits.old_slots))
+# '''
+# match_indent = true
+# position = 'before'
+# payload = '''
+# if not BLINDSIDE.draw_queued then
+# '''
+# 
+# [[patches]]
+# [patches.pattern]
+# target = '=[SMODS _ "src/utils.lua"]'
+# pattern = '''
+# G.FUNCS.draw_from_deck_to_hand((self.config.card_limits.total_slots - self.config.card_limits.old_slots))
+# '''
+# match_indent = true
+# position = 'after'
+# payload = '''
+# end
+# '''
+
+# exhaust pile
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''
+self.discard = CardArea(
+'''
+match_indent = true
+position = 'before'
+payload = '''
+self.exhaust = CardArea(
+    0, 0,
+    CAI.discard_W,CAI.discard_H,
+    {card_limit = 500, type = 'discard'})
+'''
+
+# exhaust pile
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''
+G.discard.T.x = G.jokers.T.x + G.jokers.T.w/2 + 0.3 + 15
+'''
+match_indent = true
+position = 'before'
+payload = '''
+G.exhaust.T.x = G.jokers.T.x + G.jokers.T.w/2 + 0.3 + 15
+'''
+
+# exhaust pile
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''
+G.discard:hard_set_VT()
+'''
+match_indent = true
+position = 'before'
+payload = '''
+G.exhaust:hard_set_VT()
+'''
+
+# exhaust pile
+[[patches]]
+[patches.pattern]
+target = 'functions/common_events.lua'
+pattern = '''
+elseif card.jimbo  then
+'''
+match_indent = true
+position = 'before'
+payload = '''
+    elseif card.area == G.exhaust or card.area == G.vouchers then
+    y_off = card.area == G.exhaust and -0.35*G.CARD_H or -0.65*G.CARD_H
+    card = G.deck.cards[1] or G.deck
+    card_aligned = 'tm'
+'''
+
+# exhaust pile
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''
+G.FUNCS.draw_from_discard_to_deck = function(e)
+'''
+match_indent = true
+position = 'after'
+payload = '''
+    G.E_MANAGER:add_event(Event({
+        trigger = 'immediate',
+        func = function()
+            local discard_count = #G.exhaust.cards
+            for i=1, discard_count do --draw cards from deck
+                draw_card(G.exhaust, G.deck, i*100/discard_count,'up', nil ,nil, 0.005, i%2==0, nil, math.max((21-i)/20,0.7))
+            end
+            return true
+        end
+      }))
+'''
+
+# burn context
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''
+-- context.remove_playing_cards calculations
+'''
+match_indent = true
+position = 'before'
+payload = '''
+local cards_burned = {}
+
+    for _,v in ipairs(SMODS.get_card_areas('playing_cards', 'destroying_cards')) do
+        BLINDSIDE.calculate_burning_cards({ full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, cardarea = v }, cards_burned, v == G.play and scoring_hand or nil)
+    end
+
+    SMODS.calculate_context({scoring_hand = scoring_hand, remove_playing_cards = true, cards_burned = cards_burned})
+
+    for i=1, #cards_burned do
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                cards_burned[i]:start_burn(cards_burned[i].area, true)
+                return true
+            end
+            }))
+    end
+'''
+
+# exhaust pile
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''
+if (not v.shattered) and (not v.destroyed) then 
+'''
+match_indent = true
+position = 'at'
+payload = '''
+        if (not v.shattered) and (not v.destroyed) and (not v.burned) then 
+'''
+
+# exhaust pile
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = '''
+        -- TARGET: add your own CardAreas for playing card evaluation
+'''
+match_indent = true
+position = 'before'
+payload = '''
+t[#t+1] = G.exhaust
+'''
+
+# reshufles this round
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''
+G.GAME.current_round.discards_used = 0
+'''
+match_indent = true
+position = 'after'
+payload = '''
+G.GAME.current_round.reshuffles_round = 0
+'''
+
+# reshufles this round
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''
+        hands_played = 0,
+'''
+match_indent = true
+position = 'after'
+payload = '''
+reshuffles_round = 0,
+'''
+
+# burn when discarded
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''
+G.hand.highlighted[i].ability.discarded = true
+'''
+match_indent = true
+position = 'before'
+payload = '''
+if burned then
+    burned_cards[#burned_cards + 1] = G.hand.highlighted[i]
+    G.hand.highlighted[i]:start_burn(G.hand)
+    else
+'''
+
+
+# burn when discarded
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''
+draw_card(G.hand, G.discard, i*100/highlighted_count, 'down', false, G.hand.highlighted[i])
+'''
+match_indent = true
+position = 'after'
+payload = '''
+end
+'''
+
+
+# burn when discarded
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''
+if key == 'remove' or (type(eval2) == 'table' and eval2.remove) then removed = true end
+'''
+match_indent = true
+position = 'after'
+payload = '''
+if key == 'burn' or (type(eval2) == 'table' and eval2.burn) then burned = true end
+'''
+
+# burn when discarded
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''
+local removed = false
+'''
+match_indent = true
+position = 'after'
+payload = '''
+local burned = false
+'''
+
+# burn when discarded
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''
+        local destroyed_cards = {}
+'''
+match_indent = true
+position = 'after'
+payload = '''
+        local burned_cards = {}
+'''
+
+# burn when discarded
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''
+-- context.remove_playing_cards from discard
+'''
+match_indent = true
+position = 'after'
+payload = '''
+if burned_cards[1] then
+            SMODS.calculate_context({remove_playing_cards = true, cards_burned = burned_cards})
+        end
+'''
+
+# experimental change, replace some of this code later
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+match_indent = true
+position = 'after'
+pattern = '''
+SMODS.calculate_context({full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, after = true})
+'''
+payload = '''
+if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
+    local any_selected = nil
+    local _cards = {}
+    local _retained_cards = {}
+
+    -- get magnet
+    local magnet = false
+    for i = 1, #G.GAME.tags do
+        if G.GAME.tags[i].key == "tag_bld_magnet_relic" then
+            magnet = true
+        end
+    end
+
+    -- sort cards into discarded and retained tables
+    for k, v in ipairs(G.hand.cards) do
+        local magnetized = magnet and v.ability.extra and v.ability.extra.upgraded
+        local innate_retain = v.config.center.config.extra and v.config.center.config.extra.retain
+        local is_sticky = v.seal == 'bld_sticky'
+        local set_to_retain = v.retain
+        local acquired_retain = v.ability.extra and v.ability.extra.retain
+        if not (magnetized or innate_retain or acquired_retain or set_to_retain or is_sticky) or v.burned then
+            _cards[#_cards+1] = v
+        elseif magnetized or innate_retain or acquired_retain or set_to_retain or is_sticky then
+            _retained_cards[#_retained_cards+1] = v
+        end
+        v.retain = false
+    end
+
+    local cards = {}
+    local burned_cards = {}
+    local destroyed_cards = {}
+    G.E_MANAGER:add_event(Event({
+        trigger = 'immediate',
+        func = function()
+            -- calc hand discard context
+            for i = 1, #_cards do
+                local removed = false
+                local burned = false
+                local effects = {}
+                SMODS.calculate_context({hand_discard = true, other_card =  _cards[i], full_hand = _cards, ignore_other_debuff = true}, effects)
+                SMODS.trigger_effects(effects)
+                for _, eval in pairs(effects) do
+                    if type(eval) == 'table' then
+                        for key, eval2 in pairs(eval) do
+                            if key == 'remove' or (type(eval2) == 'table' and eval2.remove) then removed = true end
+                            if key == 'burn' or (type(eval2) == 'table' and eval2.burn) then burned = true end
+                        end
+                    end
+                end
+                table.insert(cards, _cards[i])
+                if removed then
+                    destroyed_cards[#destroyed_cards + 1] = cards[i]
+                    if SMODS.shatters(cards[i]) then
+                        cards[i]:shatter()
+                    else
+                        cards[i]:start_dissolve()
+                    end
+                else 
+                    if burned then
+                        burned_cards[#burned_cards + 1] = cards[i]
+                        cards[i]:start_burn(G.hand, true)
+                    else
+                        cards[i].ability.discarded = true
+                        draw_card(G.hand, G.discard, i*100/#cards, 'down', false, cards[i])
+                    end
+                end
+            end
+
+            -- calc hand retain context
+            for i = 1, #_retained_cards do
+                local removed = false
+                local burned = false
+                local effects = {}
+                SMODS.calculate_context({hand_retain = true, other_card =  _retained_cards[i], full_hand = _retained_cards, ignore_other_debuff = true}, effects)
+                SMODS.trigger_effects(effects)
+                for _, eval in pairs(effects) do
+                    if type(eval) == 'table' then
+                        for key, eval2 in pairs(eval) do
+                            if key == 'remove' or (type(eval2) == 'table' and eval2.remove) then removed = true end
+                            if key == 'burn' or (type(eval2) == 'table' and eval2.burn) then burned = true end
+                        end
+                    end
+                end
+                table.insert(cards, _retained_cards[i])
+                if removed then
+                    destroyed_cards[#destroyed_cards + 1] = cards[#cards]
+                    if SMODS.shatters(cards[#cards]) then
+                        cards[#cards]:shatter()
+                    else
+                        cards[#cards]:start_dissolve()
+                    end
+                else 
+                    if burned then
+                        burned_cards[#burned_cards + 1] = cards[#cards]
+                        cards[#cards]:start_burn(G.hand, true)
+                    else
+                        --do nothing because it was retained
+                        --cards[#cards].ability.discarded = true
+                        --draw_card(G.hand, G.discard, i*100/#cards, 'down', false, cards[#cards])
+                    end
+                end
+            end
+            return true
+        end
+    }))
+    if burned_cards[1] then
+        SMODS.calculate_context({remove_playing_cards = true, cards_burned = burned_cards})
+    end
+    if destroyed_cards[1] then
+        SMODS.calculate_context({remove_playing_cards = true, removed = destroyed_cards})
+    end
+end
+'''
+
+# cardarea sorting
+[[patches]]
+[patches.pattern]
+target = 'cardarea.lua'
+pattern = '''
+self.config.sort = config.sort or 'desc'
+'''
+match_indent = true
+position = 'after'
+payload = '''
+if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
+self.config.sort = config.sort or 'color desc'
+end
+'''
+
+# skipping costs $2 per ante
+# thank you to CCC (celeste card collection) for this code and the following 3 patches
+[[patches]]
+[patches.pattern]
+target = "functions/button_callbacks.lua"
+pattern = "G.FUNCS.skip_blind = function(e)"
+position = "after"
+payload = '''
+if G.GAME and G.GAME.modifiers and G.GAME.modifiers.enable_bld_skip_costs_money then
+	local skipcost = 2*(G.GAME.round_resets.ante)
+	if -skipcost < 0 then
+		if to_big( (G.GAME.dollars-G.GAME.bankrupt_at) - skipcost ) < to_big(0) then
+			e.disable_button = false
+			return
+		end
+	end
+	if -skipcost ~= 0 then
+		ease_dollars(-skipcost)
+	end
+end
+'''
+match_indent = true

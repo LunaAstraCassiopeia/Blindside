@@ -1,0 +1,214 @@
+[manifest]
+version = "1.0.0"
+dump_lua = true
+priority = 0
+
+# The Wedge
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = "G.FUNCS.discard_cards_from_highlighted = function(e, hook)"
+position = 'after'
+match_indent = true
+payload = '''
+
+G.hand.wedge_highlighted = {}
+local wedge_played = false
+local highlightcount = 0
+
+for i = 1, #G.hand.cards do
+    if G.hand.cards[i] and G.hand.cards[i].highlighted then
+    highlightcount = highlightcount + 1
+    end
+end
+if highlightcount == 1 and next(SMODS.find_card("j_bld_miniature")) and not hook then
+    wedge_played = true
+end
+
+for i = 1, #G.hand.cards do
+    if G.hand.cards[i] and G.hand.cards[i].highlighted
+    and G.hand.cards[i].config.center == G.P_CENTERS.m_bld_wedge
+    and not G.hand.cards[i].debuff and not hook then
+        wedge_played = true
+        break
+    end
+end
+
+for i = 1, #G.hand.cards do
+    if G.hand.cards[i] and G.hand.cards[i].highlighted
+    and wedge_played then
+        table.insert(G.hand.wedge_highlighted, G.hand.cards[i])
+        G.hand:remove_from_highlighted(G.hand.cards[i], true)
+    end
+end
+
+'''
+
+# The Wedge
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = 'G.GAME.current_round.discards_used = G.GAME.current_round.discards_used + 1'
+position = 'after'
+match_indent = true
+payload = '''
+
+if G.hand.wedge_highlighted and #G.hand.wedge_highlighted >= 1 then
+    for i = 1, #G.hand.wedge_highlighted do
+        if not G.hand.wedge_highlighted[i].highlighted then
+            G.hand:add_to_highlighted(G.hand.wedge_highlighted[i], true)
+        end
+    end
+    local highlighted_count = math.min(#G.hand.highlighted, G.discard.config.card_limit - #G.play.cards)
+    SMODS.calculate_context({pre_discard = true, full_hand = G.hand.highlighted, hook = hook})
+    for i=1, highlighted_count do
+        G.hand.highlighted[i]:calculate_seal({discard = true})
+        local removed = false
+        local effects = {}
+        SMODS.calculate_context({discard = true, other_card =  G.hand.highlighted[i], full_hand = G.hand.highlighted, ignore_other_debuff = true}, effects)
+        SMODS.trigger_effects(effects)
+    end
+    G.E_MANAGER:add_event(Event({func = function()
+        G.GAME.ignore_hand_played = true
+        G.FUNCS.play_cards_from_highlighted()
+    return true end}))
+
+    return
+end
+
+'''
+
+# The Wedge
+[[patches]]
+[patches.regex]
+target = 'functions/state_events.lua'
+pattern = 'end\n(.*)\}\)\)\n(.*)end\n(?<indent>[\t ]*)(.*)end'
+position = "after"
+line_prepend = "$indent"
+payload = '''
+
+if G.hand.wedge_highlighted and #G.hand.wedge_highlighted >= 1 then
+
+    ease_discard(-1)
+
+    for i = 1, #G.hand.wedge_highlighted do
+        if not G.hand.wedge_highlighted[i].highlighted then
+            G.hand:add_to_highlighted(G.hand.wedge_highlighted[i], true)
+        end
+    end
+    
+    local highlighted_count = math.min(#G.hand.highlighted, G.discard.config.card_limit - #G.play.cards)
+    SMODS.calculate_context({pre_discard = true, full_hand = G.hand.highlighted, hook = hook})
+    for i=1, highlighted_count do
+        G.hand.highlighted[i]:calculate_seal({discard = true})
+        local removed = false
+        local effects = {}
+        SMODS.calculate_context({discard = true, other_card =  G.hand.highlighted[i], full_hand = G.hand.highlighted, ignore_other_debuff = true}, effects)
+        SMODS.trigger_effects(effects)
+    end
+
+    if #G.play.cards ~= 0 then
+        for i=1, #G.hand.highlighted do
+            if G.hand.highlighted[i] and G.hand.highlighted[i].config.center == G.P_CENTERS.m_bld_wedge then
+                G.hand.highlighted[i].base.times_played = G.hand.highlighted[i].base.times_played + 1
+                G.GAME.round_scores.cards_played.amt = G.GAME.round_scores.cards_played.amt + 1
+                draw_card(G.hand, G.play, i*100/#G.hand.highlighted, 'up', nil, G.hand.highlighted[i])
+            end
+        end
+    end
+
+    G.E_MANAGER:add_event(Event({func = function()
+        if #G.play.cards == 0 then
+            G.GAME.ignore_hand_played = true
+            G.FUNCS.play_cards_from_highlighted()
+        end
+    return true end}))
+
+    return
+end
+
+'''
+
+# The Wedge
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = "ease_hands_played(-1)"
+position = 'at'
+match_indent = true
+payload = '''
+
+if not G.GAME.ignore_hand_played then
+    ease_hands_played(-1)
+else
+    G.GAME.ignore_hand_played = nil
+end
+
+'''
+
+# blind shrink
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+match_indent = true
+position = 'after'
+pattern = '''
+SMODS.calculate_context({full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, after = true})
+'''
+payload = '''
+G.E_MANAGER:add_event(Event({
+        trigger = 'immediate',
+        func = (function()     
+BLINDSIDE.chipsupdate()
+        return true end)
+      }))
+'''
+
+# the spear money for mult
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = '''
+ease_dollars(amount)
+'''
+match_indent = true
+position = 'after'
+payload = '''
+for i = 1, #G.GAME.tags do
+    G.GAME.tags[i]:apply_to_run({type = 'after_money'})
+end
+'''
+
+# the spear money for mult
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = '''
+-- TARGET: effects after end of round evaluation
+'''
+match_indent = true
+position = 'after'
+payload = '''
+for i = 1, #G.playing_cards do
+    if card.ability and card.ability.extra and card.ability.extra.temp_flipped then
+        card.ability.extra.temp_flipped = false
+    end
+end
+'''
+
+# the trench reset
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = '''
+-- TARGET: effects after end of round evaluation
+'''
+match_indent = true
+position = 'after'
+payload = '''
+for i, card in pairs(G.playing_cards) do
+    if card.ability and card.ability.extra and card.ability.extra.xchips and SMODS.has_enhancement(card, 'm_bld_trench') then
+        card.ability.extra.xchips = card.ability.extra.xchipsbase
+    end
+end
+'''

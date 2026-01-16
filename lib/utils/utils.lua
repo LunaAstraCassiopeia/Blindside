@@ -1616,6 +1616,23 @@ function BLINDSIDE.get_blindside_editions()
     return {'e_bld_enameled', 'e_bld_finish', 'e_bld_mint'}
 end
 
-----------------------------------------------
-------------MOD CODE END----------------------
+function tableContains(value, tbl)
+  for _, v in ipairs(tbl) do
+    if v == value then
+      return true
+    end
+  end
+  return false
+end
 
+function BLINDSIDE.load_all_from_folder(folder)
+local path = SMODS.current_mod.path .. folder.."/"
+    for _, v in pairs(NFS.getDirectoryItems(path)) do
+        assert(SMODS.load_file(folder .."/".. v))()
+    end
+end
+function BLINDSIDE.load_all_from_table(table, folder)
+    for _, key in ipairs(table) do
+        assert(SMODS.load_file(folder.."/"..key..'.lua'))()
+    end
+end
