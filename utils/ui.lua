@@ -691,7 +691,21 @@ function blindtags_ui()
     for i = 1, math.ceil(counter / 6) do
         table.insert(tag_matrix, {})
     end
-	table.sort(tag_tab, function(a, b) return a.order < b.order end)
+
+    table.sort(tag_tab, function(a, b)
+        local a_index = -1
+        local b_index = -1
+        for index, value in ipairs(SMODS.ObjectTypes.bld_obj_blindside.cards) do
+            if value == a.key then
+                a_index = index
+            elseif value == b.key then
+                b_index = index
+            end
+        end
+
+        return a_index < b_index
+    end)
+
     local tags_to_be_alerted = {}
     for k, v in ipairs(tag_tab) do
         local discovered = v.discovered
