@@ -9,8 +9,6 @@
 	"badge_colour": "3F6AA4",
 	"badge_text_colour": "FFFFFF",
 	"display_name": "Blindside",
-	"version": "0.1.0-BETA",
-	"dependencies": [
-		"Steamodded (>=1.0.0~BETA-1224a)"
-	]
+	"version": "0.1.2-BETA",
+	"dependencies": ["Steamodded (>=1.0.0~BETA-1224a)", "Lovely (>=0.8.0)"]
 }
