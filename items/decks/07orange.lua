@@ -4,7 +4,6 @@ SMODS.Back({
     config = {
         no_interest = true,
         hand_size = -1,
-        discards = -1,
         hands = 2,
         extra = {
             blindside = true,
