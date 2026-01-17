@@ -51,3 +51,55 @@ UIBox_button({label = {localize('b_reroll_boss'), localize('$')..'10'}, button =
 UIBox_button({label = {localize('b_reroll_boss'), '1 Hand'}, button = "blind_reroll_boss", func = 'blind_reroll_boss_button'}) or nil,
 '''
 match_indent = true
+
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''G.HUD_tags[#G.HUD_tags+1] = UIBox{
+      definition = {n=G.UIT.ROOT, config={align = "cm",padding = 0.05, colour = G.C.CLEAR}, nodes={
+        tag_sprite_ui
+      }},
+      config = {
+        align = G.HUD_tags[1] and 'tm' or 'bri',
+        offset = G.HUD_tags[1] and {x=0,y=0} or {x=0.7,y=0},
+        major = G.HUD_tags[1] and G.HUD_tags[#G.HUD_tags] or G.ROOM_ATTACH}
+  }'''
+position = "at"
+payload = '''
+'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = ''' _tag.HUD_tag = G.HUD_tags[#G.HUD_tags]'''
+position = "at"
+payload = '''generateTagUi()'''
+match_indent = true
+
+
+[[patches]]
+[patches.pattern]
+target = "game.lua" # Tag:Yep
+pattern = '''G.FUNCS.blind_chip_UI_scale(G.hand_text_area.blind_chips)'''
+position = "before"
+payload = '''generateTagUi()'''
+match_indent = false
+
+[[patches]]
+[patches.pattern]
+target = "tag.lua"
+pattern = "self.HUD_tag:remove()"
+position = "after"
+payload = '''generateTagUi()'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "tag.lua"
+pattern = "self:remove()"
+position = "after"
+payload = '''generateTagUi()'''
+match_indent = true
+count = 2

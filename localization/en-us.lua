@@ -1088,6 +1088,13 @@ return {
 					"next {C:attention}Joker{}"
 				},
 			},
+			["tag_bld_deck"] = {
+				["name"] = "Price Tags",
+				["text"] = {
+					"{C:attention}#1#{} bought",
+					"Price Tags",
+				},
+			},
 		},
 		["bld_obj_mineral"] = {
 			["c_bld_stibnite"] = {
