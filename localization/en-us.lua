@@ -376,6 +376,8 @@ return {
 					"added to deck, gain",
 					"{C:red}+1{} permanent discard",
 					"{s:0.2} {}",
+					"{C:red}+1{} discard",
+					"{s:0.2} {}",
 					"All Blinds {C:attention,T:bld_burn}burn"
 				},
 				["unlock"] = {
@@ -1370,9 +1372,8 @@ return {
 				["text"] = {
 					{"{C:dark_edition,E:1}Upgrade{} up to {C:attention}#1#{}",
 					"selected Blinds"},
-					{"Create {C:attention}Debuff Tags",
-					"for your 1st and 2nd",
-					"{C:attention}most played hands"}
+					{"Create a {C:attention}Debuff Tag{} for",
+					"your {C:attention}most played hand"}
 				},
 			},
 			["c_bld_monsoon"] = {
@@ -3723,7 +3724,7 @@ return {
 			["m_bld_amber_acorn"] = {
 				["name"] = "Amber Acorn",
 				["text"] = {
-					{"{X:money,C:white}Yellow{} {C:white,X:purple,E:1}Legendary{}",
+					{"{X:money,C:white}Yellow{}",
 					"Currently {C:white,X:chips}X#1#{} Chips"},
 					{"Flips all Blinds",
 					"{C:attention}held in hand{} until",
@@ -3735,7 +3736,7 @@ return {
 			["m_bld_cerulean_bell"] = {
 				["name"] = "Cerulean Bell",
 				["text"] = {
-					{"{X:chips,C:white}Blue{} {C:white,X:purple,E:1}Legendary{}",
+					{"{X:chips,C:white}Blue{}",
 					"{C:chips}+#1#{} Chips"},
 					{"{C:attention}Forced to",
 					"{C:attention}be selected",}
@@ -3744,7 +3745,7 @@ return {
 			["m_bld_violet_vessel"] = {
 				["name"] = "Violet Vessel",
 				["text"] = {
-					{"{X:purple,C:white}Purple{} {C:white,X:purple,E:1}Legendary{}",
+					{"{X:purple,C:white}Purple{}",
 					"{C:white,X:chips}X#1#{} Chips to {C:attention}Joker"},
 					{"{C:attention}Burns",}
 				},
@@ -3752,7 +3753,7 @@ return {
 			["m_bld_crimson_heart"] = {
 				["name"] = "Crimson Heart",
 				["text"] = {
-					{"{X:mult,C:white}Red{} {C:white,X:purple,E:1}Legendary{}",
+					{"{X:mult,C:white}Red{}",
 					"{C:white,X:mult}X#1#{} Mult"},
 					{"If scored in the",
 					"{C:attention}winning hand{}, creates",
@@ -3762,7 +3763,7 @@ return {
 			["m_bld_verdant_leaf"] = {
 				["name"] = "Verdant Leaf",
 				["text"] = {
-					"{X:green,C:white}Green{} {C:white,X:purple,E:1}Legendary{}",
+					"{X:green,C:white}Green{}",
 					"Gains {C:white,X:mult}+X#2#{} Mult when",
 					"{C:attention}held in hand{} while a",
 					"{C:attention}Trinket{} is sold",

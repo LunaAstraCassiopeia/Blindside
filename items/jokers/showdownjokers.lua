@@ -71,37 +71,42 @@ BLINDSIDE.Joker({
         end
     end,
     joker_set = function ()
-        for i = 1, 8, 1 do
-            local enhancement = 'm_bld_king'
-            local card = SMODS.create_card { set = "Base", enhancement = enhancement, area = G.discard }
-            G.playing_card = (G.playing_card and G.playing_card + 1) or 1
-            card.playing_card = G.playing_card
-            table.insert(G.playing_cards, card)
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.3,
-                func = function()
-                        card:start_materialize({ G.C.SECONDARY_SET.Enhanced })
-                        G.deck:emplace(card)
-                    return true
-                end
-            }))
+        for i, v in pairs(G.GAME.tags) do
+            if v:apply_to_run({type = 'real_round_before_start', card = card}) then break end
         end
-        for i = 1, 8, 1 do
-            local enhancement = 'm_bld_queen'
-            local card = SMODS.create_card { set = "Base", enhancement = enhancement, area = G.discard }
-            G.playing_card = (G.playing_card and G.playing_card + 1) or 1
-            card.playing_card = G.playing_card
-            table.insert(G.playing_cards, card)
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.3,
-                func = function()
-                        card:start_materialize({ G.C.SECONDARY_SET.Enhanced })
-                        G.deck:emplace(card)
-                    return true
-                end
-            }))
+        if not G.GAME.blind.disabled then
+            for i = 1, 8, 1 do
+                local enhancement = 'm_bld_king'
+                local card = SMODS.create_card { set = "Base", enhancement = enhancement, area = G.discard }
+                G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+                card.playing_card = G.playing_card
+                table.insert(G.playing_cards, card)
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.3,
+                    func = function()
+                            card:start_materialize({ G.C.SECONDARY_SET.Enhanced })
+                            G.deck:emplace(card)
+                        return true
+                    end
+                }))
+            end
+            for i = 1, 8, 1 do
+                local enhancement = 'm_bld_queen'
+                local card = SMODS.create_card { set = "Base", enhancement = enhancement, area = G.discard }
+                G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+                card.playing_card = G.playing_card
+                table.insert(G.playing_cards, card)
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.3,
+                    func = function()
+                            card:start_materialize({ G.C.SECONDARY_SET.Enhanced })
+                            G.deck:emplace(card)
+                        return true
+                    end
+                }))
+            end
         end
     end,
 })

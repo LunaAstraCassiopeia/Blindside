@@ -1,5 +1,5 @@
 SMODS.Tag {
-    key = "imprisonment",
+    key = "heartbreak",
     hide_ability = false,
     atlas = 'bld_tag',
     --[[config = {
@@ -7,12 +7,16 @@ SMODS.Tag {
             rounds = 3
         }
     },]]
-    pos = {x = 4, y = 4},
+    pos = {x = 1, y = 3},
     in_pool = function(self, args)
         return false
     end,
     apply = function(self, tag, context)
-        if not G.GAME.imprisonment_buffer and context.type == 'real_round_start' and not (next(SMODS.find_card("j_bld_taglock")) and not (G.GAME.blind.boss or G.GAME.last_joker)) and G.GAME.blind.boss then
+        if context.type == 'real_round_before_start' then
+            G.GAME.blind:disable()
+            G.GAME.blindassist:disable()
+        end
+        if not G.GAME.imprisonment_buffer and context.type == 'real_round_start' then
             G.GAME.imprisonment_buffer = true
             G.E_MANAGER:add_event(Event({
                 func = function ()
