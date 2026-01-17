@@ -39,9 +39,7 @@ function add_tag(tag)
 	-- Make tags fit if there's more than 13 of them
 	-- This + Tag.remove Hook modify the offset to squeeze in more tags when needed
     if BLINDSIDE.is_relic(tag.key) then
-        if G.HUD_tags[1].tag.key ~= "tag_bld_deck" then
-            add_tag(Tag("tag_bld_deck"))
-        end
+        add_tag(Tag("tag_bld_deck"))
     end
     generateTagUi()
 	if #G.HUD_tags > 13 then
@@ -79,7 +77,7 @@ function generateTagUi()
                 }},
                 config = {
                     align = G.HUD_tags[1] and 'tm' or 'bri',
-                    offset = G.HUD_tags[1] and {x=0,y=0} or {x=1,y=0},
+                    offset = G.HUD_tags[1] and {x=0,y=0.8} or {x=1,y=0},
                     major = G.HUD_tags[1] and G.HUD_tags[#G.HUD_tags] or G.ROOM_ATTACH
                 },
             }
