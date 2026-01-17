@@ -274,7 +274,7 @@ function BLINDSIDE.chipsmodify(mult, originalchips, xmult, xchips, silent)
             G.GAME.blind.basechips = G.GAME.blind.basechips*xchips
         end
             G.hand_text_area.blind_chip_text:juice_up()
-                G.GAME.blind.basechips_text = number_format(G.GAME.blind.basechips)
+                G.GAME.blind.basechips_text = number_format(G.GAME.blind.basechips, 100000)
                 if not silent then play_sound('xchips') end
                 return true
             end}))
@@ -283,7 +283,7 @@ function BLINDSIDE.chipsmodify(mult, originalchips, xmult, xchips, silent)
             G.E_MANAGER:add_event(Event({trigger = 'before', delay = 0.3, func = function()
             G.GAME.blind.basechips = G.GAME.blind.basechips + originalchips
             G.hand_text_area.blind_chip_text:juice_up()
-                G.GAME.blind.basechips_text = number_format(G.GAME.blind.basechips)
+                G.GAME.blind.basechips_text = number_format(G.GAME.blind.basechips, 100000)
                 if not silent then play_sound('chips1') end
                 return true
             end}))

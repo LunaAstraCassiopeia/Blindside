@@ -279,7 +279,7 @@ self.big = self.big
 self.extra = self.extra
 self.original_chips = get_blind_amount(G.GAME.round_resets.ante)*G.GAME.starting_params.ante_scaling
 self.basechips = get_blind_amount(G.GAME.round_resets.ante)*G.GAME.starting_params.ante_scaling
-self.basechips_text = number_format(self.basechips)
+self.basechips_text = number_format(self.basechips, 100000)
 self.mult_text = number_format(self.mult)
 self.blindassist = blind and blind.blindassist or nil
 
