@@ -103,3 +103,16 @@ position = "after"
 payload = '''generateTagUi()'''
 match_indent = true
 count = 2
+
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''elseif _type == 'Voucher' then _pool[#_pool + 1] = "v_blank"'''
+position = "at"
+payload = '''elseif _type == 'Voucher' then
+    if G.GAME.selected_back and G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
+        _pool[#_pool + 1] = "v_bld_nametag"
+    else
+        _pool[#_pool + 1] = "v_blank"
+    end'''
+match_indent = true
