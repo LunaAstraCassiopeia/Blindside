@@ -358,6 +358,7 @@ BLINDSIDE.Joker({
             for _, scored_card in ipairs(context.scoring_hand) do
                 if not scored_card.original then
                     scored_card.original = copy3(scored_card.ability)
+                    scored_card.originaltype = copy3(scored_card.config.center)
                     transformed = true
                     local new_type = 'm_bld_big'
                     if scored_card:is_color("Red") or scored_card:is_color("Yellow") then
@@ -391,7 +392,7 @@ BLINDSIDE.Joker({
     joker_defeat = function()
         for key, value in pairs(G.playing_cards) do
             if value.original then
-                value:set_ability(value.original.config.center)
+                value:set_ability(value.originaltype)
                 value.ability = copy3(value.original)
                 value.original = nil
             end
