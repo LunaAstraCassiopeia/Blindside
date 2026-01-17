@@ -165,7 +165,7 @@ pattern = '''_blind_choice.alignment.offset.y = -0.9
 if _tag and _tag_container then'''
 position = "after"
 payload = '''
-if not ( G.GAME.modifiers.enable_bld_skip_costs_money and to_big( (G.GAME.dollars-G.GAME.bankrupt_at) - (2*(G.GAME.round_resets.ante)) ) < to_big(0) ) then
+if not ( G.GAME.modifiers.enable_bld_skip_costs_money and (G.GAME.dollars-G.GAME.bankrupt_at) - (2*(G.GAME.round_resets.ante)) < 0 ) then
 '''
 match_indent = true
 
