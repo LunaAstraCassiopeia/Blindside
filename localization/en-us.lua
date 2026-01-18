@@ -3384,7 +3384,7 @@ return {
 				["text"] = {
 					"{X:chips,C:white}Blue{}",
 					"{C:red}Debuffs{} and {C:attention}burns{}",
-					"scoring Blinds",
+					"scoring {X:black,C:white}Crude{} Blinds",
 				},
 			},
 			["m_bld_silence"] = {
@@ -3624,7 +3624,7 @@ return {
 				["text"] = {
 					"{X:mult,C:white}Red{}",
 					"{C:mult}#1#{} Mult, then {C:mult}+#2#{} for",
-					"every Blind in",
+					"every {X:black,C:white}Crude{} Blind in",
 					"full deck",
 					"{C:inactive}(Currently {C:mult}#3#{C:inactive} Mult)"
 				},
@@ -3634,7 +3634,7 @@ return {
 				["text"] = {
 					"{X:mult,C:white}Red{}",
 					"{C:mult}+#2#{} Mult for",
-					"every Blind",
+					"every {X:black,C:white}Crude{} Blind",
 					"in full deck",
 					"{C:inactive}(Currently {C:mult}#3#{C:inactive} Mult)"
 				},
@@ -3644,7 +3644,7 @@ return {
 				["text"] = {
 					{"{X:money,C:white}Yellow{}",
 					"{C:money}-$#1#{}, then {C:money}+$#2#{} for",
-					"every other",
+					"every other {X:black,C:white}Crude{}",
 					"Blind in played hand"},
 					{"{C:attention}Stubborn"}
 				},
@@ -3654,7 +3654,7 @@ return {
 				["text"] = {
 					{"{X:money,C:white}Yellow{}",
 					"{C:money}+$#2#{} for every",
-					"other Blind",
+					"other {X:black,C:white}Crude{} Blind",
 					"in played hand"},
 					{"{C:attention}Stubborn"}
 				},
@@ -3668,7 +3668,7 @@ return {
 					{
 						"When {C:attention}held in hand{},",
 						"gives {X:mult,C:white}+X#1#{} Mult for",
-						"every Blind",
+						"every {X:black,C:white}Crude{} Blind",
 						"{C:attention}held in hand",
 					}
 				},
@@ -4537,9 +4537,9 @@ return {
 				name = "Magic Stake??",
 				text = {
 					"Start with",
-					"{C:attention}2{} Blinds",
+					"{C:attention}2{} {X:black,C:white}Crude{} Blinds",
 					"{s:0.2} {}",
-					"{C:white,X:black}Cursed{} Blinds may",
+					"{X:black,C:white}Crude{} Blinds may",
 					"appear in {C:attention}shops"
 				}
 			},
@@ -4548,7 +4548,7 @@ return {
 				text = {
 					"After defeating each",
 					"{C:attention}Boss Joker{}, choose {C:attention}1",
-					"of {C:attention}3{} {C:white,X:black}Cursed{} Blinds"
+					"of {C:attention}3{} {X:black,C:white}Crude{} Blinds"
 				}
 			},
 			["stake_bld_zodiac_deck"] = {
