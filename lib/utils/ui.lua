@@ -1726,6 +1726,18 @@ function mod_tab_description()
   return {{n = G.UIT.C, config = {emboss = 0.05, minh = 6, r = 0.1, minw = 6, align = "tm",padding = 0.2, colour = G.C.BLACK}, nodes = modNodes }}
 end
 
+local suit_obj_list = SMODS.Suit.obj_list
+function SMODS.Suit:obj_list(preview, ...)
+    local suits = suit_obj_list(self, preview, ...)
+    local new_suits = {}
+    for i, v in pairs(suits) do
+        if preview and not v.blindside and (not v.original_mod or v.original_mod.id ~= "Blindside") then
+            new_suits[#new_suits+1] = v
+        end
+    end
+    return new_suits
+end
+
 ----------------------------------------------
 ------------MOD CODE END----------------------
 
