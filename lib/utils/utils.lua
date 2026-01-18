@@ -139,7 +139,7 @@
         end
 
         for _, v in pairs(G.P_BLINDS) do
-            if BLINDSIDE.is_blindside(v.key) and not v.omit  then
+            if BLINDSIDE.is_blindside(v.key) and not v.omit and not BLINDSIDE.is_dupe(v.key)  then
                 G.DISCOVER_TALLIES.blindjokers.of = G.DISCOVER_TALLIES.blindjokers.of+1
                 if v.discovered then 
                     G.DISCOVER_TALLIES.blindjokers.tally = G.DISCOVER_TALLIES.blindjokers.tally+1
