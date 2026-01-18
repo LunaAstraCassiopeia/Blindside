@@ -1518,8 +1518,8 @@ return {
 				["name"] = "Western",
 				["text"] = {
 					"{C:attention}Enhance{} #1#",
-					"selected Blind into a",
-					"{C:attention}Hunter Blind{}"
+					"selected Blinds into",
+					"{C:attention}Hunter Blinds{}"
 				},
 			},
 			["c_bld_historical"] = {
