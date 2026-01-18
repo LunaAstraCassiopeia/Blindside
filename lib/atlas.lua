@@ -85,3 +85,19 @@ SMODS.Atlas({
     px = 34,
     py = 34
 })
+SMODS.Atlas({
+    key = "blindshop",
+    path = "blindshop.png",
+    px = 113,
+    py = 57,
+    atlas_table = 'ANIMATION_ATLAS',
+    frames = 5
+})
+SMODS.Atlas({
+    key = "bossshop",
+    path = "bossshop.png",
+    px = 113,
+    py = 57,
+    atlas_table = 'ANIMATION_ATLAS',
+    frames = 5
+})

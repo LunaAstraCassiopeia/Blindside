@@ -148,7 +148,7 @@ function G.UIDEF.blind_shop()
       1.05*G.CARD_H, 
       {card_limit = G.GAME.starting_params.boosters_in_shop + (G.GAME.modifiers.extra_boosters or 0) + (not G.GAME.last_joker and 1 or 1), type = 'shop', highlight_limit = 1, card_w = 1.27*G.CARD_W})
 
-    local shop_sign = AnimatedSprite(0,0, 4.4, 2.2, G.ANIMATION_ATLAS['shop_sign'])
+    local shop_sign = AnimatedSprite(0,0, 4.4, 2.2, G.GAME.last_joker and G.ANIMATION_ATLAS['bld_bossshop'] or G.ANIMATION_ATLAS['bld_blindshop'])
     shop_sign:define_draw_steps({
       {shader = 'dissolve', shadow_height = 0.05},
       {shader = 'dissolve'}
