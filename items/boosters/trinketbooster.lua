@@ -14,7 +14,7 @@ SMODS.Booster{
         kind = 'trinket',
         cost = 3,
         weight = 1,
-        pos = { x = 0, y = 2 },
+        pos = { x = 1, y = 8 },
         loc_vars = function(self, info_queue, card)
             return {vars = {card.config.center.config.choose + (G.GAME.used_vouchers.v_bld_satellite and 1 or 0), card.ability.extra}}
         end,
@@ -53,7 +53,7 @@ SMODS.Booster{
         kind = 'trinket',
         cost = 3,
         weight = 1,
-        pos = { x = 1, y = 2 },
+        pos = { x = 2, y = 8 },
         loc_vars = function(self, info_queue, card)
             return {vars = {card.config.center.config.choose + (G.GAME.used_vouchers.v_bld_satellite and 1 or 0), card.ability.extra}}
         end,
@@ -92,7 +92,7 @@ SMODS.Booster{
         kind = 'trinket',
         cost = 4,
         weight = 1,
-        pos = { x = 0, y = 3 },
+        pos = { x = 1, y = 8 },
         loc_vars = function(self, info_queue, card)
             return {vars = {card.config.center.config.choose + (G.GAME.used_vouchers.v_bld_satellite and 1 or 0), card.ability.extra}}
         end,
@@ -131,7 +131,7 @@ SMODS.Booster{
         kind = 'trinket',
         cost = 6,
         weight = 1,
-        pos = { x = 2, y = 3 },
+        pos = { x = 2, y = 8 },
         loc_vars = function(self, info_queue, card)
             return {vars = {card.config.center.config.choose + (G.GAME.used_vouchers.v_bld_satellite and 1 or 0), card.ability.extra}}
         end,
