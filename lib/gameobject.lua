@@ -468,6 +468,7 @@ local booster_list = {
         "noblebooster",
         "ritualbooster",
         "voodoobooster",
+        "trinketbooster"
 }
 
 local channel_list = {

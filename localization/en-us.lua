@@ -169,6 +169,7 @@ return {
 			['k_bld_ritual_pack'] = 'Hallow Pack',
 			['k_bld_noble_pack'] = 'Noble Pack',
 			['k_bld_voodoo_pack'] = 'Voodoo Pack',
+			['k_bld_trinket_pack'] = 'Surprise Pack',
 			['ui_bld_deck_view'] = 'Deck View',
 			["ph_mask_saved"] = "Saved by Ancient Mask",
 			["ph_defeat_this_joker_1"] = "Defeat this Joker",
@@ -5011,6 +5012,38 @@ return {
 					"Choose {C:attention}#1#{} of up to",
 					"{C:attention}#2#{C:attention} {C:bld_obj_rune}Ritual{} cards to",
 					"use immediately"
+				}
+			},
+			["p_bld_trinket_basic1"] = {
+				["group_name"] = "Suprise Pack",
+				["name"] = "Suprise Pack",
+				["text"] = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2#{C:attention} {C:bld_hobby}Trinkets{}"
+				}
+			},
+			["p_bld_trinket_basic2"] = {
+				["group_name"] = "Suprise Pack",
+				["name"] = "Suprise Pack",
+				["text"] = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2#{C:attention} {C:bld_hobby}Trinkets{}"
+				}
+			},
+			["p_bld_trinket_jumbo1"] = {
+				["group_name"] = "Suprise Pack",
+				["name"] = "Jumbo Suprise Pack",
+				["text"] = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2#{C:attention} {C:bld_hobby}Trinkets{}"
+				}
+			},
+			["p_bld_trinket_mega1"] = {
+				["group_name"] = "Suprise Pack",
+				["name"] = "Mega Suprise Pack",
+				["text"] = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2#{C:attention} {C:bld_hobby}Trinkets{}"
 				}
 			},
 			["p_bld_voodoo"] = {
