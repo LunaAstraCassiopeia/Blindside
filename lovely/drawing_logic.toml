@@ -526,7 +526,7 @@ payload = '''
 if G.GAME and G.GAME.modifiers and G.GAME.modifiers.enable_bld_skip_costs_money then
 	local skipcost = 2*(G.GAME.round_resets.ante)
 	if -skipcost < 0 then
-		if to_big( (G.GAME.dollars-G.GAME.bankrupt_at) - skipcost ) < to_big(0) then
+		if (G.GAME.dollars-G.GAME.bankrupt_at) - skipcost < 0 then
 			e.disable_button = false
 			return
 		end
