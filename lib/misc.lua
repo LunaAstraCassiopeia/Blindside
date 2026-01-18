@@ -35,16 +35,12 @@ end
 --PROPERLY COMPRESS TAGS
 local at = add_tag
 function add_tag(tag)
-	at(tag)
 	-- Make tags fit if there's more than 13 of them
 	-- This + Tag.remove Hook modify the offset to squeeze in more tags when needed
-    if BLINDSIDE.is_relic(tag.key) then
-        add_tag(Tag("tag_bld_deck"))
-    end
-    generateTagUi()
-	if #G.HUD_tags > 13 then
-		for i = 3, #G.HUD_tags do
-			G.HUD_tags[i].config.offset.y = 0.9 - 0.9 * 13 / #G.HUD_tags
+	at(tag)
+	if #G.HUD_tags - #G.vouchers.cards >= 13 then
+		for i = #G.vouchers.cards + 2, #G.HUD_tags do
+			G.HUD_tags[i].config.offset.y = 0.9 - 0.9 * 13 / (#G.HUD_tags - #G.vouchers.cards)
 		end
 	end
 end
@@ -52,10 +48,9 @@ end
 local tr = Tag.remove
 function Tag:remove()
 	tr(self)
-    generateTagUi()
-	if #G.HUD_tags >= 13 then
-		for i = 3, #G.HUD_tags do
-			G.HUD_tags[i].config.offset.y = 0.9 - 0.9 * 13 / #G.HUD_tags
+	if #G.HUD_tags - #G.vouchers.cards >= 13 then
+		for i = #G.vouchers.cards + 2, #G.HUD_tags do
+			G.HUD_tags[i].config.offset.y = 0.9 - 0.9 * 13 / (#G.HUD_tags - #G.vouchers.cards)
 		end
 	end
 end
@@ -67,9 +62,8 @@ function generateTagUi()
             G.HUD_tags[k] = nil
         end
     end
-    local relic = false
     for k, tag in pairs (G.GAME.tags) do
-        if tag.key == "tag_bld_deck" then
+        if BLINDSIDE.is_relic(tag.key) then
             local tag_sprite_ui = tag:generate_relic_UI()
             G.HUD_tags[#G.HUD_tags+1] = UIBox{
                 definition = {n=G.UIT.ROOT, config={align = "cm",padding = 0.05, colour = G.C.CLEAR}, nodes={
@@ -83,11 +77,10 @@ function generateTagUi()
             }
             tag.HUD_tag = G.HUD_tags[#G.HUD_tags]
             G.HUD_tags[#G.HUD_tags].tag = tag
-            relic = true
         end
     end
     for k, tag in pairs(G.GAME.tags) do
-        if (not BLINDSIDE.is_relic(tag.key) and tag.key ~= "tag_bld_deck") or not relic then
+        if not BLINDSIDE.is_relic(tag.key)then
             local tag_sprite_ui = tag:generate_UI()
             
             G.HUD_tags[#G.HUD_tags+1] = UIBox{
@@ -102,8 +95,6 @@ function generateTagUi()
             }
             tag.HUD_tag = G.HUD_tags[#G.HUD_tags]
             G.HUD_tags[#G.HUD_tags].tag = tag
-        else
-            tag.HUD_tag = G.HUD_tags[1]
         end
     end
 end
@@ -111,6 +102,7 @@ end
 
 function Tag:generate_relic_UI(_size)
     _size = _size or 0.8
+    local pretend_tag = Tag("tag_bld_deck")
 
     local tag_sprite_tab = nil
 
@@ -141,7 +133,7 @@ function Tag:generate_relic_UI(_size)
                     play_sound('tarot2', math.random()*0.1 + 0.55, 0.09)
                 end
 
-                self:get_uibox_table(tag_sprite)
+                pretend_tag:get_uibox_table(tag_sprite)
                 _self.config.h_popup =  G.UIDEF.card_h_popup(_self)
                 _self.config.h_popup_config = (_self.T.x > G.ROOM.T.w*0.4) and
                     {align =  'cl', offset = {x=-0.1,y=0},parent = _self} or

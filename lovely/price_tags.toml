@@ -55,6 +55,57 @@ match_indent = true
 
 [[patches]]
 [patches.pattern]
+target = "tag.lua"
+pattern = "self.ability = {"
+position = "before"
+payload = '''self.count = _tag.count or 1'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "tag.lua"
+pattern = "ability = self.ability"
+position = "after"
+payload = ''',
+count = self.count'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "tag.lua"
+pattern = "self.ability = tag_savetable.ability"
+position = "after"
+payload = '''self.count = tag_savetable.count'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "tag.lua"
+pattern = "self.HUD_tag.states.visible = false"
+position = "at"
+payload = ''''''
+match_indent = true
+count = 2
+
+[[patches]]
+[patches.pattern]
+target = "tag.lua"
+pattern = "self.HUD_tag:remove()"
+position = "after"
+payload = '''generateTagUi()'''
+match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "tag.lua"
+pattern = "self:remove()"
+position = "after"
+payload = '''generateTagUi()'''
+match_indent = true
+count = 2
+
+[[patches]]
+[patches.pattern]
 target = "functions/UI_definitions.lua"
 pattern = '''G.HUD_tags[#G.HUD_tags+1] = UIBox{
       definition = {n=G.UIT.ROOT, config={align = "cm",padding = 0.05, colour = G.C.CLEAR}, nodes={
@@ -78,7 +129,6 @@ position = "at"
 payload = '''generateTagUi()'''
 match_indent = true
 
-
 [[patches]]
 [patches.pattern]
 target = "game.lua" # Tag:Yep
@@ -89,17 +139,17 @@ match_indent = false
 
 [[patches]]
 [patches.pattern]
-target = "tag.lua"
-pattern = "self.HUD_tag:remove()"
-position = "after"
-payload = '''generateTagUi()'''
+target = "game.lua"
+pattern = "add_tag(_tag)"
+position = "before"
+payload = '''_tag.savetable = true'''
 match_indent = true
+
 
 [[patches]]
 [patches.pattern]
-target = "tag.lua"
-pattern = "self:remove()"
-position = "after"
-payload = '''generateTagUi()'''
+target = "functions/UI_definitions.lua"
+pattern = "G.HUD_tags = G.HUD_tags or {}"
+position = "at"
+payload = '''G.HUD_tags = {}'''
 match_indent = true
-count = 2
