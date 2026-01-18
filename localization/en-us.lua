@@ -3785,10 +3785,6 @@ return {
 					{"{C:attention}Retriggers{} once for",
 					"every {C:attention}2{} Tags held",
 					"{C:inactive}(Currently #2# time#3#)"},
-					{"This blind is bugged,",
-					"and retriggers {C:attention}ALL{} played blinds",
-					"when held in hand! You may enjoy",
-					"this bug until next update"}
 				},
 			},
 			["m_bld_trench"] = {

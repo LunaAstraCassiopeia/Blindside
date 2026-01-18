@@ -237,3 +237,7 @@ function G.UIDEF.bought_price_tags()
   }}
   return t
 end
+
+to_big = to_big or function(x)
+	return x
+end

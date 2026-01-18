@@ -47,6 +47,15 @@
                                     delay = 0.5,
                                     func = (function()
                                         BLINDSIDE.chipsupdate()
+                                        G.E_MANAGER:add_event(Event({
+                                            func = (function()
+                                                if G.GAME.blind.chips <= G.GAME.chips then
+                                                    G.STATE = G.STATES.HAND_PLAYED
+                                                    G.STATE_COMPLETE = true
+                                                    end_round()
+                                                end
+                                                return true
+                                            end)}))
                                         return true
                                     end)}))
                                 return true
