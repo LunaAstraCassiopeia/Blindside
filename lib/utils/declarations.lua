@@ -354,6 +354,7 @@
         "v_bld_film_reel",
         "v_bld_nametag",
         "v_bld_birthcertificate",
+        "tag_bld_deck",
         "tag_bld_grabbyhand_relic",
         "tag_bld_prosthetic_relic",
         "tag_bld_bindle_relic",
@@ -486,6 +487,7 @@
     SMODS.ObjectType {
         key = "bld_obj_relics",
         cards = {
+        "tag_bld_deck",
         "tag_bld_grabbyhand_relic",
         "tag_bld_prosthetic_relic",
         "tag_bld_bindle_relic",
