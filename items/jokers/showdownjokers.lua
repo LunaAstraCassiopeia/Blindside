@@ -205,7 +205,7 @@ BLINDSIDE.Joker({
                 G.GAME.blindassist:change_dim(1.5,1.5)
                 G.GAME.blindassist.negative = true
                 play_sound('negative', 1.5, 0.4)
-                SMODS.calculate_context({setting_blind = true, blind = G.GAME.round_resets.blind})
+                SMODS.calculate_context({setting_blind = true, blind = G.GAME.round_resets.blind, perkeo = true})
             return true end }))
             blind.hands[context.scoring_name] = true
         end

@@ -35,7 +35,7 @@
             end
         end,
         calculate = function(self, card, context)
-            if context.setting_blind then
+            if context.setting_blind and not context.perkeo then
                 G.E_MANAGER:add_event(Event({
                     trigger = 'after', delay = 0.4,
                     func = (function()

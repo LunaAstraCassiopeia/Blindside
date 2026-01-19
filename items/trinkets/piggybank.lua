@@ -32,7 +32,7 @@ SMODS.Joker({
         end
     end,
     calculate = function(self, card, context)
-        if context.setting_blind and not context.getting_sliced then
+        if context.setting_blind and not context.getting_sliced and not context.perkeo then
             return {
                 dollars = card.ability.extra.dollars,
             }

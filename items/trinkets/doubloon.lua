@@ -24,7 +24,7 @@
             concept = "AstraLuna"
         },
         calculate = function(self, card, context)
-            if context.setting_blind then
+            if context.setting_blind and not context.perkeo then
                 if context.setting_blind then
                     G.E_MANAGER:add_event(Event({
                         trigger = 'after', delay = 0.4,

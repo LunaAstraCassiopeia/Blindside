@@ -54,7 +54,7 @@ SMODS.Consumable {
         juice_card_until(card, eval, true)
     end,
     calculate = function(self, card, context)
-        if context.setting_blind and card.ability.extra.active then 
+        if context.setting_blind and card.ability.extra.active and not context.perkeo then 
         card.ability.extra.roundsActive = card.ability.extra.roundsActive + 1
         card.ability.extra.active = true
         G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.2, func = function()
