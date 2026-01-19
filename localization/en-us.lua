@@ -4514,6 +4514,12 @@ return {
 				text = {
 					"{C:white,X:mult}X#1#{} Mult"
 				}
+			},
+			['e_bld_negative'] = {
+				name = "Negative",
+				text = {
+                    "{C:dark_edition}+#1#{} Trinket slot"
+				}
 			}
 		},
 		["Stake"] = {
