@@ -35,7 +35,7 @@ SMODS.Consumable {
         juice_card_until(card, eval, true)
     end,
     calculate = function(self, card, context)
-        if context.setting_blind and card.ability.extra.active then 
+        if context.setting_blind and card.ability.extra.active and not context.perkeo then 
         card.ability.extra.roundsActive = card.ability.extra.roundsActive + 1
         end
         if context.repetition and card.ability.extra.active and context.other_card and context.other_card.facing ~= 'back' and context.other_card:is_color("Yellow") and context.other_card.ability.extra.rescore ~= 1 then

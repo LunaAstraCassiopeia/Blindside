@@ -18,6 +18,9 @@ SMODS.Tag {
         end,
     set_ability = function (self, tag)
         tag.config.extra.give = true
+        if tag.savetable then
+            tag.config.extra.give = false
+        end
     end,
     apply = function(self, tag, context)
         if tag.config.extra.give and #G.hand.cards > 0 then
@@ -30,7 +33,7 @@ SMODS.Tag {
                 return true end)
             tag.triggered = true
         end
-        if tag.config.extra.give and context.type == 'real_round_start' then
+        if tag.config.extra.give and context.type == 'round_start_bonus' then
             tag.config.extra.give = false
             G.hand:change_size(1)
             G.GAME.round_resets.temp_handsize = (G.GAME.round_resets.temp_handsize or 0) + 1

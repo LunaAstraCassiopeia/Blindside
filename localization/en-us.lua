@@ -169,6 +169,7 @@ return {
 			['k_bld_ritual_pack'] = 'Hallow Pack',
 			['k_bld_noble_pack'] = 'Noble Pack',
 			['k_bld_voodoo_pack'] = 'Voodoo Pack',
+			['k_bld_trinket_pack'] = 'Surprise Pack',
 			['ui_bld_deck_view'] = 'Deck View',
 			["ph_mask_saved"] = "Saved by Ancient Mask",
 			["ph_defeat_this_joker_1"] = "Defeat this Joker",
@@ -177,6 +178,7 @@ return {
 			['k_base_blinds'] = "Base Blinds",
 			['k_fossil_excavate'] = "Excavated!",
 			['k_exorcised_ex'] = "Exorcised!",
+			['ph_price_tags_redeemed'] = "Price Tags redeemed this run",
 			['bld_playing_with_fire'] = "Playing With Fire",
 			['bld_playing_with_fire_each_1'] = "$1 each trigger",
 			['bld_playing_with_fire_each_2'] = "$2 each trigger",
@@ -1088,6 +1090,13 @@ return {
 					"next {C:attention}Joker{}"
 				},
 			},
+			["tag_bld_deck"] = {
+				["name"] = "Price Tags",
+				["text"] = {
+					"{C:attention}#1#{} bought",
+					"Price Tags",
+				},
+			},
 		},
 		["bld_obj_mineral"] = {
 			["c_bld_stibnite"] = {
@@ -1372,9 +1381,8 @@ return {
 				["text"] = {
 					{"{C:dark_edition,E:1}Upgrade{} up to {C:attention}#1#{}",
 					"selected Blinds"},
-					{"Create {C:attention}Debuff Tags",
-					"for your 1st and 2nd",
-					"{C:attention}most played hands"}
+					{"Create a {C:attention}Debuff Tag{} for",
+					"your {C:attention}most played hand"}
 				},
 			},
 			["c_bld_monsoon"] = {
@@ -1512,8 +1520,8 @@ return {
 				["name"] = "Western",
 				["text"] = {
 					"{C:attention}Enhance{} #1#",
-					"selected Blind into a",
-					"{C:attention}Hunter Blind{}"
+					"selected Blinds into",
+					"{C:attention}Hunter Blinds{}"
 				},
 			},
 			["c_bld_historical"] = {
@@ -2526,9 +2534,10 @@ return {
 				["name"] = "The Fruit",
 				["text"] = {
 					{"{X:red,C:white}Red{} {X:dark_edition,C:white}Faded{}",
-					"Retriggers all scoring",
+					"{C:mult}+#2#{} Mult and",
+					"retriggers scoring",
 					"{X:red,C:white}Red{} Blinds"},
-					{"{C:red}Debuffs{} all adjacent",
+					{"{C:red}Debuffs{} adjacent",
 					"played Blinds"},
 				},
 			},
@@ -2536,7 +2545,8 @@ return {
 				["name"] = "The Fruit",
 				["text"] = {
 					"{X:red,C:white}Red{} {X:dark_edition,C:white}Faded{}",
-					"Retriggers all scoring",
+					"{C:mult}+#2#{} Mult and",
+					"retriggers scoring",
 					"{X:red,C:white}Red{} Blinds",
 				},
 			},
@@ -3779,10 +3789,6 @@ return {
 					{"{C:attention}Retriggers{} once for",
 					"every {C:attention}2{} Tags held",
 					"{C:inactive}(Currently #2# time#3#)"},
-					{"This blind is bugged,",
-					"and retriggers {C:attention}ALL{} played blinds",
-					"when held in hand! You may enjoy",
-					"this bug until next update"}
 				},
 			},
 			["m_bld_trench"] = {
@@ -4509,6 +4515,12 @@ return {
 				text = {
 					"{C:white,X:mult}X#1#{} Mult"
 				}
+			},
+			['e_bld_negative'] = {
+				name = "Negative",
+				text = {
+                    "{C:dark_edition}+#1#{} Trinket slot"
+				}
 			}
 		},
 		["Stake"] = {
@@ -5009,6 +5021,38 @@ return {
 					"Choose {C:attention}#1#{} of up to",
 					"{C:attention}#2#{C:attention} {C:bld_obj_rune}Ritual{} cards to",
 					"use immediately"
+				}
+			},
+			["p_bld_trinket_basic1"] = {
+				["group_name"] = "Suprise Pack",
+				["name"] = "Suprise Pack",
+				["text"] = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2#{C:attention} {C:bld_hobby}Trinkets{}"
+				}
+			},
+			["p_bld_trinket_basic2"] = {
+				["group_name"] = "Suprise Pack",
+				["name"] = "Suprise Pack",
+				["text"] = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2#{C:attention} {C:bld_hobby}Trinkets{}"
+				}
+			},
+			["p_bld_trinket_jumbo1"] = {
+				["group_name"] = "Suprise Pack",
+				["name"] = "Jumbo Suprise Pack",
+				["text"] = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2#{C:attention} {C:bld_hobby}Trinkets{}"
+				}
+			},
+			["p_bld_trinket_mega1"] = {
+				["group_name"] = "Suprise Pack",
+				["name"] = "Mega Suprise Pack",
+				["text"] = {
+					"Choose {C:attention}#1#{} of up to",
+					"{C:attention}#2#{C:attention} {C:bld_hobby}Trinkets{}"
 				}
 			},
 			["p_bld_voodoo"] = {

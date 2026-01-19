@@ -4,11 +4,11 @@
         pos = {x = 9, y = 7},
         config = 
             {x_mult = 1.75,
-            bonus = 60,
             extra = {
                 value = 4,
+                chips = 60,
                 x_multup = 0.25,
-                bonusup = 40,
+                chipsup = 40,
             }},
         hues = {"Faded", "Red", "Green", "Blue", "Purple", "Yellow"},
         replace_base_card = true,
@@ -31,17 +31,24 @@
             end
         end,
         rare = true,
+        calculate = function(self, card, context)
+            if context.main_scoring and context.cardarea == G.play then
+                return {
+                    chips = card.ability.extra.chips
+                }
+            end
+        end,
         loc_vars = function(self, info_queue, card)
             return {
                 vars = {
-                    card.ability.x_mult, card.ability.bonus
+                    card.ability.x_mult, card.ability.extra.chips
                 }
             }
         end,
         upgrade = function(card) 
             if not card.ability.extra.upgraded then
             card.ability.x_mult = card.ability.x_mult + card.ability.extra.x_multup
-            card.ability.bonus = card.ability.bonus + card.ability.extra.bonusup
+            card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipsup
             card.ability.extra.upgraded = true
             end
         end

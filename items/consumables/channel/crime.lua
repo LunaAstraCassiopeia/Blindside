@@ -56,6 +56,13 @@ SMODS.Consumable {
         })) 
         delay(0.3)
     end,
+    can_use = function(self, card)
+        if card.ability.consumeable.max_highlighted == #G.hand.highlighted then
+            if G.hand.highlighted[1].seal or G.hand.highlighted[1].edition then
+                return true
+            end
+        end
+    end,
     loc_vars = function(self, info_queue, card)
         return {
             vars = {

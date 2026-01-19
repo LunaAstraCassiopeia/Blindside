@@ -71,37 +71,42 @@ BLINDSIDE.Joker({
         end
     end,
     joker_set = function ()
-        for i = 1, 8, 1 do
-            local enhancement = 'm_bld_king'
-            local card = SMODS.create_card { set = "Base", enhancement = enhancement, area = G.discard }
-            G.playing_card = (G.playing_card and G.playing_card + 1) or 1
-            card.playing_card = G.playing_card
-            table.insert(G.playing_cards, card)
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.3,
-                func = function()
-                        card:start_materialize({ G.C.SECONDARY_SET.Enhanced })
-                        G.deck:emplace(card)
-                    return true
-                end
-            }))
+        for i, v in pairs(G.GAME.tags) do
+            if v:apply_to_run({type = 'real_round_before_start', card = card}) then break end
         end
-        for i = 1, 8, 1 do
-            local enhancement = 'm_bld_queen'
-            local card = SMODS.create_card { set = "Base", enhancement = enhancement, area = G.discard }
-            G.playing_card = (G.playing_card and G.playing_card + 1) or 1
-            card.playing_card = G.playing_card
-            table.insert(G.playing_cards, card)
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.3,
-                func = function()
-                        card:start_materialize({ G.C.SECONDARY_SET.Enhanced })
-                        G.deck:emplace(card)
-                    return true
-                end
-            }))
+        if not G.GAME.blind.disabled then
+            for i = 1, 8, 1 do
+                local enhancement = 'm_bld_king'
+                local card = SMODS.create_card { set = "Base", enhancement = enhancement, area = G.discard }
+                G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+                card.playing_card = G.playing_card
+                table.insert(G.playing_cards, card)
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.3,
+                    func = function()
+                            card:start_materialize({ G.C.SECONDARY_SET.Enhanced })
+                            G.deck:emplace(card)
+                        return true
+                    end
+                }))
+            end
+            for i = 1, 8, 1 do
+                local enhancement = 'm_bld_queen'
+                local card = SMODS.create_card { set = "Base", enhancement = enhancement, area = G.discard }
+                G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+                card.playing_card = G.playing_card
+                table.insert(G.playing_cards, card)
+                G.E_MANAGER:add_event(Event({
+                    trigger = 'after',
+                    delay = 0.3,
+                    func = function()
+                            card:start_materialize({ G.C.SECONDARY_SET.Enhanced })
+                            G.deck:emplace(card)
+                        return true
+                    end
+                }))
+            end
         end
     end,
 })
@@ -200,7 +205,7 @@ BLINDSIDE.Joker({
                 G.GAME.blindassist:change_dim(1.5,1.5)
                 G.GAME.blindassist.negative = true
                 play_sound('negative', 1.5, 0.4)
-                SMODS.calculate_context({setting_blind = true, blind = G.GAME.round_resets.blind})
+                SMODS.calculate_context({setting_blind = true, blind = G.GAME.round_resets.blind, perkeo = true})
             return true end }))
             blind.hands[context.scoring_name] = true
         end
@@ -358,6 +363,7 @@ BLINDSIDE.Joker({
             for _, scored_card in ipairs(context.scoring_hand) do
                 if not scored_card.original then
                     scored_card.original = copy3(scored_card.ability)
+                    scored_card.originaltype = copy3(scored_card.config.center)
                     transformed = true
                     local new_type = 'm_bld_big'
                     if scored_card:is_color("Red") or scored_card:is_color("Yellow") then
@@ -391,7 +397,7 @@ BLINDSIDE.Joker({
     joker_defeat = function()
         for key, value in pairs(G.playing_cards) do
             if value.original then
-                value:set_ability(value.original.config.center)
+                value:set_ability(value.originaltype)
                 value.ability = copy3(value.original)
                 value.original = nil
             end

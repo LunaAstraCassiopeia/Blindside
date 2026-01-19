@@ -148,7 +148,7 @@ function G.UIDEF.blind_shop()
       1.05*G.CARD_H, 
       {card_limit = G.GAME.starting_params.boosters_in_shop + (G.GAME.modifiers.extra_boosters or 0) + (not G.GAME.last_joker and 1 or 1), type = 'shop', highlight_limit = 1, card_w = 1.27*G.CARD_W})
 
-    local shop_sign = AnimatedSprite(0,0, 4.4, 2.2, G.ANIMATION_ATLAS['shop_sign'])
+    local shop_sign = AnimatedSprite(0,0, 4.4, 2.2, G.GAME.last_joker and G.ANIMATION_ATLAS['bld_bossshop'] or G.ANIMATION_ATLAS['bld_blindshop'])
     shop_sign:define_draw_steps({
       {shader = 'dissolve', shadow_height = 0.05},
       {shader = 'dissolve'}
@@ -334,58 +334,90 @@ end
   end
   
 function BLINDSIDE.create_blindcard_for_shop(area, is_boss_shop, forced_enhancement)
-    local forced_tag = nil
-    for k, v in ipairs(G.GAME.tags) do
-      if not forced_tag then
-        forced_tag = v:apply_to_run({type = 'store_joker_create', area = area})
-        if forced_tag then
-          for kk, vv in ipairs(G.GAME.tags) do
-            if vv:apply_to_run({type = 'store_joker_modify', card = forced_tag}) then break end
-          end
-          return forced_tag end
-      end
+  if area == G.shop_booster and G.SETTINGS.blindside_tutorial_progress and G.SETTINGS.blindside_tutorial_progress.forced_blinds and G.SETTINGS.blindside_tutorial_progress.forced_blinds[#G.SETTINGS.blindside_tutorial_progress.forced_blinds] then
+    local t = G.SETTINGS.blindside_tutorial_progress.forced_blinds
+    local _center = G.P_CENTERS[t[#t]] or G.P_CENTERS.c_empress
+    local card = Card(area.T.x + area.T.w/2, area.T.y, G.CARD_W, G.CARD_H, G.P_CARDS.empty, _center, {bypass_discovery_center = true, bypass_discovery_ui = true})
+    t[#t] = nil
+    if not t[1] then G.SETTINGS.blindside_tutorial_progress.forced_blinds = nil end
+    if card.ability.set == 'Base' or card.ability.set == 'Enhanced' then
+      card.cost = card.cost + 2
+        + ((card.config and card.config.center and card.config.center.weight and card.config.center.weight ~= 67) and 1 or 0)
+        + (card.edition and 1 or 0)
+        - (G.GAME.used_vouchers["v_bld_vaccine"] and 1 or 0)
+        + (card.ability.upgraded and 2 or 0)
     end
-    local blind_rate = is_boss_shop and 0 or G.GAME.blind_rate
-    local film_rate = is_boss_shop and 1 or G.GAME.bld_obj_filmcard_rate
-    local mineral_rate = is_boss_shop and 2 or G.GAME.bld_obj_mineral_rate
-    local rune_rate = is_boss_shop and 0.25 or G.GAME.bld_obj_rune_rate
-        local total_rate = blind_rate + film_rate + mineral_rate + rune_rate
-        local polled_rate = pseudorandom(pseudoseed('cdt'..G.GAME.round_resets.ante))*total_rate
-        local check_rate = 0
-        -- need to preserve order to leave RNG unchanged
-        local rates = {
-          {type = 'Base', val = blind_rate},
-          {type = 'bld_obj_filmcard', val = film_rate},
-          {type = 'bld_obj_mineral', val = mineral_rate},
-          {type = 'bld_obj_rune', val = rune_rate}
-        }
-        for _, v in ipairs(rates) do
-          if polled_rate > check_rate and polled_rate <= check_rate + v.val then
-            if v.type == 'Base' then
-              local enhancement = nil
-              local args = {}
-              args.guaranteed = true
-              args.options = G.P_CENTER_POOLS.bld_obj_blindcard_generate
-              args.shop = true
-              local cardtype = BLINDSIDE.poll_enhancement(args)
-              if forced_enhancement then
-                cardtype = forced_enhancement
+    
+    create_shop_card_ui(card)
+    return card
+  else
+      local forced_tag = nil
+      for k, v in ipairs(G.GAME.tags) do
+        if not forced_tag then
+          forced_tag = v:apply_to_run({type = 'store_joker_create', area = area})
+          if forced_tag then
+            for kk, vv in ipairs(G.GAME.tags) do
+              if vv:apply_to_run({type = 'store_joker_modify', card = forced_tag}) then break end
+            end
+            return forced_tag end
+        end
+      end
+      local blind_rate = is_boss_shop and 0 or G.GAME.blind_rate
+      local film_rate = is_boss_shop and 1 or G.GAME.bld_obj_filmcard_rate
+      local mineral_rate = is_boss_shop and 2 or G.GAME.bld_obj_mineral_rate
+      local rune_rate = is_boss_shop and 0.25 or G.GAME.bld_obj_rune_rate
+          local total_rate = blind_rate + film_rate + mineral_rate + rune_rate
+          local polled_rate = pseudorandom(pseudoseed('cdt'..G.GAME.round_resets.ante))*total_rate
+          local check_rate = 0
+          -- need to preserve order to leave RNG unchanged
+          local rates = {
+            {type = 'Base', val = blind_rate},
+            {type = 'bld_obj_filmcard', val = film_rate},
+            {type = 'bld_obj_mineral', val = mineral_rate},
+            {type = 'bld_obj_rune', val = rune_rate}
+          }
+          for _, v in ipairs(rates) do
+            if polled_rate > check_rate and polled_rate <= check_rate + v.val then
+              if v.type == 'Base' then
+                local enhancement = nil
+                local args = {}
+                args.guaranteed = true
+                args.options = G.P_CENTER_POOLS.bld_obj_blindcard_generate
+                args.shop = true
+                local cardtype = BLINDSIDE.poll_enhancement(args)
+                if forced_enhancement then
+                  cardtype = forced_enhancement
+                end
+                local card = SMODS.create_card({ set = 'Base', seal = enhancement, enhancement = cardtype, area = area })
+                create_shop_card_ui(card, 'Enhanced', area)
+                local edition = poll_edition(pseudoseed('shop_blind_roll' .. G.GAME.round_resets.ante), G.GAME.used_vouchers.v_bld_polish and 3 or nil, true, false, {'e_bld_enameled', 'e_bld_finish', 'e_bld_mint', 'e_bld_shiny'})
+                card:set_edition(edition, true)
+                local upgrade = G.GAME.used_vouchers.v_bld_irradiate and pseudorandom(pseudoseed('shop_upgrade_roll'..G.GAME.round_resets.ante)) > 0.9 or false
+                if upgrade then
+                  upgrade_blinds({card}, nil, true)
+                end
+                if card.ability.set == 'Base' or card.ability.set == 'Enhanced' then
+                  card.cost = card.cost + 2
+                    + ((card.config and card.config.center and card.config.center.weight and card.config.center.weight ~= 67) and 1 or 0)
+                    + (card.edition and 1 or 0)
+                    - (G.GAME.used_vouchers["v_bld_vaccine"] and 1 or 0)
+                    + (card.ability.upgraded and 2 or 0)
+                end
+                G.E_MANAGER:add_event(Event({
+                    func = (function()
+                        for k, v in ipairs(G.GAME.tags) do
+                          if v:apply_to_run({type = 'store_joker_modify', card = card}) then break end
+                        end
+                        return true
+                    end)
+                }))
+                return card
+              else
+              local card = SMODS.create_card({set = v.type, area = area, bypass_discovery_center = true, discover = true})
+              if v.type ~= 'Base' then
+                  card.cost = 2
               end
-              local card = SMODS.create_card({ set = 'Base', seal = enhancement, enhancement = cardtype, area = area })
-              create_shop_card_ui(card, 'Enhanced', area)
-              local edition = poll_edition(pseudoseed('shop_blind_roll' .. G.GAME.round_resets.ante), G.GAME.used_vouchers.v_bld_polish and 3 or nil, true, false, {'e_bld_enameled', 'e_bld_finish', 'e_bld_mint', 'e_bld_shiny'})
-              card:set_edition(edition, true)
-              local upgrade = G.GAME.used_vouchers.v_bld_irradiate and pseudorandom(pseudoseed('shop_upgrade_roll'..G.GAME.round_resets.ante)) > 0.9 or false
-              if upgrade then
-                upgrade_blinds({card}, nil, true)
-              end
-              if card.ability.set == 'Base' or card.ability.set == 'Enhanced' then
-                card.cost = card.cost + 2
-                  + ((card.config and card.config.center and card.config.center.weight and card.config.center.weight ~= 67) and 1 or 0)
-                  + (card.edition and 1 or 0)
-                  - (G.GAME.used_vouchers["v_bld_vaccine"] and 1 or 0)
-                  + (card.ability.upgraded and 2 or 0)
-              end
+              create_shop_card_ui(card, v.type, area)
               G.E_MANAGER:add_event(Event({
                   func = (function()
                       for k, v in ipairs(G.GAME.tags) do
@@ -395,26 +427,12 @@ function BLINDSIDE.create_blindcard_for_shop(area, is_boss_shop, forced_enhancem
                   end)
               }))
               return card
-            else
-            local card = SMODS.create_card({set = v.type, area = area, bypass_discovery_center = true, discover = true})
-            if v.type ~= 'Base' then
-                card.cost = 2
             end
-            create_shop_card_ui(card, v.type, area)
-            G.E_MANAGER:add_event(Event({
-                func = (function()
-                    for k, v in ipairs(G.GAME.tags) do
-                      if v:apply_to_run({type = 'store_joker_modify', card = card}) then break end
-                    end
-                    return true
-                end)
-            }))
-            return card
+            end
+            check_rate = check_rate + v.val
           end
-          end
-          check_rate = check_rate + v.val
-        end
-  end
+    end
+end
 
 --[[local old_buy = G.FUNCS.buy_from_shop
   G.FUNCS.buy_from_shop = function(e)

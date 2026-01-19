@@ -180,6 +180,10 @@
         "p_bld_ritual_basic2",
         "p_bld_ritual_jumbo1",
         "p_bld_ritual_mega1",
+        "p_bld_trinket_basic1",
+        "p_bld_trinket_basic2",
+        "p_bld_trinket_jumbo1",
+        "p_bld_trinket_mega1",
         "p_bld_voodoo",
         "j_bld_taglock",
         "j_bld_paycheck",
@@ -354,6 +358,7 @@
         "v_bld_film_reel",
         "v_bld_nametag",
         "v_bld_birthcertificate",
+        "tag_bld_deck",
         "tag_bld_grabbyhand_relic",
         "tag_bld_prosthetic_relic",
         "tag_bld_bindle_relic",
@@ -486,6 +491,7 @@
     SMODS.ObjectType {
         key = "bld_obj_relics",
         cards = {
+        "tag_bld_deck",
         "tag_bld_grabbyhand_relic",
         "tag_bld_prosthetic_relic",
         "tag_bld_bindle_relic",

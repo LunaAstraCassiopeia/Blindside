@@ -32,16 +32,17 @@ G.FUNCS.blindside_tutorial_controller = function()
         
         return
     end
+    print(G.SETTINGS.blindside_tutorial_complete)
     G.SETTINGS.blindside_tutorial_progress = G.SETTINGS.blindside_tutorial_progress or 
     {
         forced_shop = {'j_bld_pirateship', 'j_bld_glasses', 'j_bld_lighter', 'j_bld_porcelaindoll'},
+        forced_blinds = {'m_bld_arm', 'm_bld_peace', 'm_bld_ore', 'm_bld_grate'},
         forced_voucher = 'v_bld_grabbyhand',
         forced_tags = {'tag_bld_maxim', 'tag_bld_wave'},
         hold_parts = {},
         completed_parts = {},
     }
     G.SETTINGS.blindside_tutorial_progress.forced_boss = 'bl_bld_hittheroad'
-    G.SETTINGS.blindside_tutorial_progress.forced_shop.spawn = {}
     G.SETTINGS.blindside_tutorial_progress.forced_shop.spawn['j_bld_pirateship'] = true
     G.SETTINGS.blindside_tutorial_progress.forced_shop.spawn['j_bld_glasses'] = true
     G.SETTINGS.blindside_tutorial_progress.forced_shop.spawn['j_bld_lighter'] = true
@@ -96,6 +97,7 @@ G.FUNCS.blindside_tutorial_controller = function()
             G:save_progress()
         end
         if G.SETTINGS.blindside_tutorial_progress.hold_parts['shop_3'] then
+            print("test")
             G.SETTINGS.blindside_tutorial_complete = true
             G.SETTINGS.blindside_tutorial_progress = nil
         end

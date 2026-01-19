@@ -35,7 +35,7 @@
             }
         end,
         calculate = function(self, card, context)
-            if context.setting_blind then
+            if context.setting_blind and not context.perkeo then
                 local pool = {}
                 for key, value in pairs(G.consumeables.cards) do
                     if value.config.center.set == 'bld_obj_mineral' then

@@ -1,7 +1,7 @@
 SMODS.Booster{
         key = 'symbol_basic1',
         kind = 'symbol',
-        config = {extra = 3, choose = 1},
+        config = {extra = 4, choose = 1},
         discovered = false,
         get_weight = function(self)
             if G.GAME.selected_back.effect.center.config.extra then
@@ -47,7 +47,7 @@ SMODS.Booster{
 SMODS.Booster{
         key = 'symbol_basic2',
         kind = 'symbol',
-        config = {extra = 3, choose = 1},
+        config = {extra = 4, choose = 1},
         discovered = false,
         get_weight = function(self)
             
@@ -86,13 +86,13 @@ SMODS.Booster{
 SMODS.Booster{
         key = 'symbol_basic3',
         kind = 'symbol',
-        config = {extra = 3, choose = 1},
+        config = {extra = 4, choose = 1},
         discovered = false,
         get_weight = function(self)
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 0.4
+                return 0.8
             else
                 return 0
             end
@@ -125,13 +125,13 @@ SMODS.Booster{
 SMODS.Booster{
         key = 'symbol_basic4',
         kind = 'symbol',
-        config = {extra = 3, choose = 1},
+        config = {extra = 4, choose = 1},
         discovered = false,
         get_weight = function(self)
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 0.4
+                return 0.8
             else
                 return 0
             end
@@ -165,19 +165,19 @@ SMODS.Booster{
 SMODS.Booster{
         key = 'symbol_jumbo1',
         kind = 'symbol',
-        config = {extra = 5, choose = 1},
+        config = {extra = 6, choose = 1},
         discovered = false,
         get_weight = function(self)
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 0.4
+                return 0.8
             else
                 return 0
             end
         end,
         atlas = 'bld_booster',
-        cost = 3,
+        cost = 4,
         weight = 3,
         pos = { x = 0, y = 1 },
         loc_vars = function(self, info_queue, card)
@@ -205,19 +205,19 @@ SMODS.Booster{
 SMODS.Booster{
         key = 'symbol_jumbo2',
         kind = 'symbol',
-        config = {extra = 5, choose = 1},
+        config = {extra = 6, choose = 1},
         discovered = false,
         get_weight = function(self)
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 0.4
+                return 0.8
             else
                 return 0
             end
         end,
         atlas = 'bld_booster',
-        cost = 3,
+        cost = 4,
         weight = 3,
         pos = { x = 1, y = 1 },
         loc_vars = function(self, info_queue, card)
@@ -244,13 +244,13 @@ SMODS.Booster{
 SMODS.Booster{
         key = 'symbol_mega1',
         kind = 'symbol',
-        config = {extra = 5, choose = 2},
+        config = {extra = 6, choose = 2},
         discovered = false,
         get_weight = function(self)
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 0.8
+                return 0.4
             else
                 return 0
             end
@@ -289,7 +289,7 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 0.8
+                return 0.4
             else
                 return 0
             end

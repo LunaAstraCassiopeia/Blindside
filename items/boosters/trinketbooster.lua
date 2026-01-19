@@ -1,28 +1,26 @@
 SMODS.Booster{
-        key = 'ritual_basic1',
-        config = {extra = 3, choose = 1},
+        key = 'trinket_basic1',
+        config = {extra = 2, choose = 1},
         discovered = false,
         get_weight = function(self)
-            
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 1.75 --prior tested value is 0.8
+                return 1.75
             else
                 return 0
             end
         end,
         atlas = 'bld_booster',
-        kind = 'ritual',
-        cost = 3,
-        weight = 1.75,
-        draw_hand = true,
-        pos = { x = 0, y = 7 },
+        kind = 'trinket',
+        cost = 6,
+        weight = 1,
+        pos = { x = 1, y = 8 },
         loc_vars = function(self, info_queue, card)
-            return {vars = {card.config.center.config.choose, card.ability.extra}}
+            return {vars = {card.config.center.config.choose + (G.GAME.used_vouchers.v_bld_satellite and 1 or 0), card.ability.extra}}
         end,
         ease_background_colour = function(self)
-            ease_colour(G.C.DYN_UI.MAIN, G.C.SECONDARY_SET.bld_obj_ritual)
-            ease_background_colour({ new_colour = G.C.SECONDARY_SET.bld_obj_ritual, special_colour = G.C.BLACK, contrast = 1 })
+            ease_colour(G.C.DYN_UI.MAIN, G.C.SECONDARY_SET.bld_obj_filmcard)
+            ease_background_colour({ new_colour = G.C.SECONDARY_SET.bld_obj_filmcard, special_colour = G.C.BLACK, contrast = 1 })
         end,
         in_pool = function(self, args)
             if G.GAME.selected_back.effect.center.config.extra then
@@ -33,114 +31,35 @@ SMODS.Booster{
             end
         end,
         create_card = function(self, card)
-            return {set = "bld_obj_ritual", area = G.pack_cards, skip_materialize = true, soulable = card.soulable}
+            return {set = "Joker", area = G.pack_cards, rarity = pseudorandom_element({'bld_curio', 'bld_doodad', 'bld_hobby'}, pseudoseed('trinket_pack')), skip_materialize = true, soulable = false}
         end,
-        group_key = "k_bld_ritual_pack",
-}
-SMODS.Booster{
-        key = 'ritual_basic2',
-        config = {extra = 3, choose = 1},
-        discovered = false,
-        get_weight = function(self)
-            
-            if G.GAME.selected_back.effect.center.config.extra then
-                if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 1.75 --prior tested value is 0.8
-            else
-                return 0
-            end
-        end,
-        atlas = 'bld_booster',
-        kind = 'ritual',
-        cost = 3,
-        weight = 1.75,
-        draw_hand = true,
-        pos = { x = 1, y = 7 },
-        loc_vars = function(self, info_queue, card)
-            return {vars = {card.config.center.config.choose, card.ability.extra}}
-        end,
-        ease_background_colour = function(self)
-            ease_colour(G.C.DYN_UI.MAIN, G.C.SECONDARY_SET.bld_obj_ritual)
-            ease_background_colour({ new_colour = G.C.SECONDARY_SET.bld_obj_ritual, special_colour = G.C.BLACK, contrast = 1 })
-        end,
-        in_pool = function(self, args)
-            if G.GAME.selected_back.effect.center.config.extra then
-                if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
-                return true
-            else
-                return false
-            end
-        end,
-        create_card = function(self, card)
-            return {set = "bld_obj_ritual", area = G.pack_cards, skip_materialize = true, soulable = card.soulable}
-        end,
-        group_key = "k_bld_ritual_pack",
-}
-SMODS.Booster{
-        key = 'ritual_jumbo1',
-        config = {extra = 5, choose = 1},
-        discovered = false,
-        get_weight = function(self)
-            
-            if G.GAME.selected_back.effect.center.config.extra then
-                if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 1.75--0.4
-            else
-                return 0
-            end
-        end,
-        atlas = 'bld_booster',
-        kind = 'ritual',
-        cost = 4,
-        weight = 1.75,
-        draw_hand = true,
-        pos = { x = 2, y = 7 },
-        loc_vars = function(self, info_queue, card)
-            return {vars = {card.config.center.config.choose, card.ability.extra}}
-        end,
-        ease_background_colour = function(self)
-            ease_colour(G.C.DYN_UI.MAIN, G.C.SECONDARY_SET.bld_obj_ritual)
-            ease_background_colour({ new_colour = G.C.SECONDARY_SET.bld_obj_ritual, special_colour = G.C.BLACK, contrast = 1 })
-        end,
-        in_pool = function(self, args)
-            if G.GAME.selected_back.effect.center.config.extra then
-                if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
-                return true
-            else
-                return false
-            end
-        end,
-        create_card = function(self, card)
-            return {set = "bld_obj_ritual", area = G.pack_cards, skip_materialize = true, soulable = card.soulable}
-        end,
-        group_key = "k_bld_ritual_pack",
+        group_key = "k_bld_trinket_pack",
 }
 
 SMODS.Booster{
-        key = 'ritual_mega1',
-        config = {extra = 5, choose = 2},
+        key = 'trinket_basic2',
+        config = {extra = 2, choose = 1},
         discovered = false,
         get_weight = function(self)
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 0.875--0.2
+                return 1.75
             else
                 return 0
             end
         end,
         atlas = 'bld_booster',
-        kind = 'ritual',
+        kind = 'trinket',
         cost = 6,
-        weight = 0.75,
-        draw_hand = true,
-        pos = { x = 3, y = 7 },
+        weight = 1,
+        pos = { x = 2, y = 8 },
         loc_vars = function(self, info_queue, card)
-            return {vars = {card.config.center.config.choose, card.ability.extra}}
+            return {vars = {card.config.center.config.choose + (G.GAME.used_vouchers.v_bld_satellite and 1 or 0), card.ability.extra}}
         end,
         ease_background_colour = function(self)
-            ease_colour(G.C.DYN_UI.MAIN, G.C.SECONDARY_SET.bld_obj_ritual)
-            ease_background_colour({ new_colour = G.C.SECONDARY_SET.bld_obj_ritual, special_colour = G.C.BLACK, contrast = 1 })
+            ease_colour(G.C.DYN_UI.MAIN, G.C.SECONDARY_SET.bld_obj_filmcard)
+            ease_background_colour({ new_colour = G.C.SECONDARY_SET.bld_obj_filmcard, special_colour = G.C.BLACK, contrast = 1 })
         end,
         in_pool = function(self, args)
             if G.GAME.selected_back.effect.center.config.extra then
@@ -151,7 +70,85 @@ SMODS.Booster{
             end
         end,
         create_card = function(self, card)
-            return {set = "bld_obj_ritual", area = G.pack_cards, skip_materialize = true, soulable = card.soulable}
+            return {set = "Joker", area = G.pack_cards, rarity = pseudorandom_element({'bld_curio', 'bld_doodad', 'bld_hobby'}, pseudoseed('trinket_pack')), skip_materialize = true, soulable = false}
         end,
-        group_key = "k_bld_ritual_pack",
+        group_key = "k_bld_trinket_pack",
+}
+
+SMODS.Booster{
+        key = 'trinket_jumbo1',
+        config = {extra = 4, choose = 1},
+        discovered = false,
+        get_weight = function(self)
+            
+            if G.GAME.selected_back.effect.center.config.extra then
+                if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
+                return 1.75
+            else
+                return 0
+            end
+        end,
+        atlas = 'bld_booster',
+        kind = 'trinket',
+        cost = 8,
+        weight = 1,
+        pos = { x = 3, y = 8 },
+        loc_vars = function(self, info_queue, card)
+            return {vars = {card.config.center.config.choose + (G.GAME.used_vouchers.v_bld_satellite and 1 or 0), card.ability.extra}}
+        end,
+        ease_background_colour = function(self)
+            ease_colour(G.C.DYN_UI.MAIN, G.C.SECONDARY_SET.bld_obj_filmcard)
+            ease_background_colour({ new_colour = G.C.SECONDARY_SET.bld_obj_filmcard, special_colour = G.C.BLACK, contrast = 1 })
+        end,
+        in_pool = function(self, args)
+            if G.GAME.selected_back.effect.center.config.extra then
+                if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
+                return true
+            else
+                return false
+            end
+        end,
+        create_card = function(self, card)
+            return {set = "Joker", area = G.pack_cards, rarity = pseudorandom_element({'bld_curio', 'bld_doodad', 'bld_hobby'}, pseudoseed('trinket_pack')), skip_materialize = true, soulable = false}
+        end,
+        group_key = "k_bld_trinket_pack",
+}
+
+SMODS.Booster{
+        key = 'trinket_mega1',
+        config = {extra = 4, choose = 2},
+        discovered = false,
+        get_weight = function(self)
+            
+            if G.GAME.selected_back.effect.center.config.extra then
+                if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
+                return 0.875
+            else
+                return 0
+            end
+        end,
+        atlas = 'bld_booster',
+        kind = 'trinket',
+        cost = 10,
+        weight = 1,
+        pos = { x = 0, y = 9 },
+        loc_vars = function(self, info_queue, card)
+            return {vars = {card.config.center.config.choose + (G.GAME.used_vouchers.v_bld_satellite and 1 or 0), card.ability.extra}}
+        end,
+        ease_background_colour = function(self)
+            ease_colour(G.C.DYN_UI.MAIN, G.C.SECONDARY_SET.bld_obj_filmcard)
+            ease_background_colour({ new_colour = G.C.SECONDARY_SET.bld_obj_filmcard, special_colour = G.C.BLACK, contrast = 1 })
+        end,
+        in_pool = function(self, args)
+            if G.GAME.selected_back.effect.center.config.extra then
+                if not G.GAME.selected_back.effect.center.config.extra.blindside then return false end
+                return true
+            else
+                return false
+            end
+        end,
+        create_card = function(self, card)
+            return {set = "Joker", area = G.pack_cards, rarity = pseudorandom_element({'bld_curio', 'bld_doodad', 'bld_hobby'}, pseudoseed('trinket_pack')), skip_materialize = true, soulable = false}
+        end,
+        group_key = "k_bld_trinket_pack",
 }
