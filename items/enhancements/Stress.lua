@@ -7,7 +7,7 @@
             extra = {
                 value = 30,
                 xmult = 1.5,
-                h_x_multup = 0.7
+                h_x_multup = 0.95
             }
         },
         hues = {"Purple"},
