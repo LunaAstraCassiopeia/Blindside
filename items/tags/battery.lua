@@ -18,6 +18,9 @@ SMODS.Tag {
         end,
     set_ability = function (self, tag)
         tag.config.extra.give = true
+        if tag.savetable then
+            tag.config.extra.give = false
+        end
     end,
     apply = function(self, tag, context)
         if tag.config.extra.give and #G.hand.cards > 0 then
