@@ -145,15 +145,6 @@ position = "before"
 payload = '''_tag.savetable = true'''
 match_indent = true
 
-
-[[patches]]
-[patches.pattern]
-target = "functions/UI_definitions.lua"
-pattern = "G.HUD_tags = G.HUD_tags or {}"
-position = "at"
-payload = '''G.HUD_tags = {}'''
-match_indent = true
-
 [[patches]]
 [patches.pattern]
 target = "functions/common_events.lua"
