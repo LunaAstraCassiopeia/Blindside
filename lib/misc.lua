@@ -224,7 +224,7 @@ function G.UIDEF.bought_price_tags()
   
   local t = silent and create_UIBox_generic_options({contents ={
         {n=G.UIT.R, config={align = "cm",padding = 0.04}, nodes={
-        {n=G.UIT.O, config={object = DynaText({string = {localize('ph_vouchers_redeemed')}, colours = {G.C.UI.TEXT_LIGHT}, bump = true, scale = 0.6})}}
+        {n=G.UIT.O, config={object = DynaText({string = {localize('ph_price_tags_redeemed')}, colours = {G.C.UI.TEXT_LIGHT}, bump = true, scale = 0.6})}}
         }},
         {n=G.UIT.R, config={align = "cm", minh = 0.5}, nodes={
         }},

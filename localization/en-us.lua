@@ -178,6 +178,7 @@ return {
 			['k_base_blinds'] = "Base Blinds",
 			['k_fossil_excavate'] = "Excavated!",
 			['k_exorcised_ex'] = "Exorcised!",
+			['ph_price_tags_redeemed'] = "Price Tags redeemed this run",
 			['bld_playing_with_fire'] = "Playing With Fire",
 			['bld_playing_with_fire_each_1'] = "$1 each trigger",
 			['bld_playing_with_fire_each_2'] = "$2 each trigger",
