@@ -5,8 +5,8 @@
         config = {
             extra = {
                 value = 16,
-                xmult = 1.5,
-                xmult_up = 0.5,
+                xmult = 1.35,
+                xmult_up = 0.4,
                 retrigger_tags = 2
             }
         },
