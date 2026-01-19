@@ -57,7 +57,7 @@ end
 
 function generateTagUi()
     if G.HUD_tags then
-        for k, v in pairs(G.HUD_tags) do
+        for k, v in ipairs(G.HUD_tags) do
             v:remove()
             G.HUD_tags[k] = nil
         end
