@@ -5,14 +5,14 @@ SMODS.Booster{
         get_weight = function(self)
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 1.5
+                return 2
             else
                 return 0
             end
         end,
         atlas = 'bld_booster',
         kind = 'trinket',
-        cost = 3,
+        cost = 6,
         weight = 1,
         pos = { x = 1, y = 8 },
         loc_vars = function(self, info_queue, card)
@@ -44,14 +44,14 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 1.5
+                return 2
             else
                 return 0
             end
         end,
         atlas = 'bld_booster',
         kind = 'trinket',
-        cost = 3,
+        cost = 6,
         weight = 1,
         pos = { x = 2, y = 8 },
         loc_vars = function(self, info_queue, card)
@@ -83,14 +83,14 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 1.5
+                return 2
             else
                 return 0
             end
         end,
         atlas = 'bld_booster',
         kind = 'trinket',
-        cost = 4,
+        cost = 8,
         weight = 1,
         pos = { x = 3, y = 8 },
         loc_vars = function(self, info_queue, card)
@@ -122,14 +122,14 @@ SMODS.Booster{
             
             if G.GAME.selected_back.effect.center.config.extra then
                 if not G.GAME.selected_back.effect.center.config.extra.blindside then return 0 end
-                return 0.75
+                return 1
             else
                 return 0
             end
         end,
         atlas = 'bld_booster',
         kind = 'trinket',
-        cost = 6,
+        cost = 10,
         weight = 1,
         pos = { x = 0, y = 9 },
         loc_vars = function(self, info_queue, card)
