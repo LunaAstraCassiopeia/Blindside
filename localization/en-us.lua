@@ -2533,9 +2533,10 @@ return {
 				["name"] = "The Fruit",
 				["text"] = {
 					{"{X:red,C:white}Red{} {X:dark_edition,C:white}Faded{}",
-					"Retriggers all scoring",
+					"{C:mult}+#2#{} Mult and",
+					"retriggers scoring",
 					"{X:red,C:white}Red{} Blinds"},
-					{"{C:red}Debuffs{} all adjacent",
+					{"{C:red}Debuffs{} adjacent",
 					"played Blinds"},
 				},
 			},
@@ -2543,7 +2544,8 @@ return {
 				["name"] = "The Fruit",
 				["text"] = {
 					"{X:red,C:white}Red{} {X:dark_edition,C:white}Faded{}",
-					"Retriggers all scoring",
+					"{C:mult}+#2#{} Mult and",
+					"retriggers scoring",
 					"{X:red,C:white}Red{} Blinds",
 				},
 			},
