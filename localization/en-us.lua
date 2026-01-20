@@ -1234,6 +1234,14 @@ return {
                     "{C:inactive}(#1#){}"
 				},
 			},
+			["c_bld_charm"] = {
+				["name"] = "Charm",
+				["text"] = {
+                    "Upgrades {C:attention}#2#{}",
+                    "selected Blind" ,
+                    "{C:inactive}(#1#){}"
+				},
+			},
 		},
 		["bld_obj_ritual"] = {
 			["c_bld_prayer"] = {
