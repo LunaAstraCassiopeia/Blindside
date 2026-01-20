@@ -1196,9 +1196,8 @@ return {
 			["c_bld_halcyon"] = {
 				["name"] = "Halcyon",
 				["text"] = {
-                    "When {C:attention}active{}, retriggers",
-                    "all {X:money,C:white}Yellow{} Blinds" ,
-                    "{C:inactive}(#1#/#2# Rounds){}"
+                    "Creates a {C:mult,E:1}Strike Tag{}",
+                    "{C:inactive}(#1#){}"
 				},
 			},
 			["c_bld_montain"] = {
