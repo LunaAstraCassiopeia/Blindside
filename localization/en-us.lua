@@ -1221,7 +1221,7 @@ return {
 			["c_bld_arengee"] = {
 				["name"] = "Arengee",
 				["text"] = {
-                    "Creates a random",
+                    "Creates a",
 					"{C:attention}Trinket{} Tag",
                     "{C:inactive}(#1#/#2# Rounds){}"
 				},
@@ -1229,9 +1229,9 @@ return {
 			["c_bld_exmega"] = {
 				["name"] = "Exmega",
 				["text"] = {
-                    "When {C:attention}active{}, {X:red,C:white}Red{} Blinds",
-                    "give {X:red,C:white}X#3#{} Mult and {C:attention}Burn" ,
-                    "{C:inactive}(#1#/#2# Rounds){}"
+                    "{X:red,C:white}Red{} Blinds give",
+                    "{X:red,C:white}X#2#{} Mult when scored" ,
+                    "{C:inactive}(#1#){}"
 				},
 			},
 		},
