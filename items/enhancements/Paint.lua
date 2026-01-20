@@ -12,28 +12,34 @@
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.main_scoring then
                 local num
+                for k, v in pairs(G.GAME.tags) do
+                    if not BLINDSIDE.is_relic(v.key) then
+                        num = num + 1
+                    end
+                end
                 if card.ability.extra.upgraded then
-                    num = #G.GAME.tags
-                else
-                    num = math.floor(#G.GAME.tags/2)
+                    num = num*2
                 end
                 return {
-                    dollars = card.ability.extra.money*num
+                    dollars = card.ability.extra.money + num
                 }
             end
         end,
         loc_vars = function(self, info_queue, card)
             local num
-            if card.ability.extra.upgraded then
-                num = #G.GAME.tags
-            else
-                num = math.floor(#G.GAME.tags/2)
-            end
+                for k, v in pairs(G.GAME.tags) do
+                    if not BLINDSIDE.is_relic(v.key) then
+                        num = num + 1
+                    end
+                end
+                if card.ability.extra.upgraded then
+                    num = num*2
+                end
             return {
                 key = card.ability.extra.upgraded and 'm_bld_paint_upgraded' or 'm_bld_paint',
                 vars = {
                     card.ability.extra.money,
-                    card.ability.extra.money*num
+                    card.ability.extra.money + num
                 }
             }
         end,

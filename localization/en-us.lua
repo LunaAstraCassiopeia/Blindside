@@ -2441,17 +2441,19 @@ return {
 			["m_bld_paint"] = {
 				["name"] = "The Paint",
 				["text"] = {
-					"{X:money,C:white}Yellow{}",
-					"{C:money}+$#1#{} for every",
-					"{C:attention}2 Tags{} held",
+					{"{X:money,C:white}Yellow{}",
+					"{C:money}+$#1#{}",},
+					{"{C:money}+$1{} for each",
+					"{C:attention}Round Tag{} held",}
 				},
 			},
 			["m_bld_paint_upgraded"] = {
 				["name"] = "The Paint",
 				["text"] = {
-					"{X:money,C:white}Yellow{}",
-					"{C:money}+$#1#{} for every",
-					"{C:attention}Tag{} held",
+					{"{X:money,C:white}Yellow{}",
+					"{C:money}+$#1#{}",},
+					{"{C:money}+$2{} for each",
+					"{C:attention}Round Tag{} held",}
 				},
 			},
 			["m_bld_skull"] = {
