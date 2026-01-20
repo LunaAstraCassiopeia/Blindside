@@ -1242,6 +1242,14 @@ return {
                     "{C:inactive}(#1#){}"
 				},
 			},
+			["c_bld_phalynx"] = {
+				["name"] = "Phalynx",
+				["text"] = {
+                    "Reshuffles all {C:attention}Burned",
+                    "blinds back into deck" ,
+                    "{C:inactive}(#1#){}"
+				},
+			},
 		},
 		["bld_obj_ritual"] = {
 			["c_bld_prayer"] = {
