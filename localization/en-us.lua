@@ -1203,9 +1203,9 @@ return {
 			["c_bld_montain"] = {
 				["name"] = "Montain",
 				["text"] = {
-                    "When {C:attention}active{}, all Blinds",
-                    "are considered {X:dark_edition,C:white}Faded{}" ,
-                    "{C:inactive}(#1#/#2# Rounds){}"
+                    "Destroys {C:attention}#2#{}",
+                    "selected Blind" ,
+                    "{C:inactive}(#1#){}"
 				},
 			},
 			["c_bld_joker404"] = {
@@ -1229,7 +1229,8 @@ return {
 				["name"] = "Exmega",
 				["text"] = {
                     "{X:red,C:white}Red{} Blinds give",
-                    "{X:red,C:white}X#2#{} Mult when scored" ,
+                    "{X:red,C:white}X#2#{} Mult when scored",
+					"this round",
                     "{C:inactive}(#1#){}"
 				},
 			},

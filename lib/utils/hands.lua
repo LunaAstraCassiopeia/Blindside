@@ -495,11 +495,6 @@
 
     function Card:is_color(suit, bypass_debuff, flush_calc)
         local allFaded = false
-        if G.consumeables then
-                if next(SMODS.find_card("c_bld_montain")) and SMODS.find_card("c_bld_montain")[1].ability.extra.active then
-                    allFaded = true
-                end
-        end
         if G.GAME.blind.name == 'bl_bld_smeared' and not G.GAME.blind.disabled or G.GAME.blindassist.name == 'bl_bld_smeared' and not G.GAME.blindassist.disabled then
             allFaded = true
         end
