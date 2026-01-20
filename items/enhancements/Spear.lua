@@ -11,7 +11,7 @@
         rare = true,
         always_scores = true,
         calculate = function(self, card, context)
-            if context.cardarea == G.play and context.main_scoring then
+            if context.cardarea == G.play and context.before then
                 if #context.scoring_hand >= 3 then
                     if card.ability.extra.upgraded then
                         return {
