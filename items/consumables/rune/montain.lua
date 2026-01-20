@@ -31,22 +31,25 @@ SMODS.Consumable {
         juice_card_until(card, eval, true)
     end,
     load = function(self,card,card_table,other_card)
-        local eval = function(card) return card.ability.extra.active end
+        local eval = function(card) return card.ability.extra.charge >= card.ability.extra.round end
         juice_card_until(card, eval, true)
     end,
     calculate = function(self, card, context)
-        if context.setting_blind and card.ability.extra.active and not context.perkeo then 
-        card.ability.extra.active = true
-        card.ability.extra.roundsActive = card.ability.extra.roundsActive + 1
-        end
-        if context.end_of_round and not context.repetition and not context.individual and not card.getting_sliced and card.ability.extra.active and card.ability.extra.roundsActive == card.ability.extra.rounds then
-            card.getting_sliced = true
-            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer - 1
-            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
-                G.GAME.consumeable_buffer = 0
-                play_sound('bld_rune2', 1.0 + math.random()*0.1, 0.8)
-                card:start_dissolve()
-            return true end }))
+        if context.end_of_round and not context.repetition and not context.individual and card.ability.extra.charge < card.ability.extra.round then
+            card.ability.extra.charge = card.ability.extra.charge + 1
+            if card.ability.extra.charge >= card.ability.extra.round then
+                local eval = function(card) return card.ability.extra.charge >= card.ability.extra.round end
+                juice_card_until(card, eval, true)
+                return {
+                    message = localize('k_active_ex'),
+                    colour = G.C.BLUE,
+                }
+            else
+                return {
+                    message = card.ability.extra.charge .. '/' .. card.ability.extra.round,
+                    colour = G.C.GREY,
+                }
+            end
         end
     end
 }

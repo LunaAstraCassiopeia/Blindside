@@ -29,7 +29,7 @@ SMODS.Consumable {
         add_tag(Tag('tag_bld_strike'))
     end,
     load = function(self,card,card_table,other_card)
-        local eval = function(card) return card.ability.extra.active end
+        local eval = function(card) return card.ability.extra.charge >= card.ability.extra.round end
         juice_card_until(card, eval, true)
     end,
     calculate = function(self, card, context)
