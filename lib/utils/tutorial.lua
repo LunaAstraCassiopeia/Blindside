@@ -32,7 +32,6 @@ G.FUNCS.blindside_tutorial_controller = function()
         
         return
     end
-    print(G.SETTINGS.blindside_tutorial_complete)
     G.SETTINGS.blindside_tutorial_progress = G.SETTINGS.blindside_tutorial_progress or 
     {
         forced_shop = {'j_bld_pirateship', 'j_bld_glasses', 'j_bld_lighter', 'j_bld_porcelaindoll'},
