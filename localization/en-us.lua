@@ -1222,15 +1222,15 @@ return {
 				["text"] = {
                     "Creates a",
 					"{C:attention}Trinket{} Tag",
-                    "{C:inactive}(#1#/#2# Rounds){}"
+                    "{C:inactive}(#1#){}"
 				},
 			},
 			["c_bld_exmega"] = {
 				["name"] = "Exmega",
 				["text"] = {
                     "{X:red,C:white}Red{} Blinds give",
-                    "{X:red,C:white}X#2#{} Mult when scored",
-					"this round",
+                    "{X:red,C:white}X#2#{} Mult when",
+					"scored this round",
                     "{C:inactive}(#1#){}"
 				},
 			},

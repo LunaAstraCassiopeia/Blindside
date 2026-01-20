@@ -19,7 +19,7 @@ SMODS.Consumable {
         info_queue[#info_queue+1] = {key = 'bld_active', set = 'Other'}
         return {
             vars = {
-                (card.ability.extra.charge == card.ability.extra.round and localize('k_active_ex') .. "!") or (card.ability.extra.charge .. '/' .. card.ability.extra.round .. " " .. localize("k_rounds")), 
+                (card.ability.extra.charge == card.ability.extra.round and localize('k_active_ex')) or (card.ability.extra.charge .. '/' .. card.ability.extra.round .. " " .. localize("k_rounds")), 
                 card.ability.extra.xmult
             }
         }
