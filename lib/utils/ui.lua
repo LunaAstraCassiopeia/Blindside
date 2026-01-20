@@ -1738,6 +1738,106 @@ function SMODS.Suit:obj_list(preview, ...)
     return new_suits
 end
 
+local run_info_ref = G.UIDEF.run_info
+function G.UIDEF.run_info()
+    if G.GAME and G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
+        return create_UIBox_generic_options({contents ={create_tabs(
+            {tabs = {
+                {
+                    label = localize('b_poker_hands'),
+                    chosen = true,
+                    tab_definition_function = create_UIBox_current_hands,
+                },
+                {
+                label = localize('b_jokers'),
+                tab_definition_function = G.UIDEF.current_blinds,
+                },
+                {
+                    label = localize('b_price_tags'),
+                    tab_definition_function = G.UIDEF.used_price_tags,
+                },
+                G.GAME.stake > 1 and {
+                label = localize('b_stake'),
+                tab_definition_function = G.UIDEF.current_stake,
+                } or nil,
+            },
+            tab_h = 8,
+            snap_to_nav = true})}})
+    else
+        return run_info_ref
+    end
+end
+
+
+function G.UIDEF.used_price_tags()
+
+  local silent = false
+  local keys_used = {}
+  local area_count = 0
+  local voucher_areas = {}
+  local voucher_tables = {}
+  local voucher_table_rows = {}
+  for k, v in ipairs(G.P_CENTER_POOLS["Voucher"]) do
+    local key = 1 + math.floor((k-0.1)/2)
+    keys_used[key] = keys_used[key] or {}
+    if G.GAME.used_vouchers[v.key] then 
+      keys_used[key][#keys_used[key]+1] = v
+    end
+  end
+  for k, v in ipairs(keys_used) do 
+    if next(v) then
+      area_count = area_count + 1
+    end
+  end
+  for k, v in ipairs(keys_used) do 
+    if next(v) then
+      if #voucher_areas == 5 or #voucher_areas == 10 then 
+        table.insert(voucher_table_rows, 
+        {n=G.UIT.R, config={align = "cm", padding = 0, no_fill = true}, nodes=voucher_tables}
+        )
+        voucher_tables = {}
+      end
+      voucher_areas[#voucher_areas + 1] = CardArea(
+      G.ROOM.T.x + 0.2*G.ROOM.T.w/2,G.ROOM.T.h,
+      (#v == 1 and 1 or 1.33)*G.CARD_W,
+      (area_count >=10 and 0.75 or 1.07)*G.CARD_H, 
+      {card_limit = 2, type = 'voucher', highlight_limit = 0})
+      for kk, vv in ipairs(v) do 
+        local center = G.P_CENTERS[vv.key]
+        local card = Card(voucher_areas[#voucher_areas].T.x + voucher_areas[#voucher_areas].T.w/2, voucher_areas[#voucher_areas].T.y, G.CARD_W, G.CARD_H, nil, center, {bypass_discovery_center=true,bypass_discovery_ui=true,bypass_lock=true})
+        card.ability.order = vv.order
+        card:start_materialize(nil, silent)
+        silent = true
+        voucher_areas[#voucher_areas]:emplace(card)
+      end
+      table.insert(voucher_tables, 
+      {n=G.UIT.C, config={align = "cm", padding = 0, no_fill = true}, nodes={
+        {n=G.UIT.O, config={object = voucher_areas[#voucher_areas]}}
+      }}
+      )
+    end
+  end
+  table.insert(voucher_table_rows,
+          {n=G.UIT.R, config={align = "cm", padding = 0, no_fill = true}, nodes=voucher_tables}
+        )
+
+  
+  local t = silent and {n=G.UIT.ROOT, config={align = "cm", colour = G.C.CLEAR}, nodes={
+    {n=G.UIT.R, config={align = "cm"}, nodes={
+      {n=G.UIT.O, config={object = DynaText({string = {localize('ph_price_tags_redeemed')}, colours = {G.C.UI.TEXT_LIGHT}, bump = true, scale = 0.6})}}
+    }},
+    {n=G.UIT.R, config={align = "cm", minh = 0.5}, nodes={
+    }},
+    {n=G.UIT.R, config={align = "cm", colour = G.C.BLACK, r = 1, padding = 0.15, emboss = 0.05}, nodes={
+      {n=G.UIT.R, config={align = "cm"}, nodes=voucher_table_rows},
+    }}
+  }} or 
+  {n=G.UIT.ROOT, config={align = "cm", colour = G.C.CLEAR}, nodes={
+    {n=G.UIT.O, config={object = DynaText({string = {localize('ph_no_price_tags')}, colours = {G.C.UI.TEXT_LIGHT}, bump = true, scale = 0.6})}}
+  }}
+  return t
+end
+
 ----------------------------------------------
 ------------MOD CODE END----------------------
 
