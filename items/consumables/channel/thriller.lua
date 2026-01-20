@@ -27,10 +27,10 @@ SMODS.Consumable {
         end
         for i=1, #G.hand.highlighted do
             G.E_MANAGER:add_event(Event({trigger = 'after',delay = 0.2,func = function()
+                local upgrade = G.hand.highlighted[i].ability.extra.upgraded
                 G.hand.highlighted[i]:set_ability(enhancement)
-                if G.hand.highlighted[i].ability.extra.upgraded then
-                    G.hand.highlighted[i].ability.extra.upgraded = false
-                    G.hand.highlighted[i]:upgrade(G.hand.highlighted[i])
+                if upgrade then
+                    upgrade_blinds({G.hand.highlighted[i]}, true, true)
                 end
                 ;return true end }))
         end 
