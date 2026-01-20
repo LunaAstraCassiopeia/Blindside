@@ -27,15 +27,15 @@ SMODS.Consumable {
     use = function(self, card, area, copier)
         card.ability.extra.charge = 0
         play_sound('bld_rune1', 1.1 + math.random()*0.1, 0.8)
-        local eval = function(card) return card.ability.extra.round == 0 end
+        local eval = function(card) return card.ability.extra.charge == 0 end
         juice_card_until(card, eval, true)
     end,
     load = function(self,card,card_table,other_card)
-        local eval = function(card) return card.ability.extra.round == 0 or card.ability.extra.charge >= card.ability.extra.round end
+        local eval = function(card) return card.ability.extra.charge == 0 or card.ability.extra.charge >= card.ability.extra.round end
         juice_card_until(card, eval, true)
     end,
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play and context.other_card:is_color("Red") and card.ability.extra.round == 0 then
+        if context.individual and context.cardarea == G.play and context.other_card:is_color("Red") and card.ability.extra.charge == 0 then
             return {
                 xmult = card.ability.extra.xmult
             }
