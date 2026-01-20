@@ -9,7 +9,7 @@ SMODS.Consumable {
     end,
     cost = 4,
     can_use = function(self, card)
-        if card.ability.consumeable.max_highlighted == #G.hand.highlighted then
+        if card.ability.consumeable.max_highlighted == #G.hand.highlighted and not G.hand.highlighted[1].ability.extra.upgraded then
             return card.ability.extra.charge >= card.ability.extra.round
         end
     end,
@@ -26,7 +26,7 @@ SMODS.Consumable {
     use = function(self, card, area, copier)
         card.ability.extra.charge = 0
         play_sound('bld_rune1', 1.1 + math.random()*0.1, 0.8)
-        upgrade_blinds(G.highlighted.cards)
+        upgrade_blinds(G.hand.highlighted)
     end,
     load = function(self,card,card_table,other_card)
         local eval = function(card) return card.ability.extra.charge >= card.ability.extra.round end
