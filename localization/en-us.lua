@@ -5060,7 +5060,7 @@ return {
 				["name"] = "Voodoo Pack",
 				["text"] = {
 					"Choose {C:attention}1{} of {C:attention}3{}",
-					"{C:white,X:black}Cursed{} Blinds"
+					"{C:white,X:black}Crude{} Blinds"
 				}
 			},
 			["bld_upgrade"] = {
