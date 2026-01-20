@@ -195,6 +195,7 @@ return {
 			['bld_idol_placeholder'] = "[most played blind]",
 			['k_downgrade_ex'] = "Downgrade!",
 			['bld_hand_contains'] = "Hand contains ",
+			['k_rounds'] = "Rounds",
 			},
 		["v_dictionary"] = {
 			["a_rmult"] = "-#1#",
@@ -1195,10 +1196,9 @@ return {
 			["c_bld_betaexe"] = {
 				["name"] = "BETA.STR",
 				["text"] = {
-                    "When {C:attention}active{}, shuffle",
-                    "{C:attention}5 BETA.Blinds{} into",
-                    "your deck each round",
-                    "{C:inactive}(#1#/#2# Rounds){}"
+                    "Shuffles {C:attention}5 BETA.Blinds{}",
+                    "into your deck",
+                    "{C:inactive}(#1#){}"
 				},
 			},
 			["c_bld_orbit"] = {
@@ -2142,7 +2142,7 @@ return {
 				["name"] = "BETA.Blind",
 				["text"] = {
 					{"{X:blue,C:white}Blue{}",
-					"{C:chips}+#1#{} Chips",
+					"{X:chips,C:white}X#1#{} Chips",
 					"Always scores"},
 					{"{C:attention}Temporary"},
 				},
@@ -4721,9 +4721,8 @@ return {
 			["bld_active"] = {
 				["name"] = "Active",
 				["text"] = {
-					"When {C:attention}used{}, effect is",
-					"{C:attention}active{} until timer is",
-					"expired" -- later, "until the \n round ends, then the rune \n must recharge"
+					"When {C:attention}used{}, applies effect,",
+					"then must recharge", -- later, "until the \n round ends, then the rune \n must recharge"
 				}
 			},
 			["bld_burn"]	= {
