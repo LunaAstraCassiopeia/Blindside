@@ -43,6 +43,7 @@ G.FUNCS.blindside_tutorial_controller = function()
         completed_parts = {},
     }
     G.SETTINGS.blindside_tutorial_progress.forced_boss = 'bl_bld_hittheroad'
+    G.SETTINGS.blindside_tutorial_progress.forced_shop.spawn = {}
     G.SETTINGS.blindside_tutorial_progress.forced_shop.spawn['j_bld_pirateship'] = true
     G.SETTINGS.blindside_tutorial_progress.forced_shop.spawn['j_bld_glasses'] = true
     G.SETTINGS.blindside_tutorial_progress.forced_shop.spawn['j_bld_lighter'] = true
