@@ -3,7 +3,7 @@
         key = 'award',
         atlas = 'bld_trinkets',
         pos = {x = 2, y = 1},
-        rarity = 'bld_curio',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 money = 2,

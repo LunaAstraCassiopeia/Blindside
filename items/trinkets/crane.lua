@@ -3,7 +3,7 @@
         key = 'crane',
         atlas = 'bld_trinkets',
         pos = {x = 1, y = 6},
-        rarity = 'bld_hobby',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 odds = 2, -- updating this doesnt do shit lol

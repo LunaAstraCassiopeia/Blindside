@@ -3,7 +3,7 @@
         key = 'pocketwatch',
         atlas = 'bld_trinkets',
         pos = {x = 6, y = 5},
-        rarity = 'bld_doodad',
+        rarity = 'bld_trinket',
         cost = 12,
         config = {
             extra = {

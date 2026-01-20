@@ -3,7 +3,7 @@
         key = 'hackysack',
         atlas = 'bld_trinkets',
         pos = {x = 8, y = 6},
-        rarity = 'bld_hobby',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 handsize = 1,

@@ -2,7 +2,7 @@
         key = 'insignia',
         atlas = 'bld_trinkets',
         pos = {x = 1, y = 1},
-        rarity = 'bld_curio',
+        rarity = 'bld_trinket',
         cost = 10,
         blueprint_compat = false,
         eternal_compat = true,

@@ -3,7 +3,7 @@
         key = 'marble',
         atlas = 'bld_trinkets',
         pos = {x = 0, y = 4},
-        rarity = 'bld_hobby',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 retriggers = 1,

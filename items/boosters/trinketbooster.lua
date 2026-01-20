@@ -31,7 +31,7 @@ SMODS.Booster{
             end
         end,
         create_card = function(self, card)
-            return {set = "Joker", area = G.pack_cards, rarity = pseudorandom_element({'bld_curio', 'bld_doodad', 'bld_hobby'}, pseudoseed('trinket_pack')), skip_materialize = true, soulable = false}
+            return {set = "Joker", area = G.pack_cards, rarity = pseudorandom_element({'bld_trinket', 'bld_trinket', 'bld_trinket'}, pseudoseed('trinket_pack')), skip_materialize = true, soulable = false}
         end,
         group_key = "k_bld_trinket_pack",
 }
@@ -70,7 +70,7 @@ SMODS.Booster{
             end
         end,
         create_card = function(self, card)
-            return {set = "Joker", area = G.pack_cards, rarity = pseudorandom_element({'bld_curio', 'bld_doodad', 'bld_hobby'}, pseudoseed('trinket_pack')), skip_materialize = true, soulable = false}
+            return {set = "Joker", area = G.pack_cards, rarity = pseudorandom_element({'bld_trinket', 'bld_trinket', 'bld_trinket'}, pseudoseed('trinket_pack')), skip_materialize = true, soulable = false}
         end,
         group_key = "k_bld_trinket_pack",
 }
@@ -109,7 +109,7 @@ SMODS.Booster{
             end
         end,
         create_card = function(self, card)
-            return {set = "Joker", area = G.pack_cards, rarity = pseudorandom_element({'bld_curio', 'bld_doodad', 'bld_hobby'}, pseudoseed('trinket_pack')), skip_materialize = true, soulable = false}
+            return {set = "Joker", area = G.pack_cards, rarity = pseudorandom_element({'bld_trinket', 'bld_trinket', 'bld_trinket'}, pseudoseed('trinket_pack')), skip_materialize = true, soulable = false}
         end,
         group_key = "k_bld_trinket_pack",
 }
@@ -148,7 +148,7 @@ SMODS.Booster{
             end
         end,
         create_card = function(self, card)
-            return {set = "Joker", area = G.pack_cards, rarity = pseudorandom_element({'bld_curio', 'bld_doodad', 'bld_hobby'}, pseudoseed('trinket_pack')), skip_materialize = true, soulable = false}
+            return {set = "Joker", area = G.pack_cards, rarity = pseudorandom_element({'bld_trinket', 'bld_trinket', 'bld_trinket'}, pseudoseed('trinket_pack')), skip_materialize = true, soulable = false}
         end,
         group_key = "k_bld_trinket_pack",
 }

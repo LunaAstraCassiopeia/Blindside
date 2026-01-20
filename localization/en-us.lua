@@ -843,19 +843,11 @@ return {
 					"{C:inactive}({C:blue}+#2#{C:inactive} Chips)"
 				},
 			},
-			["tag_bld_tech"] = {
-				["name"] = "Tech Tag",
-				["text"] = {
-					"Create a random",
-					"{C:bld_doodad}Doodad Trinket",
-					"{C:inactive}(Must have room)"
-				},
-			},
 			["tag_bld_magic"] = {
 				["name"] = "Magic Tag",
 				["text"] = {
 					"Create a",
-					"random {C:bld_curio}Trinket",
+					"random {C:bld_trinket}Trinket",
 					"{C:inactive}(Must have room)"
 				},
 			},
@@ -863,14 +855,6 @@ return {
 				["name"] = "Memory Tag",
 				["text"] = {
 					"Create a random {C:bld_keepsake,E:1}Keepsake",
-					"{C:inactive}(Must have room)"
-				},
-			},
-			["tag_bld_game"] = {
-				["name"] = "Game Tag",
-				["text"] = {
-					"Create a random",
-					"{C:bld_hobby}Hobby Trinket",
 					"{C:inactive}(Must have room)"
 				},
 			},
@@ -4990,7 +4974,7 @@ return {
 				["name"] = "Suprise Pack",
 				["text"] = {
 					"Choose {C:attention}#1#{} of up to",
-					"{C:attention}#2#{C:attention} {C:bld_hobby}Trinkets{}"
+					"{C:attention}#2#{C:attention} {C:bld_trinket}Trinkets{}"
 				}
 			},
 			["p_bld_trinket_basic2"] = {
@@ -4998,7 +4982,7 @@ return {
 				["name"] = "Suprise Pack",
 				["text"] = {
 					"Choose {C:attention}#1#{} of up to",
-					"{C:attention}#2#{C:attention} {C:bld_hobby}Trinkets{}"
+					"{C:attention}#2#{C:attention} {C:bld_trinket}Trinkets{}"
 				}
 			},
 			["p_bld_trinket_jumbo1"] = {
@@ -5006,7 +4990,7 @@ return {
 				["name"] = "Jumbo Suprise Pack",
 				["text"] = {
 					"Choose {C:attention}#1#{} of up to",
-					"{C:attention}#2#{C:attention} {C:bld_hobby}Trinkets{}"
+					"{C:attention}#2#{C:attention} {C:bld_trinket}Trinkets{}"
 				}
 			},
 			["p_bld_trinket_mega1"] = {
@@ -5014,7 +4998,7 @@ return {
 				["name"] = "Mega Suprise Pack",
 				["text"] = {
 					"Choose {C:attention}#1#{} of up to",
-					"{C:attention}#2#{C:attention} {C:bld_hobby}Trinkets{}"
+					"{C:attention}#2#{C:attention} {C:bld_trinket}Trinkets{}"
 				}
 			},
 			["p_bld_voodoo"] = {

@@ -3,7 +3,7 @@
         key = 'cowskull',
         atlas = 'bld_trinkets',
         pos = {x = 9, y = 4},
-        rarity = 'bld_curio',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 hunterbonus = 1,

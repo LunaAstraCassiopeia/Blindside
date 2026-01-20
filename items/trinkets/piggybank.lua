@@ -2,7 +2,7 @@ SMODS.Joker({
     key = 'piggybank',
     atlas = 'bld_trinkets',
     pos = {x = 9, y = 2},
-    rarity = 'bld_curio',
+    rarity = 'bld_trinket',
     config = {
         extra = {
             dollars = 6,

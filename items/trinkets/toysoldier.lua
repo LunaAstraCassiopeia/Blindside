@@ -3,7 +3,7 @@
         key = 'toysoldier',
         atlas = 'bld_trinkets',
         pos = {x = 8, y = 3},
-        rarity = 'bld_hobby',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 mult_mod = 3

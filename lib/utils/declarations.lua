@@ -823,18 +823,6 @@
     -- and was merged last-minute for being confusing.
     -- it will be removed entirely in a later build.
     SMODS.Rarity {
-        key = 'doodad',
-        loc_txt = {
-        name = "Trinket",
-        },
-	    badge_colour = HEX("d19c2b"),--HEX("3e8fd1"),
-        pools = {
-            ["Joker"] = true,
-        },
-        disable_if_empty = false,
-        default_weight = 0.0000000001
-    }
-    SMODS.Rarity {
         key = 'keepsake',
         loc_txt = {
         name = "Keepsake",
@@ -847,7 +835,7 @@
         default_weight = 0.0000000001
     }
     SMODS.Rarity {
-        key = 'curio',
+        key = 'trinket',
         loc_txt = {
         name = "Trinket",
         },
@@ -858,19 +846,6 @@
         disable_if_empty = false,
         default_weight = 0.0000000001
     }
-    SMODS.Rarity {
-        key = 'hobby',
-        loc_txt = {
-        name = "Trinket",
-        },
-	    badge_colour = HEX("d19c2b"),
-        pools = {
-            ["Joker"] = true,
-        },
-        disable_if_empty = false,
-        default_weight = 0.0000000001
-    }
-
     SMODS.Sound({
         key = 'bld_rune1',
         path = 'statement1.wav'

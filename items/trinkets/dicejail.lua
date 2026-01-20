@@ -3,7 +3,7 @@
         key = 'dicejail',
         atlas = 'bld_trinkets',
         pos = {x = 4, y = 4},
-        rarity = 'bld_hobby',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 money = 2,

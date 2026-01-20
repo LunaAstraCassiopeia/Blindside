@@ -3,7 +3,7 @@
         key = 'pendant',
         atlas = 'bld_trinkets',
         pos = {x = 1, y = 2},
-        rarity = 'bld_curio',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 x_mult = 0.1

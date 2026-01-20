@@ -3,7 +3,7 @@
         key = 'mask',
         atlas = 'bld_trinkets',
         pos = {x = 3, y = 3},
-        rarity = 'bld_curio',
+        rarity = 'bld_trinket',
         cost = 6,
         blueprint_compat = true,
         eternal_compat = true,

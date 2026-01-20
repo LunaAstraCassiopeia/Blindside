@@ -3,7 +3,7 @@
         key = 'pirateship',
         atlas = 'bld_trinkets',
         pos = {x = 1, y = 5},
-        rarity = 'bld_hobby',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 mult = 2,

@@ -3,7 +3,7 @@
         key = 'bottle',
         atlas = 'bld_trinkets',
         pos = {x = 9, y = 6},
-        rarity = 'bld_hobby',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 d_size = 1

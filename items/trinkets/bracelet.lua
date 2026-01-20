@@ -3,7 +3,7 @@
         key = 'bracelet',
         atlas = 'bld_trinkets',
         pos = {x = 0, y = 2},
-        rarity = 'bld_curio',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 chance = 1,

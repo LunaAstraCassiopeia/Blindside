@@ -3,7 +3,7 @@
         key = 'dreamcatcher',
         atlas = 'bld_trinkets',
         pos = {x = 3, y = 5}, --replace with real sprite location
-        rarity = 'bld_curio',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 hands_played = 0,

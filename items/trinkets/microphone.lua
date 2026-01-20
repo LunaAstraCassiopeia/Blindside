@@ -3,7 +3,7 @@
         key = 'microphone',
         atlas = 'bld_trinkets',
         pos = {x = 7, y = 2},
-        rarity = 'bld_doodad',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 last_chips = 0,
