@@ -1204,9 +1204,9 @@ return {
 			["c_bld_orbit"] = {
 				["name"] = "Orbit",
 				["text"] = {
-                    "When {C:attention}active{}, decrease",
-                    "{C:attention}Level{} of enemy Joker" ,
-                    "{C:inactive}(#1#/#2# Rounds){}"
+                    "Decreases {C:attention}Level{}",
+                    "of enemy Joker" ,
+                    "{C:inactive}(#1#){}"
 				},
 			},
 			["c_bld_halcyon"] = {
@@ -1234,51 +1234,11 @@ return {
                     "{C:inactive}(#1#/#2# Rounds){}"
 				},
 			},
-			["c_bld_arengeeone"] = {
+			["c_bld_arengee"] = {
 				["name"] = "Arengee",
 				["text"] = {
-                    "{C:inactive}Does nothing...?",
-					"{C:inactive}(Changes each hand)",
-                    "{C:inactive}(#1#/#2# Rounds){}"
-				},
-			},
-			["c_bld_arengeetwo"] = {
-				["name"] = "Arengee",
-				["text"] = {
-                    "{C:money}+$#3#{}",
-					"{C:inactive}(Changes each hand)",
-                    "{C:inactive}(#1#/#2# Rounds){}"
-				},
-			},
-			["c_bld_arengeethree"] = {
-				["name"] = "Arengee",
-				["text"] = {
-                    "Create a random {C:bld_obj_filmcard}Channel{} Card",
-					"{C:inactive}(Changes each hand)",
-                    "{C:inactive}(#1#/#2# Rounds){}"
-				},
-			},
-			["c_bld_arengeefour"] = {
-				["name"] = "Arengee",
-				["text"] = {
-                    "{C:blue}+#4#{} Chips",
-					"{C:inactive}(Changes each hand)",
-                    "{C:inactive}(#1#/#2# Rounds){}"
-				},
-			},
-			["c_bld_arengeefive"] = {
-				["name"] = "Arengee",
-				["text"] = {
-                    "{X:red,C:white}X#5#{} Mult",
-					"{C:inactive}(Changes each hand)",
-                    "{C:inactive}(#1#/#2# Rounds){}"
-				},
-			},
-			["c_bld_arengeesix"] = {
-				["name"] = "Arengee",
-				["text"] = {
-                    "{C:attention}Retriggers{} all scoring Blinds",
-					"{C:inactive}(Changes each hand)",
+                    "Creates a random",
+					"{C:attention}Trinket{} Tag",
                     "{C:inactive}(#1#/#2# Rounds){}"
 				},
 			},
