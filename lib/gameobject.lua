@@ -521,6 +521,7 @@ local rune_list = {
         "cathode",
         "mohs",
         "necron",
+        "desolate",
 }
 
 local ritual_list = {

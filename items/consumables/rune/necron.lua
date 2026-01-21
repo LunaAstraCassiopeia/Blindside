@@ -2,7 +2,7 @@ SMODS.Consumable {
     key = 'necron',
     set = 'bld_obj_rune',
     atlas = 'bld_consumable',
-    pos = {x=9, y=5},
+    pos = {x=7, y=5},
     config = {extra = {round = 1, charge = 1}},
     keep_on_use = function(self, card)
         return true

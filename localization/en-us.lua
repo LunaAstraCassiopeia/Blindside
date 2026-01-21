@@ -1282,6 +1282,14 @@ return {
                     "{C:inactive}(#1#){}"
 				},
 			},
+			["c_bld_desolate"] = {
+				["name"] = "Desolate",
+				["text"] = {
+                    "{C:attention}Burns{} all",
+                    "selected cards" ,
+                    "{C:inactive}(#1#){}"
+				},
+			},
 		},
 		["bld_obj_ritual"] = {
 			["c_bld_prayer"] = {
