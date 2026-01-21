@@ -4693,8 +4693,9 @@ return {
 				["name"] = "Frost Blind",
 				["text"] = {
 					"If remaining {C:blue}hands{} are",
-					"{C:attention}even{} when this Blind {C:attention}scores{},",
-					"it retriggers {C:attention}once{}"
+					"{C:blue}odd{} when this Blind is {C:attention}played{},",
+					"it retriggers {C:attention}once{}",
+					"{C:inactive}(Currently: #2#)"
 				}
 			},
 			["bld_spooky_seal"]	= {
