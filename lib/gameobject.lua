@@ -218,6 +218,15 @@ BLINDSIDE.Joker = SMODS.Blind:extend {
             self:joker_defeat()
         end
     end,
+    enable = function()
+        self.disabled = false
+        local obj = self.config.blind
+        if obj.enable and type(obj.enable) == 'function' then
+            obj:enable()
+        end
+        self:set_text()
+        self:wiggle()
+    end
 }
 
 BLINDSIDE.Joker.__index = function(self, key)
@@ -524,6 +533,7 @@ local rune_list = {
         "desolate",
         "trinity",
         "techys",
+        "joker404",
 }
 
 local ritual_list = {

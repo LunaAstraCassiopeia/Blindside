@@ -110,6 +110,12 @@ BLINDSIDE.Joker({
             BLINDSIDE.chipsupdate()
         return true end }))
     end,
+    enable = function()
+        BLINDSIDE.chipsmodify(0, ((G.GAME.blind.basechips*(2))), 0, 0, true)
+        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+            BLINDSIDE.chipsupdate()
+        return true end }))
+    end
 })
 
 
@@ -236,6 +242,12 @@ BLINDSIDE.Joker({
             BLINDSIDE.chipsupdate()
         return true end }))
     end,
+    enable = function()
+        BLINDSIDE.chipsmodify(20, 0, 0)
+        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+            BLINDSIDE.chipsupdate()
+        return true end }))
+    end
 })
 
 BLINDSIDE.Joker({
@@ -366,6 +378,9 @@ BLINDSIDE.Joker({
     disable = function()
         ease_hands_played(G.GAME.round_resets.hands - 2)
     end,
+    enable = function()
+        ease_hands_played(- G.GAME.round_resets.hands + 2)
+    end
 })
 
 BLINDSIDE.Joker({
@@ -670,6 +685,15 @@ BLINDSIDE.Joker({
             BLINDSIDE.chipsupdate()
         return true end }))
     end,
+    enable = function()
+        local times = math.floor(G.GAME.dollars/8)
+        if times > 0 then
+            BLINDSIDE.chipsmodify(times * 4, 0, 0)
+            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+                BLINDSIDE.chipsupdate()
+            return true end }))
+        end
+    end
 })
 
 BLINDSIDE.Joker({
