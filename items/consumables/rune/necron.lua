@@ -40,7 +40,7 @@ SMODS.Consumable {
                 juice_card_until(card, eval, true)
                 return {
                     message = localize('k_active_ex'),
-                    colour = G.C.MONEY,
+                    colour = G.C.PURPLE,
                 }
             else
                 return {
