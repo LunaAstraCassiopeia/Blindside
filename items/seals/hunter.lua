@@ -4,7 +4,8 @@ SMODS.Seal {
     pos = { x = 0, y = 1 },
     config = { 
         extra = { 
-            dollars = 4,
+            dollars = 1,
+            boss_dollars = 3
         } 
     },
     badge_colour = HEX('757CDC'),
@@ -20,15 +21,16 @@ SMODS.Seal {
         ["bld_obj_enhancements"] = true,
     },
     calculate = function(self, card, context)
-        if context.main_scoring and context.cardarea == G.play and G.GAME.blind.boss and card.facing ~= 'back' then
+        if context.main_scoring and context.cardarea == G.play and card.facing ~= 'back' then
             return {
-                dollars = card.ability.seal.extra.dollars
-                }
+                dollars = G.GAME.blind.boss and card.ability.seal.extra.boss_dollars or card.ability.seal.extra.dollars
+            }
         end
     end,
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
+                card.ability.seal.extra.boss_dollars,
                 card.ability.seal.extra.dollars
             }
         }

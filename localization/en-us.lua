@@ -4164,10 +4164,8 @@ return {
 			['j_bld_cowskull'] = {
 				["name"] = "Cow Skull",
 				["text"] = {
-					{"Creates a {C:attention}Strike Tag{}",
-					"when Joker is selected"},
-					{"{C:attention}Hunter{} Blinds always",
-					"give at least {C:money}+$#1#{}"},
+					"Creates a {C:attention}Strike Tag{}",
+					"when Joker is selected"
 				}
 			},
 			['j_bld_bracelet'] = {
@@ -4668,7 +4666,8 @@ return {
 			["bld_hunter_seal"] = {
 				["name"] = "Hunter Blind",
 				["text"] = {
-					"{C:money}+$#1#{} when scored",
+					"Gives {C:money}+$#2#{} when scored",
+					"Instead gives {C:money}+$#1#",
 					"during {C:attention}Boss Joker"
 				}
 			},

@@ -13,7 +13,7 @@
         blueprint_compat = false,
         eternal_compat = true,
         loc_vars = function (self, info_queue, card)
-        info_queue[#info_queue + 1] = G.P_SEALS['bld_hunter']
+        --info_queue[#info_queue + 1] = G.P_SEALS['bld_hunter']
         info_queue[#info_queue+1] = G.P_TAGS['tag_bld_strike']
             return {
                 vars = {
@@ -50,12 +50,12 @@
                     message = localize('k_tagged_ex')
                 }
             end
-            if context.individual and context.cardarea == G.play and not G.GAME.blind.boss then
+            --[[if context.individual and context.cardarea == G.play and not G.GAME.blind.boss then
                 if context.other_card.seal == 'bld_hunter' and context.other_card.facing ~= "back" then
                     return {
                         dollars = card.ability.extra.hunterbonus
                     }
                 end
-            end
+            end]]
         end
     })
