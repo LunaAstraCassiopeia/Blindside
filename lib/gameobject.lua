@@ -218,14 +218,14 @@ BLINDSIDE.Joker = SMODS.Blind:extend {
             self:joker_defeat()
         end
     end,
-    enable = function()
-        self.disabled = false
-        local obj = self.config.blind
+    enable = function(blind)
+        blind.disabled = false
+        local obj = blind
         if obj.enable and type(obj.enable) == 'function' then
             obj:enable()
         end
-        self:set_text()
-        self:wiggle()
+        blind:set_text()
+        blind:wiggle()
     end
 }
 

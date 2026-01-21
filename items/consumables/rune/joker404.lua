@@ -40,7 +40,7 @@ SMODS.Consumable {
     end,
     calculate = function(self, card, context)
         if context.after and G.GAME.blind.disabled and card.ability.extra.disable then
-            G.GAME.blind:enable()
+            G.GAME.blind.config.blind.enable(G.GAME.blind)
             card.ability.extra.disable = false
         end
         if context.end_of_round and not context.repetition and not context.individual and card.ability.extra.charge < card.ability.extra.round then
