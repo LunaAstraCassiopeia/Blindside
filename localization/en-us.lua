@@ -4675,10 +4675,10 @@ return {
 			["bld_floral_seal"] = {
 				["name"] = "Floral Blind",
 				["text"] = {
+					"{C:green}#4# in #5#{} chance to",
+					"{C:attention}retrigger{} once",
 					"{C:green}#1# in #2#{} chance to",
 					"give {C:blue}+#3#{} chips",
-					"{C:green}#4# in #5#{} chance to",
-					"{C:attention}retrigger{} twice"
 				}
 			},
 			["bld_ruin_seal"] = {
