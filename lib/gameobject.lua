@@ -517,6 +517,7 @@ local rune_list = {
         "montain",
         "charm",
         "phalynx",
+        "cygnus",
 }
 
 local ritual_list = {

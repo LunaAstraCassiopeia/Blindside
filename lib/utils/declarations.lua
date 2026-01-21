@@ -301,6 +301,7 @@
         "c_bld_joker404",
         "c_bld_charm",
         "c_bld_phalynx",
+        "c_bld_cygnus",
         "c_bld_sacrifice",
         "c_bld_prayer",
         "c_bld_pentagram",

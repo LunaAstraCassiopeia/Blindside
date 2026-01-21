@@ -1250,6 +1250,14 @@ return {
                     "{C:inactive}(#1#){}"
 				},
 			},
+			["c_bld_cygnus"] = {
+				["name"] = "Cygnus",
+				["text"] = {
+                    "{C:green}Retains{} all blinds",
+                    "this hand" ,
+                    "{C:inactive}(#1#){}"
+				},
+			},
 		},
 		["bld_obj_ritual"] = {
 			["c_bld_prayer"] = {
