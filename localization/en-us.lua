@@ -1100,6 +1100,14 @@ return {
 					"Price Tags",
 				},
 			},
+			["tag_bld_hiss"] = {
+				["name"] = "Hiss Tag",
+				["text"] = {
+					"Draw {C:attention}#1#{} additional",
+					"cards next time",
+					"you draw from deck",
+				},
+			},
 		},
 		["bld_obj_mineral"] = {
 			["c_bld_stibnite"] = {
@@ -2723,9 +2731,9 @@ return {
 				["name"] = "The Serpent",
 				["text"] = {
 					{"{X:green,C:white}Green{}",
-					"The next time you",
-					"draw from the deck, draw",
-					"{C:attention}#1#{} additional Blinds",},
+					"When scored, creates",
+					"a {C:green,E:1}Hiss Tag{}",
+					"for {C:attention}#1#{} blinds",},
 					{"Always scores"},
 				},
 			},
