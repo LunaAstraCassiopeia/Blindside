@@ -304,6 +304,7 @@
         "c_bld_cygnus",
         "c_bld_cathode",
         "c_bld_mohs",
+        "c_bld_necron",
         "c_bld_sacrifice",
         "c_bld_prayer",
         "c_bld_pentagram",

@@ -1274,6 +1274,14 @@ return {
                     "{C:inactive}(#1#){}"
 				},
 			},
+			["c_bld_necron"] = {
+				["name"] = "Necron",
+				["text"] = {
+                    "Discards your entire hand",
+                    "and draws a new one" ,
+                    "{C:inactive}(#1#){}"
+				},
+			},
 		},
 		["bld_obj_ritual"] = {
 			["c_bld_prayer"] = {
