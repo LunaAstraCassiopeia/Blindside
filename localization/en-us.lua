@@ -4687,10 +4687,6 @@ return {
 					"Shuffled to the",
 					"{C:attention}top{} of the deck",
 					"at round start",
-					"{s:0.2} {}",
-					"{C:green}#1# in #2#{} chance",
-					"to temporarily {C:red}debuff{}",
-					"self when played"
 				}
 			},
 			["bld_frost_seal"] = {
