@@ -12,7 +12,7 @@ SMODS.Tag {
         return false
     end,
     
-    loc_var0s = function(self, info_queue, tag)
+    loc_vars = function(self, info_queue, tag)
         return {
             vars = {
                 (tag.ability and tag.ability.debuffed_hand and localize(tag.ability.debuffed_hand, 'poker_hands')) or ('['..localize('k_poker_hand')..']')
