@@ -1298,6 +1298,13 @@ return {
                     "{C:inactive}(#1#){}"
 				},
 			},
+			["c_bld_techys"] = {
+				["name"] = "Techys",
+				["text"] = {
+                    "{C:attention}-1{} Ante" ,
+                    "{C:inactive}(#1#){}"
+				},
+			},
 		},
 		["bld_obj_ritual"] = {
 			["c_bld_prayer"] = {
