@@ -5,40 +5,43 @@
         config = {
             extra = {
                 value = 15,
-                money = 3,
+                base_money = 2,
+                base_moneyup = 6,
+                money = 1,
             }
         },
         hues = {"Yellow"},
         calculate = function(self, card, context)
             if context.cardarea == G.play and context.main_scoring then
-                local num
-                if card.ability.extra.upgraded then
-                    num = #G.GAME.tags
-                else
-                    num = math.floor(#G.GAME.tags/2)
+                local num = 0
+                for key, tag in pairs(G.GAME.tags) do
+                    if not (tag.config and tag.config.relic) then
+                        num = num + 1
+                    end
                 end
                 return {
-                    dollars = card.ability.extra.money*num
+                    dollars = card.ability.extra.money*num + card.ability.extra.base_money
                 }
             end
         end,
         loc_vars = function(self, info_queue, card)
-            local num
-            if card.ability.extra.upgraded then
-                num = #G.GAME.tags
-            else
-                num = math.floor(#G.GAME.tags/2)
+            local num = 0
+            for key, tag in pairs(G.GAME.tags) do
+                if not (tag.config and tag.config.relic) then
+                    num = num + 1
+                end
             end
             return {
-                key = card.ability.extra.upgraded and 'm_bld_paint_upgraded' or 'm_bld_paint',
                 vars = {
                     card.ability.extra.money,
-                    card.ability.extra.money*num
+                    card.ability.extra.money*num + card.ability.extra.base_money,
+                    card.ability.extra.base_money
                 }
             }
         end,
         upgrade = function(card) 
             if not card.ability.extra.upgraded then
+            card.ability.extra.base_money = card.ability.extra.base_money + card.ability.extra.base_moneyup
             card.ability.extra.upgraded = true
             end
         end

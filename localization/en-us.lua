@@ -2482,18 +2482,20 @@ return {
 				["name"] = "The Paint",
 				["text"] = {
 					"{X:money,C:white}Yellow{}",
-					"{C:money}+$#1#{} for every",
-					"{C:attention}2 Tags{} held",
+					"{C:money}+$#3#{}, then",
+					"{C:money}+$#1#{} for every {C:attention}Tag{} held,",
+					"excluding {C:attention}Price Tags",
+					"{C:inactive}(Currently {C:money}$#2#{C:inactive})"
 				},
 			},
-			["m_bld_paint_upgraded"] = {
+			--[[["m_bld_paint_upgraded"] = {
 				["name"] = "The Paint",
 				["text"] = {
 					"{X:money,C:white}Yellow{}",
 					"{C:money}+$#1#{} for every",
 					"{C:attention}Tag{} held",
 				},
-			},
+			},]]
 			["m_bld_skull"] = {
 				["name"] = "The Skull",
 				["text"] = {
