@@ -3211,7 +3211,7 @@ return {
 					{"{X:mult,C:white}Red{} {X:money,C:white}Yellow{}",
 					"{C:money}+$#1#{}"},
 					{"If scoring hand contains",
-					"at least 3 Blinds, creates a",
+					"at least {C:attention}3{} Blinds, creates a",
 					"{C:mult,E:1}Strike Tag{} before scoring"}
 				},
 			},
