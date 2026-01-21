@@ -39,7 +39,7 @@ SMODS.Consumable {
         juice_card_until(card, eval, true)
     end,
     calculate = function(self, card, context)
-        if context.after and G.GAME.blind.disabled and card.ability.extra.disable then
+        if context.hand_drawn and G.GAME.blind.disabled and card.ability.extra.disable then
             G.GAME.blind.config.blind.enable(G.GAME.blind)
             card.ability.extra.disable = false
         end
