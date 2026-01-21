@@ -30,6 +30,7 @@ SMODS.Consumable {
             end
         end
         level_up_hand(card, _hand, false, 1)
+        card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_plus_mohs'), colour = G.C.SECONDARY_SET.bld_obj_mineral, card = card})
     end,
     load = function(self,card,card_table,other_card)
         local eval = function(card) return card.ability.extra.charge >= card.ability.extra.round end
@@ -43,7 +44,7 @@ SMODS.Consumable {
                 juice_card_until(card, eval, true)
                 return {
                     message = localize('k_active_ex'),
-                    colour = G.C.SECONDARY_SET.bld_obj_filmcard,
+                    colour = G.C.SECONDARY_SET.bld_obj_mineral,
                 }
             else
                 return {

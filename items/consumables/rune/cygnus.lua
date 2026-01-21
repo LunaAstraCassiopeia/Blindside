@@ -30,6 +30,7 @@ SMODS.Consumable {
         for k, v in pairs(G.hand.cards) do
             v.retain = true
         end
+        card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_plus_cygnus'), colour = G.C.MONEY, card = card})
     end,
     load = function(self,card,card_table,other_card)
         local eval = function(card) return card.ability.extra.charge >= card.ability.extra.round end
@@ -43,7 +44,7 @@ SMODS.Consumable {
                 juice_card_until(card, eval, true)
                 return {
                     message = localize('k_active_ex'),
-                    colour = G.C.PURPLE,
+                    colour = G.C.MONEY,
                 }
             else
                 return {

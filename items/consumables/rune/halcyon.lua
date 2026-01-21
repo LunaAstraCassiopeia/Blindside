@@ -27,6 +27,7 @@ SMODS.Consumable {
         card.ability.extra.charge = 0
         play_sound('bld_rune1', 1.1 + math.random()*0.1, 0.8)
         add_tag(Tag('tag_bld_strike'))
+        card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_plus_halcyon'), colour = G.C.MONEY, card = card})
     end,
     load = function(self,card,card_table,other_card)
         local eval = function(card) return card.ability.extra.charge >= card.ability.extra.round end

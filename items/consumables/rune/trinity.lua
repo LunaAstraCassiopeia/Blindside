@@ -30,6 +30,7 @@ SMODS.Consumable {
         play_sound('bld_rune1', 1.1 + math.random()*0.1, 0.8)
         local eval = function(card) return card.ability.extra.active end
         juice_card_until(card, eval, true)
+        card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_plus_trinity'), colour = G.C.RED, card = card})
     end,
     load = function(self,card,card_table,other_card)
         local eval = function(card) return card.ability.extra.active or card.ability.extra.charge >= card.ability.extra.round end

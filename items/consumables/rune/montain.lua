@@ -50,6 +50,7 @@ SMODS.Consumable {
         for i = 1, #G.jokers.cards do
             G.jokers.cards[i]:calculate_joker({remove_playing_cards = true, removed = destroyed_cards})
         end
+        card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_plus_montain'), colour = G.C.GREY, card = card})
     end,
     load = function(self,card,card_table,other_card)
         local eval = function(card) return card.ability.extra.charge >= card.ability.extra.round end

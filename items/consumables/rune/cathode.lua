@@ -49,6 +49,7 @@ SMODS.Consumable {
                         return true
                     end}))
             end
+            card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_plus_cathode'), colour = G.C.SECONDARY_SET.bld_obj_filmcard, card = card})
         end
     end,
     load = function(self,card,card_table,other_card)

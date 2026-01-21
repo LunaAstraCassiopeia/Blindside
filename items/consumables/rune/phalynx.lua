@@ -38,6 +38,7 @@ SMODS.Consumable {
                 return true
             end
         }))
+        card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_plus_phalynx'), colour = G.C.MONEY, card = card})
     end,
     load = function(self,card,card_table,other_card)
         local eval = function(card) return card.ability.extra.charge >= card.ability.extra.round end

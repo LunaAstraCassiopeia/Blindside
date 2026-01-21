@@ -44,6 +44,7 @@ SMODS.Consumable {
             G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.9, func = function()
         BLINDSIDE.chipsupdate()
             return true end }))
+        card_eval_status_text(card, 'extra', nil, nil, nil, {message = localize('k_plus_orbit'), colour = G.C.SECONDARY_SET.Planet, card = card})
     end,
     load = function(self,card,card_table,other_card)
         local eval = function(card) return card.ability.extra.charge >= card.ability.extra.round end
