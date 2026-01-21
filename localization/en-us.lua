@@ -1290,6 +1290,14 @@ return {
                     "{C:inactive}(#1#){}"
 				},
 			},
+			["c_bld_trinity"] = {
+				["name"] = "Trinity",
+				["text"] = {
+                    "{C:white,X:mult}X#2#{} Mult next",
+                    "played hand" ,
+                    "{C:inactive}(#1#){}"
+				},
+			},
 		},
 		["bld_obj_ritual"] = {
 			["c_bld_prayer"] = {
