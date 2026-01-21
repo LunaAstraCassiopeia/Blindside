@@ -3201,8 +3201,8 @@ return {
 				["text"] = {
 					"{X:mult,C:white}Red{} {X:money,C:white}Yellow{}",
 					"If scoring hand contains",
-					"at least {C:attention}3{} Blinds, creates",
-					"a {C:mult,E:1}Strike Tag{}"
+					"at least {C:attention}3{} Blinds, creates a",
+					"{C:mult,E:1}Strike Tag{} before scoring"
 				},
 			},
 			["m_bld_spear_upgraded"] = {
@@ -3210,10 +3210,9 @@ return {
 				["text"] = {
 					{"{X:mult,C:white}Red{} {X:money,C:white}Yellow{}",
 					"{C:money}+$#1#{}"},
-					{"If scoring hand",
-					"contains at least",
-					"3 Blinds, creates a",
-					"{C:mult,E:1}Strike Tag{}"}
+					{"If scoring hand contains",
+					"at least 3 Blinds, creates a",
+					"{C:mult,E:1}Strike Tag{} before scoring"}
 				},
 			},
 			["m_bld_line"] = {
@@ -4726,6 +4725,23 @@ return {
 					"When {C:attention}used{}, effect is",
 					"{C:attention}active{} until timer is",
 					"expired" -- later, "until the \n round ends, then the rune \n must recharge"
+				}
+			},
+			["bld_round_tag"]	= {
+				["name"] = "Round Tag",
+				["text"] = {
+					"Lasts until",
+					"end of round"
+				}
+			},
+			["bld_moon_tag"]	= {
+				["name"] = "Possible Tag Effects",
+				["text"] = {
+					"One of:",
+					"{C:blue}+1 hand{}, {C:red}X1.5 Mult{},",
+					"{C:money}+15 Chips for each tag{},",
+					"{C:purple}+1 hand size{}, or",
+					"{C:green}1 in 2 blinds retrigger{}"
 				}
 			},
 			["bld_burn"]	= {
