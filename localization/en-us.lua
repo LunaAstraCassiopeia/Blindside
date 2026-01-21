@@ -1266,6 +1266,14 @@ return {
                     "{C:inactive}(#1#){}"
 				},
 			},
+			["c_bld_mohs"] = {
+				["name"] = "Mohs",
+				["text"] = {
+                    "Levels up your",
+                    "most played hand" ,
+                    "{C:inactive}(#1#){}"
+				},
+			},
 		},
 		["bld_obj_ritual"] = {
 			["c_bld_prayer"] = {
