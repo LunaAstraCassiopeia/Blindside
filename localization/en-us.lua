@@ -4668,9 +4668,9 @@ return {
 			["bld_hunter_seal"] = {
 				["name"] = "Hunter Blind",
 				["text"] = {
-					"Gives {C:money}+$#2#{} when scored",
-					"Instead gives {C:money}+$#1#",
-					"during {C:attention}Boss Joker"
+					"{C:money}+$#1#{} when scored",
+					"during {C:attention}Boss Joker,",
+					"and {C:money}+$#2#{} otherwise"
 				}
 			},
 			["bld_floral_seal"] = {
@@ -4693,9 +4693,9 @@ return {
 			["bld_frost_seal"] = {
 				["name"] = "Frost Blind",
 				["text"] = {
-					"If remaining {C:blue}hands{} are",
-					"{C:blue}odd{} when this Blind is {C:attention}played{},",
-					"it retriggers {C:attention}once{}",
+					"If remaining {C:blue}hands{}",
+					"are {C:blue}odd{} when {C:attention}played{},",
+					"retriggers {C:attention}once{}",
 					"{C:inactive}(Currently: #2#)"
 				}
 			},
