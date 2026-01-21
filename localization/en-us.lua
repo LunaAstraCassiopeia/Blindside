@@ -1258,6 +1258,14 @@ return {
                     "{C:inactive}(#1#){}"
 				},
 			},
+			["c_bld_cathode"] = {
+				["name"] = "Cathode",
+				["text"] = {
+                    "Creates a {C:dark_edition}Negative{} copy",
+                    "of a held {C:bld_obj_filmcard}Channel{} card" ,
+                    "{C:inactive}(#1#){}"
+				},
+			},
 		},
 		["bld_obj_ritual"] = {
 			["c_bld_prayer"] = {
