@@ -1235,7 +1235,7 @@ return {
 				["text"] = {
                     "Disables {C:attention}Joker{}",
                     "for the next hand" ,
-                    "{C:inactive}(#1#/#2# Rounds){}"
+                    "{C:inactive}(#1#){}"
 				},
 			},
 			["c_bld_arengee"] = {
