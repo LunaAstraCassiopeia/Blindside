@@ -119,3 +119,16 @@ position = 'at'
 payload = '''
 if (not G.SETTINGS.blindside_tutorial_complete) and G.SETTINGS.blindside_tutorial_progress and G.SETTINGS.blindside_tutorial_progress.completed_parts['shop_3'] then G.SETTINGS.tutorial_complete = true end
 '''
+
+# TUTORIAL - tutorial seed
+[[patches]]
+[patches.pattern]
+target = 'game.lua'
+pattern = '''
+self.GAME.pseudorandom.seed = args.seed or (not (G.SETTINGS.tutorial_complete or G.SETTINGS.tutorial_progress.completed_parts['big_blind']) and "TUTORIAL") or generate_starting_seed()
+'''
+match_indent = true
+position = 'after'
+payload = '''
+self.GAME.pseudorandom.seed = (not (G.SETTINGS.blindside_tutorial_complete or G.SETTINGS.blindside_tutorial_progress.completed_parts['shop_3']) and "BLINDSDE") or self.GAME.pseudorandom.seed
+'''
