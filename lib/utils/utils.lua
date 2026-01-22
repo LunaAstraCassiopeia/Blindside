@@ -192,7 +192,7 @@ function get_new_small(current)
 
     if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
         for k, v in pairs(eligible_bosses) do
-            if v and not G.P_BLINDS[k].mod or G.P_BLINDS[k].mod.id ~= 'Blindside' then
+            if v and not BLINDSIDE.is_blindside(k) then
                 eligible_bosses[k] = nil
             end
         end
@@ -231,7 +231,7 @@ function get_new_big(current)
 
     if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
         for k, v in pairs(eligible_bosses) do
-            if v and not G.P_BLINDS[k].mod or G.P_BLINDS[k].mod.id ~= 'Blindside' then
+            if v and not BLINDSIDE.is_blindside(k) then
                 eligible_bosses[k] = nil
             end
         end
