@@ -3790,6 +3790,7 @@ return {
 				["text"] = {
 					{"{X:chips,C:white}Blue{}",
 					"{C:chips}+#1#{} Chips"},
+					{"{C:attention}+1{} Selection Limit",},
 					{"{C:attention}Forced to",
 					"{C:attention}be selected",}
 				},
