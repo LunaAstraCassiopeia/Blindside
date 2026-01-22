@@ -171,3 +171,17 @@ if not silent then
 end
 '''
 match_indent = true
+
+# reset buffer on new blind
+[[patches]]
+[patches.pattern]
+target = 'functions/state_events.lua'
+pattern = '''
+-- TARGET: setting_blind effects
+'''
+position = 'at'
+match_indent = true
+payload = '''
+G.GAME.tech_draw_primary_buffer = 0
+G.GAME.tech_draw_buffer = 0
+'''

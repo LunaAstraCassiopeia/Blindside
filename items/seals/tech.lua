@@ -27,7 +27,7 @@ SMODS.Seal {
 
             G.GAME.tech_draw_buffer = G.GAME.tech_draw_buffer + card.ability.seal.extra.draw_extra
             
-            local hand_drawn = context.hand_drawn
+            local hand_drawn = context.hand_drawn or context.other_drawn
             G.E_MANAGER:add_event(Event({
                 func = function()
                     G.E_MANAGER:add_event(Event({
