@@ -4583,8 +4583,8 @@ return {
 			["stake_bld_plasma_deck"] = {
 				name = "Plasma Stake??",
 				text = {
-					"Skipping Jokers costs",
-					"{C:money}$2{} per {C:attention}Ante"
+					"Required score scales",
+					"faster for each {C:attention}Ante"
 				}
 			},
 			["stake_bld_ghost_deck"] = {
