@@ -11,33 +11,22 @@
         rare = true,
         always_scores = true,
         calculate = function(self, card, context)
-            if context.cardarea == G.play and context.before then
+            if context.main_scoring and context.cardarea == G.play and card.ability.extra.upgraded then
+                return {
+                    dollars = card.ability.extra.dollars
+                }
+            end
+            if context.before and tableContains(card, context.scoring_hand) then
                 if #context.scoring_hand >= 3 then
-                    if card.ability.extra.upgraded then
-                        return {
-                            focus = card,
-                            message = localize('k_tagged_ex'),
-                            func = function()
-                                add_tag(Tag('tag_bld_strike'))
-                            end,
-                            card = card,
-                            dollars = card.ability.extra.dollars
-                        }
-                    else
-                        return {
-                            focus = card,
-                            message = localize('k_tagged_ex'),
-                            func = function()
-                                add_tag(Tag('tag_bld_strike'))
-                            end,
-                            card = card
-                        }
-                    end
-                    
+                    return {
+                        focus = card,
+                        message = localize('k_tagged_ex'),
+                        func = function()
+                            add_tag(Tag('tag_bld_strike'))
+                        end,
+                        card = card
+                    }
                 else
-                    if card.facing ~= 'back' and context.cardarea == G.play then
-                        card:flip()
-                    end
                     return {
                         message = localize('k_nope_ex'),
                         colour = G.C.MONEY
@@ -52,7 +41,6 @@
         end,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue+1] = G.P_TAGS['tag_bld_strike']
-            info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}
             if card.ability.extra.upgraded then
                 return {
                     key = 'm_bld_spear_upgraded',

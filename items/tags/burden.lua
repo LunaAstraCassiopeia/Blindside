@@ -2,11 +2,11 @@ SMODS.Tag {
     key = "burden",
     hide_ability = false,
     atlas = 'bld_tag',
-    --[[config = {
+    config = {
         extra = {
-            rounds = 3
+            hex = true,
         }
-    },]]
+    },
     pos = {x = 0, y = 4},
     in_pool = function(self, args)
         return false

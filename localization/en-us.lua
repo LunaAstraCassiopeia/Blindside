@@ -1099,6 +1099,14 @@ return {
 					"Price Tags",
 				},
 			},
+			["tag_bld_hiss"] = {
+				["name"] = "Hiss Tag",
+				["text"] = {
+					"Draw {C:attention}#1#{} additional",
+					"cards next time",
+					"you draw from deck",
+				},
+			},
 		},
 		["bld_obj_mineral"] = {
 			["c_bld_stibnite"] = {
@@ -2509,13 +2517,14 @@ return {
 			["m_bld_paint"] = {
 				["name"] = "The Paint",
 				["text"] = {
-					{"{X:money,C:white}Yellow{}",
-					"{C:money}+$#1#{}",},
-					{"{C:money}+$1{} for each",
-					"{C:attention}Round Tag{} held",}
+					"{X:money,C:white}Yellow{}",
+					"{C:money}+$#3#{}, then",
+					"{C:money}+$#1#{} for every {C:attention}Tag{} held,",
+					"excluding {C:attention}Price Tags",
+					"{C:inactive}(Currently {C:money}$#2#{C:inactive})"
 				},
 			},
-			["m_bld_paint_upgraded"] = {
+			--[[["m_bld_paint_upgraded"] = {
 				["name"] = "The Paint",
 				["text"] = {
 					{"{X:money,C:white}Yellow{}",
@@ -2523,7 +2532,7 @@ return {
 					{"{C:money}+$2{} for each",
 					"{C:attention}Round Tag{} held",}
 				},
-			},
+			},]]
 			["m_bld_skull"] = {
 				["name"] = "The Skull",
 				["text"] = {
@@ -2751,9 +2760,9 @@ return {
 				["name"] = "The Serpent",
 				["text"] = {
 					{"{X:green,C:white}Green{}",
-					"The next time you",
-					"draw from the deck, draw",
-					"{C:attention}#1#{} additional Blinds",},
+					"When scored, creates",
+					"a {C:green,E:1}Hiss Tag{}",
+					"for {C:attention}#1#{} blinds",},
 					{"Always scores"},
 				},
 			},
@@ -3229,8 +3238,8 @@ return {
 				["text"] = {
 					"{X:mult,C:white}Red{} {X:money,C:white}Yellow{}",
 					"If scoring hand contains",
-					"at least {C:attention}3{} Blinds, creates",
-					"a {C:mult,E:1}Strike Tag{}"
+					"at least {C:attention}3{} Blinds, creates a",
+					"{C:mult,E:1}Strike Tag{} before scoring"
 				},
 			},
 			["m_bld_spear_upgraded"] = {
@@ -3238,10 +3247,9 @@ return {
 				["text"] = {
 					{"{X:mult,C:white}Red{} {X:money,C:white}Yellow{}",
 					"{C:money}+$#1#{}"},
-					{"If scoring hand",
-					"contains at least",
-					"3 Blinds, creates a",
-					"{C:mult,E:1}Strike Tag{}"}
+					{"If scoring hand contains",
+					"at least {C:attention}3{} Blinds, creates a",
+					"{C:mult,E:1}Strike Tag{} before scoring"}
 				},
 			},
 			["m_bld_line"] = {
@@ -4193,10 +4201,8 @@ return {
 			['j_bld_cowskull'] = {
 				["name"] = "Cow Skull",
 				["text"] = {
-					{"Creates a {C:attention}Strike Tag{}",
-					"when Joker is selected"},
-					{"{C:attention}Hunter{} Blinds always",
-					"give at least {C:money}+$#1#{}"},
+					"Creates a {C:attention}Strike Tag{}",
+					"when Joker is selected"
 				}
 			},
 			['j_bld_bracelet'] = {
@@ -4358,9 +4364,9 @@ return {
 			['j_bld_matryoshka'] = {
 				["name"] = "Matryoshka",
 				["text"] = {
-					"When Joker is selected",
+					"When Joker is selected,",
 					"create {C:attention}2{} copies of the",
-					"last consumed {C:attention}Tag",
+					"last consumed positive {C:attention}Tag",
 					"{C:inactive}(Currently: {C:attention}#1#{C:inactive})"
 				}
 			},
@@ -4606,8 +4612,8 @@ return {
 			["stake_bld_plasma_deck"] = {
 				name = "Plasma Stake??",
 				text = {
-					"Skipping Jokers costs",
-					"{C:money}$2{} per {C:attention}Ante"
+					"Required score scales",
+					"faster for each {C:attention}Ante"
 				}
 			},
 			["stake_bld_ghost_deck"] = {
@@ -4690,24 +4696,27 @@ return {
 			["bld_tech_seal"] = {
 				["name"] = "Tech Blind",
 				["text"] = {
-					"When Blind is drawn,",
-					"draw {C:attention}#1#{} extra Blind"
+					"For each {C:blue}Tech Blind",
+					"drawn, next draw will",
+					"contain {C:attention}1{} extra Blind",
+					"{C:inactive}(Currently #2#)"
 				}
 			},
 			["bld_hunter_seal"] = {
 				["name"] = "Hunter Blind",
 				["text"] = {
 					"{C:money}+$#1#{} when scored",
-					"during {C:attention}Boss Joker"
+					"during {C:attention}Boss Joker,",
+					"and {C:money}+$#2#{} otherwise"
 				}
 			},
 			["bld_floral_seal"] = {
 				["name"] = "Floral Blind",
 				["text"] = {
+					"{C:green}#4# in #5#{} chance to",
+					"{C:attention}retrigger{} once",
 					"{C:green}#1# in #2#{} chance to",
 					"give {C:blue}+#3#{} chips",
-					"{C:green}#4# in #5#{} chance to",
-					"{C:attention}retrigger{} twice"
 				}
 			},
 			["bld_ruin_seal"] = {
@@ -4716,18 +4725,15 @@ return {
 					"Shuffled to the",
 					"{C:attention}top{} of the deck",
 					"at round start",
-					"{s:0.2} {}",
-					"{C:green}#1# in #2#{} chance",
-					"to temporarily {C:red}debuff{}",
-					"self when played"
 				}
 			},
 			["bld_frost_seal"] = {
 				["name"] = "Frost Blind",
 				["text"] = {
-					"If remaining {C:blue}hands{} are",
-					"{C:attention}even{} when this Blind {C:attention}scores{},",
-					"it retriggers {C:attention}once{}"
+					"If remaining {C:blue}hands{}",
+					"are {C:blue}odd{} when {C:attention}played{},",
+					"retriggers {C:attention}once{}",
+					"{C:inactive}(Currently: #2#)"
 				}
 			},
 			["bld_spooky_seal"]	= {
@@ -4753,6 +4759,23 @@ return {
 				["text"] = {
 					"When {C:attention}used{}, applies effect,",
 					"then must recharge", -- later, "until the \n round ends, then the rune \n must recharge"
+				}
+			},
+			["bld_round_tag"]	= {
+				["name"] = "Round Tag",
+				["text"] = {
+					"Lasts until",
+					"end of round"
+				}
+			},
+			["bld_moon_tag"]	= {
+				["name"] = "Possible Tag Effects",
+				["text"] = {
+					"One of:",
+					"{C:blue}+1 hand{}, {C:red}X1.5 Mult{},",
+					"{C:money}+15 Chips for each tag{},",
+					"{C:purple}+1 hand size{}, or",
+					"{C:green}1 in 2 blinds retrigger{}"
 				}
 			},
 			["bld_burn"]	= {

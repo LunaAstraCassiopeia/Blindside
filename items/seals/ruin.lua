@@ -19,7 +19,7 @@ SMODS.Seal {
     pools = {
         ["bld_obj_enhancements"] = true,
     },
-    calculate = function(self, card, context)
+    --[[calculate = function(self, card, context)
         if context.cardarea == G.play and context.before and context.scoring_hand and tableContains(card, context.scoring_hand) and card.facing ~= 'back' then
             if SMODS.pseudorandom_probability(card, pseudoseed("bld_ruin"), 1, card.ability.seal.extra.odds, 'bld_ruin') and card.facing ~= "back" then
                 card:set_debuff(true)
@@ -32,7 +32,7 @@ SMODS.Seal {
                 card:flip()
             end
         end
-    end,
+    end,]]
     loc_vars = function(self, info_queue, card)
         local n,d = SMODS.get_probability_vars(card, 1, card.ability.seal.extra.odds)
         return {

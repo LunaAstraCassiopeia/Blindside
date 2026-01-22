@@ -11,16 +11,18 @@
         hues = {"Green"},
         always_scores = true,
         calculate = function(self, card, context)
-                if context.cardarea == G.play and context.after and card.facing ~= 'back' then
-                    G.E_MANAGER:add_event(Event({
-                        blocking = false,
+                if context.cardarea == G.play and context.main_scoring and card.facing ~= 'back' then
+                    G.serpent_draw = card.ability.extra.draw_extra
+                    return {
+                        focus = card,
+                        message = localize('k_tagged_ex'),
                         func = function()
-                            if G.STATE == G.STATES.SELECTING_HAND then
-                                G.FUNCS.blind_draw_from_deck_to_hand(card.ability.extra.draw_extra)
-                                return true
-                            end
-                        end
-                    }))
+                            G.serpent_draw = card.ability.extra.draw_extra
+                            add_tag(Tag('tag_bld_hiss'))
+                        end,
+                        card = card,
+                        money = card.ability.extra.dollars
+                    }
                 end
         end,
         loc_vars = function(self, info_queue, card)

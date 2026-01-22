@@ -561,6 +561,41 @@ G.FUNCS.blind_draw_from_deck_to_hand = function(e)
             return true
         end
     }))
+
+    if not BLINDSIDE.tech_temp then
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                if G.GAME.tech_draw_primary_buffer and G.GAME.tech_draw_primary_buffer > 0 then
+                    print("primary buffer")
+                    BLINDSIDE.tech_temp = true
+                    G.FUNCS.blind_draw_from_deck_to_hand(math.floor(G.GAME.tech_draw_primary_buffer))
+                    BLINDSIDE.tech_temp = nil
+                    G.GAME.tech_draw_primary_buffer = G.GAME.tech_draw_buffer
+                    G.GAME.tech_draw_buffer = 0
+                elseif G.GAME.tech_draw_buffer and G.GAME.tech_draw_buffer > 0 then
+                    
+                end
+               return true
+            end
+        }))
+
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        print("cleanup buffer")
+                        if not G.GAME.tech_draw_primary_buffer then
+                            G.GAME.tech_draw_primary_buffer = 0
+                        end
+                        G.GAME.tech_draw_primary_buffer = G.GAME.tech_draw_primary_buffer + (G.GAME.tech_draw_buffer or 0)
+                        G.GAME.tech_draw_buffer = 0
+                        return true
+                    end
+                }))
+                return true
+            end
+        }))
+    end
 end
 
 

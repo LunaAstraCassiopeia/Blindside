@@ -29,7 +29,8 @@ SMODS.Seal {
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.seal.extra.howmany
+                card.ability.seal.extra.howmany,
+                G.GAME.current_round.hands_left % 2 == 1 and "Will Retrigger!" or "Inactive"
             }
         }
     end

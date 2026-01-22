@@ -6,6 +6,11 @@ SMODS.Tag {
     in_pool = function(self, args)
         return false
     end,
+    config = {
+        extra = {
+            hex = true,
+        }
+    },
     apply = function(self, tag, context)
         if context.type == 'after_hand' then
             local cards = choose_stuff(G.play.cards, 1, pseudoseed('mantle'))

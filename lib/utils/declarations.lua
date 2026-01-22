@@ -430,6 +430,8 @@
         "tag_bld_downpour",
         "tag_bld_voodoo",
         "tag_bld_burden",
+
+        "tag_bld_hiss",
         
         "bl_bld_joker",
         "bl_bld_oddtodd",

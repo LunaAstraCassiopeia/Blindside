@@ -40,6 +40,7 @@
             end
         end,
         loc_vars = function(self, info_queue, card)
+            info_queue[#info_queue+1] = {key = 'bld_moon_tag', set = 'Other'}
             return {
                 key = (not card.ability.extra.triggered_this_round or G.STATE == G.STATES.SHOP) and 'm_bld_moon' or 'm_bld_moon_inactive',
                 vars = {

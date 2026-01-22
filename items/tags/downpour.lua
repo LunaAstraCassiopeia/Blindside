@@ -4,7 +4,8 @@ SMODS.Tag {
     atlas = 'bld_tag',
     config = {
         extra = {
-            odds = 2
+            odds = 2,
+            hex = true
         }
     },
     loc_vars = function (self, info_queue, tag)

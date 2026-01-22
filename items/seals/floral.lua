@@ -7,9 +7,9 @@ SMODS.Seal {
             chips = 50,
             chancechips = 1,
             triggerchips = 4,
-            retrigger = 2,
+            retrigger = 1,
             chanceretrigger = 1,
-            triggeretrigger = 10,
+            triggeretrigger = 3,
         } 
     },
     badge_colour = HEX('757CDC'),

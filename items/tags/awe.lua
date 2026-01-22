@@ -2,11 +2,11 @@ SMODS.Tag {
     key = "awe",
     hide_ability = false,
     atlas = 'bld_tag',
-    --[[config = {
+    config = {
         extra = {
-            rounds = 3
+            hex = true,
         }
-    },]]
+    },
     pos = {x = 1, y = 4},
     in_pool = function(self, args)
         return false
