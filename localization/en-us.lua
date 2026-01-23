@@ -2821,18 +2821,20 @@ return {
 			["m_bld_tooth"] = {
 				["name"] = "The Tooth",
 				["text"] = {
-					"{X:red,C:white}Red{}",
+					{"{X:red,C:white}Red{}",
 					"{C:money}+$#1#{} for each Blind",
-					"in {C:attention}played hand",
+					"in {C:attention}played hand",},
+					{"{C:attention}Burns"}
 				},
 			},
 			["m_bld_tooth_upgraded"] = {
 				["name"] = "The Tooth",
 				["text"] = {
-					"{X:red,C:white}Red{}",
+					{"{X:red,C:white}Red{}",
 					"{C:money}+$#1#{} and {C:mult}+#2# Mult{}",
 					"for each Blind",
-					"in {C:attention}played hand",
+					"in {C:attention}played hand",},
+					{"{C:attention}Burns"}
 				},
 			},
 			["m_bld_flint"] = {
