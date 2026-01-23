@@ -5,9 +5,8 @@
         config = {
             extra = {
                 value = 17,
-                gain = 4,
+                gain = 2,
                 total = 0,
-                gain_up = 1,
                 retain = true,
             }},
         hues = {"Yellow"},
@@ -47,7 +46,6 @@
         end,
         upgrade = function(card) 
             if not card.ability.extra.upgraded then
-                card.ability.extra.gain = card.ability.extra.gain + card.ability.extra.gain_up
                 card.ability.extra.upgraded = true
             end
         end
