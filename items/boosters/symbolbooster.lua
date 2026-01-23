@@ -244,7 +244,7 @@ SMODS.Booster{
 SMODS.Booster{
         key = 'symbol_mega1',
         kind = 'symbol',
-        config = {extra = 6, choose = 2},
+        config = {extra = 5, choose = 2},
         discovered = false,
         get_weight = function(self)
             
