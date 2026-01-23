@@ -10,7 +10,7 @@ pattern = '''function Blind:stay_flipped(area, card, from_area)'''
 position = 'after'
 match_indent = true
 payload = '''
-if card.config.center.config.extra and card.config.center.config.extra.flipped or (card.ability and card.ability.extra and card.ability.extra.temp_flipped) then
+if card.config.center.config.extra and type(card.config.center.extra) == "table" and card.config.center.config.extra.flipped or (card.ability and card.ability.extra and type(card.ability.extra) == "table" and card.ability.extra.temp_flipped) then
     return true
 end
 
