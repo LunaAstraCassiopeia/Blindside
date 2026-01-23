@@ -5,7 +5,7 @@
         config = {
             extra = {
                 value = 12,
-                dollars = 10,
+                dollars = 8,
                 dollarsup = 5
             }},
         hues = {"Yellow"},
