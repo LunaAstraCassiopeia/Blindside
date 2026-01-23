@@ -5,7 +5,7 @@ SMODS.Joker({
     rarity = 'bld_trinket',
     config = {
         extra = {
-            dollars = 6,
+            dollars = 4,
         }
     },
     cost = 5,
