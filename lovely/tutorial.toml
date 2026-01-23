@@ -117,7 +117,10 @@ if (not G.SETTINGS.tutorial_complete) and G.SETTINGS.tutorial_progress.completed
 match_indent = true
 position = 'at'
 payload = '''
-if (not G.SETTINGS.blindside_tutorial_complete) and G.SETTINGS.blindside_tutorial_progress and G.SETTINGS.blindside_tutorial_progress.completed_parts['shop_3'] then G.SETTINGS.tutorial_complete = true end
+if (not G.SETTINGS.blindside_tutorial_complete) and G.SETTINGS.blindside_tutorial_progress and G.SETTINGS.blindside_tutorial_progress.completed_parts['shop_3'] then G.SETTINGS.blindside_tutorial_complete = true end
+if G.SETTINGS.blindside_tutorial_complete then
+G.SETTINGS.blindside_tutorial_progress = nil
+end
 '''
 
 # TUTORIAL - tutorial seed
