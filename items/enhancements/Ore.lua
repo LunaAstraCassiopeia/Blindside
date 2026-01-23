@@ -12,6 +12,7 @@
             info_queue[#info_queue + 1] = G.P_TAGS['tag_bld_maxim']
             info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}
             return {
+                key = card.ability.extra.upgraded and 'm_bld_ore_upgraded' or card.key,
                 vars = {
                     card.ability.extra.money
                 }
