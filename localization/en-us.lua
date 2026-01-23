@@ -2508,9 +2508,18 @@ return {
 				["name"] = "The Ore",
 				["text"] = {
 					{"{X:money,C:white}Yellow{}",
-					"{C:money}+$#1#{}"},
-					{"Before hand scores,",
+					"Before hand scores,",
 					"creates a {C:attention}Max Tag"},
+					{"{C:attention}Burns"},
+				},
+			},
+			["m_bld_ore_upgraded"] = {
+				["name"] = "The Ore",
+				["text"] = {
+					{"{X:money,C:white}Yellow{}",
+					"Before hand scores,",
+					"creates a {C:attention}Max Tag"},
+					{"{C:money}+$#1#{}"},
 					{"{C:attention}Burns"},
 				},
 			},
