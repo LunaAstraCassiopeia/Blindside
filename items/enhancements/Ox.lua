@@ -4,7 +4,7 @@
         pos = {x = 1, y = 0},
         config = {
             extra = {
-                money = 2,
+                money = 4,
                 mult = 8,
                 money_up = 2,
                 mult_up = 3,
