@@ -8,7 +8,7 @@
             extra = {
                 chance = 1,
                 trigger = 10,
-                money = 8,
+                money = 6,
                 chanceadd = 0,
                 colorsplayed = {}
             }
