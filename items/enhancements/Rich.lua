@@ -6,7 +6,6 @@
             extra = {
                 money = 1,
                 value = 999,
-                moneyup = 1,
                 mult = 2,
                 multup = 1,
             }},
@@ -39,13 +38,14 @@
                     }))
                 end
                 return {
-                    dollars = card.ability.extra.money * 2 ^ #yellows,
+                    dollars = card.ability.extra.upgraded and (card.ability.extra.money ^ #yellows) or nil,
                     mult = card.ability.extra.mult * 2 ^ #yellows,
                 }
             end
         end,
         loc_vars = function(self, info_queue, card)
             return {
+                key = card.ability.extra.upgraded and 'm_bld_rich_upgraded' or card.key,
                 vars = {
                     card.ability.extra.money,
                     card.ability.extra.mult
@@ -54,7 +54,6 @@
         end,
         upgrade = function(card) 
             if not card.ability.extra.upgraded then
-            card.ability.extra.money = card.ability.extra.money + card.ability.extra.moneyup
             card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.multup
             card.ability.extra.upgraded = true
             end
