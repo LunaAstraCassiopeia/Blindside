@@ -2038,8 +2038,8 @@ return {
 				["name"] = "Throwback",
 				["text"] = {
 					"X4 Mult if a Joker",
-					"was skipped this",
-					"Ante",
+					"was not skipped",
+					"this Ante",
 				},
 			},
 			["bl_bld_glass"] = {

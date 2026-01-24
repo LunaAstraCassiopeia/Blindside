@@ -593,7 +593,7 @@ BLINDSIDE.Joker({
             if v:apply_to_run({type = 'real_round_before_start', card = card}) then break end
         end
         if not G.GAME.blind.disabled then
-            if G.GAME.round_resets.blind_states.Small == 'Skipped' or G.GAME.round_resets.blind_states.Big == 'Skipped' then
+            if not G.GAME.round_resets.blind_states.Small == 'Skipped' or not G.GAME.round_resets.blind_states.Big == 'Skipped' then
                 G.GAME.playing_with_fire_num = G.GAME.playing_with_fire_num + 1
                 G.GAME.playing_with_fire_each = G.GAME.used_vouchers.v_bld_swearjar and "bld_playing_with_fire_each_big_joker_2" or "bld_playing_with_fire_each_big_joker_1"
                 G.GAME.playing_with_fire = G.GAME.playing_with_fire + 4 * (G.GAME.used_vouchers.v_bld_swearjar and 2 or 1)
