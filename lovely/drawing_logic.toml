@@ -396,8 +396,6 @@ pattern = '''
 payload = '''
 
 if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside and not ((G.GAME.chips + SMODS.calculate_round_score() - G.GAME.blind.basechips*G.GAME.blind.mult >= 0 and not next(SMODS.find_card('j_bld_breadboard'))) or G.GAME.current_round.hands_left < 1) then
-print(G.GAME.chips)
-print(G.GAME.blind.basechips*G.GAME.blind.mult)
     local any_selected = nil
     local _cards = {}
     local _retained_cards = {}

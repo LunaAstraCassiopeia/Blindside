@@ -566,7 +566,6 @@ G.FUNCS.blind_draw_from_deck_to_hand = function(e)
         G.E_MANAGER:add_event(Event({
             func = function()
                 if G.GAME.tech_draw_primary_buffer and G.GAME.tech_draw_primary_buffer > 0 then
-                    print("primary buffer")
                     BLINDSIDE.tech_temp = true
                     G.FUNCS.blind_draw_from_deck_to_hand(math.floor(G.GAME.tech_draw_primary_buffer))
                     BLINDSIDE.tech_temp = nil
@@ -583,7 +582,6 @@ G.FUNCS.blind_draw_from_deck_to_hand = function(e)
             func = function()
                 G.E_MANAGER:add_event(Event({
                     func = function()
-                        print("cleanup buffer")
                         if not G.GAME.tech_draw_primary_buffer then
                             G.GAME.tech_draw_primary_buffer = 0
                         end
