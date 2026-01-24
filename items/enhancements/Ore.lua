@@ -14,7 +14,7 @@
             return {
                 key = card.ability.extra.upgraded and 'm_bld_ore_upgraded' or card.key,
                 vars = {
-                    card.ability.extra.money
+                    card.ability.extra.money_up
                 }
             }
         end,
