@@ -218,11 +218,17 @@ BLINDSIDE.Joker({
     atlas = 'bld_joker',
     pos = {x=0, y=18},
     boss_colour = HEX('FA940B'),
-    mult = 30,
+    mult = 10,
     base_dollars = 10,
     order = 19,
     boss = {min = 2},
     active = true,
+    joker_set = function(self)
+        BLINDSIDE.chipsmodify(20, 0, 0, 0, true)
+        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+            BLINDSIDE.chipsupdate()
+        return true end }))
+    end,
     calculate = function(self, blind, context)
         if context.setting_blind and not context.disabled then
             blind.active = true
