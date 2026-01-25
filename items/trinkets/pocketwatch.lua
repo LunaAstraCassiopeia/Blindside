@@ -49,7 +49,7 @@
                                         BLINDSIDE.chipsupdate()
                                         G.E_MANAGER:add_event(Event({
                                             func = (function()
-                                                if G.GAME.blind.chips <= G.GAME.chips then
+                                                if (G.GAME.chips - G.GAME.blind.basechips*G.GAME.blind.mult >= 0 and not next(SMODS.find_card('j_bld_breadboard'))) and G.GAME.blind.in_blind and G.STATE == G.STATES.SELECTING_HAND then
                                                     G.STATE = G.STATES.HAND_PLAYED
                                                     G.STATE_COMPLETE = true
                                                     end_round()
