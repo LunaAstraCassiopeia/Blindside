@@ -33,6 +33,9 @@ SMODS.Tag {
                 return true end)
             tag.triggered = true
         end
+        if context.type == 'shop_start' and (next(SMODS.find_card("j_bld_taglock")) and not (G.GAME.blind.boss or G.GAME.last_joker)) then
+            tag.config.extra.give = true
+        end
         if tag.config.extra.give and context.type == 'round_start_bonus' then
             tag.config.extra.give = false
             G.hand:change_size(1)

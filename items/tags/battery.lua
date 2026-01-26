@@ -29,9 +29,11 @@ SMODS.Tag {
         end
         if context.type == 'shop_start' and not (next(SMODS.find_card("j_bld_taglock")) and not (G.GAME.blind.boss or G.GAME.last_joker)) then
             tag:yep('+', G.C.GREEN, function() 
-                ease_hands_played(-1)
                 return true end)
             tag.triggered = true
+        end
+        if context.type == 'shop_start' and (next(SMODS.find_card("j_bld_taglock")) and not (G.GAME.blind.boss or G.GAME.last_joker)) then
+            tag.config.extra.give = true
         end
         if tag.config.extra.give and context.type == 'real_round_start' then
             tag.config.extra.give = false
