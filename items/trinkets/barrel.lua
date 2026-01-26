@@ -3,7 +3,7 @@
         key = 'barrel',
         atlas = 'bld_trinkets',
         pos = {x = 7, y = 5},
-        rarity = 'bld_hobby',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 xmult_gain = 0.25,

@@ -13,7 +13,7 @@ SMODS.Tag {
         end,
     apply = function(self, tag, context)
         if context.type == 'immediate'  then
-            tag:yep('+', G.C.bld_hobby, function()
+            tag:yep('+', G.C.bld_trinket, function()
                 return true
             end)
                 local _poker_hands = {}

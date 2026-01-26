@@ -119,6 +119,20 @@ return {
 			["k_promote_ex"] = "Promoted!",
 			["k_hey_ex"] = "Heyo!",
 			["k_plus_beta"] = "run>Beta",
+			["k_plus_arengee"] = "Generating...",
+			["k_plus_cathode"] = "Develop!",
+			["k_plus_charm"] = "Abracadabra!",
+			["k_plus_cygnus"] = "Chorus!",
+			["k_plus_desolate"] = "BURN!!!",
+			['k_plus_exmega'] = 'KABOOM!',
+			['k_plus_halcyon'] = 'Strike!',
+			['k_plus_joker404'] = 'NOT FOUND',
+			['k_plus_mohs'] = 'Mineralizing...',
+			['k_plus_montain'] = 'Crumble...',
+			['k_plus_orbit'] = 'Level Down',
+			['k_plus_phalynx'] = 'Reincarnate!',
+			['k_plus_techys'] = 'Again.',
+			['k_plus_trinity'] = 'One for All!',
 			["k_tagged_ex"] = "Tagged!",
 			["k_cuckoo_ex"] = "Cuckoo!",
 			["k_divide_ex"] = "Mitosis!",
@@ -195,6 +209,7 @@ return {
 			['bld_idol_placeholder'] = "[most played blind]",
 			['k_downgrade_ex'] = "Downgrade!",
 			['bld_hand_contains'] = "Hand contains ",
+			['k_rounds'] = "Rounds",
 			},
 		["v_dictionary"] = {
 			["a_rmult"] = "-#1#",
@@ -842,19 +857,11 @@ return {
 					"{C:inactive}({C:blue}+#2#{C:inactive} Chips)"
 				},
 			},
-			["tag_bld_tech"] = {
-				["name"] = "Tech Tag",
-				["text"] = {
-					"Create a random",
-					"{C:bld_doodad}Doodad Trinket",
-					"{C:inactive}(Must have room)"
-				},
-			},
 			["tag_bld_magic"] = {
 				["name"] = "Magic Tag",
 				["text"] = {
 					"Create a",
-					"random {C:bld_curio}Trinket",
+					"random {C:bld_trinket}Trinket",
 					"{C:inactive}(Must have room)"
 				},
 			},
@@ -862,14 +869,6 @@ return {
 				["name"] = "Memory Tag",
 				["text"] = {
 					"Create a random {C:bld_keepsake,E:1}Keepsake",
-					"{C:inactive}(Must have room)"
-				},
-			},
-			["tag_bld_game"] = {
-				["name"] = "Game Tag",
-				["text"] = {
-					"Create a random",
-					"{C:bld_hobby}Hobby Trinket",
 					"{C:inactive}(Must have room)"
 				},
 			},
@@ -1203,99 +1202,128 @@ return {
 			["c_bld_betaexe"] = {
 				["name"] = "BETA.STR",
 				["text"] = {
-                    "When {C:attention}active{}, shuffle",
-                    "{C:attention}5 BETA.Blinds{} into",
-                    "your deck each round",
-                    "{C:inactive}(#1#/#2# Rounds){}"
+                    "Shuffles {C:attention}5 BETA.Blinds{}",
+                    "into your deck",
+                    "{C:inactive}(#1#){}"
 				},
 			},
 			["c_bld_orbit"] = {
 				["name"] = "Orbit",
 				["text"] = {
-                    "When {C:attention}active{}, decrease",
-                    "{C:attention}Level{} of enemy Joker" ,
-                    "{C:inactive}(#1#/#2# Rounds){}"
+                    "Decreases {C:attention}Level{}",
+                    "of enemy Joker" ,
+                    "{C:inactive}(#1#){}"
 				},
 			},
 			["c_bld_halcyon"] = {
 				["name"] = "Halcyon",
 				["text"] = {
-                    "When {C:attention}active{}, retriggers",
-                    "all {X:money,C:white}Yellow{} Blinds" ,
-                    "{C:inactive}(#1#/#2# Rounds){}"
+                    "Creates a {C:mult,E:1}Strike Tag{}",
+                    "{C:inactive}(#1#){}"
 				},
 			},
 			["c_bld_montain"] = {
 				["name"] = "Montain",
 				["text"] = {
-                    "When {C:attention}active{}, all Blinds",
-                    "are considered {X:dark_edition,C:white}Faded{}" ,
-                    "{C:inactive}(#1#/#2# Rounds){}"
+                    "Destroys {C:attention}#2#{}",
+                    "selected Blind" ,
+                    "{C:inactive}(#1#){}"
 				},
 			},
 			["c_bld_joker404"] = {
 				["name"] = "JOKER 404",
 				["text"] = {
-                    "When {C:attention}active{},",
-                    "{C:mult}-1{} Mult to Joker",
-					"each played hand",
-                    "{C:inactive}(#1#/#2# Rounds){}"
+                    "Disables {C:attention}Joker{}",
+                    "for the next hand" ,
+                    "{C:inactive}(#1#){}"
 				},
 			},
-			["c_bld_arengeeone"] = {
+			["c_bld_arengee"] = {
 				["name"] = "Arengee",
 				["text"] = {
-                    "{C:inactive}Does nothing...?",
-					"{C:inactive}(Changes each hand)",
-                    "{C:inactive}(#1#/#2# Rounds){}"
-				},
-			},
-			["c_bld_arengeetwo"] = {
-				["name"] = "Arengee",
-				["text"] = {
-                    "{C:money}+$#3#{}",
-					"{C:inactive}(Changes each hand)",
-                    "{C:inactive}(#1#/#2# Rounds){}"
-				},
-			},
-			["c_bld_arengeethree"] = {
-				["name"] = "Arengee",
-				["text"] = {
-                    "Create a random {C:bld_obj_filmcard}Channel{} Card",
-					"{C:inactive}(Changes each hand)",
-                    "{C:inactive}(#1#/#2# Rounds){}"
-				},
-			},
-			["c_bld_arengeefour"] = {
-				["name"] = "Arengee",
-				["text"] = {
-                    "{C:blue}+#4#{} Chips",
-					"{C:inactive}(Changes each hand)",
-                    "{C:inactive}(#1#/#2# Rounds){}"
-				},
-			},
-			["c_bld_arengeefive"] = {
-				["name"] = "Arengee",
-				["text"] = {
-                    "{X:red,C:white}X#5#{} Mult",
-					"{C:inactive}(Changes each hand)",
-                    "{C:inactive}(#1#/#2# Rounds){}"
-				},
-			},
-			["c_bld_arengeesix"] = {
-				["name"] = "Arengee",
-				["text"] = {
-                    "{C:attention}Retriggers{} all scoring Blinds",
-					"{C:inactive}(Changes each hand)",
-                    "{C:inactive}(#1#/#2# Rounds){}"
+                    "Creates a",
+					"{C:attention}Trinket{} Tag",
+                    "{C:inactive}(#1#){}"
 				},
 			},
 			["c_bld_exmega"] = {
 				["name"] = "Exmega",
 				["text"] = {
-                    "When {C:attention}active{}, {X:red,C:white}Red{} Blinds",
-                    "give {X:red,C:white}X#3#{} Mult and {C:attention}Burn" ,
-                    "{C:inactive}(#1#/#2# Rounds){}"
+                    "{X:red,C:white}Red{} Blinds give",
+                    "{X:red,C:white}X#2#{} Mult when",
+					"scored this round",
+                    "{C:inactive}(#1#){}"
+				},
+			},
+			["c_bld_charm"] = {
+				["name"] = "Charm",
+				["text"] = {
+                    "Upgrades {C:attention}#2#{}",
+                    "selected Blind" ,
+                    "{C:inactive}(#1#){}"
+				},
+			},
+			["c_bld_phalynx"] = {
+				["name"] = "Phalynx",
+				["text"] = {
+                    "Reshuffles all {C:attention}Burned",
+                    "blinds back into deck" ,
+                    "{C:inactive}(#1#){}"
+				},
+			},
+			["c_bld_cygnus"] = {
+				["name"] = "Cygnus",
+				["text"] = {
+                    "{C:green}Retains{} all blinds",
+                    "this hand" ,
+                    "{C:inactive}(#1#){}"
+				},
+			},
+			["c_bld_cathode"] = {
+				["name"] = "Cathode",
+				["text"] = {
+                    "Creates a {C:dark_edition}Negative{} copy",
+                    "of a held {C:bld_obj_filmcard}Channel{} card" ,
+                    "{C:inactive}(#1#){}"
+				},
+			},
+			["c_bld_mohs"] = {
+				["name"] = "Mohs",
+				["text"] = {
+                    "Levels up your",
+                    "most played hand" ,
+                    "{C:inactive}(#1#){}"
+				},
+			},
+			["c_bld_necron"] = {
+				["name"] = "Necron",
+				["text"] = {
+                    "Discards your entire hand",
+                    "and draws a new one" ,
+                    "{C:inactive}(#1#){}"
+				},
+			},
+			["c_bld_desolate"] = {
+				["name"] = "Desolate",
+				["text"] = {
+                    "{C:attention}Burns{} all",
+                    "selected cards" ,
+                    "{C:inactive}(#1#){}"
+				},
+			},
+			["c_bld_trinity"] = {
+				["name"] = "Trinity",
+				["text"] = {
+                    "{C:white,X:mult}X#2#{} Mult next",
+                    "played hand" ,
+                    "{C:inactive}(#1#){}"
+				},
+			},
+			["c_bld_techys"] = {
+				["name"] = "Techys",
+				["text"] = {
+                    "{C:attention}-1{} Ante" ,
+                    "{C:inactive}(#1#){}"
 				},
 			},
 		},
@@ -2010,8 +2038,8 @@ return {
 				["name"] = "Throwback",
 				["text"] = {
 					"X4 Mult if a Joker",
-					"was skipped this",
-					"Ante",
+					"was not skipped",
+					"this Ante",
 				},
 			},
 			["bl_bld_glass"] = {
@@ -2150,7 +2178,7 @@ return {
 				["name"] = "BETA.Blind",
 				["text"] = {
 					{"{X:blue,C:white}Blue{}",
-					"{C:chips}+#1#{} Chips",
+					"{X:chips,C:white}X#1#{} Chips",
 					"Always scores"},
 					{"{C:attention}Temporary"},
 				},
@@ -2480,9 +2508,18 @@ return {
 				["name"] = "The Ore",
 				["text"] = {
 					{"{X:money,C:white}Yellow{}",
-					"{C:money}+$#1#{}"},
-					{"Before hand scores,",
+					"Before hand scores,",
 					"creates a {C:attention}Max Tag"},
+					{"{C:attention}Burns"},
+				},
+			},
+			["m_bld_ore_upgraded"] = {
+				["name"] = "The Ore",
+				["text"] = {
+					{"{X:money,C:white}Yellow{}",
+					"Before hand scores,",
+					"creates a {C:attention}Max Tag"},
+					{"{C:money}+$#1#{}"},
 					{"{C:attention}Burns"},
 				},
 			},
@@ -2499,9 +2536,10 @@ return {
 			--[[["m_bld_paint_upgraded"] = {
 				["name"] = "The Paint",
 				["text"] = {
-					"{X:money,C:white}Yellow{}",
-					"{C:money}+$#1#{} for every",
-					"{C:attention}Tag{} held",
+					{"{X:money,C:white}Yellow{}",
+					"{C:money}+$#1#{}",},
+					{"{C:money}+$2{} for each",
+					"{C:attention}Round Tag{} held",}
 				},
 			},]]
 			["m_bld_skull"] = {
@@ -2792,18 +2830,20 @@ return {
 			["m_bld_tooth"] = {
 				["name"] = "The Tooth",
 				["text"] = {
-					"{X:red,C:white}Red{}",
+					{"{X:red,C:white}Red{}",
 					"{C:money}+$#1#{} for each Blind",
-					"in {C:attention}played hand",
+					"in {C:attention}played hand",},
+					{"{C:attention}Burns"}
 				},
 			},
 			["m_bld_tooth_upgraded"] = {
 				["name"] = "The Tooth",
 				["text"] = {
-					"{X:red,C:white}Red{}",
+					{"{X:red,C:white}Red{}",
 					"{C:money}+$#1#{} and {C:mult}+#2# Mult{}",
 					"for each Blind",
-					"in {C:attention}played hand",
+					"in {C:attention}played hand",},
+					{"{C:attention}Burns"}
 				},
 			},
 			["m_bld_flint"] = {
@@ -3343,6 +3383,16 @@ return {
 				["name"] = "The Rich",
 				["text"] = {
 					{"{X:money,C:white}Yellow{}",
+					"{C:mult}+#2#{} Mult"},
+					{"These amounts {C:attention}double",
+					"for every other scoring",
+					"{C:white,X:money}Yellow{} Blind"},
+				},
+			},
+			["m_bld_rich_upgraded"] = {
+				["name"] = "The Rich",
+				["text"] = {
+					{"{X:money,C:white}Yellow{}",
 					"{C:money}+$#1#{}, {C:mult}+#2#{} Mult"},
 					{"These amounts {C:attention}double",
 					"for every other scoring",
@@ -3761,6 +3811,7 @@ return {
 				["text"] = {
 					{"{X:chips,C:white}Blue{}",
 					"{C:chips}+#1#{} Chips"},
+					{"{C:attention}+1{} Selection Limit",},
 					{"{C:attention}Forced to",
 					"{C:attention}be selected",}
 				},
@@ -4035,8 +4086,8 @@ return {
 				["name"] = "Bookmark",
 				["text"] = {
 					"{X:mult,C:white}X#1#{} Mult if deck",
-					"has at most {C:attention}#2#{}",
-					"Blinds left",
+					"contains {C:attention}#2#{}",
+					"or less Blinds",
 				}
 			},
 			['j_bld_scratchticket'] = {
@@ -4728,9 +4779,8 @@ return {
 			["bld_active"] = {
 				["name"] = "Active",
 				["text"] = {
-					"When {C:attention}used{}, effect is",
-					"{C:attention}active{} until timer is",
-					"expired" -- later, "until the \n round ends, then the rune \n must recharge"
+					"When {C:attention}used{}, applies effect,",
+					"then must recharge", -- later, "until the \n round ends, then the rune \n must recharge"
 				}
 			},
 			["bld_round_tag"]	= {
@@ -5055,7 +5105,7 @@ return {
 				["name"] = "Suprise Pack",
 				["text"] = {
 					"Choose {C:attention}#1#{} of up to",
-					"{C:attention}#2#{C:attention} {C:bld_hobby}Trinkets{}"
+					"{C:attention}#2#{C:attention} {C:bld_trinket}Trinkets{}"
 				}
 			},
 			["p_bld_trinket_basic2"] = {
@@ -5063,7 +5113,7 @@ return {
 				["name"] = "Suprise Pack",
 				["text"] = {
 					"Choose {C:attention}#1#{} of up to",
-					"{C:attention}#2#{C:attention} {C:bld_hobby}Trinkets{}"
+					"{C:attention}#2#{C:attention} {C:bld_trinket}Trinkets{}"
 				}
 			},
 			["p_bld_trinket_jumbo1"] = {
@@ -5071,7 +5121,7 @@ return {
 				["name"] = "Jumbo Suprise Pack",
 				["text"] = {
 					"Choose {C:attention}#1#{} of up to",
-					"{C:attention}#2#{C:attention} {C:bld_hobby}Trinkets{}"
+					"{C:attention}#2#{C:attention} {C:bld_trinket}Trinkets{}"
 				}
 			},
 			["p_bld_trinket_mega1"] = {
@@ -5079,7 +5129,7 @@ return {
 				["name"] = "Mega Suprise Pack",
 				["text"] = {
 					"Choose {C:attention}#1#{} of up to",
-					"{C:attention}#2#{C:attention} {C:bld_hobby}Trinkets{}"
+					"{C:attention}#2#{C:attention} {C:bld_trinket}Trinkets{}"
 				}
 			},
 			["p_bld_voodoo"] = {

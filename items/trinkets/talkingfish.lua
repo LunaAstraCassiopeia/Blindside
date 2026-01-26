@@ -3,7 +3,7 @@
         key = 'talkingfish',
         atlas = 'bld_trinkets',
         pos = {x = 2, y = 5},
-        rarity = 'bld_doodad',
+        rarity = 'bld_trinket',
         cost = 8,
         blueprint_compat = true,
         eternal_compat = true,

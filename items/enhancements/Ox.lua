@@ -6,7 +6,7 @@
             extra = {
                 money = 4,
                 mult = 8,
-                money_up = 1,
+                money_up = 2,
                 mult_up = 3,
                 value = 11,
             }},

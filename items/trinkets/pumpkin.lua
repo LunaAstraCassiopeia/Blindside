@@ -3,7 +3,7 @@
         key = 'pumpkin',
         atlas = 'bld_trinkets',
         pos = {x = 7, y = 1},
-        rarity = 'bld_curio',
+        rarity = 'bld_trinket',
         cost = 8,
         config = {
             extra = {

@@ -2,7 +2,7 @@
         key = 'matryoshka',
         atlas = 'bld_trinkets',
         pos = {x = 0, y = 6},
-        rarity = 'bld_hobby',
+        rarity = 'bld_trinket',
         cost = 12,
         config = {
             extra = {

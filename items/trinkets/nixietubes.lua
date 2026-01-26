@@ -3,7 +3,7 @@
         key = 'nixietubes',
         atlas = 'bld_trinkets',
         pos = {x = 3, y = 7},
-        rarity = 'bld_doodad',
+        rarity = 'bld_trinket',
         cost = 10,
         config = {
             extra = {

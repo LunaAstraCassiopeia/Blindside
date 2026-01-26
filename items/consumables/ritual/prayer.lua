@@ -7,6 +7,11 @@ SMODS.Consumable {
         min_highlighted = 1,
         max_highlighted = 1,
     },
+    can_use = function(self, card)
+        if card.ability.consumeable.max_highlighted == #G.hand.highlighted and not G.hand.highlighted[1].ability.extra.upgraded then
+            return true
+        end
+    end,
     use = function(self, card, area)
         upgrade_blinds({G.hand.highlighted[1]})
     end,

@@ -3,7 +3,7 @@
         key = 'sockpuppet',
         atlas = 'bld_trinkets',
         pos = {x = 4, y = 7},
-        rarity = 'bld_hobby',
+        rarity = 'bld_trinket',
         cost = 9,
         blueprint_compat = true,
         eternal_compat = true,

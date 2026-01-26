@@ -2,7 +2,7 @@ SMODS.Joker({
     key = 'inkandquill',
     atlas = 'bld_trinkets',
     pos = {x = 0, y = 8},
-    rarity = 'bld_doodad',
+    rarity = 'bld_trinket',
     config = {
         extra = {
             xmult = 2,

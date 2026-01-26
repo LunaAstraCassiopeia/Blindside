@@ -54,7 +54,7 @@ SMODS.Booster{
         kind = 'noble',
         cost = 3,
         weight = 0.8,
-        pos = { x = 0, y = 6 },
+        pos = { x = 1, y = 6 },
         loc_vars = function(self, info_queue, card)
             return {vars = {card.config.center.config.choose, card.ability.extra}}
         end,

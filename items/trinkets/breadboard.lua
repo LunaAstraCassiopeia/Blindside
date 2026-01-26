@@ -3,7 +3,7 @@
         key = 'breadboard',
         atlas = 'bld_trinkets',
         pos = {x = 8, y = 4},
-        rarity = 'bld_doodad',
+        rarity = 'bld_trinket',
         cost = 6,
         blueprint_compat = false,
         eternal_compat = true,

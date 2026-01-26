@@ -3,7 +3,7 @@
         key = 'discount',
         atlas = 'bld_trinkets',
         pos = {x = 5, y = 1},
-        rarity = 'bld_curio',
+        rarity = 'bld_trinket',
         cost = 8,
         blueprint_compat = true,
         eternal_compat = true,

@@ -6,7 +6,7 @@
             extra = {
                 value = 11,
                 money = 1,
-                mult_per = 2,
+                mult_per = 5,
             }},
         hues = {"Red"},
         loc_vars = function(self, info_queue, card)
@@ -59,6 +59,11 @@
                 return {
                     dollars = dollars,
                     card = card
+                }
+            end
+            if context.burn_card == card and context.cardarea == G.play then
+                return {
+                    remove = true,
                 }
             end
         end,

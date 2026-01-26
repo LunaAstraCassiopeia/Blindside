@@ -3,12 +3,12 @@
         key = 'scratchticket',
         atlas = 'bld_trinkets',
         pos = {x = 0, y = 3},
-        rarity = 'bld_curio',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 chance = 1,
                 trigger = 10,
-                money = 8,
+                money = 6,
                 chanceadd = 0,
                 colorsplayed = {}
             }

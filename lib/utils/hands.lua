@@ -3,6 +3,7 @@
         card_key = "Red",
         atlas = 'bld_blindrank',
         lc_ui_atlas = 'bld_color',
+        hc_ui_atlas = 'bld_color',
         lc_colour = HEX('EA6158'),
         hc_colour = HEX('EA6158'),
         pos = {y= 0},
@@ -16,6 +17,7 @@
         card_key = "Green",
         atlas = 'bld_blindrank',
         lc_ui_atlas = 'bld_color',
+        hc_ui_atlas = 'bld_color',
         lc_colour = HEX('56A786'),
         hc_colour = HEX('56A786'),
         pos = {y= 0},
@@ -29,6 +31,7 @@
         card_key = "Blue",
         atlas = 'bld_blindrank',
         lc_ui_atlas = 'bld_color',
+        hc_ui_atlas = 'bld_color',
         lc_colour = HEX('39B1FC'),
         hc_colour = HEX('39B1FC'),
         pos = {y= 0},
@@ -42,6 +45,7 @@
         card_key = "Yellow",
         atlas = 'bld_blindrank',
         lc_ui_atlas = 'bld_color',
+        hc_ui_atlas = 'bld_color',
         lc_colour = HEX('FDA200'),
         hc_colour = HEX('FDA200'),
         pos = {y= 0},
@@ -55,6 +59,7 @@
         card_key = "Purple",
         atlas = 'bld_blindrank',
         lc_ui_atlas = 'bld_color',
+        hc_ui_atlas = 'bld_color',
         lc_colour = HEX('8A71E1'),
         hc_colour = HEX('8A71E1'),
         pos = {y= 0},
@@ -68,6 +73,7 @@
         card_key = "Faded",
         atlas = 'bld_blindrank',
         lc_ui_atlas = 'bld_color',
+        hc_ui_atlas = 'bld_color',
         lc_colour = HEX('4F6367'),
         hc_colour = HEX('4F6367'),
         pos = {y= 0},
@@ -495,11 +501,6 @@
 
     function Card:is_color(suit, bypass_debuff, flush_calc)
         local allFaded = false
-        if G.consumeables then
-                if next(SMODS.find_card("c_bld_montain")) and SMODS.find_card("c_bld_montain")[1].ability.extra.active then
-                    allFaded = true
-                end
-        end
         if G.GAME.blind.name == 'bl_bld_smeared' and not G.GAME.blind.disabled or G.GAME.blindassist.name == 'bl_bld_smeared' and not G.GAME.blindassist.disabled then
             allFaded = true
         end

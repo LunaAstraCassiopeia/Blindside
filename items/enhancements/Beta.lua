@@ -5,8 +5,8 @@
     config = {
         extra = {
             value = 1,
-            chips = 100,
-            chipsup = 50,
+            xchips = 2,
+            xchipsup = 1,
         }},
     replace_base_card = true,
     no_rank = true,
@@ -18,7 +18,7 @@
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.main_scoring then
             return {
-                chips = card.ability.extra.chips
+                xchips = card.ability.extra.xchips
             }
         end
         if context.end_of_round then
@@ -36,13 +36,13 @@
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                card.ability.extra.chips
+                card.ability.extra.xchips
             }
         }
     end,
     upgrade = function(card) 
         if not card.ability.extra.upgraded then
-        card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipsup
+        card.ability.extra.xchips = card.ability.extra.xchips + card.ability.extra.xchipsup
         card.ability.extra.upgraded = true
         end
     end

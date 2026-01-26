@@ -4,11 +4,11 @@
         pos = {x = 6, y = 2},
         config = {
             h_mult = 5,
-            p_dollars = 4,
+            p_dollars = 2,
             extra = {
                 value = 13,
                 mult_gain = 5,
-                dollar_gain = 2,
+                dollar_gain = 3,
             }},
         hues = {"Yellow"},
         loc_vars = function(self, info_queue, card)
