@@ -32,7 +32,7 @@ SMODS.Tag {
         if context.type == 'before' then
             local converts = {}
                 for k, v in ipairs(context.scoring_hand) do
-                    if SMODS.pseudorandom_probability(tag, pseudoseed("flip"), tag.ability.chance, tag.ability.trigger, 'flip') then 
+                    if SMODS.pseudorandom_probability(tag, pseudoseed("flip"), tag.ability.chance, tag.ability.trigger, 'flip') and not v.seal then 
                         converts[#converts+1] = v
                         local enhancement = pseudorandom_element(SMODS.ObjectTypes.bld_obj_enhancements.enhancements, 'booster')
                         v:set_seal(enhancement, nil, true)
