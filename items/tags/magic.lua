@@ -13,14 +13,14 @@ SMODS.Tag {
         end,
     apply = function(self, tag, context)
         if context.type == 'immediate'  then
-            tag:yep('+', G.C.bld_curio, function()
+            tag:yep('+', G.C.bld_trinket, function()
                 return true
             end)
             local card = nil
                 if G.jokers and #G.jokers.cards < G.jokers.config.card_limit then
                     card = SMODS.create_card {
                         set = "Joker",
-                        rarity = "bld_curio",
+                        rarity = "bld_trinket",
                         area = G.jokers,
                         key_append = "magictag"
                     }

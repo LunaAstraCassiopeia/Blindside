@@ -3,7 +3,7 @@
         key = 'hourglass',
         atlas = 'bld_trinkets',
         pos = {x = 0, y = 7},
-        rarity = 'bld_doodad',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 hands = 2,

@@ -3,7 +3,7 @@
         key = 'pawn',
         atlas = 'bld_trinkets',
         pos = {x = 8, y = 0},
-        rarity = 'bld_hobby',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 mult = 2,

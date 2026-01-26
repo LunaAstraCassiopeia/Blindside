@@ -3,7 +3,7 @@ SMODS.Joker({
     key = 'snaketotem',
     atlas = 'bld_trinkets',
     pos = {x = 1, y = 7},
-    rarity = 'bld_curio',
+    rarity = 'bld_trinket',
     cost = 10,
     blueprint_compat = true,
     eternal_compat = true,

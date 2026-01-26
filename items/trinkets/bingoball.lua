@@ -3,7 +3,7 @@
         key = 'bingoball',
         atlas = 'bld_trinkets',
         pos = {x = 2, y = 7},
-        rarity = 'bld_hobby',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 num_retriggered = 2,

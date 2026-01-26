@@ -2,7 +2,7 @@ SMODS.Joker({
     key = 'porcelaindoll',
     atlas = 'bld_trinkets',
     pos = {x = 1, y = 3},
-    rarity = 'bld_hobby',
+    rarity = 'bld_trinket',
     config = {
         extra = {
             sell_value = 3,

@@ -49,10 +49,8 @@
             G.GAME.hands['Full House'].visible = false
             G.GAME.hands['Four of a Kind'].visible = false
             G.GAME.hands['Straight Flush'].visible = false
-            G.GAME.bld_doodad_mod = 5
+            G.GAME.bld_trinket_mod = 15
             G.GAME.bld_keepsake_mod = 2
-            G.GAME.bld_curio_mod = 5
-            G.GAME.bld_hobby_mod = 5
             G.GAME['common_mod'] = 0
             G.GAME['rare_mod'] = 0
             G.GAME['uncommon_mod'] = 0
@@ -194,7 +192,7 @@ function get_new_small(current)
 
     if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
         for k, v in pairs(eligible_bosses) do
-            if v and not G.P_BLINDS[k].mod or G.P_BLINDS[k].mod.id ~= 'Blindside' then
+            if v and not BLINDSIDE.is_blindside(k) then
                 eligible_bosses[k] = nil
             end
         end
@@ -233,7 +231,7 @@ function get_new_big(current)
 
     if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
         for k, v in pairs(eligible_bosses) do
-            if v and not G.P_BLINDS[k].mod or G.P_BLINDS[k].mod.id ~= 'Blindside' then
+            if v and not BLINDSIDE.is_blindside(k) then
                 eligible_bosses[k] = nil
             end
         end
@@ -568,7 +566,6 @@ G.FUNCS.blind_draw_from_deck_to_hand = function(e)
         G.E_MANAGER:add_event(Event({
             func = function()
                 if G.GAME.tech_draw_primary_buffer and G.GAME.tech_draw_primary_buffer > 0 then
-                    print("primary buffer")
                     BLINDSIDE.tech_temp = true
                     G.FUNCS.blind_draw_from_deck_to_hand(math.floor(G.GAME.tech_draw_primary_buffer))
                     BLINDSIDE.tech_temp = nil
@@ -585,7 +582,6 @@ G.FUNCS.blind_draw_from_deck_to_hand = function(e)
             func = function()
                 G.E_MANAGER:add_event(Event({
                     func = function()
-                        print("cleanup buffer")
                         if not G.GAME.tech_draw_primary_buffer then
                             G.GAME.tech_draw_primary_buffer = 0
                         end

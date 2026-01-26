@@ -3,7 +3,7 @@
         key = 'toyrobot',
         atlas = 'bld_trinkets',
         pos = {x = 7, y = 4},
-        rarity = 'bld_doodad',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 retriggers = 1,

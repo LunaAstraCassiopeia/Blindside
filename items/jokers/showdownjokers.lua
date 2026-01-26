@@ -213,6 +213,7 @@ BLINDSIDE.Joker({
     joker_defeat = function(self)
         if G.GAME.blindassist then
             G.GAME.blindassist:defeat()
+            G.GAME.blindassist.negative = false
         end
     end,
     joker_load = function(self)

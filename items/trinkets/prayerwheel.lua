@@ -3,7 +3,7 @@
         key = 'prayerwheel',
         atlas = 'bld_trinkets',
         pos = {x = 5, y = 7},
-        rarity = 'bld_doodad',
+        rarity = 'bld_trinket',
         cost = 9,
         blueprint_compat = true,
         eternal_compat = true,

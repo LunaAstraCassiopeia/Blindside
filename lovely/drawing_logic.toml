@@ -6,11 +6,11 @@ priority = 0
 [[patches]]
 [patches.pattern]
 target = 'blind.lua'
-pattern = '''if self.name == 'The Wheel' and SMODS.pseudorandom_probability(self, pseudoseed('wheel'), 1, 7, 'wheel') then'''
-position = 'before'
+pattern = '''function Blind:stay_flipped(area, card, from_area)'''
+position = 'after'
 match_indent = true
 payload = '''
-if card.config.center.config.extra and card.config.center.config.extra.flipped or (card.ability and card.ability.extra and card.ability.extra.temp_flipped) then
+if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside and (G.GAME.blind.in_blind and card.config.center.config.extra and card.config.center.config.extra.flipped or (G.GAME.blind.in_blind and card.ability and card.ability.extra and card.ability.extra.temp_flipped)) then
     return true
 end
 
@@ -391,10 +391,11 @@ target = 'functions/state_events.lua'
 match_indent = true
 position = 'after'
 pattern = '''
-SMODS.calculate_context({full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands, after = true})
+-- TARGET: effects after hand evaluation
 '''
 payload = '''
-if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside then
+
+if G.GAME.selected_back.effect.center.config.extra and G.GAME.selected_back.effect.center.config.extra.blindside and not ((G.GAME.chips + SMODS.calculate_round_score() - G.GAME.blind.basechips*G.GAME.blind.mult >= 0 and not next(SMODS.find_card('j_bld_breadboard'))) or G.GAME.current_round.hands_left < 1) then
     local any_selected = nil
     local _cards = {}
     local _retained_cards = {}

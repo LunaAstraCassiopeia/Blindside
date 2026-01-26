@@ -3,7 +3,7 @@
         key = 'fruitycandycane',
         atlas = 'bld_trinkets',
         pos = {x = 8, y = 7},
-        rarity = 'bld_curio',
+        rarity = 'bld_trinket',
         cost = 10,
         blueprint_compat = false,
         eternal_compat = true,

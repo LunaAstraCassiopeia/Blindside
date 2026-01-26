@@ -3,7 +3,7 @@
         key = 'stuffedtoy',
         atlas = 'bld_trinkets',
         pos = {x = 6, y = 2},
-        rarity = 'bld_hobby',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 chipsreduc = 0.15,

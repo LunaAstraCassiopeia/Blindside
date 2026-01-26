@@ -299,6 +299,15 @@
         "c_bld_halcyon",
         "c_bld_montain",
         "c_bld_joker404",
+        "c_bld_charm",
+        "c_bld_phalynx",
+        "c_bld_cygnus",
+        "c_bld_cathode",
+        "c_bld_mohs",
+        "c_bld_necron",
+        "c_bld_desolate",
+        "c_bld_trinity",
+        "c_bld_techys",
         "c_bld_sacrifice",
         "c_bld_prayer",
         "c_bld_pentagram",
@@ -825,18 +834,6 @@
     -- and was merged last-minute for being confusing.
     -- it will be removed entirely in a later build.
     SMODS.Rarity {
-        key = 'doodad',
-        loc_txt = {
-        name = "Trinket",
-        },
-	    badge_colour = HEX("d19c2b"),--HEX("3e8fd1"),
-        pools = {
-            ["Joker"] = true,
-        },
-        disable_if_empty = false,
-        default_weight = 0.0000000001
-    }
-    SMODS.Rarity {
         key = 'keepsake',
         loc_txt = {
         name = "Keepsake",
@@ -849,7 +846,7 @@
         default_weight = 0.0000000001
     }
     SMODS.Rarity {
-        key = 'curio',
+        key = 'trinket',
         loc_txt = {
         name = "Trinket",
         },
@@ -860,19 +857,6 @@
         disable_if_empty = false,
         default_weight = 0.0000000001
     }
-    SMODS.Rarity {
-        key = 'hobby',
-        loc_txt = {
-        name = "Trinket",
-        },
-	    badge_colour = HEX("d19c2b"),
-        pools = {
-            ["Joker"] = true,
-        },
-        disable_if_empty = false,
-        default_weight = 0.0000000001
-    }
-
     SMODS.Sound({
         key = 'bld_rune1',
         path = 'statement1.wav'
@@ -913,6 +897,53 @@
         path = 'poker_chip4.wav'
     })
 
+    SMODS.Sound({
+    vol = 2,
+    pitch = 1,
+    key = "noblemusic",
+    path = "noblemusic.ogg",
+    select_music_track = function()
+        if (G.STATE == G.STATES.SMODS_BOOSTER_OPENED) then
+            return (G.STATE == G.STATES.SMODS_BOOSTER_OPENED and SMODS.OPENED_BOOSTER.config.center.group_key == 'k_bld_noble_pack')
+        end
+        end
+    })
+
+    SMODS.Sound({
+    vol = 2,
+    pitch = 1.2,
+    key = "hallowmusic",
+    path = "hallowmusic.ogg",
+    select_music_track = function()
+        if (G.STATE == G.STATES.SMODS_BOOSTER_OPENED) then
+            return (G.STATE == G.STATES.SMODS_BOOSTER_OPENED and SMODS.OPENED_BOOSTER.config.center.group_key == 'k_bld_ritual_pack')
+        end
+        end
+    })
+
+    SMODS.Sound({
+    vol = 2,
+    pitch = 1,
+    key = "crystallinemusic",
+    path = "crystallinemusic.ogg",
+    select_music_track = function()
+        if (G.STATE == G.STATES.SMODS_BOOSTER_OPENED) then
+            return (G.STATE == G.STATES.SMODS_BOOSTER_OPENED and SMODS.OPENED_BOOSTER.config.center.group_key == 'k_bld_mineral_pack')
+        end
+        end
+    })
+
+    SMODS.Sound({
+    vol = 2,
+    pitch = 1.3,
+    key = "cinemamusic",
+    path = "cinemamusic.ogg",
+    select_music_track = function()
+        if (G.STATE == G.STATES.SMODS_BOOSTER_OPENED) then
+            return (G.STATE == G.STATES.SMODS_BOOSTER_OPENED and SMODS.OPENED_BOOSTER.config.center.group_key == 'k_bld_filmcard_pack')
+        end
+        end
+    })
 
 ----------------------------------------------
 ------------MOD CODE END----------------------

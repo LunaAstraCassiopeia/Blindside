@@ -5,9 +5,9 @@
         config = {
             extra = {
                 value = 30,
-                money = -8,
-                moneyup = 8,
-                money_gain = 8,
+                money = -6,
+                moneyup = 6,
+                money_gain = 6,
                 stubborn = true,
             }},
         hues = {"Yellow"},

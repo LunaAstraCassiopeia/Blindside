@@ -3,7 +3,7 @@
         key = 'pogs',
         atlas = 'bld_trinkets',
         pos = {x = 8, y = 5},
-        rarity = 'bld_hobby',
+        rarity = 'bld_trinket',
         cost = 10,
         blueprint_compat = true,
         eternal_compat = true,

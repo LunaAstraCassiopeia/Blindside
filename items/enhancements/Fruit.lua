@@ -56,11 +56,6 @@
                     end
                 }
             end
-            if context.after and context.scoring_hand and card.facing ~= 'back' then
-                for _, other_card in ipairs(context.scoring_hand) do
-                    other_card.ability.extra.rescore = 0
-                end
-            end
             if not card.ability.extra.upgraded and context.cardarea == G.play and context.after and card.facing ~= 'back' then
                 local self_pos = nil
                 for i=1, #G.play.cards do

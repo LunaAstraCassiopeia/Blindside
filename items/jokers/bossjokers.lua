@@ -110,6 +110,12 @@ BLINDSIDE.Joker({
             BLINDSIDE.chipsupdate()
         return true end }))
     end,
+    enable = function()
+        BLINDSIDE.chipsmodify(0, ((G.GAME.blind.basechips*(2))), 0, 0, true)
+        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+            BLINDSIDE.chipsupdate()
+        return true end }))
+    end
 })
 
 
@@ -212,11 +218,17 @@ BLINDSIDE.Joker({
     atlas = 'bld_joker',
     pos = {x=0, y=18},
     boss_colour = HEX('FA940B'),
-    mult = 30,
+    mult = 10,
     base_dollars = 10,
     order = 19,
     boss = {min = 2},
     active = true,
+    joker_set = function(self)
+        BLINDSIDE.chipsmodify(20, 0, 0, 0, true)
+        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+            BLINDSIDE.chipsupdate()
+        return true end }))
+    end,
     calculate = function(self, blind, context)
         if context.setting_blind and not context.disabled then
             blind.active = true
@@ -236,6 +248,12 @@ BLINDSIDE.Joker({
             BLINDSIDE.chipsupdate()
         return true end }))
     end,
+    enable = function()
+        BLINDSIDE.chipsmodify(20, 0, 0)
+        G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+            BLINDSIDE.chipsupdate()
+        return true end }))
+    end
 })
 
 BLINDSIDE.Joker({
@@ -366,6 +384,9 @@ BLINDSIDE.Joker({
     disable = function()
         ease_hands_played(G.GAME.round_resets.hands - 2)
     end,
+    enable = function()
+        ease_hands_played(- G.GAME.round_resets.hands + 2)
+    end
 })
 
 BLINDSIDE.Joker({
@@ -578,7 +599,7 @@ BLINDSIDE.Joker({
             if v:apply_to_run({type = 'real_round_before_start', card = card}) then break end
         end
         if not G.GAME.blind.disabled then
-            if G.GAME.round_resets.blind_states.Small == 'Skipped' or G.GAME.round_resets.blind_states.Big == 'Skipped' then
+            if not G.GAME.round_resets.blind_states.Small == 'Skipped' or not G.GAME.round_resets.blind_states.Big == 'Skipped' then
                 G.GAME.playing_with_fire_num = G.GAME.playing_with_fire_num + 1
                 G.GAME.playing_with_fire_each = G.GAME.used_vouchers.v_bld_swearjar and "bld_playing_with_fire_each_big_joker_2" or "bld_playing_with_fire_each_big_joker_1"
                 G.GAME.playing_with_fire = G.GAME.playing_with_fire + 4 * (G.GAME.used_vouchers.v_bld_swearjar and 2 or 1)
@@ -670,6 +691,15 @@ BLINDSIDE.Joker({
             BLINDSIDE.chipsupdate()
         return true end }))
     end,
+    enable = function()
+        local times = math.floor(G.GAME.dollars/8)
+        if times > 0 then
+            BLINDSIDE.chipsmodify(times * 4, 0, 0)
+            G.E_MANAGER:add_event(Event({trigger = 'after', delay = 0.4, func = function()
+                BLINDSIDE.chipsupdate()
+            return true end }))
+        end
+    end
 })
 
 BLINDSIDE.Joker({

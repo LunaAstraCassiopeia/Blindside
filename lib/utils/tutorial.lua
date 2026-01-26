@@ -3,7 +3,6 @@ G.FUNCS.start_blind_run = function(e, args)
   if e and e.config.id == 'restart_button' then G.GAME.viewed_back = nil end
   args = args or {}
   G.GAME.selected_back = Back(G.P_CENTERS['b_bld_whitedispenser'])
-  args.seed = "BLINDSDE"
   G.E_MANAGER:clear_queue()
   G.FUNCS.wipe_on()
   G.E_MANAGER:add_event(Event({
@@ -97,7 +96,6 @@ G.FUNCS.blindside_tutorial_controller = function()
             G:save_progress()
         end
         if G.SETTINGS.blindside_tutorial_progress.hold_parts['shop_3'] then
-            print("test")
             G.SETTINGS.blindside_tutorial_complete = true
             G.SETTINGS.blindside_tutorial_progress = nil
         end

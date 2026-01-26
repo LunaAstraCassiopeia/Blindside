@@ -5,16 +5,16 @@
         config = {
             extra = {
                 value = 14,
-                money = 3,
-                money_up = 6,
+                money_up = 5,
             }},
         hues = {"Yellow"},
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue + 1] = G.P_TAGS['tag_bld_maxim']
             info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}
             return {
+                key = card.ability.extra.upgraded and 'm_bld_ore_upgraded' or card.key,
                 vars = {
-                    card.ability.extra.money
+                    card.ability.extra.money_up
                 }
             }
         end,
@@ -22,9 +22,9 @@
             if context.cardarea == G.play and context.before and card.facing ~= 'back' then
                 add_tag(Tag('tag_bld_maxim'))
             end
-            if context.cardarea == G.play and context.main_scoring then
+            if context.cardarea == G.play and context.main_scoring and card.ability.extra.upgraded then
                 return {
-                    dollars = card.ability.extra.money
+                    dollars = card.ability.extra.money_up
                 }
             end
             if context.burn_card and context.cardarea == G.play and context.burn_card == card then
@@ -33,7 +33,6 @@
         end,
         upgrade = function(card) 
             if not card.ability.extra.upgraded then
-            card.ability.extra.money = card.ability.extra.money + card.ability.extra.money_up
             card.ability.extra.upgraded = true
             end
         end

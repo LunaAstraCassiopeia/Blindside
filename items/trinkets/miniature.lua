@@ -2,7 +2,7 @@
         key = 'miniature',
         atlas = 'bld_trinkets',
         pos = {x = 5, y = 4},
-        rarity = 'bld_hobby',
+        rarity = 'bld_trinket',
         cost = 9,
         config = {
             extra = {

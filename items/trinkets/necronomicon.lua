@@ -3,7 +3,7 @@
         key = 'necronomicon',
         atlas = 'bld_trinkets',
         pos = {x = 6, y = 6},
-        rarity = 'bld_curio',
+        rarity = 'bld_trinket',
         cost = 12,
         blueprint_compat = true,
         eternal_compat = true,

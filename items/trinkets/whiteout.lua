@@ -3,7 +3,7 @@
         key = 'whiteout',
         atlas = 'bld_trinkets',
         pos = {x = 4, y = 3},
-        rarity = 'bld_doodad',
+        rarity = 'bld_trinket',
         config = {
             extra = {
                 active = true,

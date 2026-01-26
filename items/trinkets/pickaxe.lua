@@ -3,7 +3,7 @@
         key = 'pickaxe',
         atlas = 'bld_trinkets',
         pos = {x = 2, y = 3},
-        rarity = 'bld_doodad',
+        rarity = 'bld_trinket',
         cost = 7,
         blueprint_compat = true,
         eternal_compat = true,

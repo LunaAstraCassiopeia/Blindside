@@ -3,11 +3,11 @@
         atlas = 'bld_blindrank',
         pos = {x = 2, y = 6},
         config = {
-            h_x_mult = 1.3,
+            h_x_mult = 1.25,
             extra = {
-                money = 5,
+                money = 3,
                 value = 10,
-                money_up = 3,
+                money_up = 2,
                 x_mult_up = 0.45,
                 retain = true,
             }},

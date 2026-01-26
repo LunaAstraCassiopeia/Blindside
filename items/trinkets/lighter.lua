@@ -2,7 +2,7 @@
         key = 'lighter',
         atlas = 'bld_trinkets',
         pos = {x = 2, y = 6},
-        rarity = 'bld_doodad',
+        rarity = 'bld_trinket',
         cost = 7,
         loc_vars = function(self, info_queue, card)
             info_queue[#info_queue+1] = {key = 'bld_burn', set = 'Other'}
