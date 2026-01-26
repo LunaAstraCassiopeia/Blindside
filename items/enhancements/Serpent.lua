@@ -26,6 +26,7 @@
                 end
         end,
         loc_vars = function(self, info_queue, card)
+            info_queue[#info_queue + 1] = G.P_TAGS['tag_bld_hiss']
             return {
                 vars = {
                     card.ability.extra.draw_extra
