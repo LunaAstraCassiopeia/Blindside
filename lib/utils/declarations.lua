@@ -897,6 +897,53 @@
         path = 'poker_chip4.wav'
     })
 
+    SMODS.Sound({
+    vol = 2,
+    pitch = 1,
+    key = "noblemusic",
+    path = "noblemusic.ogg",
+    select_music_track = function()
+        if (G.STATE == G.STATES.SMODS_BOOSTER_OPENED) then
+            return (G.STATE == G.STATES.SMODS_BOOSTER_OPENED and SMODS.OPENED_BOOSTER.config.center.group_key == 'k_bld_noble_pack')
+        end
+        end
+    })
+
+    SMODS.Sound({
+    vol = 2,
+    pitch = 1.2,
+    key = "hallowmusic",
+    path = "hallowmusic.ogg",
+    select_music_track = function()
+        if (G.STATE == G.STATES.SMODS_BOOSTER_OPENED) then
+            return (G.STATE == G.STATES.SMODS_BOOSTER_OPENED and SMODS.OPENED_BOOSTER.config.center.group_key == 'k_bld_ritual_pack')
+        end
+        end
+    })
+
+    SMODS.Sound({
+    vol = 2,
+    pitch = 1,
+    key = "crystallinemusic",
+    path = "crystallinemusic.ogg",
+    select_music_track = function()
+        if (G.STATE == G.STATES.SMODS_BOOSTER_OPENED) then
+            return (G.STATE == G.STATES.SMODS_BOOSTER_OPENED and SMODS.OPENED_BOOSTER.config.center.group_key == 'k_bld_mineral_pack')
+        end
+        end
+    })
+
+    SMODS.Sound({
+    vol = 2,
+    pitch = 1.3,
+    key = "cinemamusic",
+    path = "cinemamusic.ogg",
+    select_music_track = function()
+        if (G.STATE == G.STATES.SMODS_BOOSTER_OPENED) then
+            return (G.STATE == G.STATES.SMODS_BOOSTER_OPENED and SMODS.OPENED_BOOSTER.config.center.group_key == 'k_bld_filmcard_pack')
+        end
+        end
+    })
 
 ----------------------------------------------
 ------------MOD CODE END----------------------
